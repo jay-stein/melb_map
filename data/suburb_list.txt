@@ -1,0 +1,100 @@
+Abbotsford
+Albert Park
+Armadale
+Ascot Vale
+Ashburton
+Balaclava
+Balwyn
+Balwyn North
+Bentleigh
+Bentleigh East
+Box Hill
+Braybrook
+Brighton
+Brighton East
+Brunswick
+Brunswick East
+Brunswick West
+Burnley
+Camberwell
+Canterbury
+Carlton
+Carlton North
+Carnegie
+Caulfield
+Caulfield North
+Caulfield South
+Chadstone
+Clifton Hill
+Coburg
+Coburg North
+Collingwood
+Cremorne
+Docklands
+East Melbourne
+Elsternwick
+Elwood
+Essendon
+Fawkner
+Fitzroy
+Fitzroy North
+Flemington
+Footscray
+Glen Iris
+Glenroy
+Hampton
+Hampton East
+Hawthorn
+Hawthorn East
+Highett
+Hughesdale
+Kensington
+Kew
+Kew East
+Kingsville
+Maidstone
+Malvern
+Malvern East
+Maribyrnong
+McKinnon
+Melbourne
+Middle Park
+Mont Albert
+Moonee Ponds
+Murrumbeena
+Newport
+North Melbourne
+Northcote
+Oak Park
+Ormond
+Parkville
+Pascoe Vale
+Port Melbourne
+Prahran
+Preston
+Princes Hill
+Reservoir
+Richmond
+Ripponlea
+Sandringham
+Seddon
+South Melbourne
+South Wharf
+South Yarra
+Southbank
+Spotswood
+St Kilda
+St Kilda East
+St Kilda West
+Sunshine
+Sunshine North
+Sunshine West
+Surrey Hills
+Thornbury
+Toorak
+Travancore
+West Footscray
+West Melbourne
+Williamstown
+Windsor
+Yarraville

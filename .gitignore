@@ -1,0 +1,26 @@
+# env / secrets
+.env
+.env.local
+start_deepseek.ps1.txt
+
+# Claude Code per-user state
+.claude/
+
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# data caches (keep outputs, not raw)
+data/raw/
+
+# editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# uv
+.python-version
