@@ -40,6 +40,21 @@ DEEPSEEK_MODEL = "deepseek-chat"
 # Cap on meta-mention comments injected per suburb (cost / context control)
 MAX_META_MENTIONS = 30
 
+# Curated fallback nicknames for suburbs where the locals' shorthand is so
+# common it would feel wrong missing, but doesn't always show up verbatim in
+# the corpus. Only used when the LLM returns empty for `nickname` — LLM-
+# extracted nicknames from corpus win when present. Keep this list TIGHT;
+# every entry adds visual chrome to the map.
+KNOWN_NICKNAMES: dict[str, str] = {
+    "Fitzroy": "Fitzy",
+    "St Kilda": "St K",
+    "Footscray": "Scray",
+    "Williamstown": "Willy",
+    "Prahran": "Pran",
+    "Reservoir": "Rezza",
+    "Melbourne": "the CBD",
+}
+
 CATEGORIES = [
     "hipster", "posh", "student", "family",
     "nightlife", "industrial", "sleepy", "multicultural", "unknown",
@@ -60,17 +75,19 @@ When sources disagree (e.g. MELBZ says "great public transport" but Reddit compl
 
 OUTPUT FORMAT (strict JSON, nothing else):
 {
+  "nickname": "a widely-used 1-3 word locals' nickname for this suburb IF prevalent in the corpus (e.g. 'Fitzy' for Fitzroy, 'St K' for St Kilda, 'Scray' for Footscray, 'Swappers Crossing' for Hoppers Crossing). Must appear in the corpus OR be a well-documented Melbourne nickname. Return empty string if no clear nickname exists — don't invent one.",
   "tags": [7 to 12 short, vivid phrases],
   "vibe": "2-3 full sentences capturing the suburb's character with personality",
-  "lore": [3 to 6 specific stories, landmarks, recurring drama, businesses, or in-jokes that locals would recognise],
+  "lore": [5 to 8 specific items, mix of PRESENT-DAY stories/landmarks/in-jokes AND HISTORICAL CURIOSITIES (the building that used to be a brothel, the train line they tore up in 1962, the urban legend about the haunted tram, demolished landmarks, ghost stories). Reddit history-flavoured threads are gold for this — surface them.],
   "history": "1-2 sentences on the suburb's founding, etymology, or key historical arc — only what gives modern character, not a textbook recap. Prefer the EMELBOURNE source when present; fall back to WIKIPEDIA. If both are thin or missing, return an empty string.",
-  "quotes": [3 to 5 verbatim Reddit lines that exemplify the suburb's character],
+  "top_quote": "the SINGLE funniest or most memorable verbatim Reddit line from the corpus — picked from the same pool as `quotes`. The line that made you laugh hardest, the most-Melbourne hot take, the niche observation that captures the suburb in one sentence. Empty string if nothing's truly standout.",
+  "quotes": [5 to 10 verbatim Reddit lines that exemplify the suburb's character — hot takes, jokes, weird observations. Include the obscure-funny ones, not just the obvious picks.],
   "primary_category": "one of: hipster, posh, student, family, nightlife, industrial, sleepy, multicultural, unknown",
   "mascot": {
-    "name": "an absurd character name with title (e.g. 'Warren P. Toadfish, ESQ.')",
+    "name": "a Melbourne archetype with a name (e.g. 'Dave the Brunswick Sparkie, 38', 'Stephanie from Toorak'). A warm character title is fine if the suburb doesn't fit a clean archetype.",
     "tagline": "one snappy line in the mascot's voice",
-    "description": "1-2 sentences, sarcastic and a bit bitchy, in the spirit of a knowing local roasting their own neighbourhood. Pick ONE central anthropomorphic figure (animal/creature/object) with AT MOST TWO distinguishing items (one outfit + one prop), each tied to suburb lore. Don't over-explain; the snark is the point.",
-    "image_prompt": "a single self-contained sentence under 40 words. Format strictly: '[creature/figure] wearing [ONE outfit], holding/with [ONE prop], single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style.' No backgrounds. No additional characters."
+    "description": "1-2 sentences. WARM, AFFECTIONATE, observational — the voice of someone fond of their suburb describing a local you'd actually meet. Pick a recognisable Melbourne archetype (tradie, brunch dad, international student, AFL grandma, footy-club bartender, etc.) and ground them in one or two specific suburb details from the corpus. Skip surreal anthropomorphism unless the suburb really calls for it.",
+    "image_prompt": "a single self-contained sentence under 40 words. Format: '[person archetype with clothing description] holding/with [ONE prop], single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style.' No backgrounds. No additional characters."
   },
   "flag": {
     "colors": ["2-3 hex colors, e.g. '#1B3A5F', '#F4D35E', '#FFFFFF'"],
@@ -95,8 +112,9 @@ VIBE GUIDELINES:
 - Weak vibe: "A residential suburb in inner Melbourne with cafes and bars."
 
 LORE GUIDELINES:
-- 3-6 specific items each in 1-2 sentences. The kind of stuff locals tell newcomers.
-- Real businesses (Franco Cozzo, Greville Records), real landmarks (the dog-shaped clouds painted on a wall), recurring news stories (the truck-bridge collision saga), persistent neighbourhood characters or dramas.
+- 5-8 specific items each in 1-2 sentences. The kind of stuff locals tell newcomers.
+- MIX present-day (real businesses like Franco Cozzo, Greville Records; recurring news stories like the truck-bridge collision saga; neighbourhood characters or dramas; landmarks) WITH historical curiosities (the building that used to be a brothel, the train line they tore up in 1962, the demolished pub, the urban legend, the ghost story). Reddit history-flavoured threads ("history of X", "X used to be", "old X", "TIL Melbourne") are gold for the historical items — surface them.
+- Prefer Reddit folk-history over the scholarly EMELBOURNE entry for these items; EMELBOURNE feeds the separate `history` field.
 - If the corpus has thin lore, return fewer items rather than padding with generic stuff.
 
 HISTORY GUIDELINES:
@@ -106,9 +124,10 @@ HISTORY GUIDELINES:
 - If EMELBOURNE is missing AND WIKIPEDIA only says something like "X is a suburb N km from CBD with population Y", return an empty string. Don't pad with generic facts.
 
 QUOTES GUIDELINES:
-- 3-5 lines lifted VERBATIM from the corpus. Do not paraphrase, invent, or polish.
-- Pick lines that show personality and humour: hot takes, jokes, weird observations.
+- 5-10 lines lifted VERBATIM from the corpus. Do not paraphrase, invent, or polish.
+- Pick lines that show personality and humour: hot takes, jokes, weird observations, niche local references, the obscure-funny ones — not just the obvious picks. The Reddit comments are full of comedy gold, surface MORE not less.
 - Trim to 1-2 sentences each. Strip leading/trailing whitespace.
+- `top_quote` is your single best pick — the line that made you laugh hardest, the most-Melbourne hot take, the niche observation that captures the suburb in one sentence. Verbatim, picked from the same corpus pool. If nothing's truly standout, leave empty. It's fine for `top_quote` to also appear in `quotes`.
 - If nothing's quotable, fewer is fine.
 
 CATEGORY GUIDELINES:
@@ -123,12 +142,12 @@ CATEGORY GUIDELINES:
 - unknown: corpus is too thin to characterise
 
 MASCOT GUIDELINES:
-- The mascot is a quirky anthropomorphic character. Think hoodmaps-meets-Mascot-Tournament, not corporate-mascot.
-- Pick ONE central creature/figure (an animal, an object, a stereotype-figure). Add AT MOST TWO distinguishing items: ONE outfit (e.g. coat, hat, monocle, hi-vis vest) and ONE prop (e.g. coffee cup, croissant, key, briefcase). Both items must callback to specific suburb lore from the corpus.
-- Resist the urge to pile on props or scene elements. The image will be a single-character portrait — no background, no other figures. Simpler beats busier.
-- Give it a ridiculous formal name with title and a one-line catchphrase in its voice.
-- DESCRIPTION TONE: 1-2 sentences max. SARCASTIC, BITCHY, knowing — the voice of a local who loves their suburb but won't stop dragging it. Strong example: "Felix the Tuxedo Cat clocks in to his startup in a tiny puffer jacket, business card already in paw, eight different oat-milk receipts in the other pocket." Weak example: "Felix is a friendly cat who lives in Carlton and enjoys the cafes and university atmosphere." Avoid earnest set-up; just hit the joke.
-- The image_prompt must end with the standard suffix and explicitly say "single character portrait, plain white background, no other characters or scenery". Keep it under 40 words total.
+- The mascot is a RECOGNISABLE MELBOURNE ARCHETYPE, drawn cartoon-style. Think "the person you'd actually meet in this suburb" — the tradie in hi-vis, the brunch dad on his second flat white, the international student wheeling a suitcase, the AFL grandma in club colours, the footy-club bartender. Not surreal anthropomorphic croissants.
+- Pick ONE archetype rooted in the suburb's actual demographic / vibe. Add ONE outfit detail and ONE prop, both pulled from specific suburb lore in the corpus. Keep it visually simple — single-character portrait, no background, no other figures.
+- Give them a relatable first-name-based name with archetype/age (e.g. "Dave the Brunswick Sparkie, 38", "Stephanie from Toorak, school-run mum") and a one-line catchphrase in their voice.
+- DESCRIPTION TONE: 1-2 sentences max. WARM, AFFECTIONATE, observational — fond, not mocking. The voice of someone who LIVES there and is showing you their neighbour. Strong example: "Dave the Brunswick Sparkie, 38, hi-vis vest and Volley sneakers, holding a 6am long black from his go-to cafe on Lygon — knows every shortcut to the freeway and which kebab shop stays open after midnight." Weak example: "Dave is a friendly tradie who lives in Brunswick." — too generic, no texture. Aim for specific + affectionate.
+- The image_prompt must end with the standard suffix and explicitly say "single character portrait, plain white background, no other characters or scenery". Keep it under 40 words total. Describe a person, not an anthropomorphised object/animal.
+- Skip surreal anthropomorphism (talking croissants, monocled toadfish) unless the suburb really calls for it — default to relatable humans.
 - Don't be cruel; punch at quirks, not people. No racial caricatures.
 
 FLAG GUIDELINES:
@@ -332,10 +351,16 @@ def summarise(client: OpenAI, corpus: dict, meta_mentions: list[dict] | None = N
     if cat not in CATEGORIES:
         cat = "unknown"
     parsed["primary_category"] = cat
+    parsed["nickname"] = str(parsed.get("nickname", "")).strip()
+    # Fallback: if LLM left nickname empty but we have a curated one for this
+    # suburb, use that. LLM-extracted from corpus always wins when present.
+    if not parsed["nickname"]:
+        parsed["nickname"] = KNOWN_NICKNAMES.get(corpus.get("suburb", ""), "")
     parsed["tags"] = list(parsed.get("tags", []))[:12]
-    parsed["lore"] = list(parsed.get("lore", []))[:6]
+    parsed["lore"] = list(parsed.get("lore", []))[:8]
     parsed["history"] = str(parsed.get("history", "")).strip()
-    parsed["quotes"] = list(parsed.get("quotes", []))[:5]
+    parsed["top_quote"] = str(parsed.get("top_quote", "")).strip()
+    parsed["quotes"] = list(parsed.get("quotes", []))[:10]
     parsed["vibe"] = str(parsed.get("vibe", "")).strip()
     # Determine which source the LLM was working from for `history`.
     # Set deterministically from corpus presence — don't trust the LLM to self-report.

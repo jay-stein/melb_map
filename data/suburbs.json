@@ -1,53 +1,61 @@
 {
   "Fitzroy": {
+    "nickname": "Fitzy",
     "tags": [
-      "soviet-style croissant queues at 7am",
-      "38 empty shops on brunswick st",
-      "bike pram guy menace",
-      "lune croissanterie pilgrimage",
-      "napier hotel keg door worn by 109 years",
-      "attherton gardens towers",
-      "koorie health service hub",
-      "greek and italian post-war migration",
-      "pill testing site on brunswick st",
+      "soviet-style croissant queues",
+      "38 empty Brunswick St shops",
+      "bike pram train guy",
+      "Atherton Gardens towers",
+      "Lune croissant hatch",
+      "Franco Cozzo corner",
+      "Napier Hotel keg door",
+      "stalker shrine in attic",
+      "pill testing site",
       "angry activist artist lesbians",
-      "car doors stolen by doordash logic",
-      "edinburgh gardens skate bowl"
+      "$6 croissant glory hole",
+      "hipster Bunnings"
     ],
-    "vibe": "Fitzroy is Melbourne's original hipster enclave, where $6 croissants sold through unmarked hatches coexist with 38 empty shopfronts and a permanent pill testing site. It's a suburb of contradictions—gentrified but edgy, touristy but fiercely local, where the bike pram guy terrorizes pedestrians and the Napier Hotel's keg door has a century of wear. The Atherton Gardens towers loom over a landscape that has shifted from working-class immigrant hub to expensive playground for artists and tech workers, yet the Koorie community's cultural institutions remain defiantly rooted.",
+    "vibe": "Fitzroy is the inner-north's original hipster cliché that somehow still feels vital—a place where Soviet-style queues for $6 croissants coexist with empty shopfronts and a stubborn undercurrent of working-class grit. By day, it's brunch and vintage shopping; by night, it's pub crawls and the occasional meth-fueled confrontation. Locals complain about the rent hikes and the bike pram train guy, but they'd never live anywhere else.",
     "lore": [
-      "Lune Croissanterie on Rose Street draws queues before dawn for its laminated pastries, a ritual locals love to mock but still line up for.",
-      "The Napier Hotel's keg door has a groove worn by 109 years of beer barrels being rolled through—a true Fitzroy relic.",
-      "The bike pram guy, a local character who tows a trailer full of kids through traffic, is widely hated for blowing red lights and being aggressive.",
-      "A stalker shrine found in a Fitzroy attic—complete with hair clippings, blood, and old footballer photos—became a legendary Reddit mystery.",
-      "The permanent pill testing site at 95 Brunswick Street opened in 2024, a win for harm reduction that the NIMBYs fought hard.",
-      "Fitzroy's 'cartel run by children' meme emerged after stuffed toys were found 'lynched' in a local park, complete with a warning note."
+      "The bike pram train guy—a man who tows a train of prams behind his bike—is a divisive Fitzroy icon: some see a harmless eccentric, others an aggressive menace who runs red lights and yells at pedestrians.",
+      "Lune Croissanterie on Rose Street draws queues at 7am for a $6 croissant pushed through an unmarked hatch, a ritual locals call 'peak Fitzroy'.",
+      "The Napier Hotel's keg door has a worn-in hole from 109 years of beer kegs being rolled through it—a tactile piece of pub history.",
+      "In 2023, a Fitzroy attic yielded a creepy shrine to an old footballer, complete with hair clippings, blood in bags, and a hook on barbed wire, sparking a true-crime frenzy on Reddit.",
+      "The 1910 Brunswick Street explosion levelled a building and killed several people; a tin of benzine found in the debris hinted at a meth lab avant la lettre.",
+      "Atherton Gardens public housing towers, built in the 1970s as part of slum clearance, dominate the skyline and house many newly arrived immigrants.",
+      "The Fitzroy Kids Krew, a local children's cartel, has been known to lynch stuffed toys as a chilling message to residents about playground turf wars."
     ],
-    "history": "One of Melbourne's oldest districts, Fitzroy was auctioned in 1839 and named after Governor Sir Charles FitzRoy. It became a dense industrial and working-class suburb, notorious for poverty and crime in the early 20th century, then transformed post-WWII with Greek and Italian immigration, and later gentrified from the 1970s onward as artists and students moved in.",
+    "history": "One of Melbourne's oldest suburbs, Fitzroy was auctioned in 1839 and named after Governor Sir Charles FitzRoy. In the 19th century it housed both wealthy merchants and industrial workers, but by the 1890s depression it earned a 'notorious' reputation for crime and poverty. Post-WWII waves of Greek and Italian immigrants reshaped its culture, followed by gentrification from the 1970s onward.",
+    "top_quote": "Have we reached peak Fitzroy? Soviet style bread queues today in backstreets for a $6 croissant pushed through an unmarked hatch...",
     "quotes": [
       "Have we reached peak Fitzroy? Soviet style bread queues today in backstreets for a $6 croissant pushed through an unmarked hatch...",
-      "Counted 38 empty stores on Brunswick st Fitzroy from Gertrude to Alexandra. How can we save these stores?",
-      "That bike pram train guy is an absolute asshole. I know some people assume he's a harmless, eccentric little scamp, but he's aggressive and threatening to people.",
       "Fitzroy is angry activist artist lesbians.",
-      "My relative walked out to this this morning in North Fitzroy. Plates gone too. They did leave some sockets which was very kind of them."
+      "That bike pram train guy is an absolute asshole. I know some people assume he's a harmless, eccentric little scamp, like a colorful Melbourne character, but he's aggressive and threatening to people.",
+      "Counted 38 empty stores on Brunswick st Fitzroy from Gertrude to Alexandra. How can we save these stores?",
+      "Peak Fitzroy happened to me a few years back when two skateboarders rolling down Johnson Street playing banjos (I kid you not) lol",
+      "The stuffed animals never had the makings of a varsity athlete.",
+      "Cartel run by Fitzroy children sends a chilling message to local residents.",
+      "Croissant glory hole?",
+      "This is hardly surprising. Their donuts were OK but incredibly overpriced.",
+      "Fitzroy without cars is so surreal and nice."
     ],
     "primary_category": "hipster",
     "mascot": {
-      "name": "Sir Croissant de la Lune, ESQ.",
-      "tagline": "I queue, therefore I am.",
-      "description": "A smug, butter-slathered croissant with a tiny black beret and a miniature espresso cup, judging anyone who dares skip the line. The queue is his kingdom.",
-      "image_prompt": "A croissant wearing a black beret, holding a tiny espresso cup, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+      "name": "Jasper the Fitzroy Barista, 29",
+      "tagline": "I don't make the rules, I just queue for the croissant.",
+      "description": "Jasper works at a third-wave cafe on Gertrude Street, has a meticulously curated mustache, and spends his weekends arguing about the best pho on Smith Street. He'll tell you Lune is overrated but you'll still find him in line at 7am.",
+      "image_prompt": "A bearded barista in a flannel shirt and apron holding a pour-over coffee cone, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
     },
     "flag": {
       "colors": [
-        "#1A1A2E",
-        "#E2B714",
-        "#FFFFFF"
+        "#C0392B",
+        "#F39C12",
+        "#2C3E50"
       ],
       "emblem": "croissant",
       "style": "vertical tricolor",
-      "description": "A vertical tricolor of deep navy (for the nightlife and edgy history), gold (for the sunlit croissant queues), and white (for the empty shopfronts). In the center, a golden croissant emblem represents the suburb's culinary obsession and gentrification.",
-      "image_prompt": "Vertical tricolor of navy, gold, and white with a golden croissant emblem in the center, minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+      "description": "A vertical tricolor of red, gold, and navy. The red represents the suburb's working-class and activist history, the gold its vibrant cafe culture, and the navy its inner-city sophistication. A gold croissant sits in the center as a nod to the legendary Lune queues.",
+      "image_prompt": "A vertical tricolor flag with bands of red, gold, and navy, with a gold croissant emblem in the center, minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
     },
     "history_source": "emelbourne",
     "history_source_url": "https://www.emelbourne.net.au/biogs/EM00574b.htm",
@@ -107,53 +115,63 @@
     "history_source_author": "Sally Wilde"
   },
   "Footscray": {
+    "nickname": "Scray",
     "tags": [
-      "franco cozzo mural",
-      "best pho in melbourne",
-      "footscray station #1",
+      "Franco Cozzo mural",
+      "$7 banh mi",
+      "Footscray Market",
+      "train station #1",
       "trucks hitting bridges",
-      "lushsux murals",
-      "macawlay nguyen",
-      "barkly street vietnamese bakeries",
-      "affordable inner-west",
+      "Vietnamese and Ethiopian food",
+      "craft beer bars",
+      "macaw guy",
+      "Whitten Oval",
       "commission flats skydeck",
-      "hopkins street market",
-      "cozzo country"
+      "Stinkopolis history",
+      "gentrification tension"
     ],
-    "vibe": "Footscray is Melbourne's inner west at its most genuine — a gritty, unpolished multicultural hub where $7 banh mi and $22 brunch plates coexist on the same block. It's a suburb that's gentrifying but hasn't flipped, with long-standing Vietnamese, Ethiopian, and East African communities holding strong alongside young professionals priced out of the inner north. The food scene is arguably the best in the city for its price point, the train station is a genuine transport hub that Reddit voted #1, and locals take perverse pride in the chaos — from trucks constantly hitting bridges to the infamous Franco Cozzo mural that watches over the station.",
+    "vibe": "Footscray is Melbourne's inner west at its most genuine — a chaotic, multicultural mashup where Vietnamese bakeries queue next to Ethiopian grocers and craft breweries occupy old warehouses. It's rough around the edges but proud of it, with a transport hub that makes the inner north jealous and a food scene that punches way above its weight. Locals love the grit and the banh mi, even as rising prices threaten the very character that drew them here.",
     "lore": [
-      "The Franco Cozzo mural on the side of the furniture store is a local landmark — a messianic portrait of the Greek-Italian furniture king that watches over Footscray Station. Reddit declared it a key reason the station won the #1 train station elimination game.",
-      "Footscray's bridge (the one near the station) gets hit by trucks so often it's a running joke. There's even a 'smile' graffiti tag on the bridge that seems to mock each collision. Locals keep a hotline number handy.",
-      "A local character known as 'Macawlay Nguyen' or just the guy with the macaws lets his birds free-fly around Footscray. They're infamous — you'll see them at the bottle shop or perched on power lines, and they have their own fan club.",
-      "The commission flats on Summerhill Road have a mysterious extension on one tower — a weird skydeck-like structure that was part of a 2007 competition to rejuvenate public housing. Locals call it the 'commission flat Jenga' or 'Footscray's Eureka Skydeck'.",
-      "Lushsux, the controversial street artist, has left a trail of murals around Footscray — including the Ozzie memorial and various meme paintings. Locals have strong opinions: some love the attention, others call him 'absolute dogshit'.",
-      "Footscray Market on Hopkins Street is the epicentre of the suburb's Vietnamese food scene — queues out the door for pho and banh mi, with prices that haven't caught up to gentrification. It's the kind of place where you'll see old blokes drinking ca phe sua da next to influencers photographing their matcha croissants."
+      "The Franco Cozzo mural on the side of the furniture store is a beloved landmark, with the king himself depicted in messianic pose watching over Footscray Station.",
+      "Footscray Station was voted #1 in r/melbourne's train station elimination game, beating Carnegie in the final — locals celebrated with a proposed reddit meetup at the station.",
+      "A local man walks his two macaws around the streets; the birds are infamous and have been spotted at the bottle shop next to Sloth.",
+      "The Footscray Road bridge gets hit by trucks so often there's a dedicated hotline number painted on the bridge itself.",
+      "Lushsux painted a mural of Ozzie (the cat-shooting legend) on Scarlett Music, sparking debate about the artist's controversial history.",
+      "One of the housing commission flats on Summerhill Road has a bizarre random extension, sparking local speculation and a reddit thread titled 'What goes on here?'",
+      "Footscray was historically called 'Stinkopolis' due to the noxious trades (slaughterhouses, boiling-down works) along the Maribyrnong River.",
+      "The old Barkly Hotel is being redeveloped into a craft beer venue called The Cheeky Pint, continuing Footscray's evolution into a beer destination."
     ],
-    "history": "Surveyed in 1848 and named after the Kentish village of Foots Cray, Footscray was industrial from the start — first with boiling-down works and quarries, earning it the nicknames 'Stoneopolis' and later 'Stinkopolis' for its riverside slaughterhouses. Post-war immigration, especially Vietnamese refugees from the 1980s, reshaped the suburb into the multicultural food hub it is today, while de-industrialisation and affordable housing have drawn young professionals in recent decades.",
+    "history": "Footscray was surveyed in 1848 and named after the Kentish village of Foots Cray. It grew as an industrial hub with quarries, boiling-down works, and later meatworks and rope factories, earning the nicknames 'Stoneopolis' and 'Stinkopolis'. Post-WWII immigration and refugee settlement from Vietnam and East Africa reshaped its character, while de-industrialisation and recent gentrification have drawn young professionals.",
+    "top_quote": "Footscray services huge areas of the West, the Vline to rural Vic, has heritage and modern infrastructure with the city skyline. Trains every few minutes with a mix of all ages and backgrounds. Never a dull moment in Cozzo Country as the station is right in the heart of Footscray. And the Banh MI’s. This is bigger than the Grand Final.",
     "quotes": [
-      "This is bigger than the Grand Final.",
-      "Franco Cozzo sends his regards.",
+      "Footscray services huge areas of the West, the Vline to rural Vic, has heritage and modern infrastructure with the city skyline. Trains every few minutes with a mix of all ages and backgrounds. Never a dull moment in Cozzo Country as the station is right in the heart of Footscray. And the Banh MI’s. This is bigger than the Grand Final.",
+      "Macawlay Nguyen",
+      "It's pronounced Footescray",
       "Footscray is exotic to some people.",
-      "Footscray services huge areas of the West, the Vline to rural Vic, has heritage and modern infrastructure with the city skyline. Trains every few minutes with a mix of all ages and backgrounds. Never a dull moment in Cozzo Country.",
-      "It's pronounced Footescray."
+      "I fully expected some kind of Viet hatchet gang fight to spill out of one of the side alleys. I then spotted the *other* white person and our eyes locked like two people lost at sea above a tide of black hair.",
+      "Footscray has the best aspect on the city, always. I used to love driving inbound on Footscray road…before that tunnel thing turned into a heap of concrete fuckery.",
+      "As a Footscray local I can confirm that we are indeed a city full of exotic locations, people and experiences.",
+      "There's a few stores in Footscray that sell fireworks, also sell vapes.",
+      "Seddon is where its at. The main shipping strip is awesome, it's walking distance to Yarraville (which is aweaome) and Footscray (which is a post apocalyptic hellscape) and just a couple stops put of the city. Best of all worlds.",
+      "Footscray isn't becoming super gentrified and it's still a bit of a hole, specially down the Nicholson strip."
     ],
     "primary_category": "multicultural",
     "mascot": {
-      "name": "Sir Macawlay Nguyen, Esq.",
-      "tagline": "Caw, mate — you got a spare chip?",
-      "description": "Sir Macawlay Nguyen is a blue-and-gold macaw who free-flies around Footscray, always wearing a tiny Collingwood beanie and clutching a stolen banh mi crust. He's the unofficial mayor of Hopkins Street, and he will absolutely judge your coffee order.",
-      "image_prompt": "A blue-and-gold macaw wearing a tiny Collingwood beanie, holding a banh mi crust in one claw, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+      "name": "Tuan the Footscray Banh Mi Guy, 52",
+      "tagline": "You want pork roll? Best in Melbourne, mate.",
+      "description": "Tuan has been running his Hopkins Street bakery for 25 years, handing over perfectly wrapped $7 banh mi with a nod and a smile. He's seen the suburb change around him — the young professionals, the craft breweries, the new cafes — but his queue is still out the door every Saturday morning.",
+      "image_prompt": "A middle-aged Vietnamese man in a white baker's apron and cap holding a banh mi roll wrapped in paper, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
     },
     "flag": {
       "colors": [
-        "#D32F2F",
+        "#C8102E",
         "#FFD700",
-        "#FFFFFF"
+        "#000000"
       ],
       "emblem": "banh mi roll",
-      "style": "horizontal tricolor",
-      "description": "A horizontal tricolor of red, gold, and white. The red and gold nod to the Vietnamese flag and the suburb's vibrant Vietnamese community, while the white represents the fresh bread of a banh mi. In the center sits a banh mi roll, symbolising Footscray's iconic food and multicultural heart.",
-      "image_prompt": "Horizontal tricolor of red, gold, and white, with a banh mi roll emblem in the center, minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+      "style": "vertical tricolor",
+      "description": "A vertical tricolor of red, gold, and black. The red and gold evoke Vietnamese heritage and the bustling market; the black represents the industrial grit and the 'Stinkopolis' past. In the center, a stylized banh mi roll symbolizes the suburb's iconic food scene and multicultural heart.",
+      "image_prompt": "Vertical tricolor flag with red left stripe, gold center stripe, and black right stripe. In the center, a simple line drawing of a banh mi roll. minimalistic flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
     },
     "history_source": "emelbourne",
     "history_source_url": "https://www.emelbourne.net.au/biogs/EM00594b.htm",
@@ -3395,43 +3413,52 @@
     "history_source_author": "Andrew May"
   },
   "St Kilda": {
+    "nickname": "St K",
     "tags": [
-      "little penguins at dusk",
-      "aggressive seagulls stealing chips",
-      "luna park scenic railway",
-      "acland street cake shops",
-      "fitzroy street tourist traps",
-      "trams not trains",
-      "bioluminescence at 1am",
-      "captain cook statue drama",
-      "ice addicts and old north vegas vibes",
-      "$40 fish and chips",
-      "espy live music venue",
-      "parking is a blood sport"
+      "penguins at the pier",
+      "aggressive seagulls",
+      "Luna Park's Scenic Railway",
+      "Acland Street cake shops",
+      "Fitzroy Street tourist strip",
+      "Route 96 tram",
+      "biosecurity bioluminescence",
+      "Espy live music",
+      "old art deco flats",
+      "ice addicts and vice history",
+      "Captain Cook statue sawed off",
+      "$40 fish and chips"
     ],
-    "vibe": "St Kilda is a glorious, grimy seaside circus that refuses to grow up. It's where handstands on the beach coexist with ice addicts on Fitzroy Street, where little penguins waddle home at dusk while backpackers queue for overpriced fish and chips. The suburb holds its contradictions — luxury apartments next to crumbling boarding houses, world-class live music next to tacky takeaways — with a kind of defiant pride. Locals love it and hate it in equal measure, but they'll never shut up about it.",
+    "vibe": "St Kilda is a faded seaside glamour-puss that refuses to grow old gracefully. It's a collision of backpacker hostels, penguin colonies, and century-old cake shops, all soundtracked by the Espy's live bands and the occasional police siren. Locals love it for its chaotic energy and hate it for the same reason, but they'll still tell you the beach sunsets are worth the tram delays.",
     "lore": [
-      "The St Kilda pier penguin colony is a genuine wildlife spectacle — a group of little penguins returns to the breakwater every night at dusk, free to watch, and locals fiercely protect them from tourists and fishermen.",
-      "Luna Park's Scenic Railway, operating since 1912, is one of the oldest continually operating roller coasters in the world, and its iconic mouth entrance has swallowed generations of Melburnians.",
-      "The Espy (Esplanade Hotel) is a legendary live music venue that launched Nick Cave and Hunters and Collectors; it's been through multiple renovations but remains a cornerstone of the suburb's punk and indie heritage.",
-      "Acland Street's European cake shops — like Monarch and Le Bon — are a surviving relic of the post-WWII Jewish and Eastern European migration that shaped the suburb's character.",
-      "The Captain Cook statue on Jacka Boulevard has been repeatedly vandalised, most famously sawn off at the ankles before Australia Day, with 'the colony will fail' spray-painted on the plinth.",
-      "The Gatwick Hotel was notorious as a cheap boarding house and hub for drug activity and prostitution, becoming a symbol of St Kilda's seedy underbelly until it was sold and closed."
+      "The St Kilda pier has a colony of little penguins that waddle home at dusk every night, a free wildlife show that tourists and locals alike never tire of.",
+      "Luna Park's Scenic Railway has been terrifying riders since 1912 and is one of the oldest roller coasters in the world, its giant mouth entrance still a Melbourne icon.",
+      "The Espy (Esplanade Hotel) is a legendary live music venue that launched Nick Cave and Hunters and Collectors in the late 70s punk scene.",
+      "In 2023, the Captain Cook statue on Jacka Boulevard was sawn off at the ankles and spray-painted with 'the colony will fail', a flashpoint in the city's ongoing statue wars.",
+      "Acland Street's cake shops have been serving European pastries since the post-war wave of Jewish refugees turned the suburb into a haven.",
+      "The Gatwick Hotel, once a notorious flophouse known for drugs and vice, was sold and rebranded, but old St Kilda lore says its ghosts still haunt the corridors.",
+      "The new St Kilda Pier swimming deck quickly became a summer hotspot, with Reddit praising its design while grumbling about the lack of shade.",
+      "The 'number 1' heritage number plate was spotted on a C43 estate in St Kilda, sparking debates about the car being unworthy of the plate."
     ],
-    "history": "St Kilda was named after the schooner Lady of St Kilda, which itself was named after an island off Scotland. From the 1850s it developed as an exclusive bayside retreat for Melbourne's elite, but the arrival of the railway and later cable trams transformed it into a working-class pleasure zone. After WWII it became a magnet for Jewish refugees, artists, and musicians, while also gaining a reputation as Melbourne's vice and drug centre. Gentrification from the 1980s onwards pushed out much of the low-cost housing but cemented its status as a vibrant, chaotic cultural hub.",
+    "history": "Named after the schooner Lady of St Kilda, the suburb was an exclusive seaside retreat after the railway arrived in 1857, before transforming into Melbourne's pleasure zone with Luna Park (1912) and a Mediterranean-style foreshore. Post-war, it became a hub for Jewish migrants and later a counterculture and vice centre, before gentrification in the 1980s and 90s.",
+    "top_quote": "St Kilda is full of drugs, homelessness and prostitution, oh wait these are still true",
     "quotes": [
       "St Kilda is full of drugs, homelessness and prostitution, oh wait these are still true",
       "Obscene prices for mediocre food. Sounds like St Kilda foreshore.",
-      "I'm quite sure this will become a well known Melbourne attraction that will heavily represent Melbourne summer across social media.",
+      "I felt like I was in Surfers or something.",
       "Fitzroy street used to have good bars, now it's just trash level take away stores",
-      "The rent is high, the seagulls are aggressive, and the tram is probably running late. That is St Kilda."
+      "The penguins are getting more action than me over quarantine season.",
+      "This sub is so miserable, we've got a nice new pier with people enjoying it and there's more comments about the sun, skin cancer and lack of rubbish bins than positive comments 😂",
+      "St Kilda has old North Vegas vibes (iykyk). Full of regrets.",
+      "Who has orange juice with fish?!",
+      "I hated working on St Kilda Road for the lack of amenities. You've got a mediocre IGA near Shrine.",
+      "That dudes expression is so good lol"
     ],
-    "primary_category": "multicultural",
+    "primary_category": "nightlife",
     "mascot": {
-      "name": "Percival 'Percy' Penguin, Esq.",
-      "tagline": "I waddle home at dusk, dodging seagulls and drunk backpackers — this is my pier, mate.",
-      "description": "Percy the little penguin, wearing a tiny black bow tie and clutching a stolen chip in his beak, because he's the only honest local on the foreshore.",
-      "image_prompt": "A little penguin wearing a black bow tie, holding a stolen chip in its beak, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+      "name": "Mick the St Kilda Muso, 45",
+      "tagline": "Yeah, rent's a joke, but you can't beat the sunset from the Espy balcony.",
+      "description": "Mick's been playing guitar in St Kilda pubs since the 90s, still wears the same leather jacket, and knows every bouncer and seagull by name. He'll tell you the pier penguins are the only locals who still show up on time.",
+      "image_prompt": "A middle-aged man with a leather jacket and grey-streaked hair holding an acoustic guitar, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
     },
     "flag": {
       "colors": [
@@ -3439,10 +3466,10 @@
         "#F4D35E",
         "#FFFFFF"
       ],
-      "emblem": "little penguin",
+      "emblem": "penguin",
       "style": "horizontal tricolor",
-      "description": "The flag features a navy top band representing the bay and night sky, a gold middle band for the sandy beach and sunny days, and a white bottom band for the pier and seafoam. A small black silhouette of a little penguin sits in the center of the gold band, nodding to the suburb's most beloved residents.",
-      "image_prompt": "Horizontal tricolor with navy top, gold middle, and white bottom bands, a small black silhouette of a little penguin in the center of the gold band, minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+      "description": "The flag features three horizontal bands: deep navy for the bay, gold for the sandy beach and cake shops, and white for the pier. In the center, a small penguin emblem represents the colony that waddles home at dusk.",
+      "image_prompt": "A horizontal tricolor flag with navy blue, gold, and white bands, a small penguin silhouette in the center, minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio"
     },
     "history_source": "emelbourne",
     "history_source_url": "https://www.emelbourne.net.au/biogs/EM01305b.htm",
