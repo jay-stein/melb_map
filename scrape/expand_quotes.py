@@ -92,6 +92,8 @@ def expand_one(client, suburb: str, meta_threads: list, all_suburbs: list[str]) 
     if top_quote and _norm(top_quote) not in haystack:
         top_quote = kept[0] if kept else ""
 
+    kept = kept[:TARGET_QUOTES]  # hard cap (the model occasionally overshoots)
+
     print(f"[quotes] {suburb}: {len(kept)} kept"
           + (f" ({dropped} dropped as non-verbatim)" if dropped else ""))
     return {"quotes": kept, "top_quote": top_quote}
