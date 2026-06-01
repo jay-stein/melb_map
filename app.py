@@ -195,10 +195,17 @@ def build_figure(df: pd.DataFrame, geojson: dict, context_geojson: dict | None =
         fig.data = (fig.data[-1],) + fig.data[:-1]  # move grey layer to the bottom
 
     # Frame the suburbs and strip all base geography (land, coastlines, frame).
+    # Use explicit axis ranges, NOT fitbounds="locations" — fitbounds re-fits the
+    # view and blocks manual scroll/drag zoom. Axis ranges set the initial frame
+    # but leave zoom/pan free.
+    tb = gpd.GeoDataFrame.from_features(geojson["features"]).total_bounds
+    mx = (tb[2] - tb[0]) * 0.04
+    my = (tb[3] - tb[1]) * 0.04
     fig.update_geos(
-        fitbounds="locations",
         visible=False,
         projection_type="mercator",
+        lonaxis_range=[tb[0] - mx, tb[2] + mx],
+        lataxis_range=[tb[1] - my, tb[3] + my],
         bgcolor=MAP_BG,
     )
 
