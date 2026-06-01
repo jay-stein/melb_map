@@ -88,13 +88,6 @@ OUTPUT FORMAT (strict JSON, nothing else):
     "tagline": "one snappy line in the mascot's voice",
     "description": "1-2 sentences. WARM, AFFECTIONATE, observational — the voice of someone fond of their suburb describing a local you'd actually meet. Pick a recognisable Melbourne archetype (tradie, brunch dad, international student, AFL grandma, footy-club bartender, etc.) and ground them in one or two specific suburb details from the corpus. Skip surreal anthropomorphism unless the suburb really calls for it.",
     "image_prompt": "a single self-contained sentence under 40 words. Format: '[person archetype with clothing description] holding/with [ONE prop], single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style.' No backgrounds. No additional characters."
-  },
-  "flag": {
-    "colors": ["2-3 hex colors, e.g. '#1B3A5F', '#F4D35E', '#FFFFFF'"],
-    "emblem": "single concrete object/animal/symbol that goes on the flag, in 1-3 words (e.g. 'toadfish', 'banh mi roll', 'Range Rover key', 'tomato')",
-    "style": "one of: horizontal tricolor, vertical tricolor, horizontal bicolor, diagonal split, quartered, canton-and-field",
-    "description": "1-2 sentences explaining the flag's design and what each color/emblem references about the suburb",
-    "image_prompt": "a single self-contained sentence suitable as input to a flag image generator. Must specify the band layout, the colors (use names not hex), the emblem in the center, and end with 'minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio'. Keep under 50 words."
   }
 }
 
@@ -149,13 +142,6 @@ MASCOT GUIDELINES:
 - The image_prompt must end with the standard suffix and explicitly say "single character portrait, plain white background, no other characters or scenery". Keep it under 40 words total. Describe a person, not an anthropomorphised object/animal.
 - Skip surreal anthropomorphism (talking croissants, monocled toadfish) unless the suburb really calls for it — default to relatable humans.
 - Don't be cruel; punch at quirks, not people. No racial caricatures.
-
-FLAG GUIDELINES:
-- This is a CIVIC FLAG, designed using real vexillography principles: simple, recognisable from a distance, 2-3 colours max, ONE small symbol.
-- Pick a colour palette that ties to the suburb (e.g. posh = navy + gold, hipster = burgundy + cream, multicultural-ethnic-area = adopt a relevant culture's palette respectfully).
-- The emblem is ONE concrete thing — an animal, an object, an iconic feature — chosen from the suburb's lore. Not a logo or letters.
-- Style is the band layout. Don't invent new styles outside the list given in the schema.
-- The image_prompt must result in a flag image — flat colours, no shadows, no gradients, no text, no national flag references. Vexillographic and clean.
 
 If the corpus is sparse or generic (under ~5 substantive comments), be honest: use "unknown" category, return fewer tags / lore items, and let the mascot be a vague placeholder that acknowledges the thin coverage. Never fabricate specific local references."""
 
@@ -381,22 +367,15 @@ def summarise(client: OpenAI, corpus: dict, meta_mentions: list[dict] | None = N
         parsed["history_source"] = None
         parsed["history_source_url"] = ""
         parsed["history_source_author"] = ""
-    # Drop legacy field if model emits it
+    # Drop legacy fields if the model emits them
     parsed.pop("food_and_drink", None)
+    parsed.pop("flag", None)
     mascot = parsed.get("mascot") or {}
     parsed["mascot"] = {
         "name": str(mascot.get("name", "")).strip(),
         "tagline": str(mascot.get("tagline", "")).strip(),
         "description": str(mascot.get("description", "")).strip(),
         "image_prompt": str(mascot.get("image_prompt", "")).strip(),
-    }
-    flag = parsed.get("flag") or {}
-    parsed["flag"] = {
-        "colors": list(flag.get("colors", []))[:3],
-        "emblem": str(flag.get("emblem", "")).strip(),
-        "style": str(flag.get("style", "")).strip(),
-        "description": str(flag.get("description", "")).strip(),
-        "image_prompt": str(flag.get("image_prompt", "")).strip(),
     }
     return parsed
 
