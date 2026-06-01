@@ -569,14 +569,31 @@ def update_panel(click_data):
     quotes_list = list(r["quotes"]) if r["quotes"] is not None else []
     if top_quote or quotes_list:
         children.append(
-            html.H4("from r/melbourne", style={"marginBottom": 4, "marginTop": "16px"}),
+            html.Div(
+                [
+                    html.Img(
+                        src="/assets/reddit_logo.svg",
+                        style={"height": "18px", "width": "18px", "marginRight": "7px",
+                               "verticalAlign": "middle"},
+                    ),
+                    html.Span("straight from ", style={"color": "#757575"}),
+                    html.A(
+                        "r/melbourne",
+                        href="https://www.reddit.com/r/melbourne/",
+                        target="_blank", rel="noopener",
+                        style={"color": "#FF4500", "fontWeight": 600, "textDecoration": "none"},
+                    ),
+                ],
+                style={"display": "flex", "alignItems": "center", "fontSize": "14px",
+                       "fontWeight": 600, "marginTop": "18px", "marginBottom": "6px"},
+            ),
         )
     if top_quote:
         children.append(
             html.Div(
                 f"“{top_quote}”",
                 style={
-                    "borderLeft": "4px solid #7E57C2",
+                    "borderLeft": "4px solid #FF4500",
                     "padding": "14px 18px",
                     "margin": "8px 0 12px 0",
                     "background": "white",
@@ -599,7 +616,7 @@ def update_panel(click_data):
                 html.Blockquote(
                     q,
                     style={
-                        "borderLeft": "3px solid #BDBDBD",
+                        "borderLeft": "3px solid #FFC4AB",
                         "paddingLeft": "12px",
                         "margin": "8px 0",
                         "color": "#424242",
