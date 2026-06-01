@@ -148,7 +148,10 @@ def build_figure(df: pd.DataFrame, geojson: dict):
         custom_data=["display_name", "hover_tags"],
         center={"lat": -37.83, "lon": 144.97},
         zoom=10.5,
-        map_style="carto-positron",
+        # OSM raster tiles load as images (no CORS-gated vector font/sprite
+        # fetches like carto-positron, which throw a fatal maplibre "Map error"
+        # on restricted networks). Tile labels are baked into the raster.
+        map_style="open-street-map",
         opacity=0.45,
     )
     fig.update_traces(
@@ -157,33 +160,10 @@ def build_figure(df: pd.DataFrame, geojson: dict):
         marker_line_color="white",
     )
 
-    # Suburb text labels at each polygon's centroid. Name on top, nickname
-    # underneath in brackets if one exists. hoverinfo='skip' so labels never
-    # steal hover from the underlying choropleth.
-    centroids = compute_centroids(geojson)
-    label_rows = []
-    for _, r in df.iterrows():
-        latlon = centroids.get(r["suburb"])
-        if not latlon:
-            continue
-        lat, lon = latlon
-        nickname = r.get("nickname") or ""
-        text = f"<b>{r['suburb']}</b><br>({nickname})" if nickname else f"<b>{r['suburb']}</b>"
-        label_rows.append({"lat": lat, "lon": lon, "text": text, "suburb": r["suburb"]})
-    if label_rows:
-        labels_df = pd.DataFrame(label_rows)
-        fig.add_trace(go.Scattermap(
-            lat=labels_df["lat"],
-            lon=labels_df["lon"],
-            mode="text",
-            text=labels_df["text"],
-            # Carry the suburb so a click on the label resolves to a suburb too
-            # (label points have no `location` field like the choropleth does).
-            customdata=labels_df["suburb"],
-            textfont={"color": "#212121", "size": 10, "family": "-apple-system, sans-serif"},
-            hoverinfo="skip",
-            showlegend=False,
-        ))
+    # NOTE: no centroid text-label trace. Rendering text on a maplibre map needs
+    # a glyphs endpoint, and that fetch is CORS-blocked on restricted networks,
+    # which kills the whole map. Suburb names come through hover + the side
+    # panel instead. (compute_centroids stays for potential future use.)
 
     fig.update_layout(
         margin={"r": 0, "t": 0, "l": 0, "b": 0},
