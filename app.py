@@ -17,7 +17,7 @@ import geopandas as gpd
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-from dash import Dash, Input, Output, dcc, html
+from dash import Dash, Input, Output, dcc, html, no_update
 
 ROOT = Path(__file__).resolve().parent
 BOUNDARIES_PATH = ROOT / "data" / "boundaries.geojson"
@@ -156,7 +156,7 @@ def build_figure(df: pd.DataFrame, geojson: dict):
         lat, lon = latlon
         nickname = r.get("nickname") or ""
         text = f"<b>{r['suburb']}</b><br>({nickname})" if nickname else f"<b>{r['suburb']}</b>"
-        label_rows.append({"lat": lat, "lon": lon, "text": text})
+        label_rows.append({"lat": lat, "lon": lon, "text": text, "suburb": r["suburb"]})
     if label_rows:
         labels_df = pd.DataFrame(label_rows)
         fig.add_trace(go.Scattermap(
@@ -164,6 +164,9 @@ def build_figure(df: pd.DataFrame, geojson: dict):
             lon=labels_df["lon"],
             mode="text",
             text=labels_df["text"],
+            # Carry the suburb so a click on the label resolves to a suburb too
+            # (label points have no `location` field like the choropleth does).
+            customdata=labels_df["suburb"],
             textfont={"color": "#212121", "size": 10, "family": "-apple-system, sans-serif"},
             hoverinfo="skip",
             showlegend=False,
@@ -267,7 +270,17 @@ def update_panel(click_data):
             "Click a suburb on the map →",
             style={"color": "#9E9E9E", "fontStyle": "italic"},
         )
-    suburb = click_data["points"][0]["location"]
+    pt = click_data["points"][0]
+    # Choropleth points carry `location`; centroid label points carry the suburb
+    # in `customdata` instead. Accept either so clicking a label works too.
+    suburb = pt.get("location")
+    if not suburb:
+        cd = pt.get("customdata")
+        if isinstance(cd, (list, tuple)):
+            cd = cd[0] if cd else None
+        suburb = cd
+    if not suburb:
+        return no_update
     row = df[df["suburb"] == suburb]
     if row.empty:
         return html.P(f"No data for {suburb}.")
