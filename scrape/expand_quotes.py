@@ -34,19 +34,33 @@ from scrape.summarize import (
 TARGET_QUOTES = 15
 
 # Byte-identical across all calls -> DeepSeek auto prompt-caching.
-QUOTES_SYSTEM_PROMPT = """You extract the most characterful VERBATIM quotes about a Melbourne suburb from r/melbourne posts and comments.
+QUOTES_SYSTEM_PROMPT = """You curate the funniest, quirkiest, most characterful VERBATIM quotes about a specific Melbourne suburb from r/melbourne posts and comments.
 
-RULES:
-- Every quote MUST appear word-for-word in the input. Do NOT paraphrase, summarise, invent, translate, clean up grammar, or merge lines. Copy exactly.
-- Pick lines with personality and humour: hot takes, jokes, weird observations, niche local references, affectionate gripes, the obscure-funny ones. Surface MORE not less — the obvious AND the obscure.
-- Trim each to 1-2 sentences. Strip leading/trailing whitespace and any "[score N]" prefixes.
-- Skip slurs and mean-spirited lines that punch down (race, poverty, disability). Playful and observational is fine.
-- If the corpus is thin, return fewer rather than padding with generic lines.
+THE BAR — every quote you keep must clear ALL THREE:
+1. FUNNY / QUIRKY / a bit EDGY. A hot take, a savage one-liner, a vivid image, an in-joke, an absurd observation — the kind of line you'd screenshot and send a mate. Not bland, not neutral, not informational.
+2. CLEARLY TIED TO THIS SUBURB. It names the suburb, or a street/venue/landmark/feature in it, or expresses a recognisable stereotype or reputation of it. Someone reading the line cold should be able to tell it's about THIS suburb.
+3. STANDS ON ITS OWN. It still lands and makes sense WITHOUT the surrounding thread.
+
+REJECT (do not include):
+- Bland / generic / neutral statements ("nice area", "good transport", "I grew up there").
+- Bare venue or place names with no substance ("Balaclava Hotel", "the bowling club").
+- Context-orphaned fragments that mean nothing alone ("They look like ads for male escorts", "this", "exactly", "same").
+- Lines that could be about ANY suburb — no specific hook to this one.
+- Cruelty punching down on race, poverty, or disability. Teasing a suburb's reputation is fine; meanness is not.
+- Genuinely tragic or grim content (deaths, real victims of violence, abuse). This is a light, funny section — dark humour about a suburb's reputation is fine, real tragedy is not.
+
+TOP QUOTE — pick deliberately, not the highest-voted:
+- The ONE standout that is BOTH the funniest/quirkiest AND most unmistakably captures THIS suburb. If you could show a single line to make someone laugh and instantly "get" the suburb, that's it. It may also appear in the quotes list.
+
+OTHER RULES:
+- VERBATIM: every line must appear word-for-word in the input. Do NOT paraphrase, summarise, invent, translate, fix grammar, or merge lines. Copy exactly.
+- Trim to 1-2 sentences; strip whitespace and any "[score N]" prefix.
+- QUALITY OVER QUANTITY: up to 15, but only lines that clear the bar. Six brilliant quotes beat fifteen padded with filler. Thin corpus -> return few.
 
 Return ONLY a JSON object:
 {
-  "top_quote": "the single funniest or most-memorable verbatim line — the one that captures the suburb best (may also appear in quotes); empty string if nothing stands out",
-  "quotes": ["up to ~15 verbatim lines, most characterful first"]
+  "top_quote": "the single best line — funniest AND most this-suburb; empty string if nothing truly stands out",
+  "quotes": ["the best lines, strongest first"]
 }"""
 
 
