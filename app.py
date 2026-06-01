@@ -40,9 +40,22 @@ CATEGORY_COLORS = {
 }
 
 
+# ABS SAL boundaries are survey-grade (~52k vertices over 133 suburbs).
+# px.choropleth_map with color=category splits into one trace per category and
+# embeds the WHOLE geojson in EACH trace, so the raw 2.4 MB file becomes a
+# ~17 MB figure that freezes the browser on parse. Simplifying to ~50 m
+# tolerance is sub-pixel at city zoom but cuts the vertex count ~8x.
+SIMPLIFY_TOLERANCE_DEG = 0.0005  # ~55 m at Melbourne's latitude
+
+
 def load_boundaries() -> dict:
     with BOUNDARIES_PATH.open("r", encoding="utf-8") as f:
-        return json.load(f)
+        raw = json.load(f)
+    gdf = gpd.GeoDataFrame.from_features(raw["features"], crs="EPSG:4326")
+    gdf["geometry"] = gdf.geometry.simplify(
+        SIMPLIFY_TOLERANCE_DEG, preserve_topology=True
+    )
+    return json.loads(gdf.to_json())
 
 
 def load_suburbs_data(geojson: dict) -> pd.DataFrame:
