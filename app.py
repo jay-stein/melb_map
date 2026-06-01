@@ -21,7 +21,14 @@ from dash import Dash, Input, Output, dcc, html, no_update
 
 ROOT = Path(__file__).resolve().parent
 BOUNDARIES_PATH = ROOT / "data" / "boundaries.geojson"
+CONTEXT_PATH = ROOT / "data" / "context_boundaries.geojson"
 SUBURBS_PATH = ROOT / "data" / "suburbs.json"
+
+# Light-grey "basemap" of surrounding suburbs we don't cover.
+CONTEXT_FILL = "#E4E6E8"
+CONTEXT_LINE = "#D3D6D9"
+CONTEXT_TEXT = "#B7BCC1"
+MAP_BG = "#F2F3F4"
 
 CATEGORIES = [
     "hipster", "posh", "student", "family",
@@ -56,6 +63,16 @@ def load_boundaries() -> dict:
         SIMPLIFY_TOLERANCE_DEG, preserve_topology=True
     )
     return json.loads(gdf.to_json())
+
+
+def load_context() -> dict | None:
+    """Surrounding suburbs we don't cover, for grey basemap context.
+    Pre-simplified by scrape.context_boundaries. Optional — returns None if
+    the file hasn't been generated."""
+    if not CONTEXT_PATH.exists():
+        return None
+    with CONTEXT_PATH.open("r", encoding="utf-8") as f:
+        return json.load(f)
 
 
 def load_suburbs_data(geojson: dict) -> pd.DataFrame:
@@ -125,7 +142,7 @@ def compute_centroids(geojson: dict) -> dict[str, tuple[float, float]]:
     return centroids
 
 
-def build_figure(df: pd.DataFrame, geojson: dict):
+def build_figure(df: pd.DataFrame, geojson: dict, context_geojson: dict | None = None):
     df = df.copy()
     def fmt_hover(lst):
         if not lst:
@@ -157,13 +174,52 @@ def build_figure(df: pd.DataFrame, geojson: dict):
         marker_opacity=0.85,  # soften the category fills for a cleaner palette
         selector=dict(type="choropleth"),
     )
+
+    # Grey "basemap": surrounding suburbs we don't cover. Single flat-grey
+    # choropleth, prepended so it sits BENEATH the coloured target suburbs.
+    if context_geojson and context_geojson.get("features"):
+        ctx_names = [f["properties"]["suburb"] for f in context_geojson["features"]]
+        ctx_trace = go.Choropleth(
+            geojson=context_geojson,
+            locations=ctx_names,
+            featureidkey="properties.suburb",
+            z=[0] * len(ctx_names),
+            colorscale=[[0, CONTEXT_FILL], [1, CONTEXT_FILL]],
+            showscale=False,
+            marker_line_color=CONTEXT_LINE,
+            marker_line_width=0.4,
+            customdata=ctx_names,
+            hovertemplate="<b>%{location}</b><br><i>not in dataset</i><extra></extra>",
+        )
+        fig.add_trace(ctx_trace)
+        fig.data = (fig.data[-1],) + fig.data[:-1]  # move grey layer to the bottom
+
     # Frame the suburbs and strip all base geography (land, coastlines, frame).
     fig.update_geos(
         fitbounds="locations",
         visible=False,
         projection_type="mercator",
-        bgcolor="rgba(0,0,0,0)",
+        bgcolor=MAP_BG,
     )
+
+    # Grey labels for the context suburbs (small, recessive). Added before the
+    # coloured labels so they render underneath them.
+    if context_geojson and context_geojson.get("features"):
+        c_lons, c_lats, c_texts = [], [], []
+        for name, latlon in compute_centroids(context_geojson).items():
+            c_lats.append(latlon[0])
+            c_lons.append(latlon[1])
+            c_texts.append(name)
+        if c_texts:
+            fig.add_trace(go.Scattergeo(
+                lon=c_lons,
+                lat=c_lats,
+                text=c_texts,
+                mode="text",
+                textfont={"color": CONTEXT_TEXT, "size": 7.5, "family": "Arial, sans-serif"},
+                hoverinfo="skip",
+                showlegend=False,
+            ))
 
     # Centroid labels: suburb name with nickname beneath in brackets. Rendered as
     # SVG text via Scattergeo (browser fonts) — no maplibre glyph endpoint, so no
@@ -218,8 +274,9 @@ def build_figure(df: pd.DataFrame, geojson: dict):
 
 
 geojson = load_boundaries()
+context_geojson = load_context()
 df = load_suburbs_data(geojson)
-fig = build_figure(df, geojson)
+fig = build_figure(df, geojson, context_geojson)
 
 app = Dash(__name__, title="Melbourne Suburb Quirks")
 
@@ -232,13 +289,21 @@ app.layout = html.Div(
     },
     children=[
         html.Div(
-            style={"flex": "1 1 70%", "position": "relative", "background": "#EEF2F5"},
+            style={"flex": "1 1 70%", "position": "relative", "background": MAP_BG},
             children=[
                 dcc.Graph(
                     id="map",
                     figure=fig,
                     style={"height": "calc(100vh - 28px)"},
-                    config={"scrollZoom": True, "displayModeBar": False},
+                    # scroll to zoom + a minimal modebar (zoom / pan / reset).
+                    config={
+                        "scrollZoom": True,
+                        "displayModeBar": True,
+                        "displaylogo": False,
+                        "modeBarButtonsToRemove": [
+                            "select2d", "lasso2d", "toImage",
+                        ],
+                    },
                 ),
                 html.Footer(
                     [
@@ -320,7 +385,14 @@ def update_panel(click_data):
         return no_update
     row = df[df["suburb"] == suburb]
     if row.empty:
-        return html.P(f"No data for {suburb}.")
+        return html.Div([
+            html.H3(suburb, style={"marginBottom": 4}),
+            html.P(
+                "Not in the dataset — this map focuses on inner/middle Melbourne "
+                "plus select outer suburbs. Shown in grey for context.",
+                style={"color": "#9E9E9E", "fontStyle": "italic"},
+            ),
+        ])
     r = row.iloc[0]
     nickname = r.get("nickname") or ""
 
