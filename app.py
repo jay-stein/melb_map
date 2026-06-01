@@ -137,7 +137,10 @@ def build_figure(df: pd.DataFrame, geojson: dict):
         axis=1,
     )
 
-    fig = px.choropleth_map(
+    # Pure-SVG choropleth (geo), NOT the maplibre choropleth_map: no tiles, no
+    # basemap, and no CORS-gated glyph/sprite fetches that hang the map on
+    # restricted networks. Clean coloured suburb shapes on a plain background.
+    fig = px.choropleth(
         df,
         geojson=geojson,
         locations="suburb",
@@ -146,28 +149,69 @@ def build_figure(df: pd.DataFrame, geojson: dict):
         color_discrete_map=CATEGORY_COLORS,
         category_orders={"category": CATEGORIES + ["unknown"]},
         custom_data=["display_name", "hover_tags"],
-        center={"lat": -37.83, "lon": 144.97},
-        zoom=10.5,
-        # OSM raster tiles load as images (no CORS-gated vector font/sprite
-        # fetches like carto-positron, which throw a fatal maplibre "Map error"
-        # on restricted networks). Tile labels are baked into the raster.
-        map_style="open-street-map",
-        opacity=0.45,
     )
     fig.update_traces(
         hovertemplate="<b>%{customdata[0]}</b><br>%{customdata[1]}<extra></extra>",
-        marker_line_width=0.5,
+        marker_line_width=0.6,
         marker_line_color="white",
+        marker_opacity=0.85,  # soften the category fills for a cleaner palette
+        selector=dict(type="choropleth"),
+    )
+    # Frame the suburbs and strip all base geography (land, coastlines, frame).
+    fig.update_geos(
+        fitbounds="locations",
+        visible=False,
+        projection_type="mercator",
+        bgcolor="rgba(0,0,0,0)",
     )
 
-    # NOTE: no centroid text-label trace. Rendering text on a maplibre map needs
-    # a glyphs endpoint, and that fetch is CORS-blocked on restricted networks,
-    # which kills the whole map. Suburb names come through hover + the side
-    # panel instead. (compute_centroids stays for potential future use.)
+    # Centroid labels: suburb name with nickname beneath in brackets. Rendered as
+    # SVG text via Scattergeo (browser fonts) — no maplibre glyph endpoint, so no
+    # CORS issue. Carries the suburb in customdata so clicking a label opens the
+    # panel too (label points have no `location` like the choropleth does).
+    centroids = compute_centroids(geojson)
+    lons, lats, texts, subs = [], [], [], []
+    for _, r in df.iterrows():
+        latlon = centroids.get(r["suburb"])
+        if not latlon:
+            continue
+        lat, lon = latlon
+        nickname = r.get("nickname") or ""
+        texts.append(
+            f"<b>{r['suburb']}</b><br>({nickname})" if nickname else f"<b>{r['suburb']}</b>"
+        )
+        lats.append(lat)
+        lons.append(lon)
+        subs.append(r["suburb"])
+    if subs:
+        fig.add_trace(go.Scattergeo(
+            lon=lons,
+            lat=lats,
+            text=texts,
+            mode="text",
+            textfont={"color": "#37474F", "size": 9, "family": "Arial, sans-serif"},
+            customdata=subs,
+            hoverinfo="skip",
+            showlegend=False,
+        ))
 
     fig.update_layout(
         margin={"r": 0, "t": 0, "l": 0, "b": 0},
-        legend={"title": "vibe", "orientation": "v", "x": 0.01, "y": 0.99},
+        legend={
+            "title": {"text": "vibe", "font": {"size": 12, "color": "#455A64"}},
+            "orientation": "v",
+            "x": 0.012,
+            "y": 0.985,
+            "bgcolor": "rgba(255,255,255,0.88)",
+            "bordercolor": "#E0E0E0",
+            "borderwidth": 1,
+            "font": {"size": 11, "color": "#455A64"},
+            "itemsizing": "constant",
+        },
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        hoverlabel={"bgcolor": "white", "bordercolor": "#E0E0E0",
+                    "font": {"size": 12, "color": "#263238"}},
         uirevision="static",
     )
     return fig
@@ -188,7 +232,7 @@ app.layout = html.Div(
     },
     children=[
         html.Div(
-            style={"flex": "1 1 70%", "position": "relative"},
+            style={"flex": "1 1 70%", "position": "relative", "background": "#EEF2F5"},
             children=[
                 dcc.Graph(
                     id="map",
