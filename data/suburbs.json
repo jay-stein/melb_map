@@ -5325,5 +5325,2033 @@
     "history_source": null,
     "history_source_url": "",
     "history_source_author": ""
+  },
+  "Altona": {
+    "nickname": "",
+    "tags": [
+      "beachside suburb",
+      "petrochemical plants",
+      "cherry lake fish kills",
+      "altona pier",
+      "seagull gangs",
+      "mobil refinery legacy",
+      "cold foggy mornings",
+      "underrated gem",
+      "rubbish on beach",
+      "altona loop train",
+      "birdlife wetlands",
+      "old school fish and chips"
+    ],
+    "vibe": "Altona is a bayside suburb with an industrial past, where petrochemical chimneys share the skyline with seagulls and beach umbrellas. Locals love the beach, pier, and wetlands but regularly complain about litter, pollution incidents, and the occasional gunman at a cafe. It's an underrated spot with a strong community feel, though the stench of seaweed and refinery smoke lingers in the air.",
+    "lore": [
+      "Cherry Lake suffered a chemical spill after a factory fire in Laverton North, killing hundreds of fish and eels.",
+      "The Mobil refinery, operating since 1949, closed in 2021 and is now an import terminal, leaving behind contamination concerns.",
+      "Altona Beach is notorious for litter, with locals complaining about rubbish left by visitors, especially after busy days.",
+      "A shark was spotted at Altona Pier, which made local news but was mostly met with 'sharks live in the ocean' eye-rolls.",
+      "Altona North McDonald's has been confused with Altoona, Pennsylvania's by Americans, leading to one-star reviews.",
+      "The Altona Loop train line offers a relaxed journey with nice bay views, but has a history of service cuts.",
+      "Altona was the birthplace of Australian aviation in 1910, when French aviator Gaston Cugnet did demonstration flights.",
+      "The Truganina Explosives Reserve operated near Skeleton Creek from 1901 to 1958, storing explosives in brick magazines."
+    ],
+    "history": "Altona was named after a German village on the River Elbe, settled in the 1840s. It grew rapidly from the 1950s with petrochemical industries and migrant housing, transforming from a seaside resort to an industrial suburb.",
+    "top_quote": "Altona is massively underrated, beach, a brand-new pier where everyone jumps, and a whole row of cafés and shops right on the foreshore.",
+    "quotes": [
+      "Altona is massively underrated, beach, a brand-new pier where everyone jumps, and a whole row of cafés and shops right on the foreshore.",
+      "I've lived in Altona for 40 year's and this shit gets worse year on year, bloody grubs. stay home and litter your lounge room.",
+      "Seaholme hasn't fully rendered yet.",
+      "If you can make Altona beach look picturesque, you truly are an artist.",
+      "The west is actually great for bird life. Altona is amazing for water birds, I’ve seen spoonbills, pelicans, great egrets, herons, black swans etc etc.",
+      "Ford St Altona. Straight out of the 70's.",
+      "Altona loop, nice view and relaxed journey. Have a break at Altona and walk to the pier.",
+      "A shark? In the OCEAN?",
+      "I need gps systems to only offer the tollway if it’s going to save me greater of 20 minutes or 20% of the journey time of the non-toll version."
+    ],
+    "primary_category": "family",
+    "mascot": {
+      "name": "Gary the Altona Fisherman, 62",
+      "tagline": "Bloody seagulls stole my chips again.",
+      "description": "Gary's been fishing off Altona Pier for decades, knows every tide and which bait shop has the best worms. He'll grumble about the litter and the refinery but won't live anywhere else.",
+      "image_prompt": "A middle-aged man in a flannel shirt and beanie holding a fishing rod, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#1B4F72",
+        "#F4D03F",
+        "#FFFFFF"
+      ],
+      "emblem": "seagull",
+      "style": "horizontal tricolor",
+      "description": "A horizontal tricolor of dark blue (bay), gold (beach), and white (industry). A seagull emblem in the center represents the beach and the birdlife that defines Altona's character.",
+      "image_prompt": "A horizontal tricolor flag with bands of dark blue, gold, and white, with a simple seagull emblem in the center, minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM00060b.htm",
+    "history_source_author": "Jill Barnard"
+  },
+  "Blackburn": {
+    "nickname": "",
+    "tags": [
+      "leafy and green",
+      "tawny frogmouths in backyards",
+      "blackburn lake sanctuary",
+      "belgrave/lilydale line commuters",
+      "free 2-hour station parking",
+      "blackburn hotel",
+      "quiet family streets",
+      "underquoting real estate angst",
+      "mccubbin and heidelberg school connections",
+      "bellbird corner",
+      "blackburn creeklands",
+      "bus replacements with free muffins"
+    ],
+    "vibe": "Blackburn is a leafy, well-established eastern suburb that feels like a quiet village within the city, known for its bushland pockets and birdlife. It's popular with families and rail commuters who appreciate the greenery and decent schools, but locals grumble about underquoting agents and the occasional traffic snarl on the Eastern Freeway. It's a place where nature and suburbia coexist peacefully, with a touch of old Melbourne charm.",
+    "lore": [
+      "Blackburn Lake Sanctuary was created by damming a stream in 1888 and is now a haven for bellbirds and tawny frogmouths, with locals reminiscing about school excursions there.",
+      "The Traveller's Rest Hotel on Whitehorse Road, built in 1861, was the first substantial structure in the area and later became the Blackburn Hotel, a local institution.",
+      "Frederick McCubbin, Tom Roberts and Arthur Streeton produced important works in Blackburn before forming the Heidelberg School, giving the suburb a secret art history.",
+      "The Blackburn and District Tree Preservation Society, founded in 1959, fought to protect remnant bushland during postwar development, resulting in the leafy streets locals love today.",
+      "In 1915, the innovative Open Air School was established in Blackburn to help inner-city children with poor health and nutrition, a quirky piece of educational history.",
+      "The Blue Moon Fruit Co-operative was formed in 1930 to export fresh fruit to England, a reminder of Blackburn's orchard-farming past.",
+      "Locals joke about the Blackburn Road merge on the Monash Freeway finally being upgraded to 100 km/h after years of frustrating 80 km/h zone."
+    ],
+    "history": "Likely named after ex-convict architect James Blackburn, the suburb grew from thickly wooded land settled in the 1840s, with orchards and brickworks shaping its early economy. The railway station opened in 1882, and the Blackburn Lake was dammed in 1888, now a key natural feature.",
+    "top_quote": "Blackburn! It felt like a little village.",
+    "quotes": [
+      "Blackburn! It felt like a little village.",
+      "I live in Blackburn, it’s such a great town. Mates on the north side just don’t understand.",
+      "The Bellbird area in Blackburn is very hard to match in this regard. A genuine slice of countryside including a lake within suburbia.",
+      "My brother lives in Camberwell and considers himself to live close to me, in Blackburn... as the crow flies, sure, but it takes half an hour to drive the measly 12kms somehow.",
+      "I went to Blackburn Primary! I still live in Blackburn. My favourite part is the equal distance between the city and the hills.",
+      "Woke up this morning to a pair of Tawny Frogmouths in my back yard in Blackburn. This guy loved posing for the camera.",
+      "Blackburn Lake Sanctuary - beautiful bushland, parkland and lake. Never busy and very relaxing.",
+      "It was better before the music shops turned into bathroom reno shops.",
+      "Super jealous! I live in Blackburn too and there are SO many birds around here...",
+      "Blackburn suits rail commuters and bush walkers, but buyers pay for school zones, quiet streets and Blackburn."
+    ],
+    "primary_category": "family",
+    "mascot": {
+      "name": "Margaret from Blackburn, retired teacher",
+      "tagline": "Don't you dare feed the crows at the church.",
+      "description": "Margaret, a retired primary school teacher, lives in a weatherboard near Blackburn Lake and knows every bird by name. She's fiercely protective of the local food bank and will write a stern letter to anyone who leaves bread out for the ravens.",
+      "image_prompt": "Retired woman in floral blouse and cardigan holding a pair of binoculars, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#2E5C3A",
+        "#F4D35E",
+        "#FFFFFF"
+      ],
+      "emblem": "tawny frogmouth",
+      "style": "horizontal tricolor",
+      "description": "A horizontal tricolor of green, gold, and white. Green represents Blackburn's leafy parks and bushland, gold reflects the golden wattle and sunny days, and white stands for the Blackburn Lake. The tawny frogmouth emblem sits in the center, symbolizing the suburb's beloved local birdlife.",
+      "image_prompt": "Horizontal tricolor of green, gold, and white with a tawny frogmouth emblem in the center, minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio"
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM00201b.htm",
+    "history_source_author": "Chris Coney"
+  },
+  "Boronia": {
+    "nickname": "Bosnia",
+    "tags": [
+      "Boronia Mall time capsule",
+      "Belgrave line commuters",
+      "Saravana Bhavan dosa pilgrimage",
+      "Metro Cinemas survivor",
+      "RC car club nightlife",
+      "Piggy Hill urban legend",
+      "Bung Siriboon mystery",
+      "Kmart ugg boots at 10am",
+      "trolley tree in spring",
+      "station upgrade hype"
+    ],
+    "vibe": "Boronia is the outer-east suburb that time forgot, where the 80s mall still stands defiantly and the train station is a running joke. It's a place of contradictions: deadzone shopping centres and surprise dosa joints, RC car clubs and true-crime mysteries. Locals love to hate it, but they'll fight you if you talk smack about their mall.",
+    "lore": [
+      "Boronia Mall is a liminal space frozen in the 1980s, with individually owned shops that can't agree on renovations, giving it a hauntingly empty vibe.",
+      "Piggy Hill on Rankin Road: urban legend says you'd squeal like a pig riding down on your bike, but no one knows the real origin.",
+      "The unsolved disappearance of 12-year-old Bung Siriboon in 2011 still haunts the suburb, with Redditors regularly posting theories.",
+      "Boronia RC Car Club meets on Dorset Rd, offering a different kind of nightlife with tiny screaming cars.",
+      "Metro Cinemas survived the pandemic with a lockdown paint refresh and still shows movies, defying all odds.",
+      "The station upgrade to deck over the rail trench is controversial — some call it an undercover dump, others see untapped potential.",
+      "Saravana Bhavan draws people from across Melbourne for its crispy dosa, the only reason some outsiders ever visit.",
+      "A trolley tree (shopping carts piled up) is a recurring springtime sight, celebrated by locals as a sign of the season."
+    ],
+    "history": "Named after the boronia flower cultivated at the Chandler family nursery, Boronia was part of Bayswater until 1915. The railway station opened in 1920, sparking suburbanisation, with a second wave in the 1960s-70s transforming farmland into the residential area seen today.",
+    "top_quote": "I alternate between 'Moronia' and 'Boganville' myself.",
+    "quotes": [
+      "I alternate between 'Moronia' and 'Boganville' myself.",
+      "Boronia Mall is such a deadzone.",
+      "Lived in Boronia for decades and never been mugged, now I get to see what the fuss is about!",
+      "Shoutout for Saravana Bhavan; the only reason I drive to Boronia from Melbourne is when I crave for crispy Dosa.",
+      "Boronia Mall is made from 100% asbestos. Can not be burnt.",
+      "Ah, Boronia. Never change.",
+      "It's so empty it reminds me of those end of days movies where only a few survived.",
+      "The biggest culture shock from moving from inner city to Boronia was the lack of quality food and restaurants.",
+      "Y'all remember that time they found a thumb at Boronia station?",
+      "Also Boronia(aka Bosnia) has it's derros. I still like it tho."
+    ],
+    "primary_category": "sleepy",
+    "mascot": {
+      "name": "Graham the Boronia Dachshund, 4",
+      "tagline": "I escaped the house again, but I'll be back for noms.",
+      "description": "Graham is a miniature dachshund who keeps escaping his new Boronia home, sending the whole suburb on a wild chase via Facebook posts and Reddit updates. He's always found eventually, usually after a good nap.",
+      "image_prompt": "A miniature dachshund wearing a red collar, holding a lost dog poster in its mouth, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#8B4513",
+        "#FFD700",
+        "#2E8B57"
+      ],
+      "emblem": "boronia flower",
+      "style": "horizontal tricolor",
+      "description": "A horizontal tricolor of brown, gold, and green. Brown represents the suburb's earthy, forgotten charm; gold the Dandenong foothills sunsets; green the boronia flower and nearby national park. The boronia flower emblem sits centered.",
+      "image_prompt": "Horizontal tricolor of brown, gold, and green bands, with a boronia flower emblem in the center, minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM00215b.htm",
+    "history_source_author": "Jill Barnard"
+  },
+  "Broadmeadows": {
+    "nickname": "Broady",
+    "tags": [
+      "rough reputation but improving",
+      "Ford Falcon nostalgia",
+      "machete brawls at shopping centre",
+      "Western Ring Road chaos",
+      "cheap rent near train line",
+      "Netflix filming location",
+      "Turkish and Iraqi bakeries",
+      "KFC party lore",
+      "Housing Commission estate history",
+      "underrated food scene after dark",
+      "retro gaming community nights"
+    ],
+    "vibe": "Broadmeadows is Melbourne's perennial punching bag, a working-class northern suburb with a fearsome reputation that locals will defend or lean into with a shrug. It's rough around the edges — machete fights at the shopping centre and road rage on the Ring Road are part of the texture — but beneath the headlines there's a genuine multicultural community, surprisingly good food, and a dark sense of humour about being the suburb everyone loves to dump on. The Ford factory might be gone, but the Falcon-driving, tradie energy lingers.",
+    "lore": [
+      "The old Broadmeadows Town Hall was dressed up as an American police station for the Netflix series 'Clickbait', which locals found hilarious.",
+      "The Sylvania Hotel on Sydney Road was famously the roughest pub in Broady, with a notorious room 9 rumoured to offer $40 rub-and-tugs.",
+      "In the late 90s, it wasn't uncommon to see guys chasing each other through Broadmeadows station with machetes — a tradition that apparently continues.",
+      "The Ford assembly plant at Campbellfield (just next door) opened in 1959 and churned out Falcons until 2016; the site is now a symbol of deindustrialisation.",
+      "Broadmeadows station has a reputation as 'the edge of civilisation' — underpasses that feel like a horror movie, and a vibe that made one Redditor say 'never again'.",
+      "During COVID, Hume LGA (containing Broady) had 280 active cases while posh Brighton had 5 — leading to the joke 'Broadmeadows; the Brighton of the North.'",
+      "The Housing Commission estate built in the 1950s created a massive oversupply of cheap housing, shaping the suburb's demographics and struggles for decades.",
+      "A free retro gaming community evening runs monthly at Icarus Tech on King William Street, giving locals a 'third space' to hang out."
+    ],
+    "history": "Broadmeadows was surveyed in 1850 on the Moonee Ponds Creek flats, named for the 'broad meadows' of the plain. After WWII the Housing Commission built a massive estate here, and the 1959 Ford factory brought jobs and migrants — but manufacturing decline from the 1970s left the suburb with entrenched poverty and a rough reputation that lingers today.",
+    "top_quote": "Broadmeadows is perfectly fine. Good train service, decent shopping. There are pockets that I would steer clear of at night (Olsen place for example), but otherwise it's no worse than any other suburb of a similar distance to the city.",
+    "quotes": [
+      "Broadmeadows; the Brighton of the North.",
+      "I grew up in Broady. If the melts in here think this event is something out of the ordinary I have a bridge to sell you. Guys chasing other dudes through the station and across Pascoe Vale Road with machettes in hand was not an uncommon sight. And this is late 90s.",
+      "That's broady for ya mateeeee",
+      "Broadmeadows is perfectly fine. Good train service, decent shopping. There are pockets that I would steer clear of at night (Olsen place for example), but otherwise it's no worse than any other suburb of a similar distance to the city.",
+      "I used to work in Broady... Every time I went under that underpass I feared for my life.",
+      "Nothing screams Hollywood more than Broady.",
+      "The middle ground between Brighton and Broadmeadows",
+      "Just off the top of my head; Dandenong/Cranbourne/Noble Park, Broadmeadows/Dallas/Glenroy/Campbellfield, St Albans, Melton (if that counts as Melbourne).",
+      "Keep travelling north up Sydney road to the Sylvania and you'll discover the first and last is fairly high market. The Syl used to be the roughest pub in Broadmeadows, with room 9 notorious for its $40 rub n tug",
+      "I think Broadmeadows is on that same trajectory. Right now it hasn’t quite come out of its rough reputation but there’s some really major development plans that have been unveiled recently."
+    ],
+    "primary_category": "multicultural",
+    "mascot": {
+      "name": "Trent from Broady, 34",
+      "tagline": "Yeah nah, it's not that bad once you know which streets to avoid.",
+      "description": "Trent drives a slightly dented Falcon ute with a toolbox in the tray, works as a sparkie on the Ring Road projects, and knows exactly which kebab shop stays open after midnight. He'll tell you Broadmeadows gets a bad rap — but he's also the first to warn you about the underpass at the station after dark.",
+      "image_prompt": "Tradie in hi-vis yellow vest and blue work shorts holding a steering wheel, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#1B3A5F",
+        "#F4D35E",
+        "#C8102E"
+      ],
+      "emblem": "Ford Falcon",
+      "style": "horizontal tricolor",
+      "description": "A navy blue top band represents the Moonee Ponds Creek and the night sky, a gold middle band symbolises the 'broad meadows' of the original name, and a red bottom band stands for the working-class grit and the Ford factory heritage. In the centre sits a stylised Ford Falcon silhouette, nodding to the suburb's automotive heyday.",
+      "image_prompt": "Horizontal tricolor flag with navy blue, gold, and red bands, a stylized Ford Falcon silhouette in the center, minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio"
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM00240b.htm",
+    "history_source_author": "Peter Christiansen"
+  },
+  "Bundoora": {
+    "nickname": "",
+    "tags": [
+      "la trobe and rmit students",
+      "plenty road traffic",
+      "fake bus stop for dementia patients",
+      "86 tram extension",
+      "bushfire risk near reserves",
+      "parkside inn shithole",
+      "rubbernecking during fires",
+      "old mental hospitals",
+      "kangaroos in reserves",
+      "underquoting real estate agents",
+      "genesis gym",
+      "quiet leafy pockets"
+    ],
+    "vibe": "A sprawling outer-northern suburb split between student hubs, old asylum grounds, and new housing estates — feels more like a collection of villages than a single suburb. Locals love the green spaces and native wildlife but dread the Plenty Road crawl and the summer fire scares. It's got a quiet, slightly forgotten energy, punctuated by the occasional burst of student life around the universities.",
+    "lore": [
+      "The Bundoora Extended Care Centre has a fake bus stop (Route 513) to calm dementia patients who try to 'go home' — it's been there since at least 2010.",
+      "Parkside Inn is infamous as a 'crime hotel' used for bail housing, with police visits multiple times a week and a history of murder next door to the abandoned Larundel asylum.",
+      "The 86 tram line was extended to Bundoora RMIT in 1995, continuing the High Street gentrification corridor from Westgarth all the way up.",
+      "During the 2019 bushfires, rubberneckers blocked roads so residents couldn't evacuate their guinea pigs — locals still fume about it.",
+      "La Trobe University has secret tunnels underneath it, used by a vice-chancellor to escape student protests in 2012.",
+      "Bundoora was once home to three psychiatric institutions: Mont Park (1912), Janefield (1920), and Larundel (1949) — all now closed and redeveloped.",
+      "The name 'Bundoora' is thought to come from an Aboriginal word meaning 'the plain where kangaroos live' — and you can still spot them in reserves today."
+    ],
+    "history": "Bundoora's name likely derives from an Aboriginal word meaning 'the plain where kangaroos live'. After 1839 land sales, the area developed as farmland along Plenty Road, with a flour mill on the Plenty River. From the early 1900s, its rural seclusion made it a site for major psychiatric institutions — Mont Park, Janefield, and Larundel — which operated until the late 20th century. La Trobe University opened in 1967 and RMIT followed in 1972, cementing Bundoora's student character.",
+    "top_quote": "Bundoora! RIP Smorgys. Best donut machine in the land.",
+    "quotes": [
+      "Bundoora! RIP Smorgys. Best donut machine in the land.",
+      "There's nothing going on in Bundoora.",
+      "I love Bundoora. It's nice being not too far out, not too far in, and there's so many beautiful native birds, plus kangaroos in the nature reserves.",
+      "The fake bus stop is a great idea — it makes many of the residents so much happier when they think they've gone out and done things with their day.",
+      "Parkside Inn Bundoora is so gross do not stay. It’s had that rep since it opened cobber. Absolute shithole.",
+      "Please DON'T travel to Bundoora for photos. Fucking barrage of people blocking my way to my fucking house to evacuate my guinea pigs.",
+      "La Trobe University in Bundoora apparently has secret tunnels underneath it!",
+      "I used to live next to it, police were there at least twice a week.",
+      "Granted parts the south east Bundoora and the park are leafy and pretty, but the further north you go the more of a hellscape it becomes."
+    ],
+    "primary_category": "student",
+    "mascot": {
+      "name": "Jenna the La Trobe Commuter, 21",
+      "tagline": "Trams are free if you don't tap on, right?",
+      "description": "Jenna's always got a laptop bag slung over one shoulder and a reusable coffee cup from Nibble Cafe in hand, dodging the Plenty Road traffic on her way to campus. She knows the 86 tram timetable by heart and which library floor has the best nap spots.",
+      "image_prompt": "A young woman in a hoodie and jeans holding a reusable coffee cup, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#8B0000",
+        "#FFD700",
+        "#228B22"
+      ],
+      "emblem": "kangaroo silhouette",
+      "style": "horizontal tricolor",
+      "description": "A horizontal tricolor of dark red (representing the brick of La Trobe and RMIT), gold (the tram line and student energy), and green (the parks and reserves). In the center, a kangaroo silhouette nods to the suburb's name meaning 'plain where kangaroos live'.",
+      "image_prompt": "Horizontal tricolor of dark red, gold, and green bands with a kangaroo silhouette in the center, minimalistic flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM00262b.htm",
+    "history_source_author": "Gwynedd Hunter-Payne"
+  },
+  "Burwood": {
+    "nickname": "",
+    "tags": [
+      "deakin uni student hub",
+      "24-hour kmart and coles",
+      "tram 75 lifeline",
+      "wattle park ghosts",
+      "pizza hut on stilts",
+      "boring and quiet by design",
+      "burwood highway chaos",
+      "pappa laksa cult following",
+      "bushpig 4wd sightings",
+      "drive-in cinema history"
+    ],
+    "vibe": "Burwood is the quiet achiever of the east – a student-heavy suburb built around Deakin University, where the main action is the 24-hour Kmart and a tram line that's both a lifeline and a punchline. Locals fiercely defend its boringness, treating excitement as something you go elsewhere for. It's a place of brick veneers, unsealed streets that lingered into the 1950s, and a surprising amount of ghost lore in Wattle Park.",
+    "lore": [
+      "The Pizza Hut on Burwood Highway (Ferntree Gully) was a iconic 'on stilts' dine-in joint that closed in 1998 after the Longford gas explosion; it's now a swimming pool shop, but locals still mourn the all-you-can-eat buffet.",
+      "Wattle Park is known for shadowy figures running at night – some say ghosts, others say homeless campers, but it's a recurring spook story on Reddit.",
+      "Burwood station is technically in Glen Iris, a quirk leftover from Jeff Kennett-era renaming that still confuses newcomers.",
+      "The 75 tram was extended to Vermont South in 2005, but for years it was the only way in or out for students without cars – a lifeline that also inspired a Reddit user's late-night refuge story.",
+      "Australia's first drive-in cinema opened on Burwood Highway in 1954 – Hoyts in a light industrial zone by Gardiners Creek, now long gone.",
+      "The suburb was originally called Ballyshanassy in 1858, after Sir John O'Shanassy, but renamed Burwood in 1879 after a Hawthorn mansion.",
+      "Deakin University's Burwood campus opened in 1957 as a teachers' college, and the area's student population has defined its cheap eats and quiet-study-vibe ever since."
+    ],
+    "history": "Surveyors reserved a township on Gardiners Creek in 1858 as Ballyshanassy, but it never flourished. Renamed Burwood in 1879 after a Hawthorn mansion, the area remained rural until post-WWII, when brick veneer housing and Deakin University (1957) drove suburban growth. The Outer Circle Railway's Hartwell station was renamed Burwood in 1909, and the 75 tram line extended along Burwood Highway in 1978.",
+    "top_quote": "Please remove Burwood from this list. We like it just the way it is, boring & quiet. We can go to other places for excitement. Living in boring & quiet is great 👍",
+    "quotes": [
+      "Please remove Burwood from this list. We like it just the way it is, boring & quiet. We can go to other places for excitement. Living in boring & quiet is great 👍",
+      "Someone's never been to Burwood Kmart at 1.00am.",
+      "For reasons known only to Jeff Kennett: Burwood station is in Glen Iris.",
+      "I love the 75! I used to have a rough home life, and when things were bad, I would catch the 75 out to Burwood and then spend the night in the 24 hour shopping centre.",
+      "Burwood, desirable by mostly students of Deakin now, but in no ways cool. Once SRL is up and running, it'll have the trifecta of bus, tram and train connections.",
+      "Those shadowy figures could've been homeless people that live in Wattle Park. It's a known hangout for the homeless.",
+      "I worked there from 1992 to when it closed in 1998. The Longford gas explosion killed it... I served it's very last customer.",
+      "Angie's fish shop in Burwood east, go there weekly for a min. Chips",
+      "Crazy $8 Bahn Mi TKs in Burwood"
+    ],
+    "primary_category": "student",
+    "mascot": {
+      "name": "Priya the Deakin Student, 21",
+      "tagline": "The 75 tram is my Uber, and Kmart is my living room.",
+      "description": "Priya's been living in a shared brick-veneer near Deakin for two years, surviving on Pappa Laksa and $8 banh mi. She knows the 75 tram timetable by heart and has strong opinions about which 24-hour Coles has the best iced coffee. She's never seen a ghost in Wattle Park, but she's heard the stories.",
+      "image_prompt": "A young South Asian woman in a Deakin University hoodie and jeans, holding a Pappa Laksa takeaway container, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#1B3A5F",
+        "#F4D35E",
+        "#FFFFFF"
+      ],
+      "emblem": "tram 75",
+      "style": "horizontal tricolor",
+      "description": "A horizontal tricolor of navy, gold, and white. Navy represents the quiet residential streets and Deakin University, gold the 24-hour Kmart beacon and student energy, white the tram 75 line that threads through the suburb. Centered is a stylized tram symbol.",
+      "image_prompt": "Horizontal tricolor flag with navy top, gold middle, and white bottom bands. Centered is a simple black tram silhouette. Minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM00268b.htm",
+    "history_source_author": "Andrew Lemon"
+  },
+  "Carrum": {
+    "nickname": "",
+    "tags": [
+      "KFC Carrum Downs is a 12 wonder of the world",
+      "Carrum Beach sunsets",
+      "Wishing Well Tavern scum pub",
+      "new skyrail station with bay views",
+      "bogan gender reveals",
+      "saxophones banned at shops",
+      "Frankston line underrated",
+      "Cranbourne by the bay",
+      "affordable housing under $500k",
+      "beachside holiday shacks history",
+      "Shiva Vishnu temple canteen",
+      "gentrification creeping down the line"
+    ],
+    "vibe": "Carrum is a daggy bayside suburb that's slowly waking up to its potential. It's got a beautiful beach, a shiny new train station, and a reputation for being a bit rough around the edges—think bogans doing burnouts at gender reveals and the legendary dodgy Wishing Well Tavern. But locals know it as a hidden gem: affordable housing, great sunsets, and a laid-back community that's a mix of old-school fish-and-chip families and new commuters.",
+    "lore": [
+      "The Wishing Well Tavern is infamous on r/melbourne as one of the city's scummiest pubs, a place where you 'don’t want to look anyone in the eye.'",
+      "Carrum Downs KFC is consistently rated the worst KFC in Melbourne, with stories of running out of chicken and serving tiny portions.",
+      "The new Carrum station, part of the level crossing removal project, offers stunning bay views from the elevated platform—a far cry from the old trench station.",
+      "A gender reveal party in Carrum Downs made the news when a Holden Commodore doing burnouts with blue smoke revealed a 'bogan' baby boy.",
+      "Saxophones are literally banned at the Carrum Downs shopping centre, as per a sign that went viral on Reddit.",
+      "Carrum was originally a beach resort in the 1920s and 1930s, with holiday shacks and cabins near the foreshore before permanent residents moved in.",
+      "The suburb's name comes from an Aboriginal word 'Karrum Karrum,' meaning boomerang.",
+      "Locals joke that Carrum is 'Cranbourne by the bay,' a nod to its affordability and slightly bogan reputation."
+    ],
+    "history": "The name Carrum is thought to be an adaptation of Karrum Karrum, an Aboriginal term for boomerang. Coastal allotments were sold in the 1860s, but the area remained sparsely populated until the 1920s and 1930s when it became a popular beach resort, with holiday shacks and cabins giving way to permanent commuter residents.",
+    "top_quote": "Fond memory of being on the Frankston line and the automated voice saying 'now arriving at Carrum Station.' And some bogan with speed dealer sunglasses yelling 'awwww fuck you Carrum!'",
+    "quotes": [
+      "Fond memory of being on the Frankston line and the automated voice saying 'now arriving at Carrum Station.' And some bogan with speed dealer sunglasses yelling 'awwww fuck you Carrum!'",
+      "Carrum Downs KFC is a 12 wonder of the world, the wonder being how the fuck it’s still open.",
+      "People move to places like Carrum Downs then get upset when the locals, who've lived there for generations, perform their sacred ceremonies...",
+      "I'm throwing a vote in for The Wishing Well in Carrum.",
+      "Get off at Carrum station. It is honestly so beautiful.",
+      "Ol’ Cranbourne by the bay",
+      "Saxophones BANNED",
+      "The car is on fire, and there's no driver at the wheel...",
+      "Most of Frankston’s problems have moved to Carrum Downs.",
+      "Carrum station at sunset"
+    ],
+    "primary_category": "family",
+    "mascot": {
+      "name": "Shazza from Carrum, 45",
+      "tagline": "Yeah nah, the Wishing Well's a dive but the parmas are cheap.",
+      "description": "Shazza's lived in Carrum her whole life, knows everyone at the beach and the best spot for fish and chips. She'll tell you the KFC's gone to shit but the new train station's 'not bad.'",
+      "image_prompt": "A woman in her 40s with a sun-bleached ponytail and a hoodie, holding a takeaway coffee and a fish-and-chip paper wrap, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#006994",
+        "#FFD700",
+        "#FFFFFF"
+      ],
+      "emblem": "boomerang",
+      "style": "horizontal tricolor",
+      "description": "A horizontal tricolor of blue, gold, and white. Blue represents Port Phillip Bay, gold the sandy beaches, and white the sky. A boomerang emblem sits in the center, referencing the suburb's Aboriginal name.",
+      "image_prompt": "A horizontal tricolor flag with three equal bands of blue, gold, and white from top to bottom, with a single boomerang emblem in the center, minimal flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio"
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM00302b.htm",
+    "history_source_author": "Jill Barnard"
+  },
+  "Cheltenham": {
+    "nickname": "",
+    "tags": [
+      "Southland shopping centre",
+      "Charman Road eats",
+      "Top Gun car spotted",
+      "factory fire lithium smoke",
+      "Cheltenham Cat Rescue",
+      "under $500K house myth",
+      "homeless in carpark",
+      "level crossing removal bike path",
+      "gel blaster at station",
+      "postwar homes and industry",
+      "lightning storm photos",
+      "Launch Housing crisis hub"
+    ],
+    "vibe": "A bayside suburb that's more about practicality than polish — Southland rules the retail roost, Charman Road has solid ramen and pho, and the train station occasionally hosts a gel blaster standoff. It's got a gritty underbelly (homeless camps, lithium fires) but also the kind of quiet resilience that makes locals defend its $500K house dreams.",
+    "lore": [
+      "Southland shopping centre opened in 1968 on the site of a former St John of God Training School, cementing Cheltenham as a suburban commercial hub.",
+      "The Cheltenham Inn, named after a town in England, gave the suburb its name — natural springs once attracted Boon wurrung people and later market gardeners.",
+      "A Top Gun-themed car with 'US Navy' decals and Danger Zone horn is a regular sight, parked near Moorabbin Magistrates Court.",
+      "The Cheltenham-to-Parkdale bike path, built after level crossing removals, is a beloved local win for cyclists.",
+      "A 2025 factory fire involving lithium-ion batteries sent toxic smoke over the suburb, taking days to extinguish.",
+      "Cheltenham Station has become a hotspot for police callouts — from fake guns to mental health incidents, locals joke the copper chopper is always overhead.",
+      "The Methodist child rescue home and Anglican female rescue institution operated here in the late 1800s, long before the suburb boomed."
+    ],
+    "history": "Cheltenham began as a village on the road to the Mornington Peninsula, named after the English hometown of innkeeper Charles Whorral. Natural springs attracted market gardeners, and the 1968 opening of Southland shopping centre transformed it into a suburban commercial centre.",
+    "top_quote": "I live in Cheltenham but I just wander around Springvale and see where all the locals are going.",
+    "quotes": [
+      "I live in Cheltenham but I just wander around Springvale and see where all the locals are going.",
+      "You can still buy a house for less than $500K!",
+      "I've seen this car near Moorabbin Magistrates Court!! This dude is like Army-obsessed",
+      "Been catching the train to and from there daily for 7 years. Seems to be a lot more people sitting on the streets/surrounding area with drug and open alcohol problems",
+      "We have a lot of homeless people in Cheltenham. We have social housing builds in Cheltenham, one of which I live in.",
+      "Follett Rd fish & chips in Cheltenham. Hands down the best fish and chips I’ve had since I was a kid",
+      "New parkdale station area looks great. Huge improvement in my opinion. The elevated rail and platforms really are the better option.",
+      "They put a train station in Southland which is already fairly close to Cheltenham Station, and yet they STILL haven't put a station somewhere near / at Chadstone!"
+    ],
+    "primary_category": "family",
+    "mascot": {
+      "name": "Steve from Cheltenham, 52, train commuter",
+      "tagline": "Yeah, it's not flash but the fish and chips are top-notch.",
+      "description": "Steve's been catching the 5:09 from Mordialloc for 15 years, knows every shortcut through Southland carpark, and swears by Follett Rd fish and chips. He'll tell you Cheltenham's underrated — just don't mention the station's after-dark vibe.",
+      "image_prompt": "A middle-aged man in a polo shirt and jeans holding a fish and chips paper wrap, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#1B3A5F",
+        "#F4D35E",
+        "#FFFFFF"
+      ],
+      "emblem": "train station",
+      "style": "horizontal tricolor",
+      "description": "A horizontal tricolor of navy, gold, and white. The navy represents the bay and the train line, the gold recalls the market gardening past and the Cheltenham Inn, and the white stands for the suburban homes. In the center, a simple train station silhouette nods to the suburb's transport identity.",
+      "image_prompt": "Horizontal tricolor of navy, gold, and white with a simple train station silhouette in the center, minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio"
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM00330b.htm",
+    "history_source_author": "Jill Barnard"
+  },
+  "Clayton": {
+    "nickname": "",
+    "tags": [
+      "synchrotron next to the telstra building",
+      "boom gates that trap you for 19 minutes",
+      "monash uni student share houses",
+      "cheap laksa at laksa town",
+      "every second house looks identical",
+      "car-centric but getting mid-rises",
+      "hot property market for families",
+      "dodgy mobility company mobiassist",
+      "frequent trains to the city",
+      "underrated food corridor with springvale"
+    ],
+    "vibe": "A student-and-family suburb in rapid transition, where Monash University and the Australian Synchrotron sit alongside cheap laksa joints and identical brick veneers. It's car-dependent but walkable pockets are emerging, and the property market is already pricing out the cool-kid future everyone predicts. Locals complain about the boom gates but know they're sitting on the next big thing.",
+    "lore": [
+      "The Australian Synchrotron in Clayton is a giant donut-shaped particle accelerator that locals jokingly call 'the black hole machine' — it's used for everything from chocolate crystal analysis to medical research.",
+      "The boom gates at Clayton station are infamous: one Redditor got stuck for 19 minutes watching 14 trains pass, prompting an AMA.",
+      "Clayton's housing stock is famously uniform — 'every house looks identical,' say locals, with many being 1960s brick veneers now selling for over $1.5 million.",
+      "The suburb was once home to the Mulgrade drive-in cinema, now replaced by the Synchrotron and Moderna's new factory.",
+      "McCulloch House, a convalescent home for women founded in 1889, later became part of Monash Medical Centre — a link to Clayton's history as a 'pure air' health retreat.",
+      "The Talbot Colony for epileptics operated on the site that became Monash University from 1906, with a supporting farm."
+    ],
+    "history": "Clayton developed after 1877 around the railway station, named after solicitor John Hughes Clayton. Post-WWII, a wave of manufacturing and housing estates transformed the area, followed by the establishment of Monash University in 1958 and the CSIRO, laying the foundation for today's knowledge precinct.",
+    "top_quote": "I got stuck at the boom gates at Clayton for 19 minutes and watched 14 trains pass, and I didn't kill myself. AMA",
+    "quotes": [
+      "I got stuck at the boom gates at Clayton for 19 minutes and watched 14 trains pass, and I didn't kill myself. AMA",
+      "I think it’s a rule that every house in Clayton looks identical",
+      "Laksa Town in Clayton. Get extra fried beancurd skin. You're welcome",
+      "Clayton, though I would argue it’s pretty desirable for families right now due to how competitive auctions are.",
+      "I just went to an auction and missed out on a block with a knockdown house at 1.6million. Pretty sure they’re well and truly underway",
+      "The synchrotron at clayton is a big part of why old chocolate doesn't go white and powdery anymore, this scientific breakthrough alone should have funded it for a century",
+      "I feel like Clayton has some serious slumlords because it’s right near the Monash, so most rentals as a young person are $250+ to have a room in a sharehouse with 8 people.",
+      "Clayton-based company MobiAssist seem to be dodgy as fuck."
+    ],
+    "primary_category": "student",
+    "mascot": {
+      "name": "Priya the Monash Postgrad, 27",
+      "tagline": "The laksa is worth the 19-minute boom gate wait.",
+      "description": "Priya's been in Clayton for four years, knows every cheap eats spot on the strip, and has a love-hate relationship with the 631 bus. She's seen three share houses and two rent hikes, but she's sticking around for the synchrotron open day.",
+      "image_prompt": "A South Asian woman in a university hoodie and jeans holding a takeaway laksa container, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#1B3A5F",
+        "#F4D35E",
+        "#FFFFFF"
+      ],
+      "emblem": "synchrotron donut",
+      "style": "horizontal tricolor",
+      "description": "A horizontal tricolor of navy, gold, and white. Navy represents the academic and research institutions, gold the multicultural food scene, and white the post-war housing estates. The synchrotron donut emblem sits in the center, symbolizing Clayton's scientific and industrial heart.",
+      "image_prompt": "A horizontal tricolor flag with navy top, gold middle, and white bottom bands. In the center, a simple synchrotron donut shape in dark gray. Minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM00356b.htm",
+    "history_source_author": "Susan Priestley"
+  },
+  "Cranbourne": {
+    "nickname": "Crimebourne",
+    "tags": [
+      "panda mart chaos",
+      "greyhound racing",
+      "royal botanic gardens",
+      "machete express",
+      "casey council corruption",
+      "hoon drivers",
+      "affordable housing",
+      "bus replacement hell",
+      "cranbourne-pakenham line",
+      "lighthouse christian college cult",
+      "wholesome train driver",
+      "meteorite discoveries"
+    ],
+    "vibe": "A sprawling outer-suburban frontier where affordable housing meets a reputation for crime and council dysfunction. Locals joke about 'Crimebourne' while defending their suburb's botanic gardens and train line—when it's running. The vibe is resilient, family-oriented, and a bit rough around the edges, with a strong sense of community pride beneath the memes.",
+    "lore": [
+      "Panda Mart opened in Cranbourne and caused traffic mayhem, then shut its doors amid a surge of customers—a temple of cheap Chinese goods that locals both love and hate.",
+      "The Cranbourne-Pakenham line is infamous for bus replacements, delays, and being called 'The Machete Express'—but also has a beloved train driver who gives heartfelt announcements about family and 'rivers of steel'.",
+      "Lighthouse Christian College, Cranbourne East, was described by ex-students as 'the North Korea of schools', with allegations of cult-like practices and corporal punishment.",
+      "Greyhound racing returned to Cranbourne in 2025 after being shut down in 2022 following a spate of dog deaths, including a decapitation—sparking outrage from animal rights activists.",
+      "The Royal Botanic Gardens Cranbourne is one of the top 25 gardens in the world according to the New York Times, a source of pride for locals.",
+      "Cranbourne has a history of meteorite discoveries, including a 1.5-tonne specimen found by a farmer ploughing a paddock in the 1850s.",
+      "Casey Council was sacked for corruption in the late 2010s, and locals still complain about its incompetence, from closing historic venues to demolishing the library.",
+      "Hoon drivers treat Cranbourne Road like a racetrack at night, with locals complaining of 'Grand Prix' noise and 2am tip-ins from AU Falcons."
+    ],
+    "history": "Before European settlement, the Boon wurrung people knew the area as Mar-ne-bek. The name Cranbourne comes from either Viscount Cranbourne or an English town. The railway arrived in 1887, and Italian immigrants started market gardening after WWI. The Royal Botanic Gardens site was chosen in the 1940s for its sandy soil, and the suburb boomed with housing estates from the 1990s.",
+    "top_quote": "Typical Crimebourne",
+    "quotes": [
+      "Typical Crimebourne",
+      "Most nights Cranbourne Road sounds like the Grand Prix",
+      "Cranbourne is commonly known as Crimebourne which might be accurate for some parts but in all the new developments I think it’s probably safer than other burbs",
+      "Sunbury to Cranbourne, heard it already referred to as 'The Machete Express'",
+      "The Cranbourne-Pakenham line is absolutely stunning, particularly around Yarraman and Dandenong station",
+      "Panda Mart in Cranbourne shut its doors amid a surge in customers",
+      "I live near this place. What a nightmare since it's opened! Can't wait till the hype dies down",
+      "It's the North Korea of schools. No, even North Korea has more freedom than this school.",
+      "There's no simpler joy in life than 2am tip ins with the AU on Cranbourne.",
+      "His little chats always bring a smile to my face, he often talks about the 'rivers of steel'"
+    ],
+    "primary_category": "family",
+    "mascot": {
+      "name": "Gary the Cranbourne Commuter, 42",
+      "tagline": "Mate, the train's cancelled again—but at least the Botanic Gardens are world-class.",
+      "description": "Gary's been doing the Cranbourne-to-CBD run for 15 years. He knows every bus replacement route by heart and still cracks a smile when the wholesome train driver comes on the PA. He's proud of his suburb's gardens and affordable house, even if he has to dodge hoons on Cranbourne Road.",
+      "image_prompt": "A man in a hi-vis vest and work boots, holding a takeaway coffee and a metro train timetable, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#2E8B57",
+        "#FFD700",
+        "#FFFFFF"
+      ],
+      "emblem": "meteorite",
+      "style": "horizontal tricolor",
+      "description": "A horizontal tricolor of green (representing the Botanic Gardens), gold (for the meteorite discoveries), and white (for the original heathland). In the center, a simple meteorite emblem nods to Cranbourne's famous space rock finds.",
+      "image_prompt": "A horizontal tricolor flag with green top, gold middle, and white bottom bands. A simple meteorite emblem in the center. Minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM00415b.htm",
+    "history_source_author": "Jenny Coates"
+  },
+  "Dandenong": {
+    "nickname": "Dandy",
+    "tags": [
+      "gateway to Gippsland",
+      "Afghan kebabs and Indian sweets",
+      "Dandenong market since 1866",
+      "Heinz and Holden factory town",
+      "137 national origins",
+      "gridlocked freeway after accidents",
+      "bad rep since the 80s",
+      "Jim Dandy pub",
+      "mobility scooters at Dande Plaza",
+      "Nazi flag bridge incident",
+      "floodplain turned industrial hub",
+      "Tuesday market day institution"
+    ],
+    "vibe": "Melbourne's most misunderstood industrial powerhouse — a loud, practical, multicultural juggernaut that's been called a shithole for decades but actually has incredible food, a legendary market, and a quiet pride. It's rough around the edges, sure, but the people who live here know it's way safer than its reputation suggests. The kind of place where you can buy a $5 kebab and a $500,000 house in the same afternoon.",
+    "lore": [
+      "Dandenong station has a reputation for being dicey after dark — a police station was even opened there and then closed shortly after because it was 'too dangerous for cops at night'.",
+      "The Jim Dandy pub is widely considered one of Melbourne's scummiest pubs, a local institution for all the wrong reasons.",
+      "A Nazi flag was hung from a bridge over the M420 in Dandenong in 2025, prompting a 000 call and a swift police response — locals were furious but advised not to confront the perpetrators.",
+      "Dandenong Plaza hasn't changed in a decade — still the same mobility scooters, same chaotic carpark, same vibe.",
+      "The Dandenong market started in 1866 on Lonsdale Street, moved to Clow Street in 1926, and the stock market ran until 1998 — Tuesday was the big day for farmers and townsfolk.",
+      "The Dandenong Police Paddocks were the headquarters of the Native Police Corps from 1837 to 1852, one of the earliest colonial law enforcement outposts.",
+      "International Harvester, Heinz, and General Motors-Holden set up in the 1950s, turning Dandenong into a manufacturing powerhouse and tripling its population in 15 years.",
+      "The 'Dandy' range of bacon was produced locally by the Gippsland Cooperative Bacon Curing Co. from 1912 until the 1980s."
+    ],
+    "history": "Dandenong takes its name from the Dandenong Creek, possibly a corruption of an Aboriginal word 'Tanjenong' meaning lofty mountain. Originally a timber-cutters' settlement in the 1830s, it became a market town for surrounding farms, then exploded as a manufacturing hub after WWII when Heinz, Holden, and International Harvester moved in, tripling the population between 1945 and 1960 and attracting migrants from 137 nations.",
+    "top_quote": "Dandenong had a bad rep 40 years ago. Not much changes.",
+    "quotes": [
+      "Dandenong had a bad rep 40 years ago. Not much changes.",
+      "Dandenong station has a bad rep.",
+      "That's just Dandewrong.",
+      "Dandenong is fine. When I moved here 7 years ago, raised eyebrows followed me... 7 years later, not one single incident ever.",
+      "How has no one said the Jim Dandy in Dandenong?",
+      "Dandenong/Cranbourne/Noble Park — just off the top of my head.",
+      "I hope Dandenong never gentrifies. It's got its own vibe.",
+      "Dandenong flies under the radar (for food).",
+      "Probably cop it for this, but Dandenong is actually starting to gentrify (certain parts) and has great dining and the market.",
+      "Doesn't look like Dandenong to me. I don't see any carjackings taking place."
+    ],
+    "primary_category": "multicultural",
+    "mascot": {
+      "name": "Mario the Dandenong Market Trader, 62",
+      "tagline": "You want the good Afghan bread? I show you the good one.",
+      "description": "Mario's been selling produce at the Dandenong Market since the 80s — he knows everyone, from the Afghan kebab guys to the Indian sweet shop owners. He'll give you a free apple for your kid and a tip on which butcher has the best lamb.",
+      "image_prompt": "Middle-aged man in a striped apron and cap holding a bunch of fresh herbs, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#1B3A5F",
+        "#F4D35E",
+        "#FFFFFF"
+      ],
+      "emblem": "market scale",
+      "style": "horizontal tricolor",
+      "description": "A horizontal tricolor of navy blue, gold, and white. The navy represents Dandenong's industrial heritage and the Dandenong Creek, the gold represents the market and multicultural vibrancy, and the white stands for the floodplains and the 'gateway to Gippsland' history. In the center, a simple market scale emblem symbolises the famous Dandenong Market.",
+      "image_prompt": "Horizontal tricolor flag with navy blue top, gold middle, and white bottom stripes. A simple market scale emblem in the center. Minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM00440b.htm",
+    "history_source_author": "Lesley Alves"
+  },
+  "Doncaster": {
+    "nickname": "",
+    "tags": [
+      "Westfield Doncaster",
+      "no train line",
+      "first electric tram in southern hemisphere",
+      "buses only",
+      "Asian restaurants",
+      "parking rage",
+      "Eastern Freeway",
+      "Ruffey Lake Park",
+      "Manningham multicultural",
+      "Skibidi toilet at JB Hi-Fi",
+      "goats on Eastern Freeway",
+      "140 years of rail promises"
+    ],
+    "vibe": "A well-heeled eastern suburb that's somehow both bustling and sleepy, dominated by Westfield and a car-dependent layout. The lack of a train line is a running sore—locals joke about 140 years of broken promises while the bus network does its best. It's leafy, multicultural, and family-oriented, but the shopping centre car park is a gladiatorial arena.",
+    "lore": [
+      "Doncaster had the first electric tram in the southern hemisphere in 1889, running from Box Hill to a tourist tower—but it only lasted seven years.",
+      "The Eastern Freeway was planned to have a light rail or train down the middle, hence its unusual width; it never happened.",
+      "Westfield Doncaster's rooftop carpark is a prime spot for storm-watching and sunset photos of the CBD skyline.",
+      "The Bunnings-Mercure hotel combo at the top of the hill is a beloved architectural oddity—you can buy a sausage roll and then check in for the night.",
+      "A flock of goats is sometimes hired to clear vegetation along the Eastern Freeway, delighting commuters.",
+      "The suburb's name is often pronounced 'Doncahster' by locals, a subtle shibboleth.",
+      "Doncaster was a major orchard and flower-growing area in the 19th century, with a fruit-growers' cool-store built in 1892.",
+      "The Pines Shopping Centre in Doncaster East is sometimes confused with the sketchy 'Pines' of yesteryear, but locals insist it was never that bad."
+    ],
+    "history": "European settlement began in 1838, and the area was known for orchards and market gardens. The first electric tram in the southern hemisphere ran here in 1889, but it was short-lived, leaving Doncaster without a train line ever since. Post-WWII suburbanisation and the opening of Doncaster Shoppingtown in 1969 transformed it into a car-centric family suburb.",
+    "top_quote": "A Chinese neighbour was told to 'Go home' by some idiot on the bus back from town. She said 'Yeah. I'm doing that right now, on this bus home to Doncaster'.",
+    "quotes": [
+      "A Chinese neighbour was told to 'Go home' by some idiot on the bus back from town. She said 'Yeah. I'm doing that right now, on this bus home to Doncaster'.",
+      "Come out to Doncaster! First place to get an electric tram in Australia. Now we have a bus and 140 years of promises.",
+      "I'll never get over Doncaster.",
+      "OP grew up in Doncaster and just learnt there is a whole other half of the city",
+      "Doncaster? Absolute shit hole. Please stay away!!",
+      "I used to work at shoppingtown and the staff car park on the roof was seriously the best place to watch the clouds and sky.",
+      "Top of that hill in Doncaster is hot property, always has been.",
+      "Doncaster has CCTV everywhere in their carpark, report it and the vehicle who did it will get fined.",
+      "Doncaster is pronounced Doncahster by locals, but for some reason one person I know who grew up in Melbs insists on Doncasster. Go figure!",
+      "The SE suburbs feel absolutely foreign to me and I can’t explain why, the minute I go past Doncaster I may as well be on Mars"
+    ],
+    "primary_category": "family",
+    "mascot": {
+      "name": "Wendy from Doncaster, Westfield mum",
+      "tagline": "I'll meet you at the food court near TGI Fridays.",
+      "description": "Wendy's been doing the school run in her SUV for a decade, knows every shortcut to avoid the Eastern Freeway clog, and can navigate the Westfield carpark with her eyes closed. She's fiercely proud of Doncaster's multicultural food scene and will fight you over which pho joint is best.",
+      "image_prompt": "A middle-aged woman in a practical puffer jacket and leggings holding a Westfield shopping bag, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#1B3A5F",
+        "#F4D35E",
+        "#FFFFFF"
+      ],
+      "emblem": "electric tram",
+      "style": "horizontal tricolor",
+      "description": "A navy blue, gold, and white horizontal tricolor. Navy represents the Yarra River and Koonung Creek, gold recalls the golden age of orchards and the 1889 tram, and white stands for the suburban dream. A silhouette of the first electric tram sits in the center.",
+      "image_prompt": "Horizontal tricolor of navy blue, gold, and white bands, with a silhouette of a vintage electric tram in the center, minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio"
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM00481b.htm",
+    "history_source_author": "Mary Sheehan"
+  },
+  "Eltham": {
+    "nickname": "",
+    "tags": [
+      "mud brick architecture",
+      "Montsalvat artists colony",
+      "Eltham Copper butterfly",
+      "leafy green wedge",
+      "Hurstbridge train line",
+      "Eltham Barrel fire",
+      "white and elderly",
+      "Alistair Knox legacy",
+      "Eltham Maccas aquarium",
+      "bushfire risk",
+      "fruitbowl concert venue",
+      "Mr Cruel connection"
+    ],
+    "vibe": "Eltham feels like a leafy, semi-rural enclave that's fiercely proud of its artistic heritage and bushland setting. It's the kind of place where mud-brick community centres and timber trestle bridges coexist with modern cafes and a Macca's aquarium. Locals love the green wedge lifestyle but complain about the train frequency and the lack of diverse food options.",
+    "lore": [
+      "The Eltham Barrel, a giant German/Swiss-themed restaurant shaped like a barrel, opened in 1969 and burned down in 1989—locals still reminisce about the smorgasbord and speculate it was an insurance job.",
+      "Montsalvat, Australia's oldest continuously operating artists' colony, was founded by Justus Jörgensen in the 1930s and built from mud brick and stone—it's still a hub for visual and performing arts.",
+      "Eltham Maccas has a full-blown coral reef aquarium that's been a local talking point for years, though regulars say the fish mostly float at the top.",
+      "The Eltham Fruitbowl was a legendary all-ages music venue in the late 90s/early 2000s, hosting bands like Grinspoon, 28 Days, and Regurgitator—many a sweaty gig ended with someone getting their stomach pumped.",
+      "Eltham station is said to be haunted by a spectre called Lyle, who appears if you light a cigarette on the platform.",
+      "The suburb was a key location in the Mr Cruel case—police believed the offender owned a house under the flight path, and locals still feel uneasy about it.",
+      "Environmental builder Alistair Knox convinced the council to approve mud brick construction in 1947, leading to Eltham's signature earth-built homes and community buildings.",
+      "The Eltham Copper butterfly, an endangered species, is found only in the region's bushland—locals are fiercely protective of its habitat."
+    ],
+    "history": "Eltham was gazetted as a village in 1851, probably named after a British town, and grew as a gold rush service centre. From the 1930s, it became a haven for artists, with the Montsalvat colony and mud-brick architecture shaping its character.",
+    "top_quote": "Eltham is 10/10 to live in, I’d prefer it over anywhere else.",
+    "quotes": [
+      "Eltham is 10/10 to live in, I’d prefer it over anywhere else.",
+      "Eltham would be considered a super rich area when compared to dandenong/noble park",
+      "Eltham. White. Elderly.",
+      "It's expensive out that way..leafy and hilly which is why it's not been developed as much.",
+      "Eltham Maccas with the full blown aquarium",
+      "The Eltham Barrel, a German/Swiss themed restaurant. Opened 1969, burnt down in 1989. Claimed to be 8m litre capacity.",
+      "I remember Eltham community being very anti-Maccas for a while there, so perhaps this is the result of their militant wing?",
+      "Lighting a cigarette anywhere in Eltham station will summon Lyle out of nowhere",
+      "it's great if you want to stop living in Melbourne and start living in Eltham. It's its own ecosystem.",
+      "Eltham is the desert as far as food is concerned, then you get to Dandenong and it’s like an oasis."
+    ],
+    "primary_category": "multicultural",
+    "mascot": {
+      "name": "Bruce the Eltham Mud-Brick Artist, 62",
+      "tagline": "I built my studio with my own hands—and the council approved it in '47.",
+      "description": "Bruce is a gentle soul in a paint-stained linen shirt and clay-crusted jeans, holding a trowel and a small canvas. He's been part of the Montsalvat scene for decades and knows every back road through the green wedge.",
+      "image_prompt": "An elderly artist in a paint-stained linen shirt and jeans, holding a trowel, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#4A7C59",
+        "#D4A373",
+        "#F4F1DE"
+      ],
+      "emblem": "mud brick house",
+      "style": "horizontal tricolor",
+      "description": "A horizontal tricolor of green (bushland), tan (mud brick), and cream (artistic spirit). The center features a stylized mud brick house, representing Eltham's signature architecture and the Montsalvat colony.",
+      "image_prompt": "Horizontal tricolor of green, tan, and cream bands with a stylized mud brick house emblem in the center, minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio"
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM00516b.htm",
+    "history_source_author": "Deborah Bartolomei"
+  },
+  "Epping": {
+    "nickname": "",
+    "tags": [
+      "Costco car park chaos",
+      "sky rail and red skies",
+      "Pacific Epping mega mall",
+      "affordable housing frontier",
+      "Epping Fruit & Veg wifi dead zone",
+      "Northern Hospital ED waits",
+      "tradies in utes with mini utes",
+      "measles outbreak reminders",
+      "rabbit rescues from units",
+      "big-box sprawl meets dairy history"
+    ],
+    "vibe": "Epping is Melbourne's northern sprawl frontier, where Costco trolleys and tradie utes reign supreme. It's a suburb of contradictions: affordable housing dreams meet long ED waits, and the sky sometimes turns apocalyptic red. Locals brag about cheap petrol and house prices under $500K, while complaining about traffic detours and sketchy drivers running red lights at Epping Plaza.",
+    "lore": [
+      "The Epping Fruit & Veg Market creates a mysterious 2.4GHz interference zone that kills wireless Android Auto and CarPlay for drivers passing by.",
+      "A local legend tells of UFO sightings and 'little people' near Cooper St and Epping Rd, where satellite dishes and big fences once stood.",
+      "The sky turned an eerie red over Epping in 2023, prompting Stranger Things and Mordor jokes from residents.",
+      "A rabbit was found wandering around a unit in Epping, leading to a Reddit thread with detailed guinea pig care advice.",
+      "Epping was originally a village reserve named after Epping Forest in Essex, England, in 1853, with dairying and quarrying as early industries.",
+      "The Northern Hospital ED once had a measles patient wait 17+ hours, sparking outrage about public health system strains.",
+      "A local tradie named Siegfried built a famous tri-axle HQ Holden ute carrying a miniature replica of itself, spotted around Epping and Brunswick."
+    ],
+    "history": "Epping was a village reserve named after Epping Forest, Essex, England, in 1853. Dairying and quarrying were once predominant industries, and many early settlers were Irish and German. The suburb grew rapidly in the late 20th century as part of the Plenty growth corridor.",
+    "top_quote": "Epping is straight up fucked at the moment, anybody not needing to go through here, avoid at all costs.",
+    "quotes": [
+      "You can still buy a house for less than $500K!",
+      "Epping is straight up fucked at the moment, anybody not needing to go through here, avoid at all costs.",
+      "Always knew Epping would be where Vecna would bring the upside down.",
+      "Epping is a shithole.",
+      "I used to live in Epping many years ago. There is stories of UFOs further down Cooper's st and off Epping Rd almost opposite Craigieburn Rd.",
+      "Soulless is the word haha. But Epping is fine IMO, still definitely has a more community feel and warmth.",
+      "I am genuinely shocked that houses in Epping sell for that much.",
+      "The sky in Epping today",
+      "Finally petrol is at a price I can afford. BP Northpoint in Epping if you want to fill up",
+      "CarPlay always drops out on me at that big fuck off roundabout at the end of the Greensborough bypass."
+    ],
+    "primary_category": "family",
+    "mascot": {
+      "name": "Siegfried the Epping Tradie, 78",
+      "tagline": "Built this ute meself — she's a beaut, ain't she?",
+      "description": "Siegfried is a retired plasterer who still drives his custom tri-axle HQ Holden ute with a miniature replica of itself in the tray. He's a local legend, known for dailying his Frankenstein monster of a car and waving at everyone who takes a photo.",
+      "image_prompt": "An elderly tradie in a paint-stained hi-vis vest and Akubra hat, holding a steering wheel, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#1B3A5F",
+        "#F4D35E",
+        "#FFFFFF"
+      ],
+      "emblem": "Costco trolley",
+      "style": "horizontal tricolor",
+      "description": "A horizontal tricolor of navy blue, gold, and white. The navy represents the night sky and the suburb's rural past, gold symbolizes the affordable housing dream, and white stands for the endless Costco receipts. In the center, a Costco trolley emblem nods to the suburb's retail heart.",
+      "image_prompt": "A horizontal tricolor flag with navy blue top, gold middle, and white bottom bands. A simple black Costco shopping trolley emblem in the center. minimalistic flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio"
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM00528b.htm",
+    "history_source_author": "Andrew May"
+  },
+  "Frankston": {
+    "nickname": "Franga",
+    "tags": [
+      "beachside with a gritty edge",
+      "FKN train station code",
+      "Dandenong by the sea",
+      "gentrifying but holding onto its bogan soul",
+      "Captain Gummys fish and chips",
+      "Frankston line at 1am",
+      "Franco Cozzo territory",
+      "seagulls on the train",
+      "gender reveal burnout in a Commodore",
+      "Bay of Frankston jokes",
+      "Frankston North sketchy rep",
+      "under $500K houses"
+    ],
+    "vibe": "Frankston is the beachside suburb that refuses to fully shake its rough reputation, even as gentrification creeps in. It's where you can buy a house for under $500K, enjoy a pier and tea-rooms vibe, but also witness a gender-reveal burnout in a Commodore. Locals affectionately call it 'Dandenong by the sea' and joke about the 'Bay of Frankston'—it's a place of contradictions, proud and unpretentious.",
+    "lore": [
+      "The Frankston line station code is FKN, which locals delight in using as 'fkn'—a perfect abbreviation for the suburb's no-nonsense attitude.",
+      "Frankston was once dubbed 'Franganistan' in jest, referencing its perceived lawlessness, though many say the reputation is outdated.",
+      "The 'I own Frankston' kid became a running meme on r/melbourne, with jokes about Frankston expanding its territory like a rogue state.",
+      "Frankston's beach and pier are classic seaside resort features, but the area's nightlife includes Moon Dog Beach Club and the infamous 'Frankston Warzone' patch notes.",
+      "The suburb has a strong British expat community, reflected in its higher proportion of British-born residents than Melbourne average.",
+      "Frankston South is an affluent enclave with multi-million-dollar homes and tennis courts, contrasting sharply with the gritty Frankston North.",
+      "Urban legend: a ticket inspector once saved a passenger from a zombie-like encounter on the Frankston line, a story that circulates as a local ghost tale."
+    ],
+    "history": "Frankston was named after Major General Sir Thomas Harte Franks, a British military hero. Its growth surged after the railway arrived in 1882, making it the Mornington Peninsula's major urban centre. Post-WWII, cheap land and car-dependent development transformed it from a seaside resort into a sprawling suburb, but traffic congestion remains a challenge.",
+    "top_quote": "I once heard Frankston referred to as 'Dandenong by the sea.'",
+    "quotes": [
+      "I once heard Frankston referred to as 'Dandenong by the sea.'",
+      "Frankston? Looks more like Balaclava.",
+      "The 'change at x for x' annotations really help show how messed up the reversal of directions in the Burnley and Frankston loops is.",
+      "Frankston CBD is pretty ordinary these days. Melbourne CBD has far more junkies. It's just another boring retail hub.",
+      "I grew up down that way and I always loved how Frankston refused to be gentrified. I feel like that's finally happening now though.. I will always miss gritty, grimy Frankston.",
+      "Junkies and fuckwits. Answer: Frankston.",
+      "Frankston should be a multi multi million dollar suburb. Nice beach, big enough Main Street for wide variety of shops. Only reason it's not is the degenerate people it's been tainted with.",
+      "How else are people from Frankston called?",
+      "It's Frankston station bro, if you don't get invited to pass the glass barbecue in the enclosed waiting room you are out of luck. Normal behaviour.",
+      "I was once offered drugs by a guy who'd been released from prison the day before on the Frankston Line."
+    ],
+    "primary_category": "multicultural",
+    "mascot": {
+      "name": "Shazza from Franga, 45",
+      "tagline": "Yeah, it's got a rep, but where else can you get fish and chips AND a train into the city for under $500K?",
+      "description": "Shazza's been in Frankston since the 90s and has seen it all—the fights, the gentrification, the seagulls stealing chips. She's proud of her suburb's grit and will defend it against anyone who calls it 'Dandenong by the sea.'",
+      "image_prompt": "A woman in her 40s with a bleached ponytail and a Frankston Football Club hoodie, holding a bag of Captain Gummys fish and chips, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#1B3A5F",
+        "#F4D35E",
+        "#FFFFFF"
+      ],
+      "emblem": "seagull",
+      "style": "horizontal tricolor",
+      "description": "A horizontal tricolor of navy blue (representing the bay), gold (for the beach and sunshine), and white (for the seagulls and fish and chips). The emblem is a seagull in flight, symbolizing the iconic beachside bird that rides the Frankston line.",
+      "image_prompt": "A horizontal tricolor flag with navy blue, gold, and white bands from top to bottom. In the center, a simple white seagull emblem. Minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM00606b.htm",
+    "history_source_author": "Lionel Frost"
+  },
+  "Glen Waverley": {
+    "nickname": "",
+    "tags": [
+      "kingsway food strip",
+      "asian family suburb",
+      "glen waverley line terminus",
+      "private school kids",
+      "the glen shopping centre",
+      "mcmansions on quarter-acre blocks",
+      "first mcdonald's in melbourne",
+      "narrow station entrance bottleneck",
+      "police helicopter regular",
+      "laksa king branch",
+      "fuck murdoch sign on hills",
+      "boil water alerts"
+    ],
+    "vibe": "An affluent eastern suburb that's transformed from nappy valley to a bustling Asian food hub, where Kingsway restaurants compete for attention and the Glen shopping centre anchors the retail scene. It's family-oriented, with top schools and McMansions, but the narrow train station entrance and constant police chopper traffic remind you it's not all suburban bliss. The food scene is seriously underrated, often compared favourably to Box Hill.",
+    "lore": [
+      "The Glen Waverley station entrance is notoriously narrow, causing bottlenecks that have made people miss trains — a recurring complaint in the station elimination competition.",
+      "Melbourne's first McDonald's opened in Glen Waverley, and old photos show it served fried chicken pieces and had a terrifying clown mascot.",
+      "The suburb was originally called Black Flat until 1905, a name that hints at its pre-orchard days.",
+      "The railway terminus arrived in 1930, but the station was moved 250 metres west in 1964 to create a central parking square — a classic car-centric 60s planning move.",
+      "Franco Cozzo's Footscray gets all the love, but Glen Waverley has its own share of suburban legends, including a notorious Airbnb party that drew 20+ cop cars.",
+      "The 'Fuck Murdoch' sign on the hills near Glen Waverley is a beloved local landmark, visible through smoke during bushfire season.",
+      "An abandoned Lifestyle Fitness in Wheeler's Hill/Glen Waverley stood for years, with Redditors wondering when it would finally be demolished for apartments."
+    ],
+    "history": "This district of former orchards and market gardens was known as Black Flat until 1905. The railway terminus arrived in 1930, accelerating development after 1955, and the station was moved west in 1964 to create a central shopping square, anchoring the commercial hub.",
+    "top_quote": "The only crime here is the camera work",
+    "quotes": [
+      "The only crime here is the camera work",
+      "Glen Waverley must go.",
+      "I'm in Glen Waverley and have seen almost all of these in my backyard or in neighbouring yards! I even had 3 black cockatoos eating the buds off one of my trees last summer; I nearly died of excitement (yes, I am old)",
+      "100% glen waverley > Box hill",
+      "Probably the Glen Waverley people spotted somebody from Broadmeadows and called in the local police to have them dealt with.",
+      "Glen Waverley - the best, wish we’d kept our house because we’d probably be millionaires even if it wasn’t in the Glen Waverley High zone.",
+      "My old mob moved from Glen Waverley to Port Melbourne. I live in Doncaster. I was gone in less than 9 months.",
+      "It's turning into Glen Waverley. When the cashed up oldies cark it cashed up Chinese buy their homes and bulldoze them for McMansions.",
+      "Main complaint is the station entrance/exit is far too narrow for how many people use it - I once missed a train after jumping off a bus and being met with a wall of people crowdedly disembarking through the Myki gates."
+    ],
+    "primary_category": "multicultural",
+    "mascot": {
+      "name": "Ming the Glen Waverley Foodie, 34",
+      "tagline": "The Laksa King's loyalty card is basically my CV.",
+      "description": "Ming knows every hidden gem on Kingsway, from the best laksa at Laksa King to the dumplings at Angie's. They'll tell you Glen Waverley's food scene beats Box Hill any day, and they've got the photos to prove it.",
+      "image_prompt": "Asian-Australian 30-something in a casual hoodie holding a steaming bowl of laksa, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#E63946",
+        "#F4A261",
+        "#2A9D8F"
+      ],
+      "emblem": "laksa bowl",
+      "style": "vertical tricolor",
+      "description": "The flag features three vertical bands: red for the suburb's vibrant food scene, orange for its lively Kingsway strip, and teal for the surrounding parks and green spaces. A bowl of laksa in the center symbolizes Glen Waverley's renowned Asian cuisine.",
+      "image_prompt": "Vertical tricolor flag with red, orange, and teal bands, a bowl of laksa in the center, minimalistic flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM00647b.htm",
+    "history_source_author": "Susan Priestley"
+  },
+  "Greensborough": {
+    "nickname": "Greensy",
+    "tags": [
+      "trucks tailgating on M80",
+      "ducks blocking the freeway",
+      "Greensborough Plaza gang fights",
+      "Plenty River trails",
+      "North East Link construction chaos",
+      "bushfire risk with one road out",
+      "Italian community",
+      "train station elimination meme",
+      "affordable family suburb",
+      "hilly green views like Warrandyte",
+      "Ric Bitter's daughter Victoria",
+      "back fences 9km apart by road"
+    ],
+    "vibe": "Greensborough is a leafy, hilly outer-north suburb that feels more like a bushland retreat than a suburban hub, but its single arterial road and constant North East Link construction make traffic a nightmare. It's a family-friendly area with a strong Italian heritage and a growing young family demographic, though locals grumble about the lack of nightlife and the 'nothing' train station. The community is fiercely protective of its green spaces and quiet character, even as development creeps in.",
+    "lore": [
+      "The infamous Greensborough Plaza gang fight in 2003, where two massive gangs converged and someone got flogged with a chain, is a local legend of a rougher past now replaced by money and nice cars.",
+      "Rick Bitter, a Greensborough man, named his daughter Victoria, and the internet roasted him with Victoria Bitter jokes forever.",
+      "The intersection of Lower Plenty and Greensborough roads is a crash hotspot; a house there has had its fence smashed in so many times locals wonder why bollards aren't installed.",
+      "In the old days, Greensborough was a market garden and orchard area, with a flour mill on the Plenty River, serving the Caledonia goldfield in the 1850s.",
+      "Ducks once blocked the M80 near Greensborough, prompting a VicTraffic update that became a meme: 'Ducks. Just ducks.'",
+      "The North East Link has been demolishing trees at Simpson Barracks, upsetting locals who mourn the loss of 70-year-old vegetation.",
+      "Some houses in Greensborough share a back fence but are 9km apart by road due to the winding Plenty River topography, a fact that blew Reddit's mind.",
+      "The Greensborough Bypass was proposed in 1970 but never built, leaving residents with only one main road and constant congestion."
+    ],
+    "history": "Originally called Keelbundoora, Greensborough was named after Edward Green who purchased land in the 1840s and surveyed a township. It grew as a commercial centre serving the Caledonia goldfield, then remained a horticultural district and picnic spot until suburban subdivisions took off in the 1950s.",
+    "top_quote": "Legit, parts of greensborough could be mistaken for warrandyte. You can be looking out over a plenty gorge sunset, watching birds fly by on your deck and then be in abbotsford having a pint 30 minutes later.",
+    "quotes": [
+      "Legit, parts of greensborough could be mistaken for warrandyte. You can be looking out over a plenty gorge sunset, watching birds fly by on your deck and then be in abbotsford having a pint 30 minutes later.",
+      "Greensborough - rough in parts, Italian everywhere else.",
+      "My vote is Greensborough. An ordinary station with not many interesting things going on around it.",
+      "I was going to move to Greensborough since it's 9 km from work and a very beautiful area, then I tried driving around there for property inspections. The roads were backed up for kilometres and there was only one main (and congested) road into work.",
+      "Local here. I totally understand the annoyance of increased traffic and reduction of green space a through road would do, but sweet Jesus I'd love another way to my house other than Plenty Road on a weekday afternoon.",
+      "Ducks. Just ducks.",
+      "The worst thing about this isn't how long it takes to get to a neighbour's house- It's the fact these areas could be threatened by fire due to proximity with bushland and there's only one road out.",
+      "That is the most bogan thing ever I love it.",
+      "Greensborough is probably the most affordable but even that's getting out of hand now.",
+      "Now? Greensy is filled with very nice cars and lots of money. There's not been gangs and such there for a long time now."
+    ],
+    "primary_category": "family",
+    "mascot": {
+      "name": "Mike the Greensborough Dad, 42",
+      "tagline": "Just trying to get home on Plenty Road before the ducks cause another jam.",
+      "description": "Mike the Greensborough Dad, 42, drives a practical SUV and always has a dash cam rolling for the inevitable M80 truck incident. He loves the Plenty River trail on weekends but dreads the school run through the one congested road.",
+      "image_prompt": "Dad in polo shirt and shorts holding a dash cam, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#2E5E2E",
+        "#FFFFFF",
+        "#FFD700"
+      ],
+      "emblem": "Plenty River duck",
+      "style": "horizontal tricolor",
+      "description": "A green-white-gold horizontal tricolor. Green represents the bushland and parks, white the Plenty River, and gold the market garden heritage. The center emblem is a duck, referencing the famous M80 duck incident and the area's wildlife.",
+      "image_prompt": "Horizontal tricolor of green, white, and gold bands with a duck in the center, minimal flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio"
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM00673b.htm",
+    "history_source_author": "Jill Barnard"
+  },
+  "Heidelberg": {
+    "nickname": "",
+    "tags": [
+      "burgundy street strip",
+      "austin hospital hub",
+      "possums the size of dogs",
+      "essendon bombers territory",
+      "heide school of art",
+      "old england hotel",
+      "warringal parklands",
+      "play centre birthday parties",
+      "magnet fishing in the yarra",
+      "bombers fans in pain",
+      "heidelberg west housing commission",
+      "the mall (pronounced maaaaaall)"
+    ],
+    "vibe": "Heidelberg is a leafy, middle-class enclave with a proud history and a quiet, community-focused pace. It's the kind of place where you can find a massive possum on the train platform, a 70-year-old message in a hospital wall, and three different families bonding over AFL and cake allergies at a kids' party. Locals love the convenience and the parks, but they'll also tell you about the traffic and the occasional road rage incident that goes viral.",
+    "lore": [
+      "The Heidelberg School of artists painted the Yarra Valley here in the late 1880s, putting the suburb on the cultural map.",
+      "The Old Heidelberg Cemetery on Hawdon Street is a single-plot graveyard, the last remnant of the original cemetery after exhumations in the 1950s.",
+      "A 70-year-old message from 'Stephen Vincent Pennicott' was found in the walls of Heidelberg Hospital in 2024, sparking a Reddit investigation that traced it to a tradie's prank.",
+      "The Mall in Heidelberg West is so notoriously rough that locals insist on pronouncing it 'The Maaaaall' – say it posh and you might get decked.",
+      "West Heidelberg was built on Housing Commission estates and the 1956 Olympic Village, giving it a very different socio-economic character from the rest of the suburb.",
+      "The Burgundy Street strip is the commercial heart, with cafes, restaurants, and the Warringal Shopping Centre, but locals complain about parking and petrol price gouging at the 7-Eleven.",
+      "A massive possum that hangs around Heidelberg station is a local celebrity, unafraid of humans and often seen chilling on the platform.",
+      "The Hurstbridge train line is a lifeline, but breakdowns and overcrowding are a regular gripe, with passengers sometimes waiting 15 minutes just to move 5 metres."
+    ],
+    "history": "Heidelberg was subdivided in 1838, named after its German counterpart by a land agent who thought the Yarra Valley resembled it. The 1840s depression ruined early gentry, but the 1880s brought the Heidelberg School of artists, and post-WWII the suburb expanded rapidly, including the 1956 Olympic Village in West Heidelberg.",
+    "top_quote": "You've gotta be a little unafraid to hang around Heidelberg at night.",
+    "quotes": [
+      "You've gotta be a little unafraid to hang around Heidelberg at night.",
+      "Heidelberg is practical, hospital-led and rail-served, with real Burgundy Street convenience and real traffic.",
+      "The dead centre of Heidelberg.",
+      "I used to run past this odd spooky tidbit of history in Heidelberg. Took me a while before I had the courage to actually have a wander in, haha.",
+      "Big boys gotta eat, he seems berry focused on his dinner.",
+      "Old Heidelberg Cemetery: A one plot graveyard in North East suburbia.",
+      "We used to live in that street in Heidelberg and had a family of those bastards living in our roof.",
+      "Average Heidelberg driver behaviour.",
+      "When I lived in Heidelberg West I was advised never within locals' hearing to pronounce the Mall as Morl like a posh person, only The Mall with the 'a' pronounced long like 'bad' or else I'd get decked.",
+      "People who live here know that Heidelberg itself is full of rich white folks while HW may as well be Broadmeadows."
+    ],
+    "primary_category": "family",
+    "mascot": {
+      "name": "Margaret the Heidelberg Hospital Nurse, 62",
+      "tagline": "I've seen more drama in this hospital than in all of Burgundy Street.",
+      "description": "Margaret has worked at Austin Hospital for 40 years and knows every shortcut through the Warringal Shopping Centre. She's seen it all – from possum rescues to road rage incidents – and still finds time to grab a coffee at Miss Marie between shifts.",
+      "image_prompt": "A smiling middle-aged nurse in blue scrubs and comfy sneakers holding a takeaway coffee cup, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#1B3A5F",
+        "#F4D35E",
+        "#FFFFFF"
+      ],
+      "emblem": "possum",
+      "style": "horizontal tricolor",
+      "description": "A horizontal tricolor of navy blue, gold, and white. The navy represents the Yarra River and the suburb's history, gold symbolizes the Heidelberg School's artistic legacy, and white stands for the Austin Hospital. A small possum emblem in the center reflects the suburb's famous nocturnal residents.",
+      "image_prompt": "A horizontal tricolor flag with navy blue, gold, and white bands of equal width, a small black possum silhouette in the center, minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM00704b.htm",
+    "history_source_author": "Don Garden"
+  },
+  "Ivanhoe": {
+    "nickname": "",
+    "tags": [
+      "Ivanhoe Grammar teens on trains",
+      "Chei Wen racism saga",
+      "military precision Coles facing",
+      "steep rickety station bridge",
+      "leafy streets and mansions",
+      "electric bus depot",
+      "Cameron vs party neighbours",
+      "WWII dog tag in garden",
+      "sleepy but posh",
+      "Upper Heidelberg Road dining"
+    ],
+    "vibe": "Ivanhoe is a leafy, comfortably affluent suburb that quietly prides itself on being a cut above, with grand homes and private schools setting the tone. But beneath the calm surface lurk rowdy private school kids on trains, a notorious racist bar, and neighbours who'll call the cops on a party before midnight. It's the kind of place where you can find military-precision shelf stacking at Coles and a WWII dog tag in your grandma's garden, all while the electric buses hum silently past.",
+    "lore": [
+      "Ivanhoe Grammar students are infamous on the Hurstbridge line for acting like 'absolute wankers' — blocking doors, tagging trains, and harassing women, leading to endless Reddit threads about how to get them in trouble with the school.",
+      "Chei Wen bar sparked a major Reddit scandal for its allegedly racist name and décor, including a framed photo of a white person in a Chinese caricature costume. The owner's grandson reportedly told a half-Chinese patron 'my grandad fought against your people in the war'.",
+      "The Ivanhoe Coles has a legendary shelf-stacker who faces every item with obsessive precision — Reddit users call it 'military precision' and 'the best line of coke' they've seen.",
+      "The Ivanhoe station footbridge is notoriously steep and rickety; one Redditor took a cartoon-style tumble down both flights, inspiring a torrent of 'Family Guy death pose' jokes and calls for better accessibility.",
+      "A mysterious WWII US military dog tag was unearthed in an Ivanhoe garden, bearing the name Edward Devine of San Leandro, California — sparking speculation about how it ended up 10,000 miles from the Pacific theater.",
+      "Local legend 'Cameron' has a reputation for spoiling house parties in Ivanhoe, with a handwritten note telling partygoers 'the police have been called' — leading Reddit to debate whether Cameron is a hero or a villain.",
+      "Ivanhoe was once marketed as the 'Toorak of the north' during the 1880s land boom, with large blocks and mansions like Ravenswood (built 1891) attracting affluent businessmen.",
+      "The suburb's first all-electric bus depot opened in 2024, housing 27 buses that serve La Trobe University, Preston Market, and Northland — a source of both pride and predictable NIMBY gripes."
+    ],
+    "history": "Ivanhoe takes its name from Sir Walter Scott's novel, given to an 1840s farm by Archibald Thom. During the 1880s land boom it was promoted as the 'Toorak of the north', with large blocks and grand homes for affluent businessmen. The opening of an improved railway in 1901 spurred Edwardian housing growth, and post-WWII development cemented its reputation as a leafy, comfortable suburb of private schools and well-heeled families.",
+    "top_quote": "Ivanhoe area is not a fan of parties. Having lived here for some time Friday and Saturday nights in the neighbourhood are dead quiet. These guys throwing the party are the exception and should realise that.",
+    "quotes": [
+      "Ivanhoe area is not a fan of parties. Having lived here for some time Friday and Saturday nights in the neighbourhood are dead quiet. These guys throwing the party are the exception and should realise that.",
+      "I go to this school, and my apologies, there's really a lot of bullshit that I hear about being pulled on the trains.",
+      "Went to a bar called Chei Wen in Ivanhoe last Saturday night for a few drinks with some friends. I thought it was a Chinese restaurant or a bar with some kind of Chinese theme when I first heard the name.",
+      "This bar is owned by Ivanhoe Grammar alumni. Need I say more? Privileged white boys who peaked in high school.",
+      "Military precision at Ivanhoe Coles",
+      "Ivanhole",
+      "The stairs there are fucked and I made the same train mistake more than once when I lived in Fairfield.",
+      "You're looking at Victoria's first all-electric bus depot.",
+      "I love Macleod/Rosanna/Heidelberg/Viewbank… that whole area is so appealing to me. Green suburbs, great people, good schools and shops/cafes.",
+      "Ivanhoe is a pretty interesting suburb, you’ve got the Bellfield / Heidelberg west side which can still be a little sketchy with regards to property crime, but then you’ve got the Ivanhoe East / Eaglemont side where you wouldn’t see much change from $3M if you were looking for a free-standing house."
+    ],
+    "primary_category": "family",
+    "mascot": {
+      "name": "Meredith from Ivanhoe, private school mum",
+      "tagline": "I don't mean to be rude, but is that party really necessary on a Tuesday?",
+      "description": "Meredith is the kind of local who knows the name of every barista at Plat Coffee and has strong opinions about the Christmas lights traffic management. She'll call the council about a noisy party before you've finished your first drink, but she's also the first to offer a lift to the station when it's raining.",
+      "image_prompt": "A woman in her 40s with a tidy blonde bob, wearing a puffer vest and carrying a reusable shopping bag from Coles, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#2E5E4E",
+        "#F4D03F",
+        "#FFFFFF"
+      ],
+      "emblem": "electric bus",
+      "style": "horizontal tricolor",
+      "description": "A horizontal tricolor of forest green, gold, and white. The green represents Ivanhoe's leafy streets and Yarra River parkland, the gold its historical 'Toorak of the north' aspirations, and the white the quiet respectability. A small electric bus emblem in dark green sits in the center of the gold band, nodding to the suburb's pioneering all-electric bus depot.",
+      "image_prompt": "Horizontal tricolor of forest green, gold, and white, with a small dark green electric bus emblem in the center of the gold band, minimal flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM00768b.htm",
+    "history_source_author": "Don Garden"
+  },
+  "Keilor": {
+    "nickname": "",
+    "tags": [
+      "organ pipes national park",
+      "keilor village heritage precinct",
+      "maribyrnong river walks",
+      "calder freeway access",
+      "bootleg cbd street names",
+      "plane-spotting central",
+      "old keilor money",
+      "glass bricks and corner spas",
+      "cricket bat home defense",
+      "keilor road cafes",
+      "toll road gripes",
+      "quiet leafy streets"
+    ],
+    "vibe": "Keilor is the quiet achiever of Melbourne's north-west — a leafy, affluent dormitory suburb with a surprising amount of character if you know where to look. The village precinct along the Maribyrnong River offers a slice of old Melbourne, while the surrounding estates are solidly middle-class and family-oriented. It's the kind of place where people complain about traffic on Keilor Road and the lack of a train station, but secretly love being close to the freeways and airport.",
+    "lore": [
+      "Keilor Park has a bootleg CBD with street names like Russelton and Latrose — a suburban in-joke that confuses newcomers.",
+      "The Organ Pipes National Park is a geological wonder just minutes from the Calder, formed by ancient basalt columns — locals still argue over whether it's worth the visit.",
+      "There's a persistent urban legend about a dim sim factory in Keilor/Tullamarine that allegedly processed murder victims in the 1970s.",
+      "Keilor Village heritage precinct on the Maribyrnong River is the heart of old Keilor, with a courthouse and hotel dating back to the gold rush era.",
+      "The Calder Freeway stretch near Keilor East is notorious for accidents, including a tanker rollover that locals still talk about.",
+      "In 2014, a block of land in Keilor sold for $400k, then a $3M house was built on it — a classic Melbourne property flip that blew up on Reddit.",
+      "The 'CUPID' posters on light poles at Green Gully Rd/Old Calder Hwy intersection remain a mystery — some say it's club promo, others think it's an art project.",
+      "Keilor's glass bricks and corner spas were the ultimate bogan status symbols in the 1980s, and some houses still have them."
+    ],
+    "history": "Gazetted as a township in 1850, Keilor was originally a stop on the route to the Bendigo goldfields. It transitioned from agricultural land (famous for apricot orchards) to a middle-class dormitory suburb from the 1950s, boosted by the construction of the Calder and Tullamarine freeways and Melbourne Airport.",
+    "top_quote": "Imagine paying 3 mil to live in Keilor",
+    "quotes": [
+      "Imagine paying 3 mil to live in Keilor",
+      "Keilor Park has a bootleg CBD - street names are familiar but just a bit off...",
+      "Grew up in Keilor, this hits close to home 😆😆",
+      "Keilor is basically old people everywhere.",
+      "I just want keilor road. That's in Niddrie. This in Sunshine Ave.",
+      "Fun fact: I personally know the actor. Legend of a bloke!",
+      "Lol. I'm in Keilor. You forgot KEALBA.. A cross between Keilor and StAlbans, on the west border of Brimbank Park",
+      "Keilor Lodge must be one of the smallest suburbs in Melbourne",
+      "How is Keillor East that expensive? It's literally at the end of Melbourne airport….",
+      "Legit question from an uncultured eastsider, and please don't judge me too harshly… Keil-OR, or Keil-UH?"
+    ],
+    "primary_category": "family",
+    "mascot": {
+      "name": "Trevor from Keilor, retired sparkie",
+      "tagline": "I remember when this was all paddocks, mate.",
+      "description": "Trevor's lived in Keilor since the 70s, still drives a ute with a canopy, and knows every back road to avoid the Calder traffic. He'll tell you about the time the Organ Pipes were just a weed-infested hole before the volunteers fixed it up.",
+      "image_prompt": "Retired tradie in flannel shirt and Akubra hat holding a coffee from Keilor Road cafe, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#2E5C2E",
+        "#F4C542",
+        "#FFFFFF"
+      ],
+      "emblem": "organ pipes",
+      "style": "horizontal tricolor",
+      "description": "A horizontal tricolor of green, gold, and white. Green represents the leafy Maribyrnong River corridor and parks, gold evokes the apricot orchards and gold rush history, and white stands for the basalt columns of the Organ Pipes. The emblem of the organ pipes sits in the center.",
+      "image_prompt": "Horizontal tricolor with green top, gold middle, white bottom bands. Center emblem of a small basalt organ pipes formation. Minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM00791b.htm",
+    "history_source_author": "Jenny Keating"
+  },
+  "Lilydale": {
+    "nickname": "Lillydale",
+    "tags": [
+      "end of the lilydale line",
+      "lilydale lake",
+      "floodwater lancer",
+      "steam trains from the past",
+      "bus replacements forever",
+      "yarra valley on the doorstep",
+      "the spelling inconsistency",
+      "methadone pharmacy jokes",
+      "old pub in the station",
+      "cafe in a converted church",
+      "warburton trail walkers",
+      "affordable housing dreams"
+    ],
+    "vibe": "Lilydale is the outer-eastern gateway to the Yarra Valley, where the train line ends and the bush begins. It's a suburb with a strong sense of place, proud of its lake and its history, but locals will be the first to complain about the endless bus replacements and the junkies at Croydon. It's not trying to be cool, but it has its own charm — a mix of old-timers, young families, and the occasional urban legend about a meth head living on the lake island.",
+    "lore": [
+      "Lilydale Lake is actually spelled 'Lillydale Lake' with two L's, a quirk that locals love to point out. The lake was created by damming Olinda Creek and is a popular spot for walking, fishing, and Pokémon Go.",
+      "The old Lilydale Station had a pub inside it — one of Melbourne's scummiest, according to Reddit — but it's gone now.",
+      "Every few years, someone drives a Mitsubishi Lancer through floodwaters on Cave Hill Road, and it becomes a local legend. The car is supposedly indestructible.",
+      "The Warburton Trail follows the old railway line that closed in 1964, and you can still see remnants of the trestle bridge behind the station.",
+      "There's an urban legend about a meth head named Craigo who lives on the islands in Lilydale Lake, only emerging to hassle people for change outside the Crown Hotel.",
+      "The old K Class steam trains occasionally run to Lilydale, delighting rail enthusiasts and confusing everyone else with their haunting whistles.",
+      "Lilydale was named after a sentimental song called 'Lilly Dale', not after a person — though some say it was after Lilly de Castella, wife of an early pioneer.",
+      "Dame Nellie Melba and her father, builder David Mitchell, are buried in the local cemetery."
+    ],
+    "history": "Lilydale was surveyed in 1860, named after a sentimental song called 'Lilly Dale'. It became the terminus of the Lilydale railway line and was a gateway to the Yarra Valley. The old Warburton railway line, closed in 1964, is now a popular walking trail.",
+    "top_quote": "Growing up in Lilydale everyone else in Melbourne thought it was rural and very dangerous.",
+    "quotes": [
+      "Growing up in Lilydale everyone else in Melbourne thought it was rural and very dangerous.",
+      "It still spins me out that Lillydale Lake in Lilydale is legit and not a typo.",
+      "Random fact, its actually spelt Lillydale Lake (with 2 L's). The suburb name got changed to one L at some point but the lake retains 2 :-)",
+      "I love the inconsistency of the way Lilydale is spelled. And that's not an OP mistake, that's literally how they do it in Lilydale.",
+      "I worked at the OC hotel in Lilydale like 15 years ago. Someone got murdered in the arcade across the street during one of my shifts",
+      "Lilydale. The fast (flooding) and the curious.",
+      "Legend has it a meth head called Craigo lives on the island, he's rarely seen and nobody knows who is supplying him but every once in a while he will dry out and leave the island to hastle people for change out the front of The Crown.",
+      "It's shame the pub that was inside the Lilydale train station isn't around anymore. Surely that was one of the scummiest.",
+      "Lilydale and Mooroolbark. used to have people smoking improvised bongs every day when I used to catch that line.",
+      "Junkies at Croydon, Mooroolbark, lilydale…"
+    ],
+    "primary_category": "family",
+    "mascot": {
+      "name": "Gary the Lilydale Train Commuter, 45",
+      "tagline": "Another bus replacement? Better pack a go bag.",
+      "description": "Gary's been riding the Lilydale line for 20 years and has the patience of a saint. He knows every bus replacement route by heart and has a go bag ready for floods, fires, and level crossing removals. You'll find him at the station cafe, Harrow & Harvest, warming his hands by the fireplace and complaining about the main street traffic.",
+      "image_prompt": "A man in a puffer jacket and beanie holding a takeaway coffee cup, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#2E8B57",
+        "#1E90FF",
+        "#FFFFFF"
+      ],
+      "emblem": "Lilydale Lake island",
+      "style": "horizontal tricolor",
+      "description": "A horizontal tricolor of green, blue, and white. Green represents the Yarra Valley and bushland, blue stands for Lilydale Lake, and white symbolizes the Warburton Trail. In the center is a small green island, a nod to the lake's quirky islands and local legends.",
+      "image_prompt": "A horizontal tricolor flag with green top, blue middle, and white bottom bands. In the center, a small green island silhouette. Minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM00855b.htm",
+    "history_source_author": "Peter Baddeley"
+  },
+  "Melton": {
+    "nickname": "",
+    "tags": [
+      "pvpr zone jokes",
+      "promised train electrification since the 70s",
+      "woodgrove shopping centre",
+      "dirt bikes and burnouts",
+      "safe labor seat neglect",
+      "melton south hellhole",
+      "bogan utes and monster snapbacks",
+      "western freeway carnage",
+      "affordable housing frontier",
+      "dutton's headspace visit",
+      "unsolved 1996 murder",
+      "featureless basalt plains"
+    ],
+    "vibe": "Melton is Melbourne's outer-west punching bag, a sprawling growth corridor where cheap land meets chronic underinvestment. Locals are fiercely defensive of their suburb against the endless jokes, while simultaneously griping about the 90-minute train replacement bus commutes and the dirt bikes doing burnouts on the High Street. It's a place of contradictions: a PVP zone in the patch notes, a promised hospital that never comes, and a community that's learned to laugh at itself because the government won't.",
+    "lore": [
+      "Melton was officially declared Victoria's first satellite city in 1974, a strategy to limit suburban sprawl to the east, but it's been sprawling anyway with estates like Kurunjang and Thornhill Park.",
+      "The Melton line electrification has been promised since the 1970s, with locals calling it the 'zombie promise' that reanimates every election cycle and then dies again.",
+      "Woodgrove shopping centre is the beating heart of Melton, but the real action is the 'birdcage' — the old Melton Central that's now a ghost town, with junkies having migrated to Melton South.",
+      "In 2024, Peter Dutton's entourage removed all queer flags and symbols from Headspace Melton before his visit, leading to a massive Reddit thread and the immortal line: 'Hence why he was photographed in front of fish.'",
+      "The unsolved murder of 16-year-old Alana Cecil in 1996 is a cold case still haunting the community, with a podcast called GUILT investigating the bonfire night she died.",
+      "The 'Welcome to Melton' sign was famously altered by a disgruntled resident to complain about rate rises, reading something like 'Welcome to Melton, where rates have increased by 72% but value has only increased by 12%'.",
+      "Melton's nickname as a 'PVP zone' started from a viral Reddit post listing Victorian patch notes, and locals embraced it with dark humour.",
+      "The Melton Hospital has been dangled as a promise for years, with construction finally supposedly starting in 2025 — locals aren't holding their breath."
+    ],
+    "history": "Named after Melton Mowbray in Leicestershire, England, by early squatters who hosted hunts there. It began as a service town for gold rush travellers on the route to Ballarat, and was declared Victoria's first satellite city in 1974 to encourage affordable housing on the western fringe.",
+    "top_quote": "I live in Melton. This explains a lot.",
+    "quotes": [
+      "Melton has been made a PVP zone by local admins",
+      "I live in Melton. This explains a lot.",
+      "The level of disdain held for the west in general and Melton in particular in this sub is off the charts. Blaming poor people for living where they can afford is wild.",
+      "Melton should've had Metro 20 years ago but the SRL makes sense starting from the East...",
+      "Melton's not the most inspiring of places. But you do what you can to get a foot in",
+      "Melton central is actually pretty nice and the birdcage isn’t what it used to be. The junkies around all moved to Melton south",
+      "Everything you need to know about Melton. Right there.",
+      "Gotta label Melton so you don't confuse the lack of greenery as the fucking desert.",
+      "Ok. I’m a bit of cunt, always love modifying my cars... the dirtbikes in Melton are fucking aaaaawful",
+      "Electrification news for Melton happens before every VIC election since I moved here. It's been promised to Melton since the 70's. I just don't believe it anymore."
+    ],
+    "primary_category": "family",
+    "mascot": {
+      "name": "Tracey from Melton, 42, mortgage-strapped mum",
+      "tagline": "If they electrified the line, I might actually get home before the kids' bedtime.",
+      "description": "Tracey works in retail at Woodgrove and spends her weekends driving her two kids to soccer in the next estate over, because the local oval is still a paddock. She's heard the hospital promise so many times she's stopped voting Labor, but she'll still defend Melton against inner-city snobs who've never been past Highpoint.",
+      "image_prompt": "A woman in her 40s with a ponytail, wearing a Woodgrove shopping centre staff polo, holding a reusable shopping bag, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#8B4513",
+        "#C0C0C0",
+        "#FFD700"
+      ],
+      "emblem": "dirt bike",
+      "style": "horizontal tricolor",
+      "description": "A horizontal tricolor of brown (for the basalt plains), silver (for the Western Freeway), and gold (for the promised but delayed train line). In the center, a dirt bike silhouette represents the hoons and the suburban frontier.",
+      "image_prompt": "Horizontal tricolor of brown, silver, and gold bands with a black dirt bike silhouette in the center, minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio"
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM00958b.htm",
+    "history_source_author": "Jill Barnard"
+  },
+  "Mernda": {
+    "nickname": "",
+    "tags": [
+      "family estates",
+      "commuter grind",
+      "Plenty Road traffic",
+      "Mernda line delays",
+      "new housing estates",
+      "Turners Bakehouse",
+      "Quarry Hills walks",
+      "Bridge Inn Road",
+      "Aidan Becker vigil",
+      "Sunday 40-min frequencies",
+      "Uber pool solidarity",
+      "stock market since 1800s"
+    ],
+    "vibe": "Mernda is a rapidly growing outer suburb where new housing estates stretch toward the Plenty Gorge, and daily life revolves around school runs, train commutes, and the three roads that everyone uses. The community is tight-knit in a practical way—strangers pool Ubers during line suspensions and gather for vigils—but the infrastructure struggles to keep pace with the population boom. It's a place of trade-offs: space and parks for long commutes and weekend train frequencies that test your patience.",
+    "lore": [
+      "Aidan Becker, 22, was killed at Mernda station in 2024 while trying to help a teenage boy; a vigil drew thousands and calls for a monument at the station.",
+      "The Mernda line famously runs only every 20 minutes in evening peak and every 40 minutes on Sunday mornings, a constant source of frustration for commuters.",
+      "During a major line suspension, strangers pooled Ubers together and ended up having a beer at a pub in Reservoir, turning a nightmare into a bonding moment.",
+      "The Bridge Inn Hotel has hosted a weekly stock and general market for over a century, a remnant of Mernda's rural past.",
+      "A dim sim factory near Mernda was rumored to be where gangster Les Kane was disposed of in the 1960s—an urban legend tied to the old Lee factory.",
+      "Mernda was originally called Morang, then South Yan Yean, before settling on the name Mernda—possibly from an Aboriginal word for 'earth'.",
+      "The failed 19th-century closer settlement of Separation lies just west of Mernda, a ghost of an earlier development boom."
+    ],
+    "history": "Mernda began as the settlement of Morang, boomed during construction of the Yan Yean Reservoir (1853–57), and was renamed Mernda—possibly from an Aboriginal word for 'earth'. The weekly stock market at the Bridge Inn hotel has run for over a century, but the area is now zoned for rapid housing development.",
+    "top_quote": "We pooled in an Uber together all strangers, got out for a quick bev in Ressy all mates. Love to all who’s afternoon was ruined by delays, we’re seeing the brighter side of unexpected events!",
+    "quotes": [
+      "We pooled in an Uber together all strangers, got out for a quick bev in Ressy all mates. Love to all who’s afternoon was ruined by delays, we’re seeing the brighter side of unexpected events!",
+      "The people of the hurstbridge/mernda lines yearn for evening peak hour outbound services at a greater interval than every 20 minutes please",
+      "Still 40 minute frequencies on a Sunday morning here on the Mernda line. PTV and DTP are morally opposed to frequency outside the peak periods.",
+      "Peak Mernda line.",
+      "Mernda to Flinders Street is 54 minutes.",
+      "I was racially abused on the mernda train line going into flinders st station 2 weeks ago and the guy told me to go die.",
+      "Doreen/Mernda was a dog's breakfast with tiny one lane roads turning into carparks every day.",
+      "A random bloke called out to me that he liked my bucket hat. Light blue with bright yellow lemons and flowers. I'm a bloke. Was walking with my wife. Cool call.",
+      "I needed to fart on a packed train but held it in #ReminderToBeKinder"
+    ],
+    "primary_category": "family",
+    "mascot": {
+      "name": "Sarah the Mernda School-Run Mum, 34",
+      "tagline": "If the 8:15 to Flinders Street is cancelled again, I'm driving.",
+      "description": "Sarah's always in activewear, juggling a toddler in one hand and a takeaway coffee from Turners Bakehouse in the other. She knows every shortcut around Plenty Road and has the Mernda line timetable memorised out of necessity.",
+      "image_prompt": "Woman in activewear and sneakers holding a takeaway coffee cup and a toddler's hand, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#4A7C59",
+        "#D4A76A",
+        "#FFFFFF"
+      ],
+      "emblem": "wheat sheaf",
+      "style": "vertical tricolor",
+      "description": "A vertical tricolor of green, gold, and white. The green represents the Plenty Gorge and parks, the gold the historic wheat fields and the Bridge Inn, and white the new housing estates. A wheat sheaf in the center honors Mernda's agricultural roots.",
+      "image_prompt": "Vertical tricolor flag with green left, gold center, white right bands. A wheat sheaf emblem in the center. Minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM00968b.htm",
+    "history_source_author": "Gwynedd Hunter-Payne"
+  },
+  "Noble Park": {
+    "nickname": "Nobes",
+    "tags": [
+      "skyrail over the station",
+      "3174 street gang rep",
+      "brown water from taps",
+      "house robberies if unlocked",
+      "cheap eats and late groceries",
+      "flood-prone streets",
+      "police chopper nightly",
+      "diverse migrant community",
+      "car theft hotspot",
+      "Nazareth College horror stories",
+      "proximity to Dandenong",
+      "gentrifying but still rough"
+    ],
+    "vibe": "Noble Park is a sprawling south-eastern suburb caught between a rough past and a slowly improving present. It's densely multicultural, with a palpable working-class energy and a reputation that still makes inner-city types wince, even as skyrail and new developments signal change. The streets are a mix of quiet residential pockets and chaotic arterial roads where car thefts, floods, and the occasional machete incident coexist with friendly neighbours and cheap fish and chips.",
+    "lore": [
+      "The '3174' postcode was also the name of a notorious 1990s street gang, giving the suburb a lasting criminal mystique.",
+      "The Noble Park skyrail, completed in 2018, replaced a level crossing and now looms over the station, a constant reminder of infrastructure politics.",
+      "The suburb was originally called 'Nobel Park' after Alfred Nobel, because the land was used to demonstrate explosives, but the name was soon misspelled.",
+      "A Reddit user reported that someone attempted to open their front door at 5am, and neighbours had similar experiences — the area has a reputation for opportunistic crime.",
+      "The water occasionally runs brown due to sediment stirred up in old pipes, a recurring complaint on local forums.",
+      "Noble Park is surprisingly prone to flash flooding — Corrigan Road and the station area have gone underwater in heavy storms.",
+      "The police helicopter is a nightly fixture, often circling low enough to be heard by residents."
+    ],
+    "history": "Originally subdivided in 1909 by Allan Buckley, who used the land to demonstrate explosives developed by Alfred Nobel, the estate was called Nobel Park but soon became Noble Park. Growth was slow until the 1920s, then residential development swallowed market gardens, and by the 1990s over half the population was overseas-born, notably Vietnamese, Sri Lankans, and former Yugoslavians.",
+    "top_quote": "Noble Park is like Disneyland in comparison.",
+    "quotes": [
+      "Noble Park is like Disneyland in comparison.",
+      "I grew up in Noble Park, moved to Baltimore for a couple years. Noble Park is like Disneyland in comparison.",
+      "Its a low socioeconomic area with many foreigners and refugees etc. I dont think its that bad these days but years ago there were a lot of problems there and suburb reputations seem to stick.",
+      "Why is Noble Park considered bad? Proximity to Dandenong. Used to be a few gang fights from time to time.",
+      "Legit, the whole street was flooded.",
+      "It's Noble Park, even the water has gone crazy there.",
+      "I’ve been avoiding noble park for like 20 years now!",
+      "The postcode, 3174, is also the name of a street gang from the 90s that was pretty bad.",
+      "If you grew up around low socioeconomic areas with petty theft and opportunistic crime then Noble Park these days is absolutely fine.",
+      "My friend who lives in Noble Park was attacked from behind at the train station. He was beaten over the head and knocked out in the middle of the afternoon"
+    ],
+    "primary_category": "multicultural",
+    "mascot": {
+      "name": "Minh the Noble Park night-shift worker, 29",
+      "tagline": "Lock your car, mate — and don't leave the baby seat in it.",
+      "description": "Minh works the late shift at a distribution centre near Eastlink, grabbing a banh mi from the shop on Corrigan Road before heading home. He's seen the helicopter fly over every night for years and knows which streets flood when it storms.",
+      "image_prompt": "South-East Asian man in hi-vis work vest and hard hat holding a banh mi roll, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#1B3A5F",
+        "#F4D35E",
+        "#FFFFFF"
+      ],
+      "emblem": "train on skyrail",
+      "style": "horizontal tricolor",
+      "description": "A horizontal tricolor of navy, gold, and white. The navy represents the night sky and the frequent police helicopter patrols; the gold stands for the area's multicultural warmth and the golden arches of fast-food outlets; the white evokes the brown water that occasionally runs from taps. In the center, a stylized train on a skyrail bridge symbolizes the suburb's defining infrastructure project.",
+      "image_prompt": "Horizontal tricolor of navy blue, gold, and white bands with a stylized train on a skyrail bridge emblem in the center, minimal flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio"
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM01063b.htm",
+    "history_source_author": "Gillian Hibbins"
+  },
+  "Oakleigh": {
+    "nickname": "",
+    "tags": [
+      "Greek food hub",
+      "Eaton Mall",
+      "Ray White underquoting",
+      "pokies-free RSL",
+      "Warrigal Road traffic",
+      "old Greek families",
+      "Korean bakeries",
+      "SRL construction zone",
+      "pram-pushing families",
+      "espresso on the footpath"
+    ],
+    "vibe": "Oakleigh is a solidly middle-ring suburb where Greek coffee culture meets Asian food diversity, all wrapped in a car-centric suburban sprawl. The main drag hums with families, soccer kids, and old-timers arguing over politics at the local cafe, while the train station connects you to the city in 25 minutes. It's unpretentious, lived-in, and quietly proud of its multicultural food scene — even if the real estate agents are still trying to squeeze every last dollar out of it.",
+    "lore": [
+      "The Oakleigh-Carnegie RSL is famously pokies-free, making it a rare community hub where you can get a cheap parma without the soul-crushing sound of electronic gaming machines.",
+      "Ray White Oakleigh agent Nick Strilakos was taken to Federal Court for systematic underquoting — a saga that became a local byword for real estate shadiness.",
+      "Eaton Mall is the heart of Greek Oakleigh, with Kalimera Souvlaki and a dozen other Greek eateries that have been feeding families for decades, though some old-timers grumble it's not what it used to be.",
+      "The Scotchmans Creek Linear Park follows an old clay pit and brickworks site, now a green corridor with a golf course and walking trail — a relic of Oakleigh's industrial past.",
+      "Oakleigh's Greek community, once the largest in Melbourne, has been slowly diversifying with a growing Korean and Asian presence, reflected in the local schools and shops.",
+      "The Oakleigh General Cemetery (1859-1960) is now a Pioneer Memorial Park, a quiet green space with headstones dating back to the gold rush era.",
+      "The Suburban Rail Loop (SRL) East will stop at Oakleigh, promising to reshape the area with higher-density development — locals are cautiously optimistic about the train but wary of the construction chaos."
+    ],
+    "history": "Oakleigh was surveyed in 1850 as a village reserve on Scotchman's Creek, growing as a staging post on the Dandenong Road. The railway arrived in 1877, sparking suburban development, and post-war migration — first Greek, then Italian, then Asian — shaped its character. The suburb was a city in its own right until amalgamation into the City of Monash in 1994.",
+    "top_quote": "Oakleigh will forever in my mind remain a middle suburb full of suburban families paving their front yard, working at local businesses, taking their kids to the soccer on the weekend and drinking espresso on the footpath.",
+    "quotes": [
+      "Oakleigh will forever in my mind remain a middle suburb full of suburban families paving their front yard, working at local businesses, taking their kids to the soccer on the weekend and drinking espresso on the footpath.",
+      "Oakleigh is still greek. Can't say the same about richmond.",
+      "The Springvale to Oakleigh corridor must be one of the most underrated stretches for food in Melbourne.",
+      "PSA- Oakleigh-Carnegie RSL is the only RSL in Melbourne that DOESN’T have pokies. For this reason alone I frequent this RSL regularly , plus the staff are friendly, so give them a go and congratulate them for not selling their souls.",
+      "30 years ago plenty of greek in richomnd and south yarra, they all move to oakleigh because they want house with big backyard. They must be kicking them selves because how much property value jump there.",
+      "Not true anymore. The food is, the people that live in Oakleigh are not. The percentage has dropped dramatically.",
+      "I do this too. But carriages with less people/bodily fluids are always the winner. If you get on a crowded train but see one carriage completely empty, know it's probably for a good reason.",
+      "Getting from mentone to Oakleigh is another 20 min drive but over an hour on transport.",
+      "i grabbed myself lunch from there after work today! they're amazing as well, i used to go to a few places in oakleigh but so many have dropped in quality over the last few years... Pita Wrap It have never done me wrong though bwaha.",
+      "Oakleigh is good for if you want Greek food or Greek groceries."
+    ],
+    "primary_category": "multicultural",
+    "mascot": {
+      "name": "Kostas the Oakleigh Souvlaki Master, 62",
+      "tagline": "You want extra tzatziki? Always extra tzatziki.",
+      "description": "Kostas has been working the grill at his family's Eaton Mall joint since the 1980s, wrapping souvlaki for generations of locals who swear his is the best in Melbourne. He knows every regular by name and will absolutely argue with you about the correct way to make a Greek salad.",
+      "image_prompt": "A middle-aged Greek-Australian man with a grey moustache, wearing a white apron and chef's hat, holding a skewer of souvlaki, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#0D5EAF",
+        "#F4D03F",
+        "#FFFFFF"
+      ],
+      "emblem": "souvlaki skewer",
+      "style": "horizontal tricolor",
+      "description": "The flag features a blue stripe for the Greek heritage, a gold stripe for the vibrant food culture, and a white stripe for the community spirit. In the center, a souvlaki skewer represents the iconic Greek takeaway that defines Oakleigh's culinary identity.",
+      "image_prompt": "Horizontal tricolor of blue, gold, and white bands, with a centered souvlaki skewer emblem, minimalistic flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM01075b.htm",
+    "history_source_author": "Susan Priestley"
+  },
+  "Pakenham": {
+    "nickname": "",
+    "tags": [
+      "bus replacement hell",
+      "hour-long commute to CBD",
+      "new housing estates",
+      "toomuc reserve",
+      "family-oriented",
+      "pakenham line delays",
+      "uncle sams food mart",
+      "centrelink dante graffiti",
+      "trains every 15 mins",
+      "drug driving hotspots",
+      "frankie's cafe",
+      "bella cuccina cafe"
+    ],
+    "vibe": "Pakenham is a sprawling outer-suburban frontier where families chase the dream of a big house and backyard, only to find themselves locked into a soul-crushing commute on Melbourne's most unreliable train line. The streets are lined with new estates and the air smells of fresh asphalt and resignation, but locals still rally around their fish and chip shops and the occasional wholesome train driver. It's a place of contradictions: quiet residential streets vs. constant transport chaos, and a community that's both fiercely local and perpetually looking toward the city.",
+    "lore": [
+      "The Pakenham line is infamous for its constant delays and bus replacements, with locals joking that the trains have been disrupted since 2010 and that the PTV app permanently notifies you of its failures.",
+      "A now-famous piece of graffiti on the Pakenham Centrelink reads 'Abandon hope all ye who enter here' (a Dante quote), which has been there for years and perfectly captures the vibe of dealing with government services.",
+      "The wholesome train driver on the Cranbourne/Pakenham line who calls the tracks 'rivers of steel' and shares his weekend plans over the intercom is a beloved local legend.",
+      "Pakenham was once known as Longford and grew as a farming district after the railway arrived in the late 1870s, with dairying, vineyards, and orchards dominating the area.",
+      "The Pakenham Racing Club was formed in 1875, and the racecourse has been a key local landmark ever since.",
+      "Uncle Sam's Food Mart is the go-to spot for decent fish and chips, according to locals who have tried and failed at seven other shops.",
+      "A commuter once set up a full dual-monitor workstation on a Pakenham line train, earning the nickname 'Double Decker Laptop' and proving the commute is long enough to justify a mobile office.",
+      "The suburb's population exploded by over 150% between 1981 and 1996, making it one of Melbourne's fastest-growing areas, and the sprawl continues with new estates popping up constantly."
+    ],
+    "history": "Pakenham was originally known as Longford and developed as a farming district after the railway arrived in the late 1870s, boosting dairying, vineyards, and orchards. It became one of Melbourne's fastest-growing residential areas in the late 20th century, with its population more than doubling between 1981 and 1996 as new housing estates spread across the former farmland.",
+    "top_quote": "I don't even use the Pakenham line and the PTV app is literally forever popping up in my notifications to tell me it's fucked lol",
+    "quotes": [
+      "I don't even use the Pakenham line and the PTV app is literally forever popping up in my notifications to tell me it's fucked lol",
+      "This whole thread is just people who don’t know how to keep up to date with what’s happening in our state. Pakenham/Cranbourne line getting their level crossings removed for the past few years and part of the new metro tunnel.",
+      "In pakenham its common knowledge that uncle sams food mart is the way to go if you want good fish and chips.",
+      "Pakenham actually isn’t as bad as it was back 15-20 years ago, albeit from a couple of little pockets.",
+      "The length of a train ride on the Pakenham line justifies this.",
+      "I'm on the Packie line as well and SWEAR every time I make plans to take the train to the city on a weekend, BAM there's planned train works.",
+      "people from pakenham will finally get to have their first shower of the year",
+      "True for CentreLink and true for Pakenham.",
+      "Damn this commute from Far South Pakenham to the CBD is a bit much hey, reckon they’d add another lane to the Antarctic expressway by now, the Tasmania bypass hasn’t helped much!",
+      "As a Pakenham line commuter (for all my 40+ years) I can somewhat sympathise."
+    ],
+    "primary_category": "family",
+    "mascot": {
+      "name": "Tracey the Pakenham Commuter, 34",
+      "tagline": "If the train's on time, I'm suspicious.",
+      "description": "Tracey's been doing the Pakenham line run for 12 years, knows every bus replacement route by heart, and has a 6am flat white from Frankie's in one hand while she checks the PTV app with the other. She's the one who'll give you the real scoop on which fish and chip shop is worth the drive and which estates flood when it rains.",
+      "image_prompt": "A woman in a puffer jacket and sneakers holding a takeaway coffee and a myki card, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#1B3A5F",
+        "#F4D35E",
+        "#FFFFFF"
+      ],
+      "emblem": "bus replacement sign",
+      "style": "horizontal tricolor",
+      "description": "A horizontal tricolor of navy blue, gold, and white. The navy represents the endless train line, the gold symbolizes the new housing estates and the sun over the sprawl, and the white stands for the blank canvas of the future. In the center, a simple bus replacement sign emblem acknowledges the suburb's defining transport reality.",
+      "image_prompt": "A horizontal tricolor flag with navy blue, gold, and white bands, centered with a simple bus replacement sign emblem, minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM01106b.htm",
+    "history_source_author": "Jenny Keating"
+  },
+  "Point Cook": {
+    "nickname": "",
+    "tags": [
+      "one road in one road out",
+      "traffic jams to the freeway",
+      "RAAF base history",
+      "massive housing estates",
+      "family-friendly parks",
+      "multicultural food scene",
+      "windy storms off the bay",
+      "affordable houses under $500k",
+      "car-dependent suburbia",
+      "Cheetham Wetlands birdlife"
+    ],
+    "vibe": "A sprawling outer-suburban estate city that grew too fast for its infrastructure, Point Cook is the poster child for Melbourne's western growth corridor. Families love the space, parks, and affordable houses, but the single road in-and-out creates legendary traffic bottlenecks. It's a place of contradictions: beautiful wetlands and RAAF heritage alongside cookie-cutter developments and a reputation that locals fiercely defend.",
+    "lore": [
+      "Point Cook was the birthplace of the Royal Australian Air Force in 1914, and the RAAF Museum still operates there, with historic hangars under threat of demolition.",
+      "The Cheetham Wetlands, former saltworks, are now a birdwatching hotspot with wallabies and echidnas spotted nearby.",
+      "The infamous Point Cook Road bottleneck has been partially alleviated by new overpasses at Palmers and Sneydes roads, but traffic remains a top complaint.",
+      "A lost GoPro found in Ocean Grove was reunited with its owners thanks to Reddit and Point Cook TV, becoming a local feel-good story.",
+      "The suburb has over 96 parks, making it a green oasis for families, but the housing estates are often described as 'cookie-cutter' with fake turf.",
+      "Point Cook was named after Lieutenant John Murray Cooke of HMS Rattlesnake, and the Chirnside family once bred racehorses here before selling to the RAAF."
+    ],
+    "history": "Point Cook was named after Lieutenant John Murray Cooke of HMS Rattlesnake. It was part of the Chirnside family's pastoral estate until 1914, when land was sold for Australia's first pilot-training school, later becoming a key RAAF base. The Cheetham Saltworks wetlands were converted into a coastal park in the 1970s, and large-scale housing development began in the 1990s.",
+    "top_quote": "Point Cook is a giant future slum.",
+    "quotes": [
+      "Point Cook ! It can take up to an hour just to get to the freeway, then you start the slow journey to work.",
+      "Point Cook is a giant future slum.",
+      "Everything in point Cook is questionable (family lives here)",
+      "Point Cook is actually a pretty nice family friendly suburb that's got most of what you need. Some parts are rather peaceful and nice. Beautiful parkland and bike trails",
+      "Traffic in/out of Point Cook in peak hours is a nightmare!!!",
+      "I moved out of point cook because of this reason",
+      "Point Cook, kudos for the honestly, I would never admit to doing that...",
+      "Nah I live here and you can smell it all the way from Point Cook sometimes",
+      "I don't get the hate Point Cook gets. It's a big suburb, few streets are closer to train stations... It's multicultural, big lots and has an awesome little town centre.",
+      "One road in one road out and millions of cars in the morning. Shit show is the right word"
+    ],
+    "primary_category": "family",
+    "mascot": {
+      "name": "Sarah the Point Cook School-Run Mum, 34",
+      "tagline": "I can get to the freeway in 10 minutes — unless there's an accident.",
+      "description": "Sarah drives a black Honda CRV, knows every backstreet to avoid the Point Cook Road bottleneck, and spends her weekends at one of the 96 parks with her two kids. She loves the space and community but wishes the train line would finally arrive.",
+      "image_prompt": "A woman in activewear and sunglasses holding a coffee cup, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#1B4F72",
+        "#F4D03F",
+        "#FFFFFF"
+      ],
+      "emblem": "biplane silhouette",
+      "style": "horizontal tricolor",
+      "description": "A horizontal tricolor of navy blue, gold, and white. The navy represents the RAAF heritage and Port Phillip Bay, gold symbolizes the sunny family lifestyle, and white stands for the wetlands. A biplane silhouette in the center honors Point Cook as the birthplace of the RAAF.",
+      "image_prompt": "Horizontal tricolor flag with navy blue, gold, and white bands, a black biplane silhouette in the center, minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio"
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM01150b.htm",
+    "history_source_author": "Jill Barnard"
+  },
+  "Ringwood": {
+    "nickname": "Ringers",
+    "tags": [
+      "train line delays",
+      "bustitution queues",
+      "Eastland shopping centre",
+      "sheep at the station",
+      "e-bike fire on train",
+      "underquoted house inspections",
+      "Ringwood Lake Park",
+      "bike theft posters",
+      "Costco runs",
+      "Belgrave line gripes",
+      "Dakota nightclub fire lore",
+      "growing apartment towers"
+    ],
+    "vibe": "Ringwood is the outer-east's reluctant hub — a former bushland satellite now sprouting apartment towers and Costco trips, where the Belgrave line's eternal delays are a bonding ritual. Locals love the convenience (Eastland, breweries, parks) but are chronically at war with PTV's bustitution. It's a suburb in transition: tradies and young families mix with new apartment-dwellers, all united by a shared hatred of replacement buses.",
+    "lore": [
+      "The Dakota nightclub in Ringwood was allegedly burned down in an insurance job — a local urban legend that's probably just the truth.",
+      "A sheep was once spotted at Ringwood station, apparently on its way to get a photo with Santa.",
+      "The Belgrave/Lilydale line is infamous for bustitution — replacement bus queues regularly snake down Maroondah Highway, with locals sharing horror stories of express buses that were supposed to stop all stations.",
+      "An e-bike fire on a Ringwood-bound train in 2022 earned the nickname 'New Puffing Billy' as smoke filled the carriage.",
+      "Ringwood's Eastland shopping centre has been a retail anchor since 1967, with multiple expansions cementing its role as the outer-east's commercial heart.",
+      "The Ringwood bypass (Maroondah Highway diversion) was built in the 1990s to drag traffic away from the commercial centre, a move that reshaped the suburb's layout.",
+      "Antimony mines and brick kilns dominated Ringwood in the 1870s-1890s, with the railway sidings built for brick transport long before passenger services."
+    ],
+    "history": "Named after Ringwood in Hampshire, England, the suburb began as a timber and mining settlement in the 1850s. Antimony mines and brickworks drove early growth, followed by fruit orchards that supplied Melbourne until suburban sprawl swallowed them after WWII. Ringwood became a city in 1960 and was absorbed into Maroondah City in 1995.",
+    "top_quote": "It puts the Ring in Ringwood.",
+    "quotes": [
+      "It puts the Ring in Ringwood.",
+      "Fuck that station was pretty rough when i was younger. I see they have turned things around now, which is nice.",
+      "On a completely off topic note - as someone who grew up in Ringers, it freaks me out that there are high rises there now!",
+      "Bloody hell. I’m about to leave home to join this shit show!!",
+      "I've seen a lot of stuff at Ringwood station, but never this.",
+      "Ringwood, too easy 😔",
+      "That's Ringwood East to you",
+      "We’re in Ringwood",
+      "Ringwood area, especially with all the construction happening in the CBD area. Has everything you need - PT, eastern freeway/eastlink, Eastland, Costco, breweries, cafes and coffee roasters, decent schools and parks and greenery."
+    ],
+    "primary_category": "family",
+    "mascot": {
+      "name": "Steve the Ringwood Train Commuter, 42",
+      "tagline": "Another day, another bustitution.",
+      "description": "Steve's in a faded hi-vis jacket and joggers, clutching a takeaway coffee from Little Buddy Cafe, giving a weary grin as he checks the PTV app for the third time. He's been doing the Belgrave line shuffle for 15 years and knows every replacement bus driver by sight.",
+      "image_prompt": "Tired man in hi-vis vest and joggers holding a takeaway coffee, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#1B3A5F",
+        "#F4D35E",
+        "#FFFFFF"
+      ],
+      "emblem": "brick kiln",
+      "style": "horizontal tricolor",
+      "description": "A navy, gold, and white horizontal tricolor. The navy represents the Belgrave line trains, gold nods to the historic brick kilns and antimony mines, and white stands for the sheep that once wandered onto the platform. A brick kiln emblem sits in the center, honoring the suburb's industrial roots.",
+      "image_prompt": "Horizontal tricolor of navy, gold, and white with a brick kiln emblem in the center, minimal flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM01248b.htm",
+    "history_source_author": "Jill Barnard"
+  },
+  "Rosanna": {
+    "nickname": "",
+    "tags": [
+      "boomer stronghold",
+      "leafy green hills",
+      "Rosanna Rd speed trap",
+      "new skyrail station",
+      "quiet family vibes",
+      "retirement village central",
+      "NEL construction chaos",
+      "underrated middle section",
+      "Woolies vs locals drama",
+      "4.5-star Google station"
+    ],
+    "vibe": "Rosanna is the quiet, leafy middle child of the Hurstbridge line — boring but in a good way. It's a boomer stronghold slowly being infiltrated by young families priced out of Ivanhoe and Heidelberg. The main drama in recent years was locals campaigning against a new Woolies, which they lost, and the never-ending speed camera on Rosanna Rd that flashes like a nightclub strobe.",
+    "lore": [
+      "The new Rosanna station is a modern skyrail station that scored 4.5 stars on Google, but Reddit still voted it out of the Train Station Elimination competition in 4th place, calling it 'trying so hard to look modern' and 'boring grey green vibe.'",
+      "Rosanna Rd has a notorious 40 km/h speed zone near Woolies that catches drivers constantly — one Redditor described the camera 'flashing like a strobe light at a nightclub' when it was first introduced.",
+      "The suburb is a 'boomer stronghold' — locals fought a long campaign against a Woolworths opening near the station, but ultimately lost.",
+      "Rosanna is part of a 'forgotten middle section' of the Hurstbridge line — less famous than Heidelberg or Greensborough, but with affordable houses and good train access.",
+      "The Elliston estate, a 1970s pocket of more affluent housing, sits within Rosanna's otherwise lower-middle-class postwar subdivisions.",
+      "The Yarra Yarra Golf Club operated here from 1911 until 1927 before moving to Bentleigh.",
+      "One in four homes in Rosanna has a pool — check a satellite map, it's true.",
+      "The Hurstbridge line's Darebin Street underpass between Heidelberg and Rosanna opened recently, smoothing out the bumpy level crossing that motorbikers hated."
+    ],
+    "history": "Rosanna was named after a 960-acre estate purchased in 1840 by stock-and-station dealer James Watson. The railway line arrived in 1902, but a station only opened in 1906. The suburb's broad acres were finally subdivided after WWII, filled with lower middle-class housing and later the 1970s Elliston estate.",
+    "top_quote": "Rosanna looks like it’s trying so hard to look modern. If anything it’s a boring grey green vibe like painting slums in Brazil.",
+    "quotes": [
+      "Rosanna looks like it’s trying so hard to look modern. If anything it’s a boring grey green vibe like painting slums in Brazil.",
+      "My wife and I recently bought in Rosanna, can confirm it is a boomer stronghold. For the past few years they have been on a rampage campaigning against Woolies opening up a new store near the train station. Thankfully they lost",
+      "This station is trying to pull a Steven Bradbury; hang out at the back, drawing no attention to itself, and then sneak over the finish line in 1st place once the stronger competitors have been dealt with.",
+      "I was just down there yesterday and the speed camera was flashing like a strobe light at a nightclub, I bet they're raking it in.",
+      "It's boring, but convenient, safe, and properties are relatively affordable.",
+      "For the last few years Rosanna has been a pure construction site lol.",
+      "I live in Rosanna, i would say its pretty safe and i really like living here, super close to markets (iga, chemist warehouse) and also the station.",
+      "Riding down Rosanna rd is brave.",
+      "Not one in four homes have a pool. Not kidding check a satellite map of Rosanna.",
+      "I'd say about 8 out of 10 people would give me the blank look when I tell them I live in Macleod. I have to say 'the suburb next to Greensborough' to get it through."
+    ],
+    "primary_category": "family",
+    "mascot": {
+      "name": "Maureen the Rosanna Boomer, 72",
+      "tagline": "I've lived here since '82 and I'm not leaving — and don't even think about building a Woolies.",
+      "description": "Maureen has been on the residents' committee for 15 years and knows every speed camera on Rosanna Rd. She walks her golden retriever to the new station every morning and grumbles about the 'young families' moving in, but secretly loves the new bakery.",
+      "image_prompt": "Elderly woman in a floral blouse and beige slacks holding a small dog on a leash, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#4A7C59",
+        "#F4D35E",
+        "#FFFFFF"
+      ],
+      "emblem": "speed camera",
+      "style": "horizontal tricolor",
+      "description": "A green stripe represents the leafy hills, yellow for the boomer-era optimism, and white for the peaceful quiet. In the center, a small speed camera emblem nods to the infamous Rosanna Rd speed trap that defines local driving culture.",
+      "image_prompt": "Horizontal tricolor of green, yellow, and white with a small speed camera emblem in the center, minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM01260b.htm",
+    "history_source_author": "Don Garden"
+  },
+  "Springvale": {
+    "nickname": "Springy",
+    "tags": [
+      "banh mi for $6.50",
+      "cash-only markets",
+      "Buddhist temple fire",
+      "traffic anarchy at Springvale Rd",
+      "Lao Gan Ma chilli oil",
+      "night food scene",
+      "Vietnamese community hub",
+      "old Necropolis cemetery",
+      "parking nightmare",
+      "90s time capsule"
+    ],
+    "vibe": "Springvale is a chaotic, aromatic food mecca that feels stuck in a glorious 90s time warp. The streets are a mess of traffic jams, cash-only grocers, and late-night eateries that put inner-city strips to shame. Locals love it for its unpretentious energy and ridiculously good Asian food, even if navigating the intersections feels like an act of anarchy.",
+    "lore": [
+      "The Bright Moon Buddhist Temple, a stunning Chinese-style temple built over 30 years with community donations, was tragically destroyed by fire in 2025, devastating families who had ancestors' ashes stored there.",
+      "Springvale's famous 'spaghetti junction' at Springvale Rd, Princes Hwy, and Police Rd is notorious for accidents and confusion, often cited as Melbourne's worst intersection.",
+      "The Springvale Necropolis (opened 1902) has its own railway loop line from 1904, built specifically for funeral trains carrying coffins.",
+      "The $6.50 banh mi from BunBun Bakery is a local legend, regularly mentioned in Reddit threads as one of Melbourne's best under-$10 purchases.",
+      "Many shops at Springvale Market are still cash-only, forcing customers to queue for the single ATM, a source of ongoing frustration.",
+      "The suburb's 90s vibe extends to its architecture and signage, which one Redditor described as 'trapped in the 90s' — and they love it.",
+      "The Commonwealth Government Enterprise migrant centre opened here in 1970, housing many nationalities who later settled nearby, cementing Springvale's multicultural character."
+    ],
+    "history": "Springvale takes its name from a hotel opened on Dandenong Road around 1852. It grew rapidly after WWII with industrial expansion and immigration, and the 1970 migrant centre helped establish a strong Vietnamese community that defines the suburb's food and culture today.",
+    "top_quote": "I live next door in Mulgrave and oh boy, navigating Springvale is the closest thing Melbourne has to anarchy. The whole place feels like it's trapped in the 90s. I fucking love it though.",
+    "quotes": [
+      "I live next door in Mulgrave and oh boy, navigating Springvale is the closest thing Melbourne has to anarchy. The whole place feels like it's trapped in the 90s. I fucking love it though.",
+      "Not saying Springvale is the best place to live but it has a cracking food scene. Especially in the evening when most suburb’s food places are closed, Springvale continues late into the night.",
+      "Springvale isn’t nearly the amateur pharmaceutical destination that it used to be, but there’s still a bit of it around. It is still solidly majority Vietnamese though and a wonderful place to live as a result - lovely quiet family-centred people, no pubs, ridiculously good fresh food and restaurants.",
+      "The Springvale to Oakleigh corridor must be one of the most underrated stretches for food in Melbourne.",
+      "I would rather drive to Springvale than attempt Richmond! Parking is a nightmare!",
+      "Springvale market... almost every store is still cash only. And the only ATM was like 20 mins queue.",
+      "That intersection is a saint compared to Springvale x FTG x Police x Centre.",
+      "Dandy and Springy have a lot of migrant communities that don't care for being close to the city, they want to be close to their people. So they build up and improve the area. Eg, The big temples on Springvale Rd."
+    ],
+    "primary_category": "multicultural",
+    "mascot": {
+      "name": "Mai the Springvale Food Blogger, 34",
+      "tagline": "Cash only, but worth it.",
+      "description": "Mai knows every banh mi joint and late-night pho spot in Springvale by heart. She'll queue for 20 minutes at the ATM, then spend $6.50 on the best roll of your life — all while dodging traffic at the spaghetti junction.",
+      "image_prompt": "Vietnamese-Australian woman in a bright floral dress holding a banh mi roll, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#DA291C",
+        "#FFCD00",
+        "#FFFFFF"
+      ],
+      "emblem": "banh mi roll",
+      "style": "horizontal tricolor",
+      "description": "A horizontal tricolor of red, yellow, and white — evoking the Vietnamese flag — with a banh mi roll at the center, representing Springvale's vibrant Vietnamese food culture and its role as a culinary destination.",
+      "image_prompt": "Horizontal tricolor flag with red top band, yellow middle band, and white bottom band. A banh mi roll emblem in the center. Minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM01417b.htm",
+    "history_source_author": "Gillian Hibbins"
+  },
+  "St Albans": {
+    "nickname": "",
+    "tags": [
+      "alfrieda street vietnamese strip",
+      "30min train to city",
+      "hidden gem for first home buyers",
+      "sunbury line underdog",
+      "cheap land and owner-built homes",
+      "vietnamese and african communities",
+      "st albans nature strip pooper",
+      "godfathers pizza nostalgia",
+      "western ring road truck fires",
+      "st albans saints soccer club"
+    ],
+    "vibe": "St Albans is the west's scrappy underdog – rough around the edges, but affordable and genuinely multicultural. It's a suburb of hardworking migrant families, cheap eats, and a train line that gets you to the city in half an hour. Locals know it's not as dangerous as its reputation suggests, and they'll defend it fiercely against inner-city snobs.",
+    "lore": [
+      "The St Albans Nature Strip Pooper is a local legend who does their business on nature strips – immortalised in a Reddit Melbourne legends compilation.",
+      "Alfrieda Street is the main strip, known for Vietnamese restaurants, Lunar New Year festivals, and as a place to buy fireworks before crackdowns.",
+      "The 1967 'Ranking Melbourne's suburbs' video shows a very white St Albans, prompting the Reddit comment 'Finally i see white people in St Albans'.",
+      "A cat named Orion (or just a stray) rode the City Loop train from St Albans station at 6am, becoming a viral r/melbourne moment.",
+      "The St Albans Hotel and Kealba Hotel have reputations as some of Melbourne's scummiest pubs, with sticky floors and yelly drunk old men.",
+      "Owner-builders on unsewered blocks with cracking clay soil defined the post-war DIY spirit, as described in EMelbourne.",
+      "The train station elimination game saw St Albans booted on Day 30, with one user yelling 'FUCK YOU ST. ALBANS'.",
+      "Dragon, the bestest boy, had the time of his life on the swings at a St Albans park before passing away."
+    ],
+    "history": "St Albans originated as a settlement of house-builders attracted to cheap blocks after the railway extension in 1887. Named after St Albans in Hertfordshire by land developer Alfred Padley, it grew slowly until post-WWII waves of migrants and refugees built homes on unsewered blocks, transforming it into a multicultural suburb.",
+    "top_quote": "Finally i see white people in St Albans, in a 1960s video 😂",
+    "quotes": [
+      "Finally i see white people in St Albans, in a 1960s video 😂",
+      "St Albans is a hidden gem. Grew up in the east but didn't want to buy a home out past Lilydale. Got a 3 bedroom townhouse in st Albans for 600k and man it's awesome.",
+      "St Albans is on its merry way to gentrification. Get in now before the market catches on.",
+      "That St Albans is a den of drugs and slayings and yada yada. I grew up there from the mid-90s till the late aughts in three different pockets of St Albans, and even then never, ever saw anything weird.",
+      "The outer west is Sunshine, St Albans and Laverton? Did you write this 25 years ago?",
+      "If that's even half true then why do all the posh boys come to st albans to buy coke.",
+      "St Albans is rocking. So many good places to eat and drink and great markets.",
+      "Sounds like any other day in St Albans...",
+      "St. Albans has cafes? Look at Mr. fancy pants here getting all GENTRIFIED.",
+      "I grew up in St Albans. Was great then and when I visit now the area is a little run down. But many new units pop up and many fixer uppers are getting fixed up."
+    ],
+    "primary_category": "multicultural",
+    "mascot": {
+      "name": "Tuan the Alfrieda Street Pho King, 45",
+      "tagline": "You want large? Extra noodles? I know you come back.",
+      "description": "Tuan runs the busiest pho joint on Alfrieda Street, always with a smile and a gentle ribbing for regulars. He came to St Albans as a refugee in the 80s, worked his way up, and now his kids are at uni – but he still opens at 6am for the tradies.",
+      "image_prompt": "Vietnamese-Australian man in his 40s, white apron over polo shirt, holding a ladle, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#DA291C",
+        "#FFCD00",
+        "#000000"
+      ],
+      "emblem": "pho bowl",
+      "style": "vertical tricolor",
+      "description": "A vertical tricolor of red, yellow, and black – the red and yellow nod to the Vietnamese flag and the suburb's strong Vietnamese community, while black represents the cracking clay soil of the Keilor Plains. In the center, a steaming pho bowl emblem celebrates the iconic dish of Alfrieda Street.",
+      "image_prompt": "Vertical tricolor flag with red, yellow, and black bands, a steaming pho bowl emblem in the center, minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM01297b.htm",
+    "history_source_author": "John Lack"
+  },
+  "Sunbury": {
+    "nickname": "",
+    "tags": [
+      "country town in suburbia",
+      "Jackson Creek Trail",
+      "Rupertswood mansion",
+      "Sunbury Pop Festival",
+      "old asylum on Jacksons Hill",
+      "Sunbury line commuters",
+      "friendly water-offering locals",
+      "growing estates",
+      "wineries and vineyards",
+      "insular community",
+      "metro tunnel hopes",
+      "paper bag struggles"
+    ],
+    "vibe": "Sunbury is a last bastion of country town charm clinging to the edge of Melbourne's sprawl, where locals offer strangers cold water and the Jackson Creek Trail feels a world away from the city. But it's also a rapidly growing satellite suburb with a long commute and an insular streak — people are born, grow up, and die here, and newcomers are noticed. The old asylum on the hill and the ashes legend at Rupertswood give it a rich, spooky history.",
+    "lore": [
+      "Rupertswood mansion, built in 1874 by Sir William Clarke, is where the Ashes cricket legend was born — Lady Janet Clarke supposedly burned a bail after a match in 1882.",
+      "The Sunbury Lunatic Asylum on Jacksons Hill opened as a children's industrial school in 1865, later became a mental hospital, and is now fenced off — ghost tours used to run there.",
+      "Sunbury hosted a famous pop festival in the 1970s, drawing national acts and crowds, but the site is now quiet residential estates.",
+      "The Sunbury line was electrified in 2012, and the Metro Tunnel now gives Sunbury commuters a direct shot to State Library — locals are thrilled but still complain about delays.",
+      "The abandoned mansion on Vineyard Road (170 Vineyard Rd) isn't actually abandoned — it's a private home with a killer view, often mistaken for Wayne Manor.",
+      "Goonawarra winery dates back to 1863, planted by a former Victorian premier, and was revived in the 1970s after decades as grazing land.",
+      "Locals say Sunbury is insular — if you weren't born there, you'll be noticed. But they also brag about the community feel and the big blocks of land."
+    ],
+    "history": "One of the earliest European settlements in Victoria, Sunbury dates from 1836 when the Jackson brothers settled on Jacksons Creek and named it after Sunbury-on-Thames. The railway arrived in 1859 thanks to wealthy landowner W.J.T. Clarke, and the area later became known for its wineries and the Sunbury Lunatic Asylum, which dominated the local economy for decades.",
+    "top_quote": "I've lived in sunbury my whole life I'm 32. I love sunbury it's a last bastion of country town in Melbourne suburbia. people can be dicks though",
+    "quotes": [
+      "I've lived in sunbury my whole life I'm 32. I love sunbury it's a last bastion of country town in Melbourne suburbia. people can be dicks though",
+      "first time there’s ever been applause at Sunbury",
+      "I like Sunbury but the problem with it is the people. Don't get me wrong they are lovely enough but they are just very insular. People are born there, grow up there, hang out there and die there and if you go to Sunbury and you aren't from there you are noticed.",
+      "Sunbury is insane value. And really high end homes in some parts if you want.",
+      "It’s 30-35 to the CBD from Sunbury, and Airport West (McNamara Avenue) is halfway.",
+      "I love Sunbury. It’s got such a beautiful feel to it and I’m glad you had such a lovely experience too. Trying to convince my other half we need to move there … although I would get very fat cos I would go to Vics for dinner every night 😂",
+      "Just look out for the magpies they swoop all year round and they're EVERYWHERE",
+      "Not quite a hidden gem, but had you considered Sunbury?",
+      "Sunbury to Cranbourne, heard it already referred to as 'The Machete Express'"
+    ],
+    "primary_category": "family",
+    "mascot": {
+      "name": "Jen the Sunbury Dog Walker, 34",
+      "tagline": "Watch out for the magpies — they're mean out here.",
+      "description": "Jen moved to Sunbury for the big block and the quiet life, and now she walks her rescue greyhound along Jackson Creek Trail every afternoon. She's the one who'll offer you a cold bottle of water on a hot day, but she'll also warn you about the off-leash dogs and the swooping season.",
+      "image_prompt": "A woman in activewear and a sun hat holding a greyhound on a leash, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#4B6E3F",
+        "#C5A55A",
+        "#FFFFFF"
+      ],
+      "emblem": "cricket bail",
+      "style": "horizontal tricolor",
+      "description": "A horizontal tricolor of green, gold, and white. The green represents the rural and winery heritage, the gold recalls the Sunbury Pop Festival and the golden plains, and the white stands for the Jackson Creek. In the center, a cricket bail symbolizes the Ashes legend born at Rupertswood.",
+      "image_prompt": "Horizontal tricolor of green, gold, and white with a cricket bail emblem in the center, minimalistic flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM01445b.htm",
+    "history_source_author": "Jenny Keating"
+  },
+  "Werribee": {
+    "nickname": "Wezza",
+    "tags": [
+      "bogan chic",
+      "Snoop Dogg collab",
+      "Werribee Zoo",
+      "Watton Street eats",
+      "traffic choke points",
+      "poo farm jokes",
+      "birdcage estates",
+      "knights in armour on train",
+      "market gardens",
+      "red P-plate specials",
+      "Werribee Plaza",
+      "basketball gang initiation"
+    ],
+    "vibe": "Werribee is Melbourne's outer-west punching bag, a sprawling growth corridor that locals defend fiercely while outsiders crack jokes about sewage farms and bogans. It's got a zoo, a mansion, and a surprising amount of green space, but the traffic is soul-crushing and the train line is a meme. Underneath the rough edges, there's a real community—just ask the kids at Warringa Park who got Snoop Dogg to collab on their school song.",
+    "lore": [
+      "Warringa Park School, a special needs school in Werribee South, got Snoop Dogg to collaborate on a track with their students after their teacher pulled off an insane networking hustle.",
+      "A bloke in full plate armour was spotted riding the Werribee train line, prompting a flood of Monty Python references and jokes about knights on their way to Camelot.",
+      "The 'Birdcage' estate—streets named after birds like Kookaburra Crescent and Budgie Court—has a reputation as the roughest part of Werribee, where abandoned Falcons outnumber actual birds.",
+      "Werribee Plaza (aka Pacific Werribee) is the suburban mecca where you'll find everything from HSPs to dodgy number plates like 'BIGPP' on a beat-up Commodore.",
+      "The Cherry Street level crossing was a beloved local landmark where train drivers would wave and toot at toddlers—until it was removed, much to the dismay of nostalgic locals.",
+      "Werribee South's market gardens, run by Sicilian migrant families since the 1920s, produce tonnes of veggies—and the infamous 'poo farm' smell that's actually fertilizer, not sewage.",
+      "The Werribee line is notorious for constant bus replacements, especially around Newport, leading to a love-hate relationship with public transport.",
+      "In 2025, a tornado tore through Werribee, leaving a perfect straight-line path of destruction that was visible on emergency maps."
+    ],
+    "history": "The name 'Werribee' comes from the Aboriginal word 'weariby', meaning spine or backbone, referring to the river. Originally a small pastoral settlement, it boomed in the 1970s as a growth corridor, with market gardens established by Italian migrants and the infamous Metropolitan Sewage Farm cementing its reputation for decades.",
+    "top_quote": "Werribee is where Melbourne stores the riffraff that were too ratshit for Broadmeadows.",
+    "quotes": [
+      "Werribee is where Melbourne stores the riffraff that were too ratshit for Broadmeadows.",
+      "I don't understand the hate on Werribee. It's not that bad. There's far worse places in Melbourne.",
+      "Werribee line. The thistles, oil refineries and graffitied concrete blocks of industrial units are breathtaking.",
+      "Caught the Werribee train to Camelot this morning apparently.",
+      "Say what you want about Werribee, but the zoo there is fantastic & doesn't deserve to be shit on.",
+      "The traffic on the other hand.....",
+      "I live in Werribee (I've lived in hawthorn, Glen iris, Brunswick west to name a few) and I actually live in the birdcage now... The reserve behind my backyard is peaceful and has plenty of gum trees to sit under and chill.",
+      "Werribee is great value if you buy in the right area. Train station, freeway access to Geelong and Melbourne, public and private hospitals, shopping, restaurants, bars…but it’s really important to buy in the right place.",
+      "That's mental. Obviously I get the whole, well, circumstances, around Mr Dogg, but that’s a hell of a thing for the kids involved.",
+      "Werribee is infact not better than this."
+    ],
+    "primary_category": "family",
+    "mascot": {
+      "name": "Gazza the Werribee Tradie, 42",
+      "tagline": "Yeah nah, the traffic's cooked but the zoo's alright, ay.",
+      "description": "Gazza's a local tradie in hi-vis and steel-caps, always got a can of V and a smoke dangling from his lip. He's lived in the Birdcage his whole life, knows every shortcut to dodge the Princes Freeway snarl, and will deadpan tell you 'the poo farm smell is just the market gardens, mate.' He's fiercely proud of Werribee even if he complains about it constantly.",
+      "image_prompt": "A tradie in hi-vis vest and steel-capped boots, holding a can of V energy drink, single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style."
+    },
+    "flag": {
+      "colors": [
+        "#8B4513",
+        "#FFD700",
+        "#228B22"
+      ],
+      "emblem": "knight in armour",
+      "style": "horizontal tricolor",
+      "description": "The flag of Werribee features three horizontal bands: brown for the fertile market garden soil, gold for the golden wattle and the sunsets over the bay, and green for the vast parks and Werribee Park. In the center, a simple silhouette of a knight in armour nods to the famous train rider and the suburb's quirky spirit.",
+      "image_prompt": "Horizontal tricolor of brown, gold, and green bands, with a simple silhouette of a knight in armour in the center, minimalistic flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio."
+    },
+    "history_source": "emelbourne",
+    "history_source_url": "https://www.emelbourne.net.au/biogs/EM01598b.htm",
+    "history_source_author": "Jill Barnard"
   }
 }
