@@ -62,7 +62,6 @@ data/boundaries.geojson  data/raw/{suburb}.json   data/raw/melbz/{suburb}.json
                                               ▼
                                           Dash app
                                        + assets/mascots/{suburb}.png
-                                       + assets/flags/{suburb}.png
 ```
 
 Reddit + LLM is **batch / on-demand**, not live. App reads cached
@@ -90,7 +89,6 @@ melb_map/
     ├── summarize.py        # DeepSeek summariser, multi-source corpus
     ├── imagegen.py         # pluggable image gen (Pollinations / Replicate)
     ├── mascots.py          # generate mascot images for suburbs
-    ├── flags.py            # generate flag images (PIL bands + AI emblem)
     └── refresh.py          # orchestrator: boundaries → scrape → summarise
 ```
 
@@ -154,40 +152,17 @@ buffered and you can't see progress until the process exits.
 - **Click → side panel** via Dash callback on `clickData`. Hover via
   `customdata` in the choropleth trace.
 
-## Mascots & flags
+## Mascots
 
-Each suburb has TWO illustrated identities:
-- **Mascot**: an absurd anthropomorphic character (Warren P. Toadfish, ESQ. for
-  Elwood) — appears in the side panel when a suburb is clicked.
-- **Flag**: a vexillographic civic flag (2-3 colours + single emblem) — appears
-  as a centroid overlay on the map for at-a-glance suburb identity.
+Each suburb has one illustrated identity:
+- **Mascot**: a recognisable Melbourne archetype drawn cartoon-style (e.g. "Dave
+  the Brunswick Sparkie, 38") — appears in the side panel when a suburb is
+  clicked.
 
-LLM generates text descriptions for both. Pollinations.ai (`flux` model, free,
-no API key, requires `User-Agent` header) renders the actual cartoon images,
-which are saved to `assets/mascots/{suburb}.{jpg|png}` and
-`assets/flags/{suburb}.{jpg|png}` respectively. Dash serves them from `/assets/`.
-
-## Map rendering: flag overlay (Option A)
-
-We chose **centroid flag overlay** over literal pattern-fill polygons. Rationale:
-
-- Plotly's `choropleth_map` doesn't support pattern/image fills natively. Literal
-  fill would require migrating to dash-leaflet or custom MapLibre + rebuilding all
-  the hover/click/side-panel callbacks. Day-plus refactor.
-- Centroid overlay preserves all interactivity (hover, click, side panel) and
-  gets a flag-per-suburb visual immediately, so we can judge if the *concept*
-  works before committing to the bigger refactor.
-
-How it's done:
-- Compute polygon centroid + bounding box via `shapely`
-- For each suburb with a flag PNG, add a `map.layers` entry with `sourcetype=image`,
-  positioned at corner coords inside the polygon's bbox (a small rectangle near
-  the centroid, sized to keep the flag legible without overlapping neighbours)
-- Polygon fill stays category-coloured but at low opacity (~0.3) so flags pop
-
-If we later decide we want literal fill (each polygon textured with its flag),
-the migration target is **dash-leaflet** with SVG `<pattern>` defs applied via
-`fillPattern`. Documented but not implemented.
+The LLM generates the mascot text description and an `image_prompt`.
+Pollinations.ai (`flux` model, free, no API key, requires `User-Agent` header)
+renders the actual cartoon image, saved to `assets/mascots/{suburb}.{jpg|png}`.
+Dash serves it from `/assets/`.
 
 ## Status (working notes)
 
@@ -199,27 +174,23 @@ the migration target is **dash-leaflet** with SVG `<pattern>` defs applied via
       cross-suburb threads ("best/worst suburb", "your suburb in 3 words", etc.)
       to `data/raw/_meta.json` (128 threads, 21,534 comments collected).
 - [x] `scrape/summarize.py` — DeepSeek summariser, byte-identical system prompt
-      for auto cache. Schema: tags (7-12), vibe (2-3 sentences), lore (3-6),
-      food_and_drink (2-4), quotes (3-5), primary_category, mascot {name,
-      tagline, description, image_prompt}, flag {colors, emblem, style,
-      description, image_prompt}. Joins meta-mention comments into the corpus
-      before summarising.
+      for auto cache. Schema: nickname, tags (7-12), vibe (2-3 sentences), lore
+      (5-8), history (+ source attribution), top_quote, quotes (5-10),
+      primary_category, mascot {name, tagline, description, image_prompt}. Joins
+      meta-mention comments into the corpus before summarising.
 - [x] `scrape/refresh.py` — orchestrator
 - [x] `app.py` — choropleth + hover tooltip + click → side panel rendering all
       rich fields including mascot image (if `assets/mascots/{suburb}.{jpg|png}`
       exists) and mascot bio.
-- [x] All 75 suburbs summarised with rich schema (tags, vibe, lore,
-      food_and_drink, quotes, mascot, flag).
+- [x] All suburbs summarised with rich schema (nickname, tags, vibe, lore,
+      history, top_quote, quotes, mascot).
 - [x] `scrape/imagegen.py` — pluggable image gen (Pollinations / Replicate).
       Replicate path uses `black-forest-labs/flux-dev`, with self-throttling
       to stay under the 6/min low-credit cap (12s minimum between calls).
 - [x] `scrape/mascots.py` — fetches mascot image_prompt from suburbs.json,
       sanitises (strips drug/contraband references that hit safety filters),
       generates via configured backend.
-- [x] `scrape/flags.py` — hybrid flag generator: PIL draws bands from
-      `flag.{colors, style}`, image gen supplies black silhouette emblem on
-      white, chroma key strips background, composites onto bands.
-- [x] **11 mascots + flags rendered** so far: Elwood (Pollinations) + 10
+- [x] **11 mascots rendered** so far: Elwood (Pollinations) + 10
       random suburbs (Replicate FLUX dev): Carlton North, Ascot Vale, Kew,
       Hampton, Flemington, Caulfield South, Carlton, Camberwell, Ripponlea,
       Balaclava. Cost: ~$0.50.
@@ -230,8 +201,7 @@ the migration target is **dash-leaflet** with SVG `<pattern>` defs applied via
       ["Melbourne CBD", "the CBD", "city centre"]. Mechanism extensible via
       `SUBURB_SEARCH_ALIASES` and `SUBURB_MENTION_TERMS` dicts.
 - [ ] Re-summarise all 75 with the multi-source corpus (currently running)
-- [ ] Auto-generate mascot + flag images for remaining ~64 suburbs
-      (~$3, ~25 min) — pending user go-ahead
+- [ ] Auto-generate mascot images for remaining suburbs — pending user go-ahead
 - [ ] Polish: palette, panel styling, README
 
 ## Risks / things to watch

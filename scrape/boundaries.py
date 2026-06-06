@@ -65,6 +65,21 @@ TARGET_SUBURBS = [
     "Yarraville",
     # Middle west (expansion ring)
     "Sunshine", "Sunshine North", "Sunshine West", "Braybrook", "Maidstone",
+    # --- Outer ring (added by Reddit-mention frequency, >=50 mentions in the
+    #     21k-comment meta corpus + per-suburb caches). Grouped by corridor. ---
+    # Outer south-east + bayside SE
+    "Dandenong", "Springvale", "Noble Park", "Oakleigh", "Clayton",
+    "Cranbourne", "Pakenham", "Cheltenham", "Carrum", "Frankston",
+    # Outer east
+    "Glen Waverley", "Burwood", "Blackburn", "Ringwood",
+    "Lilydale", "Boronia", "Doncaster",
+    # Outer north-east
+    "Eltham", "Heidelberg", "Ivanhoe", "Rosanna", "Greensborough", "Mernda",
+    "Bundoora", "Epping",
+    # Outer north
+    "Sunbury", "Broadmeadows", "Keilor",
+    # Outer west / Wyndham
+    "Melton", "St Albans", "Werribee", "Point Cook", "Altona",
 ]
 
 

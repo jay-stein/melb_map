@@ -10,27 +10,27 @@ pipeline is wired up. Real data lives in data/suburbs.json once generated.
 from __future__ import annotations
 
 import json
-import math
 import random
 from pathlib import Path
 
 import geopandas as gpd
 import pandas as pd
 import plotly.express as px
-from dash import Dash, Input, Output, dcc, html
+import plotly.graph_objects as go
+from dash import Dash, Input, Output, dcc, html, no_update
+
+import suburble
 
 ROOT = Path(__file__).resolve().parent
 BOUNDARIES_PATH = ROOT / "data" / "boundaries.geojson"
+CONTEXT_PATH = ROOT / "data" / "context_boundaries.geojson"
 SUBURBS_PATH = ROOT / "data" / "suburbs.json"
-FLAGS_DIR = ROOT / "assets" / "flags"
 
-# Tuning for flag overlays. Flag rectangle is sized as a fraction of polygon
-# bbox width but capped so tiny suburbs aren't drowned by their flag and big
-# ones don't get an absurd one.
-FLAG_BBOX_FRAC = 0.55
-FLAG_LON_MIN = 0.012  # ~1 km wide at Melbourne's latitude
-FLAG_LON_MAX = 0.030
-FLAG_ASPECT = 1.5  # 3:2 visual; we'll skew height by cos(lat) to compensate Mercator
+# Light-grey "basemap" of surrounding suburbs we don't cover.
+CONTEXT_FILL = "#E4E6E8"
+CONTEXT_LINE = "#D3D6D9"
+CONTEXT_TEXT = "#B7BCC1"
+MAP_BG = "#F2F3F4"
 
 CATEGORIES = [
     "hipster", "posh", "student", "family",
@@ -49,8 +49,31 @@ CATEGORY_COLORS = {
 }
 
 
+# ABS SAL boundaries are survey-grade (~52k vertices over 133 suburbs).
+# px.choropleth_map with color=category splits into one trace per category and
+# embeds the WHOLE geojson in EACH trace, so the raw 2.4 MB file becomes a
+# ~17 MB figure that freezes the browser on parse. Simplifying to ~50 m
+# tolerance is sub-pixel at city zoom but cuts the vertex count ~8x.
+SIMPLIFY_TOLERANCE_DEG = 0.0005  # ~55 m at Melbourne's latitude
+
+
 def load_boundaries() -> dict:
     with BOUNDARIES_PATH.open("r", encoding="utf-8") as f:
+        raw = json.load(f)
+    gdf = gpd.GeoDataFrame.from_features(raw["features"], crs="EPSG:4326")
+    gdf["geometry"] = gdf.geometry.simplify(
+        SIMPLIFY_TOLERANCE_DEG, preserve_topology=True
+    )
+    return json.loads(gdf.to_json())
+
+
+def load_context() -> dict | None:
+    """Surrounding suburbs we don't cover, for grey basemap context.
+    Pre-simplified by scrape.context_boundaries. Optional — returns None if
+    the file hasn't been generated."""
+    if not CONTEXT_PATH.exists():
+        return None
+    with CONTEXT_PATH.open("r", encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -67,6 +90,7 @@ def load_suburbs_data(geojson: dict) -> pd.DataFrame:
             mascot = entry.get("mascot") or {}
             rows.append({
                 "suburb": s,
+                "nickname": entry.get("nickname", ""),
                 "category": entry.get("primary_category", "unknown"),
                 "tags": entry.get("tags", []),
                 "vibe": entry.get("vibe", ""),
@@ -75,10 +99,12 @@ def load_suburbs_data(geojson: dict) -> pd.DataFrame:
                 "history_source": entry.get("history_source"),
                 "history_source_url": entry.get("history_source_url", ""),
                 "history_source_author": entry.get("history_source_author", ""),
+                "top_quote": entry.get("top_quote", ""),
                 "quotes": entry.get("quotes", []),
                 "mascot_name": mascot.get("name", ""),
                 "mascot_tagline": mascot.get("tagline", ""),
                 "mascot_description": mascot.get("description", ""),
+                "census": entry.get("census") or {},
             })
         return pd.DataFrame(rows)
 
@@ -89,6 +115,7 @@ def load_suburbs_data(geojson: dict) -> pd.DataFrame:
         cat = rng.choice(CATEGORIES)
         rows.append({
             "suburb": s,
+            "nickname": "",
             "category": cat,
             "tags": [f"placeholder {cat} tag {i+1}" for i in range(3)],
             "vibe": f"Placeholder vibe for {s}. Real summary will arrive once the Reddit pipeline runs.",
@@ -97,67 +124,44 @@ def load_suburbs_data(geojson: dict) -> pd.DataFrame:
             "history_source": None,
             "history_source_url": "",
             "history_source_author": "",
+            "top_quote": "",
             "quotes": [],
             "mascot_name": "",
             "mascot_tagline": "",
             "mascot_description": "",
+            "census": {},
         })
     return pd.DataFrame(rows)
 
 
-def compute_flag_layers(geojson: dict) -> list[dict]:
-    """For every suburb that has a flag PNG in assets/flags/, compute a
-    map.layers entry that pins the flag image at the polygon's representative
-    point with a sensible width."""
+def compute_centroids(geojson: dict) -> dict[str, tuple[float, float]]:
+    """Return {suburb_name: (lat, lon)} using each polygon's representative
+    point (always inside the polygon — centroid can fall outside for
+    non-convex shapes)."""
     gdf = gpd.GeoDataFrame.from_features(geojson["features"], crs="EPSG:4326")
-    layers = []
+    centroids: dict[str, tuple[float, float]] = {}
     for _, row in gdf.iterrows():
-        suburb = row["suburb"]
-        safe = suburb.replace(" ", "_").replace("/", "_")
-        for ext in ("png", "jpg"):
-            flag_path = FLAGS_DIR / f"{safe}.{ext}"
-            if flag_path.exists():
-                break
-        else:
-            continue
-
-        geom = row.geometry
-        # Representative point is always inside the polygon (centroid can fall
-        # outside for non-convex shapes)
-        pt = geom.representative_point()
-        cx, cy = pt.x, pt.y
-
-        # Pick a flag width based on bbox, clamped to sensible range
-        minx, miny, maxx, maxy = geom.bounds
-        bbox_w = maxx - minx
-        flag_w = max(FLAG_LON_MIN, min(FLAG_LON_MAX, bbox_w * FLAG_BBOX_FRAC))
-        # Compensate Mercator latitude stretch so visual aspect stays ~3:2
-        flag_h = (flag_w / FLAG_ASPECT) / math.cos(math.radians(cy))
-
-        # Coordinates: NW, NE, SE, SW (lon, lat)
-        coords = [
-            [cx - flag_w / 2, cy + flag_h / 2],
-            [cx + flag_w / 2, cy + flag_h / 2],
-            [cx + flag_w / 2, cy - flag_h / 2],
-            [cx - flag_w / 2, cy - flag_h / 2],
-        ]
-        layers.append({
-            "sourcetype": "image",
-            "source": f"/assets/flags/{flag_path.name}",
-            "coordinates": coords,
-        })
-    return layers
+        pt = row.geometry.representative_point()
+        centroids[row["suburb"]] = (pt.y, pt.x)  # (lat, lon)
+    return centroids
 
 
-def build_figure(df: pd.DataFrame, geojson: dict):
+def build_figure(df: pd.DataFrame, geojson: dict, context_geojson: dict | None = None):
     df = df.copy()
     def fmt_hover(lst):
         if not lst:
             return "<i>no quirks gathered yet</i>"
         return "<br>".join(f"• {t}" for t in lst[:3])
     df["hover_tags"] = df["tags"].apply(fmt_hover)
+    df["display_name"] = df.apply(
+        lambda r: f"{r['suburb']} ({r['nickname']})" if r.get("nickname") else r["suburb"],
+        axis=1,
+    )
 
-    fig = px.choropleth_map(
+    # Pure-SVG choropleth (geo), NOT the maplibre choropleth_map: no tiles, no
+    # basemap, and no CORS-gated glyph/sprite fetches that hang the map on
+    # restricted networks. Clean coloured suburb shapes on a plain background.
+    fig = px.choropleth(
         df,
         geojson=geojson,
         locations="suburb",
@@ -165,50 +169,157 @@ def build_figure(df: pd.DataFrame, geojson: dict):
         color="category",
         color_discrete_map=CATEGORY_COLORS,
         category_orders={"category": CATEGORIES + ["unknown"]},
-        custom_data=["suburb", "hover_tags"],
-        center={"lat": -37.83, "lon": 144.97},
-        zoom=10.5,
-        map_style="carto-positron",
-        opacity=0.30,  # lowered so flags pop on top
+        custom_data=["display_name", "hover_tags"],
     )
     fig.update_traces(
         hovertemplate="<b>%{customdata[0]}</b><br>%{customdata[1]}<extra></extra>",
-        marker_line_width=0.5,
+        marker_line_width=0.6,
         marker_line_color="white",
+        marker_opacity=0.85,  # soften the category fills for a cleaner palette
+        selector=dict(type="choropleth"),
     )
-    flag_layers = compute_flag_layers(geojson)
-    print(f"[app] {len(flag_layers)} flag layer(s) added to map")
+
+    # Grey "basemap": surrounding suburbs we don't cover. Single flat-grey
+    # choropleth, prepended so it sits BENEATH the coloured target suburbs.
+    if context_geojson and context_geojson.get("features"):
+        ctx_names = [f["properties"]["suburb"] for f in context_geojson["features"]]
+        ctx_trace = go.Choropleth(
+            geojson=context_geojson,
+            locations=ctx_names,
+            featureidkey="properties.suburb",
+            z=[0] * len(ctx_names),
+            colorscale=[[0, CONTEXT_FILL], [1, CONTEXT_FILL]],
+            showscale=False,
+            marker_line_color=CONTEXT_LINE,
+            marker_line_width=0.4,
+            customdata=ctx_names,
+            hovertemplate="<b>%{location}</b><br><i>not in dataset</i><extra></extra>",
+        )
+        fig.add_trace(ctx_trace)
+        fig.data = (fig.data[-1],) + fig.data[:-1]  # move grey layer to the bottom
+
+    # Frame the suburbs and strip all base geography (land, coastlines, frame).
+    # Use explicit axis ranges, NOT fitbounds="locations" — fitbounds re-fits the
+    # view and blocks manual scroll/drag zoom. Axis ranges set the initial frame
+    # but leave zoom/pan free.
+    tb = gpd.GeoDataFrame.from_features(geojson["features"]).total_bounds
+    mx = (tb[2] - tb[0]) * 0.04
+    my = (tb[3] - tb[1]) * 0.04
+    fig.update_geos(
+        visible=False,
+        projection_type="mercator",
+        lonaxis_range=[tb[0] - mx, tb[2] + mx],
+        lataxis_range=[tb[1] - my, tb[3] + my],
+        bgcolor=MAP_BG,
+    )
+
+    # Grey labels for the context suburbs (small, recessive). Added before the
+    # coloured labels so they render underneath them.
+    if context_geojson and context_geojson.get("features"):
+        c_lons, c_lats, c_texts = [], [], []
+        for name, latlon in compute_centroids(context_geojson).items():
+            c_lats.append(latlon[0])
+            c_lons.append(latlon[1])
+            c_texts.append(name)
+        if c_texts:
+            fig.add_trace(go.Scattergeo(
+                lon=c_lons,
+                lat=c_lats,
+                text=c_texts,
+                mode="text",
+                textfont={"color": CONTEXT_TEXT, "size": 7.5, "family": "Arial, sans-serif"},
+                hoverinfo="skip",
+                showlegend=False,
+            ))
+
+    # Centroid labels: suburb name with nickname beneath in brackets. Rendered as
+    # SVG text via Scattergeo (browser fonts) — no maplibre glyph endpoint, so no
+    # CORS issue. Carries the suburb in customdata so clicking a label opens the
+    # panel too (label points have no `location` like the choropleth does).
+    centroids = compute_centroids(geojson)
+    lons, lats, texts, subs = [], [], [], []
+    for _, r in df.iterrows():
+        latlon = centroids.get(r["suburb"])
+        if not latlon:
+            continue
+        lat, lon = latlon
+        nickname = r.get("nickname") or ""
+        texts.append(
+            f"<b>{r['suburb']}</b><br>({nickname})" if nickname else f"<b>{r['suburb']}</b>"
+        )
+        lats.append(lat)
+        lons.append(lon)
+        subs.append(r["suburb"])
+    if subs:
+        fig.add_trace(go.Scattergeo(
+            lon=lons,
+            lat=lats,
+            text=texts,
+            mode="text",
+            textfont={"color": "#37474F", "size": 9, "family": "Arial, sans-serif"},
+            customdata=subs,
+            hoverinfo="skip",
+            showlegend=False,
+        ))
+
     fig.update_layout(
         margin={"r": 0, "t": 0, "l": 0, "b": 0},
-        legend={"title": "vibe", "orientation": "v", "x": 0.01, "y": 0.99},
+        legend={
+            "title": {"text": "vibe", "font": {"size": 12, "color": "#455A64"}},
+            "orientation": "v",
+            "x": 0.012,
+            "y": 0.985,
+            "bgcolor": "rgba(255,255,255,0.88)",
+            "bordercolor": "#E0E0E0",
+            "borderwidth": 1,
+            "font": {"size": 11, "color": "#455A64"},
+            "itemsizing": "constant",
+        },
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        hoverlabel={"bgcolor": "white", "bordercolor": "#E0E0E0",
+                    "font": {"size": 12, "color": "#263238"}},
         uirevision="static",
-        map={"layers": flag_layers} if flag_layers else {},
     )
     return fig
 
 
 geojson = load_boundaries()
+context_geojson = load_context()
 df = load_suburbs_data(geojson)
-fig = build_figure(df, geojson)
+fig = build_figure(df, geojson, context_geojson)
 
-app = Dash(__name__, title="Melbourne Suburb Quirks")
+centroids = compute_centroids(geojson)
 
-app.layout = html.Div(
-    style={
-        "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-        "display": "flex",
-        "height": "100vh",
-        "margin": 0,
-    },
-    children=[
+app = Dash(__name__, title="Melbourne Suburb Quirks", suppress_callback_exceptions=True)
+suburble.init(geojson, list(df["suburb"]), centroids)
+
+
+def map_layout() -> html.Div:
+    return html.Div(
+        style={
+            "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+            "display": "flex",
+            "height": "100vh",
+            "margin": 0,
+        },
+        children=[
         html.Div(
-            style={"flex": "1 1 70%", "position": "relative"},
+            style={"flex": "1 1 70%", "position": "relative", "background": MAP_BG},
             children=[
                 dcc.Graph(
                     id="map",
                     figure=fig,
                     style={"height": "calc(100vh - 28px)"},
-                    config={"scrollZoom": True, "displayModeBar": False},
+                    # scroll to zoom + a minimal modebar (zoom / pan / reset).
+                    config={
+                        "scrollZoom": True,
+                        "displayModeBar": True,
+                        "displaylogo": False,
+                        "modeBarButtonsToRemove": [
+                            "select2d", "lasso2d", "toImage",
+                        ],
+                    },
                 ),
                 html.Footer(
                     [
@@ -253,7 +364,18 @@ app.layout = html.Div(
                 "borderLeft": "1px solid #E0E0E0",
             },
             children=[
-                html.H2("Melbourne suburb quirks", style={"marginTop": 0}),
+                html.Div(
+                    [
+                        html.H2("Melbourne suburb quirks",
+                                style={"marginTop": 0, "marginBottom": 0, "flex": "1 1 auto"}),
+                        dcc.Link("🎮 Play Suburble", href="/play",
+                                 style={"color": "white", "background": "#7E57C2",
+                                        "padding": "6px 12px", "borderRadius": "8px",
+                                        "textDecoration": "none", "fontSize": "13px",
+                                        "fontWeight": 600, "whiteSpace": "nowrap"}),
+                    ],
+                    style={"display": "flex", "alignItems": "center", "gap": "10px"},
+                ),
                 html.P(
                     "Hover a suburb for a peek. Click for the full breakdown.",
                     style={"color": "#616161"},
@@ -267,7 +389,102 @@ app.layout = html.Div(
             ],
         ),
     ],
-)
+    )
+
+
+app.layout = html.Div([dcc.Location(id="url"), html.Div(id="page-content")])
+
+
+@app.callback(Output("page-content", "children"), Input("url", "pathname"))
+def route(pathname):
+    if pathname == "/play":
+        return suburble.layout()
+    return map_layout()
+
+
+def _flag_img(iso: str | None):
+    """Local flag SVG (CORS-safe). Returns a fixed-width slot so rows align even
+    when a group has no flag (e.g. 'Other')."""
+    base = {"width": "20px", "height": "15px", "marginRight": "8px",
+            "verticalAlign": "middle", "flex": "0 0 auto"}
+    if not iso:
+        return html.Span(style={**base, "display": "inline-block"})
+    return html.Img(
+        src=f"/assets/flags/{iso}.svg",
+        style={**base, "borderRadius": "2px", "boxShadow": "0 0 1px rgba(0,0,0,.4)",
+               "objectFit": "cover"},
+    )
+
+
+def _quirk_row(q: dict):
+    """[flag] Group ........ 4.8× · top 10%"""
+    return html.Div(
+        [
+            _flag_img(q.get("iso")),
+            html.Span(q["group"], style={"flex": "1 1 auto", "fontSize": "13px",
+                                         "color": "#37474F"}),
+            html.Span(
+                f"{q['lq']:.1f}× · top {q['top_pct']}%",
+                style={"fontSize": "12px", "color": "#9E9E9E", "flex": "0 0 auto"},
+            ),
+        ],
+        style={"display": "flex", "alignItems": "center", "padding": "3px 0"},
+    )
+
+
+def render_census(census: dict) -> list:
+    """Origins & language card: stat strip + flagged top-3 languages and
+    birthplaces + ancestry line + emerging note."""
+    if not census:
+        return []
+    card: list = []
+
+    if census.get("headline"):
+        card.append(html.Div(
+            census["headline"],
+            style={"fontWeight": 600, "fontSize": "13.5px", "color": "#37474F",
+                   "marginBottom": "8px"},
+        ))
+
+    bits = [f"{census['population']:,} people"]
+    if census.get("born_overseas_pct") is not None:
+        bits.append(f"{census['born_overseas_pct']:.0f}% born overseas")
+    if census.get("both_parents_overseas_pct") is not None:
+        bits.append(f"{census['both_parents_overseas_pct']:.0f}% both parents overseas")
+    card.append(html.Div(
+        " · ".join(bits),
+        style={"fontSize": "12px", "color": "#757575", "marginBottom": "10px"},
+    ))
+
+    def sub(label):
+        return html.Div(label, style={"fontSize": "11px", "fontWeight": 600,
+                                      "textTransform": "uppercase", "letterSpacing": ".4px",
+                                      "color": "#90A4AE", "margin": "8px 0 2px"})
+
+    if census.get("language"):
+        card.append(sub("Languages above the city average"))
+        card += [_quirk_row(q) for q in census["language"]]
+    if census.get("birthplace"):
+        card.append(sub("Born overseas, over-represented"))
+        card += [_quirk_row(q) for q in census["birthplace"]]
+    if census.get("ancestry"):
+        names = " · ".join(q["group"] for q in census["ancestry"])
+        card.append(html.Div(
+            [html.Span("Heritage: ", style={"fontWeight": 600}), names],
+            style={"fontSize": "12.5px", "color": "#546E7A", "marginTop": "10px"},
+        ))
+    if census.get("emerging"):
+        note = " · ".join(f"{q['group']} (top {q['top_pct']}%)" for q in census["emerging"])
+        card.append(html.Div(
+            [html.Span("Also notable: ", style={"fontStyle": "italic"}), note],
+            style={"fontSize": "12px", "color": "#9E9E9E", "marginTop": "6px"},
+        ))
+
+    return [
+        html.H4("origins & language", style={"marginBottom": 4, "marginTop": "16px"}),
+        html.Div(card, style={"padding": "12px", "background": "white",
+                              "borderRadius": "8px", "border": "1px solid #E0E0E0"}),
+    ]
 
 
 @app.callback(Output("suburb-detail", "children"), Input("map", "clickData"))
@@ -277,15 +494,47 @@ def update_panel(click_data):
             "Click a suburb on the map →",
             style={"color": "#9E9E9E", "fontStyle": "italic"},
         )
-    suburb = click_data["points"][0]["location"]
+    pt = click_data["points"][0]
+    # Choropleth points carry `location`; centroid label points carry the suburb
+    # in `customdata` instead. Accept either so clicking a label works too.
+    suburb = pt.get("location")
+    if not suburb:
+        cd = pt.get("customdata")
+        if isinstance(cd, (list, tuple)):
+            cd = cd[0] if cd else None
+        suburb = cd
+    if not suburb:
+        return no_update
     row = df[df["suburb"] == suburb]
     if row.empty:
-        return html.P(f"No data for {suburb}.")
+        return html.Div([
+            html.H3(suburb, style={"marginBottom": 4}),
+            html.P(
+                "Not in the dataset — this map focuses on inner/middle Melbourne "
+                "plus select outer suburbs. Shown in grey for context.",
+                style={"color": "#9E9E9E", "fontStyle": "italic"},
+            ),
+        ])
     r = row.iloc[0]
+    nickname = r.get("nickname") or ""
+
+    def suburb_heading() -> "html.H3":
+        if nickname:
+            return html.H3(
+                [
+                    suburb,
+                    html.Span(
+                        f" ({nickname})",
+                        style={"fontWeight": 400, "color": "#757575", "fontSize": "16px"},
+                    ),
+                ],
+                style={"marginBottom": 4},
+            )
+        return html.H3(suburb, style={"marginBottom": 4})
 
     if not r["tags"] and not r["vibe"]:
         return html.Div([
-            html.H3(suburb, style={"marginBottom": 4}),
+            suburb_heading(),
             html.P(
                 "No quirks gathered for this suburb yet — run the scrape + summarise pipeline to populate it.",
                 style={"color": "#757575", "fontStyle": "italic"},
@@ -293,7 +542,7 @@ def update_panel(click_data):
         ])
 
     children: list = [
-        html.H3(suburb, style={"marginBottom": 4}),
+        suburb_heading(),
         html.Span(
             r["category"],
             style={
@@ -364,6 +613,7 @@ def update_panel(click_data):
         ]
     if r["vibe"]:
         children.append(html.P(r["vibe"], style={"fontSize": "15px", "lineHeight": 1.5}))
+    children += render_census(r.get("census") or {})
     if r["tags"]:
         children += [
             html.H4("tags", style={"marginBottom": 4, "marginTop": "16px"}),
@@ -431,14 +681,58 @@ def update_panel(click_data):
             html.H4("history", style={"marginBottom": 4, "marginTop": "16px"}),
             *history_children,
         ]
-    if r["quotes"]:
-        children += [
-            html.H4("from r/melbourne", style={"marginBottom": 4, "marginTop": "16px"}),
+    top_quote = (r.get("top_quote") or "").strip()
+    quotes_list = list(r["quotes"]) if r["quotes"] is not None else []
+    if top_quote or quotes_list:
+        children.append(
+            html.Div(
+                [
+                    html.Img(
+                        src="/assets/reddit_logo.svg",
+                        style={"height": "18px", "width": "18px", "marginRight": "7px",
+                               "verticalAlign": "middle"},
+                    ),
+                    html.Span("straight from ", style={"color": "#757575"}),
+                    html.A(
+                        "r/melbourne",
+                        href="https://www.reddit.com/r/melbourne/",
+                        target="_blank", rel="noopener",
+                        style={"color": "#FF4500", "fontWeight": 600, "textDecoration": "none"},
+                    ),
+                ],
+                style={"display": "flex", "alignItems": "center", "fontSize": "14px",
+                       "fontWeight": 600, "marginTop": "18px", "marginBottom": "6px"},
+            ),
+        )
+    if top_quote:
+        children.append(
+            html.Div(
+                f"“{top_quote}”",
+                style={
+                    "borderLeft": "4px solid #FF4500",
+                    "padding": "14px 18px",
+                    "margin": "8px 0 12px 0",
+                    "background": "white",
+                    "borderRadius": "0 8px 8px 0",
+                    "color": "#212121",
+                    "fontSize": "16px",
+                    "fontStyle": "italic",
+                    "lineHeight": 1.45,
+                    "boxShadow": "0 1px 2px rgba(0,0,0,0.04)",
+                },
+            ),
+        )
+    # Dedupe top_quote from the supporting list (case-insensitive substring)
+    if top_quote:
+        tq_lower = top_quote.lower()
+        quotes_list = [q for q in quotes_list if tq_lower not in q.lower() and q.lower() not in tq_lower]
+    if quotes_list:
+        children.append(
             html.Div([
                 html.Blockquote(
                     q,
                     style={
-                        "borderLeft": "3px solid #BDBDBD",
+                        "borderLeft": "3px solid #FFC4AB",
                         "paddingLeft": "12px",
                         "margin": "8px 0",
                         "color": "#424242",
@@ -446,10 +740,13 @@ def update_panel(click_data):
                         "fontStyle": "italic",
                     },
                 )
-                for q in r["quotes"]
+                for q in quotes_list
             ]),
-        ]
+        )
     return html.Div(children)
+
+
+suburble.register_callbacks(app)
 
 
 if __name__ == "__main__":

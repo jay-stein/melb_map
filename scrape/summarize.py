@@ -40,6 +40,21 @@ DEEPSEEK_MODEL = "deepseek-chat"
 # Cap on meta-mention comments injected per suburb (cost / context control)
 MAX_META_MENTIONS = 30
 
+# Curated fallback nicknames for suburbs where the locals' shorthand is so
+# common it would feel wrong missing, but doesn't always show up verbatim in
+# the corpus. Only used when the LLM returns empty for `nickname` — LLM-
+# extracted nicknames from corpus win when present. Keep this list TIGHT;
+# every entry adds visual chrome to the map.
+KNOWN_NICKNAMES: dict[str, str] = {
+    "Fitzroy": "Fitzy",
+    "St Kilda": "St K",
+    "Footscray": "Scray",
+    "Williamstown": "Willy",
+    "Prahran": "Pran",
+    "Reservoir": "Rezza",
+    "Melbourne": "the CBD",
+}
+
 CATEGORIES = [
     "hipster", "posh", "student", "family",
     "nightlife", "industrial", "sleepy", "multicultural", "unknown",
@@ -49,35 +64,31 @@ SYSTEM_PROMPT = """You profile Melbourne suburbs by extracting their cultural qu
 
 Your job is to read the corpus the user gives you for ONE suburb and return a JSON object capturing what makes that suburb distinctive — the things locals joke about, complain about, or recognise instantly. Think hoodmaps.com style: specific, observational, funny, a little affectionate. Be DETAILED and SPECIFIC — readers want texture, not generic suburb descriptions.
 
-The corpus may contain UP TO FIVE sections (any or all may appear):
+The corpus may contain UP TO SIX sections (any or all may appear):
 - MELBZ.COM.AU PROFILE: a curated suburb guide with sections like "What X Is Actually Like", "Who Lives Here", "Eating and Drinking", "Verdict". This is the highest-quality structured content — use it for accurate facts (boundaries, transport, demographics) and for character cues. The "What X Is Actually Like" and "Verdict" sections are gold.
 - REDDIT POSTS / COMMENTS: discussions where this suburb is the main topic. Raw, often funny, occasionally exaggerated — great for vibes and one-liners.
 - META MENTIONS: snippets pulled from cross-suburb Reddit threads ("best suburb", "your suburb in 3 words", etc.) where this suburb was named in passing. These capture how outsiders see the suburb — the stereotypes, the offhand jokes. Often the gold.
 - EMELBOURNE: a curated University of Melbourne encyclopaedia entry with the suburb's founding, etymology, and historical arc. Use this as the PRIMARY source for the `history` field — it's reliable scholarly writing.
 - WIKIPEDIA: the lead paragraph of the suburb's Wikipedia article. Used as a FALLBACK for `history` when EMELBOURNE is absent. Often very thin (just "X is a suburb of Melbourne, N km from CBD") — if so, leave `history` empty rather than padding.
+- DEMOGRAPHIC SIGNAL: hard ABS 2021 census facts on which birthplaces, languages, and ancestries are OVER-REPRESENTED in this suburb versus the Greater Melbourne average (e.g. "Russian spoken at 4.8x the metro rate"). This reliably reveals the real community even when Reddit is silent on it. When the signal clearly points to a recognisable community, you SHOULD reflect it in ONE natural sentence in `vibe` (or one `lore` item) — read the cluster, don't just transcribe it: Polish+Russian+Hungarian (often with Hebrew) around Caulfield/Elsternwick signals a long-standing Jewish community; Vietnamese/Cambodian/Khmer signals the Footscray/Springvale diasporas; Greek/Italian signals post-war migration; Mandarin/Cantonese a Chinese community. Name the community, not the percentages. If the signal is only a header line with no over-represented groups, the suburb is demographically unremarkable — say nothing. Do NOT recite raw numbers, do NOT list multiple stats mechanically, and never let this flatten the Reddit-driven voice. It is a cue, not the script.
 
 When sources disagree (e.g. MELBZ says "great public transport" but Reddit complains about it), trust REDDIT for vibes/character and MELBZ for facts. For history, prefer EMELBOURNE; never use REDDIT or MELBZ for the `history` field. Quote ONLY from Reddit (verbatim quotes from MELBZ/EMELBOURNE/WIKIPEDIA are off — Reddit voices are what we want in `quotes`).
 
 OUTPUT FORMAT (strict JSON, nothing else):
 {
+  "nickname": "a widely-used 1-3 word locals' nickname for this suburb IF prevalent in the corpus (e.g. 'Fitzy' for Fitzroy, 'St K' for St Kilda, 'Scray' for Footscray, 'Swappers Crossing' for Hoppers Crossing). Must appear in the corpus OR be a well-documented Melbourne nickname. Return empty string if no clear nickname exists — don't invent one.",
   "tags": [7 to 12 short, vivid phrases],
   "vibe": "2-3 full sentences capturing the suburb's character with personality",
-  "lore": [3 to 6 specific stories, landmarks, recurring drama, businesses, or in-jokes that locals would recognise],
+  "lore": [5 to 8 specific items, mix of PRESENT-DAY stories/landmarks/in-jokes AND HISTORICAL CURIOSITIES (the building that used to be a brothel, the train line they tore up in 1962, the urban legend about the haunted tram, demolished landmarks, ghost stories). Reddit history-flavoured threads are gold for this — surface them.],
   "history": "1-2 sentences on the suburb's founding, etymology, or key historical arc — only what gives modern character, not a textbook recap. Prefer the EMELBOURNE source when present; fall back to WIKIPEDIA. If both are thin or missing, return an empty string.",
-  "quotes": [3 to 5 verbatim Reddit lines that exemplify the suburb's character],
+  "top_quote": "the SINGLE funniest or most memorable verbatim Reddit line from the corpus — picked from the same pool as `quotes`. The line that made you laugh hardest, the most-Melbourne hot take, the niche observation that captures the suburb in one sentence. Empty string if nothing's truly standout.",
+  "quotes": [5 to 10 verbatim Reddit lines that exemplify the suburb's character — hot takes, jokes, weird observations. Include the obscure-funny ones, not just the obvious picks.],
   "primary_category": "one of: hipster, posh, student, family, nightlife, industrial, sleepy, multicultural, unknown",
   "mascot": {
-    "name": "an absurd character name with title (e.g. 'Warren P. Toadfish, ESQ.')",
+    "name": "a Melbourne archetype with a name (e.g. 'Dave the Brunswick Sparkie, 38', 'Stephanie from Toorak'). A warm character title is fine if the suburb doesn't fit a clean archetype.",
     "tagline": "one snappy line in the mascot's voice",
-    "description": "1-2 sentences, sarcastic and a bit bitchy, in the spirit of a knowing local roasting their own neighbourhood. Pick ONE central anthropomorphic figure (animal/creature/object) with AT MOST TWO distinguishing items (one outfit + one prop), each tied to suburb lore. Don't over-explain; the snark is the point.",
-    "image_prompt": "a single self-contained sentence under 40 words. Format strictly: '[creature/figure] wearing [ONE outfit], holding/with [ONE prop], single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style.' No backgrounds. No additional characters."
-  },
-  "flag": {
-    "colors": ["2-3 hex colors, e.g. '#1B3A5F', '#F4D35E', '#FFFFFF'"],
-    "emblem": "single concrete object/animal/symbol that goes on the flag, in 1-3 words (e.g. 'toadfish', 'banh mi roll', 'Range Rover key', 'tomato')",
-    "style": "one of: horizontal tricolor, vertical tricolor, horizontal bicolor, diagonal split, quartered, canton-and-field",
-    "description": "1-2 sentences explaining the flag's design and what each color/emblem references about the suburb",
-    "image_prompt": "a single self-contained sentence suitable as input to a flag image generator. Must specify the band layout, the colors (use names not hex), the emblem in the center, and end with 'minimalist flat civic flag, vexillographic design, simple, plain white background, no text, no shadows, rectangular 3:2 ratio'. Keep under 50 words."
+    "description": "1-2 sentences. WARM, AFFECTIONATE, observational — the voice of someone fond of their suburb describing a local you'd actually meet. Pick a recognisable Melbourne archetype (tradie, brunch dad, international student, AFL grandma, footy-club bartender, etc.) and ground them in one or two specific suburb details from the corpus. Skip surreal anthropomorphism unless the suburb really calls for it.",
+    "image_prompt": "a single self-contained sentence under 40 words. Format: '[person archetype with clothing description] holding/with [ONE prop], single character portrait, plain white background, no other characters or scenery, simple flat 2D cartoon illustration, comic style.' No backgrounds. No additional characters."
   }
 }
 
@@ -95,8 +106,9 @@ VIBE GUIDELINES:
 - Weak vibe: "A residential suburb in inner Melbourne with cafes and bars."
 
 LORE GUIDELINES:
-- 3-6 specific items each in 1-2 sentences. The kind of stuff locals tell newcomers.
-- Real businesses (Franco Cozzo, Greville Records), real landmarks (the dog-shaped clouds painted on a wall), recurring news stories (the truck-bridge collision saga), persistent neighbourhood characters or dramas.
+- 5-8 specific items each in 1-2 sentences. The kind of stuff locals tell newcomers.
+- MIX present-day (real businesses like Franco Cozzo, Greville Records; recurring news stories like the truck-bridge collision saga; neighbourhood characters or dramas; landmarks) WITH historical curiosities (the building that used to be a brothel, the train line they tore up in 1962, the demolished pub, the urban legend, the ghost story). Reddit history-flavoured threads ("history of X", "X used to be", "old X", "TIL Melbourne") are gold for the historical items — surface them.
+- Prefer Reddit folk-history over the scholarly EMELBOURNE entry for these items; EMELBOURNE feeds the separate `history` field.
 - If the corpus has thin lore, return fewer items rather than padding with generic stuff.
 
 HISTORY GUIDELINES:
@@ -106,9 +118,10 @@ HISTORY GUIDELINES:
 - If EMELBOURNE is missing AND WIKIPEDIA only says something like "X is a suburb N km from CBD with population Y", return an empty string. Don't pad with generic facts.
 
 QUOTES GUIDELINES:
-- 3-5 lines lifted VERBATIM from the corpus. Do not paraphrase, invent, or polish.
-- Pick lines that show personality and humour: hot takes, jokes, weird observations.
+- 5-10 lines lifted VERBATIM from the corpus. Do not paraphrase, invent, or polish.
+- Pick lines that show personality and humour: hot takes, jokes, weird observations, niche local references, the obscure-funny ones — not just the obvious picks. The Reddit comments are full of comedy gold, surface MORE not less.
 - Trim to 1-2 sentences each. Strip leading/trailing whitespace.
+- `top_quote` is your single best pick — the line that made you laugh hardest, the most-Melbourne hot take, the niche observation that captures the suburb in one sentence. Verbatim, picked from the same corpus pool. If nothing's truly standout, leave empty. It's fine for `top_quote` to also appear in `quotes`.
 - If nothing's quotable, fewer is fine.
 
 CATEGORY GUIDELINES:
@@ -123,20 +136,13 @@ CATEGORY GUIDELINES:
 - unknown: corpus is too thin to characterise
 
 MASCOT GUIDELINES:
-- The mascot is a quirky anthropomorphic character. Think hoodmaps-meets-Mascot-Tournament, not corporate-mascot.
-- Pick ONE central creature/figure (an animal, an object, a stereotype-figure). Add AT MOST TWO distinguishing items: ONE outfit (e.g. coat, hat, monocle, hi-vis vest) and ONE prop (e.g. coffee cup, croissant, key, briefcase). Both items must callback to specific suburb lore from the corpus.
-- Resist the urge to pile on props or scene elements. The image will be a single-character portrait — no background, no other figures. Simpler beats busier.
-- Give it a ridiculous formal name with title and a one-line catchphrase in its voice.
-- DESCRIPTION TONE: 1-2 sentences max. SARCASTIC, BITCHY, knowing — the voice of a local who loves their suburb but won't stop dragging it. Strong example: "Felix the Tuxedo Cat clocks in to his startup in a tiny puffer jacket, business card already in paw, eight different oat-milk receipts in the other pocket." Weak example: "Felix is a friendly cat who lives in Carlton and enjoys the cafes and university atmosphere." Avoid earnest set-up; just hit the joke.
-- The image_prompt must end with the standard suffix and explicitly say "single character portrait, plain white background, no other characters or scenery". Keep it under 40 words total.
+- The mascot is a RECOGNISABLE MELBOURNE ARCHETYPE, drawn cartoon-style. Think "the person you'd actually meet in this suburb" — the tradie in hi-vis, the brunch dad on his second flat white, the international student wheeling a suitcase, the AFL grandma in club colours, the footy-club bartender. Not surreal anthropomorphic croissants.
+- Pick ONE archetype rooted in the suburb's actual demographic / vibe. Add ONE outfit detail and ONE prop, both pulled from specific suburb lore in the corpus. Keep it visually simple — single-character portrait, no background, no other figures.
+- Give them a relatable first-name-based name with archetype/age (e.g. "Dave the Brunswick Sparkie, 38", "Stephanie from Toorak, school-run mum") and a one-line catchphrase in their voice.
+- DESCRIPTION TONE: 1-2 sentences max. WARM, AFFECTIONATE, observational — fond, not mocking. The voice of someone who LIVES there and is showing you their neighbour. Strong example: "Dave the Brunswick Sparkie, 38, hi-vis vest and Volley sneakers, holding a 6am long black from his go-to cafe on Lygon — knows every shortcut to the freeway and which kebab shop stays open after midnight." Weak example: "Dave is a friendly tradie who lives in Brunswick." — too generic, no texture. Aim for specific + affectionate.
+- The image_prompt must end with the standard suffix and explicitly say "single character portrait, plain white background, no other characters or scenery". Keep it under 40 words total. Describe a person, not an anthropomorphised object/animal.
+- Skip surreal anthropomorphism (talking croissants, monocled toadfish) unless the suburb really calls for it — default to relatable humans.
 - Don't be cruel; punch at quirks, not people. No racial caricatures.
-
-FLAG GUIDELINES:
-- This is a CIVIC FLAG, designed using real vexillography principles: simple, recognisable from a distance, 2-3 colours max, ONE small symbol.
-- Pick a colour palette that ties to the suburb (e.g. posh = navy + gold, hipster = burgundy + cream, multicultural-ethnic-area = adopt a relevant culture's palette respectfully).
-- The emblem is ONE concrete thing — an animal, an object, an iconic feature — chosen from the suburb's lore. Not a logo or letters.
-- Style is the band layout. Don't invent new styles outside the list given in the schema.
-- The image_prompt must result in a flag image — flat colours, no shadows, no gradients, no text, no national flag references. Vexillographic and clean.
 
 If the corpus is sparse or generic (under ~5 substantive comments), be honest: use "unknown" category, return fewer tags / lore items, and let the mascot be a vague placeholder that acknowledges the thin coverage. Never fabricate specific local references."""
 
@@ -175,9 +181,42 @@ def load_wikipedia(suburb: str) -> dict | None:
     return data
 
 
+def format_census_facts(census: dict | None) -> str | None:
+    """Compact, ASCII-clean census signal for the prompt (None if no data)."""
+    if not census:
+        return None
+    lines = ["=== DEMOGRAPHIC SIGNAL (ABS 2021 census vs Greater Melbourne) ==="]
+    head = []
+    if census.get("born_overseas_pct") is not None:
+        head.append(f"{census['born_overseas_pct']:.0f}% born overseas")
+    if census.get("both_parents_overseas_pct") is not None:
+        head.append(f"{census['both_parents_overseas_pct']:.0f}% with both parents born overseas")
+    if head:
+        lines.append(f"Population {census.get('population', '?')}; " + "; ".join(head) + ".")
+
+    def fmt(items):
+        return ", ".join(
+            f"{q['group']} ({q['lq']:.1f}x, top {q['top_pct']}%)" for q in items
+        )
+
+    if census.get("language"):
+        lines.append("Languages over-represented vs metro: " + fmt(census["language"]) + ".")
+    if census.get("birthplace"):
+        lines.append("Birthplaces over-represented: " + fmt(census["birthplace"]) + ".")
+    if census.get("ancestry"):
+        lines.append("Ancestry over-represented: "
+                     + ", ".join(q["group"] for q in census["ancestry"]) + ".")
+    if census.get("emerging"):
+        lines.append("Small but notably concentrated: "
+                     + ", ".join(q["group"] for q in census["emerging"]) + ".")
+    if len(lines) == 1:
+        return None  # header only — nothing over-indexed (Anglo-default suburb)
+    return "\n".join(lines)
+
+
 def build_user_prompt(corpus: dict, meta_mentions: list[dict] | None = None,
                       melbz: dict | None = None, emelbourne: dict | None = None,
-                      wikipedia: dict | None = None) -> str:
+                      wikipedia: dict | None = None, census: dict | None = None) -> str:
     suburb = corpus["suburb"]
     posts = corpus.get("posts", [])
     lines = [f"Suburb: {suburb}", ""]
@@ -249,6 +288,11 @@ def build_user_prompt(corpus: dict, meta_mentions: list[dict] | None = None,
             lines.append(f"# {title}")
         lines.append(wikipedia["extract"].strip())
 
+    census_block = format_census_facts(census)
+    if census_block:
+        lines.append("")
+        lines.append(census_block)
+
     return "\n".join(lines)
 
 
@@ -308,10 +352,10 @@ def find_meta_mentions(suburb: str, threads: list[dict], all_suburbs: list[str])
 
 def summarise(client: OpenAI, corpus: dict, meta_mentions: list[dict] | None = None,
               melbz: dict | None = None, emelbourne: dict | None = None,
-              wikipedia: dict | None = None) -> dict:
+              wikipedia: dict | None = None, census: dict | None = None) -> dict:
     user_prompt = build_user_prompt(
         corpus, meta_mentions=meta_mentions, melbz=melbz,
-        emelbourne=emelbourne, wikipedia=wikipedia,
+        emelbourne=emelbourne, wikipedia=wikipedia, census=census,
     )
 
     resp = client.chat.completions.create(
@@ -332,10 +376,16 @@ def summarise(client: OpenAI, corpus: dict, meta_mentions: list[dict] | None = N
     if cat not in CATEGORIES:
         cat = "unknown"
     parsed["primary_category"] = cat
+    parsed["nickname"] = str(parsed.get("nickname", "")).strip()
+    # Fallback: if LLM left nickname empty but we have a curated one for this
+    # suburb, use that. LLM-extracted from corpus always wins when present.
+    if not parsed["nickname"]:
+        parsed["nickname"] = KNOWN_NICKNAMES.get(corpus.get("suburb", ""), "")
     parsed["tags"] = list(parsed.get("tags", []))[:12]
-    parsed["lore"] = list(parsed.get("lore", []))[:6]
+    parsed["lore"] = list(parsed.get("lore", []))[:8]
     parsed["history"] = str(parsed.get("history", "")).strip()
-    parsed["quotes"] = list(parsed.get("quotes", []))[:5]
+    parsed["top_quote"] = str(parsed.get("top_quote", "")).strip()
+    parsed["quotes"] = list(parsed.get("quotes", []))[:10]
     parsed["vibe"] = str(parsed.get("vibe", "")).strip()
     # Determine which source the LLM was working from for `history`.
     # Set deterministically from corpus presence — don't trust the LLM to self-report.
@@ -356,8 +406,9 @@ def summarise(client: OpenAI, corpus: dict, meta_mentions: list[dict] | None = N
         parsed["history_source"] = None
         parsed["history_source_url"] = ""
         parsed["history_source_author"] = ""
-    # Drop legacy field if model emits it
+    # Drop legacy fields if the model emits them
     parsed.pop("food_and_drink", None)
+    parsed.pop("flag", None)
     mascot = parsed.get("mascot") or {}
     parsed["mascot"] = {
         "name": str(mascot.get("name", "")).strip(),
@@ -365,14 +416,10 @@ def summarise(client: OpenAI, corpus: dict, meta_mentions: list[dict] | None = N
         "description": str(mascot.get("description", "")).strip(),
         "image_prompt": str(mascot.get("image_prompt", "")).strip(),
     }
-    flag = parsed.get("flag") or {}
-    parsed["flag"] = {
-        "colors": list(flag.get("colors", []))[:3],
-        "emblem": str(flag.get("emblem", "")).strip(),
-        "style": str(flag.get("style", "")).strip(),
-        "description": str(flag.get("description", "")).strip(),
-        "image_prompt": str(flag.get("image_prompt", "")).strip(),
-    }
+    # Preserve the structured census block (computed by scrape.census) so a
+    # re-summarise doesn't drop it from suburbs.json.
+    if census:
+        parsed["census"] = census
     return parsed
 
 
@@ -455,9 +502,10 @@ def main() -> int:
         print(f"[summarize] [{i}/{len(suburbs)}] {suburb}: "
               f"{n_posts} posts, {n_comments} comments, {len(meta_mentions)} meta, "
               f"{n_melbz} MELBZ sections, {emelb_chars}c eMelb, {wiki_chars}c wiki")
+        census = (output.get(suburb) or {}).get("census")
         try:
             result = summarise(client, corpus, meta_mentions=meta_mentions, melbz=melbz,
-                               emelbourne=emelb, wikipedia=wiki)
+                               emelbourne=emelb, wikipedia=wiki, census=census)
         except Exception as e:
             print(f"[summarize]   FAILED: {e}")
             continue
