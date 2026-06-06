@@ -221,10 +221,26 @@ def format_census_facts(census: dict | None) -> str | None:
 
 def build_user_prompt(corpus: dict, meta_mentions: list[dict] | None = None,
                       melbz: dict | None = None, emelbourne: dict | None = None,
-                      wikipedia: dict | None = None, census: dict | None = None) -> str:
+                      wikipedia: dict | None = None, census: dict | None = None,
+                      used_names: set[str] | None = None) -> str:
     suburb = corpus["suburb"]
     posts = corpus.get("posts", [])
     lines = [f"Suburb: {suburb}", ""]
+
+    # Inject already-used mascot first names so the model picks a unique one.
+    if used_names:
+        lines.append(
+            "=== MASCOT NAME CONSTRAINT ==="
+        )
+        lines.append(
+            f"The following first names are already taken by other suburbs — "
+            f"DO NOT use any of them for this mascot's first name: "
+            f"{', '.join(sorted(used_names))}."
+        )
+        lines.append(
+            "Pick a different first name that fits this suburb's character."
+        )
+        lines.append("")
 
     # MELBZ first — it's the highest signal-to-noise (curated suburb profile)
     if melbz:
@@ -357,10 +373,12 @@ def find_meta_mentions(suburb: str, threads: list[dict], all_suburbs: list[str])
 
 def summarise(client: OpenAI, corpus: dict, meta_mentions: list[dict] | None = None,
               melbz: dict | None = None, emelbourne: dict | None = None,
-              wikipedia: dict | None = None, census: dict | None = None) -> dict:
+              wikipedia: dict | None = None, census: dict | None = None,
+              used_names: set[str] | None = None) -> dict:
     user_prompt = build_user_prompt(
         corpus, meta_mentions=meta_mentions, melbz=melbz,
         emelbourne=emelbourne, wikipedia=wikipedia, census=census,
+        used_names=used_names,
     )
 
     resp = client.chat.completions.create(
@@ -475,9 +493,24 @@ def main() -> int:
         parser.error("provide a suburb or --all")
         return 2
 
+    import re as _re
+
     output = load_existing_output()
     meta_threads = load_meta_threads()
     all_suburbs = load_suburb_list()
+
+    # Seed used_names from suburbs NOT being re-processed so we don't collide
+    # with their first names. Updated live as each suburb is summarised.
+    def _first(name: str) -> str:
+        m = _re.match(r"(\w+)", name or "")
+        return m.group(1) if m else ""
+
+    used_names: set[str] = {
+        _first(v.get("mascot", {}).get("name", ""))
+        for k, v in output.items()
+        if k not in suburbs and v.get("mascot", {}).get("name")
+    }
+    used_names.discard("")
     if meta_threads:
         n_thread_comments = sum(len(t.get("comments", [])) for t in meta_threads)
         print(f"[summarize] loaded {len(meta_threads)} meta threads, "
@@ -510,14 +543,19 @@ def main() -> int:
         census = (output.get(suburb) or {}).get("census")
         try:
             result = summarise(client, corpus, meta_mentions=meta_mentions, melbz=melbz,
-                               emelbourne=emelb, wikipedia=wiki, census=census)
+                               emelbourne=emelb, wikipedia=wiki, census=census,
+                               used_names=used_names)
         except Exception as e:
             print(f"[summarize]   FAILED: {e}")
             continue
         output[suburb] = result
         save_output(output)  # incremental save — interrupt-safe
+        # Register the new first name so subsequent suburbs avoid it.
+        new_first = _first(result.get("mascot", {}).get("name", ""))
+        if new_first:
+            used_names.add(new_first)
         print(f"[summarize]   {result['primary_category']}: {len(result['tags'])} tags, "
-              f"{len(result.get('lore', []))} lore items")
+              f"{len(result.get('lore', []))} lore items | mascot: {result.get('mascot',{}).get('name','?')}")
         if not args.all:
             print(json.dumps(result, indent=2, ensure_ascii=False))
 
