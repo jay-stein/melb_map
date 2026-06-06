@@ -64,12 +64,13 @@ SYSTEM_PROMPT = """You profile Melbourne suburbs by extracting their cultural qu
 
 Your job is to read the corpus the user gives you for ONE suburb and return a JSON object capturing what makes that suburb distinctive — the things locals joke about, complain about, or recognise instantly. Think hoodmaps.com style: specific, observational, funny, a little affectionate. Be DETAILED and SPECIFIC — readers want texture, not generic suburb descriptions.
 
-The corpus may contain UP TO FIVE sections (any or all may appear):
+The corpus may contain UP TO SIX sections (any or all may appear):
 - MELBZ.COM.AU PROFILE: a curated suburb guide with sections like "What X Is Actually Like", "Who Lives Here", "Eating and Drinking", "Verdict". This is the highest-quality structured content — use it for accurate facts (boundaries, transport, demographics) and for character cues. The "What X Is Actually Like" and "Verdict" sections are gold.
 - REDDIT POSTS / COMMENTS: discussions where this suburb is the main topic. Raw, often funny, occasionally exaggerated — great for vibes and one-liners.
 - META MENTIONS: snippets pulled from cross-suburb Reddit threads ("best suburb", "your suburb in 3 words", etc.) where this suburb was named in passing. These capture how outsiders see the suburb — the stereotypes, the offhand jokes. Often the gold.
 - EMELBOURNE: a curated University of Melbourne encyclopaedia entry with the suburb's founding, etymology, and historical arc. Use this as the PRIMARY source for the `history` field — it's reliable scholarly writing.
 - WIKIPEDIA: the lead paragraph of the suburb's Wikipedia article. Used as a FALLBACK for `history` when EMELBOURNE is absent. Often very thin (just "X is a suburb of Melbourne, N km from CBD") — if so, leave `history` empty rather than padding.
+- DEMOGRAPHIC SIGNAL: hard ABS 2021 census facts on which birthplaces, languages, and ancestries are OVER-REPRESENTED in this suburb versus the Greater Melbourne average (e.g. "Russian spoken at 4.8x the metro rate"). This reliably reveals the real community even when Reddit is silent on it. When the signal clearly points to a recognisable community, you SHOULD reflect it in ONE natural sentence in `vibe` (or one `lore` item) — read the cluster, don't just transcribe it: Polish+Russian+Hungarian (often with Hebrew) around Caulfield/Elsternwick signals a long-standing Jewish community; Vietnamese/Cambodian/Khmer signals the Footscray/Springvale diasporas; Greek/Italian signals post-war migration; Mandarin/Cantonese a Chinese community. Name the community, not the percentages. If the signal is only a header line with no over-represented groups, the suburb is demographically unremarkable — say nothing. Do NOT recite raw numbers, do NOT list multiple stats mechanically, and never let this flatten the Reddit-driven voice. It is a cue, not the script.
 
 When sources disagree (e.g. MELBZ says "great public transport" but Reddit complains about it), trust REDDIT for vibes/character and MELBZ for facts. For history, prefer EMELBOURNE; never use REDDIT or MELBZ for the `history` field. Quote ONLY from Reddit (verbatim quotes from MELBZ/EMELBOURNE/WIKIPEDIA are off — Reddit voices are what we want in `quotes`).
 
@@ -180,9 +181,42 @@ def load_wikipedia(suburb: str) -> dict | None:
     return data
 
 
+def format_census_facts(census: dict | None) -> str | None:
+    """Compact, ASCII-clean census signal for the prompt (None if no data)."""
+    if not census:
+        return None
+    lines = ["=== DEMOGRAPHIC SIGNAL (ABS 2021 census vs Greater Melbourne) ==="]
+    head = []
+    if census.get("born_overseas_pct") is not None:
+        head.append(f"{census['born_overseas_pct']:.0f}% born overseas")
+    if census.get("both_parents_overseas_pct") is not None:
+        head.append(f"{census['both_parents_overseas_pct']:.0f}% with both parents born overseas")
+    if head:
+        lines.append(f"Population {census.get('population', '?')}; " + "; ".join(head) + ".")
+
+    def fmt(items):
+        return ", ".join(
+            f"{q['group']} ({q['lq']:.1f}x, top {q['top_pct']}%)" for q in items
+        )
+
+    if census.get("language"):
+        lines.append("Languages over-represented vs metro: " + fmt(census["language"]) + ".")
+    if census.get("birthplace"):
+        lines.append("Birthplaces over-represented: " + fmt(census["birthplace"]) + ".")
+    if census.get("ancestry"):
+        lines.append("Ancestry over-represented: "
+                     + ", ".join(q["group"] for q in census["ancestry"]) + ".")
+    if census.get("emerging"):
+        lines.append("Small but notably concentrated: "
+                     + ", ".join(q["group"] for q in census["emerging"]) + ".")
+    if len(lines) == 1:
+        return None  # header only — nothing over-indexed (Anglo-default suburb)
+    return "\n".join(lines)
+
+
 def build_user_prompt(corpus: dict, meta_mentions: list[dict] | None = None,
                       melbz: dict | None = None, emelbourne: dict | None = None,
-                      wikipedia: dict | None = None) -> str:
+                      wikipedia: dict | None = None, census: dict | None = None) -> str:
     suburb = corpus["suburb"]
     posts = corpus.get("posts", [])
     lines = [f"Suburb: {suburb}", ""]
@@ -254,6 +288,11 @@ def build_user_prompt(corpus: dict, meta_mentions: list[dict] | None = None,
             lines.append(f"# {title}")
         lines.append(wikipedia["extract"].strip())
 
+    census_block = format_census_facts(census)
+    if census_block:
+        lines.append("")
+        lines.append(census_block)
+
     return "\n".join(lines)
 
 
@@ -313,10 +352,10 @@ def find_meta_mentions(suburb: str, threads: list[dict], all_suburbs: list[str])
 
 def summarise(client: OpenAI, corpus: dict, meta_mentions: list[dict] | None = None,
               melbz: dict | None = None, emelbourne: dict | None = None,
-              wikipedia: dict | None = None) -> dict:
+              wikipedia: dict | None = None, census: dict | None = None) -> dict:
     user_prompt = build_user_prompt(
         corpus, meta_mentions=meta_mentions, melbz=melbz,
-        emelbourne=emelbourne, wikipedia=wikipedia,
+        emelbourne=emelbourne, wikipedia=wikipedia, census=census,
     )
 
     resp = client.chat.completions.create(
@@ -377,6 +416,10 @@ def summarise(client: OpenAI, corpus: dict, meta_mentions: list[dict] | None = N
         "description": str(mascot.get("description", "")).strip(),
         "image_prompt": str(mascot.get("image_prompt", "")).strip(),
     }
+    # Preserve the structured census block (computed by scrape.census) so a
+    # re-summarise doesn't drop it from suburbs.json.
+    if census:
+        parsed["census"] = census
     return parsed
 
 
@@ -459,9 +502,10 @@ def main() -> int:
         print(f"[summarize] [{i}/{len(suburbs)}] {suburb}: "
               f"{n_posts} posts, {n_comments} comments, {len(meta_mentions)} meta, "
               f"{n_melbz} MELBZ sections, {emelb_chars}c eMelb, {wiki_chars}c wiki")
+        census = (output.get(suburb) or {}).get("census")
         try:
             result = summarise(client, corpus, meta_mentions=meta_mentions, melbz=melbz,
-                               emelbourne=emelb, wikipedia=wiki)
+                               emelbourne=emelb, wikipedia=wiki, census=census)
         except Exception as e:
             print(f"[summarize]   FAILED: {e}")
             continue
