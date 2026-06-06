@@ -19,6 +19,8 @@ import plotly.express as px
 import plotly.graph_objects as go
 from dash import Dash, Input, Output, dcc, html, no_update
 
+import suburble
+
 ROOT = Path(__file__).resolve().parent
 BOUNDARIES_PATH = ROOT / "data" / "boundaries.geojson"
 CONTEXT_PATH = ROOT / "data" / "context_boundaries.geojson"
@@ -102,6 +104,7 @@ def load_suburbs_data(geojson: dict) -> pd.DataFrame:
                 "mascot_name": mascot.get("name", ""),
                 "mascot_tagline": mascot.get("tagline", ""),
                 "mascot_description": mascot.get("description", ""),
+                "census": entry.get("census") or {},
             })
         return pd.DataFrame(rows)
 
@@ -126,6 +129,7 @@ def load_suburbs_data(geojson: dict) -> pd.DataFrame:
             "mascot_name": "",
             "mascot_tagline": "",
             "mascot_description": "",
+            "census": {},
         })
     return pd.DataFrame(rows)
 
@@ -285,16 +289,21 @@ context_geojson = load_context()
 df = load_suburbs_data(geojson)
 fig = build_figure(df, geojson, context_geojson)
 
-app = Dash(__name__, title="Melbourne Suburb Quirks")
+centroids = compute_centroids(geojson)
 
-app.layout = html.Div(
-    style={
-        "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-        "display": "flex",
-        "height": "100vh",
-        "margin": 0,
-    },
-    children=[
+app = Dash(__name__, title="Melbourne Suburb Quirks", suppress_callback_exceptions=True)
+suburble.init(geojson, list(df["suburb"]), centroids)
+
+
+def map_layout() -> html.Div:
+    return html.Div(
+        style={
+            "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+            "display": "flex",
+            "height": "100vh",
+            "margin": 0,
+        },
+        children=[
         html.Div(
             style={"flex": "1 1 70%", "position": "relative", "background": MAP_BG},
             children=[
@@ -355,7 +364,18 @@ app.layout = html.Div(
                 "borderLeft": "1px solid #E0E0E0",
             },
             children=[
-                html.H2("Melbourne suburb quirks", style={"marginTop": 0}),
+                html.Div(
+                    [
+                        html.H2("Melbourne suburb quirks",
+                                style={"marginTop": 0, "marginBottom": 0, "flex": "1 1 auto"}),
+                        dcc.Link("🎮 Play Suburble", href="/play",
+                                 style={"color": "white", "background": "#7E57C2",
+                                        "padding": "6px 12px", "borderRadius": "8px",
+                                        "textDecoration": "none", "fontSize": "13px",
+                                        "fontWeight": 600, "whiteSpace": "nowrap"}),
+                    ],
+                    style={"display": "flex", "alignItems": "center", "gap": "10px"},
+                ),
                 html.P(
                     "Hover a suburb for a peek. Click for the full breakdown.",
                     style={"color": "#616161"},
@@ -369,7 +389,102 @@ app.layout = html.Div(
             ],
         ),
     ],
-)
+    )
+
+
+app.layout = html.Div([dcc.Location(id="url"), html.Div(id="page-content")])
+
+
+@app.callback(Output("page-content", "children"), Input("url", "pathname"))
+def route(pathname):
+    if pathname == "/play":
+        return suburble.layout()
+    return map_layout()
+
+
+def _flag_img(iso: str | None):
+    """Local flag SVG (CORS-safe). Returns a fixed-width slot so rows align even
+    when a group has no flag (e.g. 'Other')."""
+    base = {"width": "20px", "height": "15px", "marginRight": "8px",
+            "verticalAlign": "middle", "flex": "0 0 auto"}
+    if not iso:
+        return html.Span(style={**base, "display": "inline-block"})
+    return html.Img(
+        src=f"/assets/flags/{iso}.svg",
+        style={**base, "borderRadius": "2px", "boxShadow": "0 0 1px rgba(0,0,0,.4)",
+               "objectFit": "cover"},
+    )
+
+
+def _quirk_row(q: dict):
+    """[flag] Group ........ 4.8× · top 10%"""
+    return html.Div(
+        [
+            _flag_img(q.get("iso")),
+            html.Span(q["group"], style={"flex": "1 1 auto", "fontSize": "13px",
+                                         "color": "#37474F"}),
+            html.Span(
+                f"{q['lq']:.1f}× · top {q['top_pct']}%",
+                style={"fontSize": "12px", "color": "#9E9E9E", "flex": "0 0 auto"},
+            ),
+        ],
+        style={"display": "flex", "alignItems": "center", "padding": "3px 0"},
+    )
+
+
+def render_census(census: dict) -> list:
+    """Origins & language card: stat strip + flagged top-3 languages and
+    birthplaces + ancestry line + emerging note."""
+    if not census:
+        return []
+    card: list = []
+
+    if census.get("headline"):
+        card.append(html.Div(
+            census["headline"],
+            style={"fontWeight": 600, "fontSize": "13.5px", "color": "#37474F",
+                   "marginBottom": "8px"},
+        ))
+
+    bits = [f"{census['population']:,} people"]
+    if census.get("born_overseas_pct") is not None:
+        bits.append(f"{census['born_overseas_pct']:.0f}% born overseas")
+    if census.get("both_parents_overseas_pct") is not None:
+        bits.append(f"{census['both_parents_overseas_pct']:.0f}% both parents overseas")
+    card.append(html.Div(
+        " · ".join(bits),
+        style={"fontSize": "12px", "color": "#757575", "marginBottom": "10px"},
+    ))
+
+    def sub(label):
+        return html.Div(label, style={"fontSize": "11px", "fontWeight": 600,
+                                      "textTransform": "uppercase", "letterSpacing": ".4px",
+                                      "color": "#90A4AE", "margin": "8px 0 2px"})
+
+    if census.get("language"):
+        card.append(sub("Languages above the city average"))
+        card += [_quirk_row(q) for q in census["language"]]
+    if census.get("birthplace"):
+        card.append(sub("Born overseas, over-represented"))
+        card += [_quirk_row(q) for q in census["birthplace"]]
+    if census.get("ancestry"):
+        names = " · ".join(q["group"] for q in census["ancestry"])
+        card.append(html.Div(
+            [html.Span("Heritage: ", style={"fontWeight": 600}), names],
+            style={"fontSize": "12.5px", "color": "#546E7A", "marginTop": "10px"},
+        ))
+    if census.get("emerging"):
+        note = " · ".join(f"{q['group']} (top {q['top_pct']}%)" for q in census["emerging"])
+        card.append(html.Div(
+            [html.Span("Also notable: ", style={"fontStyle": "italic"}), note],
+            style={"fontSize": "12px", "color": "#9E9E9E", "marginTop": "6px"},
+        ))
+
+    return [
+        html.H4("origins & language", style={"marginBottom": 4, "marginTop": "16px"}),
+        html.Div(card, style={"padding": "12px", "background": "white",
+                              "borderRadius": "8px", "border": "1px solid #E0E0E0"}),
+    ]
 
 
 @app.callback(Output("suburb-detail", "children"), Input("map", "clickData"))
@@ -498,6 +613,7 @@ def update_panel(click_data):
         ]
     if r["vibe"]:
         children.append(html.P(r["vibe"], style={"fontSize": "15px", "lineHeight": 1.5}))
+    children += render_census(r.get("census") or {})
     if r["tags"]:
         children += [
             html.H4("tags", style={"marginBottom": 4, "marginTop": "16px"}),
@@ -628,6 +744,9 @@ def update_panel(click_data):
             ]),
         )
     return html.Div(children)
+
+
+suburble.register_callbacks(app)
 
 
 if __name__ == "__main__":
