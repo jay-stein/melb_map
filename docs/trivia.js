@@ -48,53 +48,88 @@ function shuffle(arr) {
 
 /* --- clue generation ---------------------------------------------------- */
 
+function escapeRegex(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+/* Redact suburb name (and nickname) from text so clues don't give it away. */
+function redact(text, suburb, nickname) {
+  let r = text;
+  const nameRE = new RegExp(escapeRegex(suburb), "gi");
+  r = r.replace(nameRE, "this suburb");
+  const possRE = new RegExp(escapeRegex(suburb) + "'s\\b", "gi");
+  r = r.replace(possRE, "this suburb's");
+  if (nickname) {
+    const nnRE = new RegExp("\\b" + escapeRegex(nickname) + "\\b", "gi");
+    r = r.replace(nnRE, "this suburb");
+    const nnPossRE = new RegExp("\\b" + escapeRegex(nickname) + "'s\\b", "gi");
+    r = r.replace(nnPossRE, "this suburb's");
+  }
+  return r;
+}
+
 function buildClues(suburb) {
   const d = SUBURBS[suburb];
+  const nickname = d.nickname || "";
+  const census = d.census || {};
   const c = [];
 
-  // Clue 1: category
+  /* --- clue 1: category + census ethnicity/language + nickname -------- */
   const cat = esc(d.primary_category || "unknown");
-  const nn = d.nickname ? `, aka "${esc(d.nickname)}"` : "";
-  c.push(`This <b>${cat}</b> suburb${nn} has a population of ${(d.census && d.census.population) ? d.census.population.toLocaleString() : "?"}.`);
+  const nnBit = nickname ? ` (aka "${esc(nickname)}")` : "";
+  const lang = (census.language && census.language[0]) ? census.language[0] : null;
+  const birth = (census.birthplace && census.birthplace[0]) ? census.birthplace[0] : null;
 
-  // Clue 2: a tag
-  if (d.tags && d.tags.length) {
-    c.push(`The locals say things like: <i>"${esc(pick(d.tags))}"</i>`);
+  if (lang || birth) {
+    const quirk = lang
+      ? `in the top ${esc(lang.top_pct)}% of Melbourne suburbs for <b>${esc(lang.group)}</b> speakers`
+      : `with an over-represented <b>${esc(birth.group)}</b>-born community (top ${esc(birth.top_pct)}%)`;
+    c.push(`This <b>${cat}</b> suburb${nnBit} is ${quirk}.`);
+  } else if (d.tags && d.tags.length) {
+    c.push(`This <b>${cat}</b> suburb${nnBit} — the locals say: <i>"${esc(pick(d.tags))}"</i>`);
   } else {
-    c.push("The suburb's vibe is hard to pin down from the data we have.");
+    const pop = census.population ? census.population.toLocaleString() : "?";
+    c.push(`This <b>${cat}</b> suburb${nnBit} has around ${pop} residents.`);
   }
 
-  // Clue 3: vibe (cropped slightly if very long)
+  /* --- clue 2: a tag (or census stat if no tags) ----------------------- */
+  if (d.tags && d.tags.length > 0) {
+    c.push(`A local take: <i>"${esc(pick(d.tags))}"</i>`);
+  } else if (census.born_overseas_pct != null) {
+    c.push(`Around <b>${Math.round(census.born_overseas_pct)}%</b> of residents were born overseas.`);
+  } else {
+    c.push("The vibe is hard to pin down — but your intuition might help.");
+  }
+
+  /* --- clue 3: vibe (redacted) ----------------------------------------- */
   if (d.vibe) {
-    c.push(esc(d.vibe));
+    c.push(esc(redact(d.vibe, suburb, nickname)));
   } else {
-    c.push("We don't have a vibe summary for this one — but your intuition might!");
+    c.push("We don't have a vibe summary for this one.");
   }
 
-  // Clue 4: census quirk
-  const census = d.census || {};
-  const lines = [];
-  if (census.born_overseas_pct != null) lines.push(`${Math.round(census.born_overseas_pct)}% born overseas`);
-  if (census.language && census.language.length) {
-    lines.push("over-represented languages: " + census.language.map((l) => esc(l.group)).join(", "));
-  } else if (census.birthplace && census.birthplace.length) {
-    lines.push("over-represented birthplaces: " + census.birthplace.map((b) => esc(b.group)).join(", "));
-  }
-  if (lines.length) {
-    c.push(`Census says: ${lines.join("; ")}.`);
+  /* --- clue 4: fuller census + population ------------------------------ */
+  if (census.population || census.both_parents_overseas_pct != null || (census.ancestry && census.ancestry.length)) {
+    const bits = [];
+    if (census.population) bits.push(`<b>${census.population.toLocaleString()}</b> residents`);
+    if (census.born_overseas_pct != null) bits.push(`<b>${Math.round(census.born_overseas_pct)}%</b> born overseas`);
+    if (census.both_parents_overseas_pct != null) bits.push(`<b>${Math.round(census.both_parents_overseas_pct)}%</b> both parents overseas`);
+    if (census.ancestry && census.ancestry.length) {
+      const names = census.ancestry.map((a) => esc(a.group)).join(", ");
+      bits.push(`heritage: ${names}`);
+    }
+    c.push(`Census: ${bits.join(" · ")}.`);
   } else {
     c.push("Census data doesn't reveal much — this one's a sleeper.");
   }
 
-  // Clue 5: lore
+  /* --- clue 5: lore or history (redacted) ------------------------------ */
   if (d.lore && d.lore.length > 0) {
-    const lore = pick(d.lore);
-    c.push(`Local lore: ${esc(lore)}`);
+    c.push("Local lore: " + esc(redact(pick(d.lore), suburb, nickname)));
   } else if (d.history) {
-    const hist = d.history.split(".")[0] + ".";
-    c.push(`History: ${esc(hist)}`);
+    c.push("History: " + esc(redact(d.history.split(".")[0] + ".", suburb, nickname)));
   } else {
-    c.push("The clue well has run dry — take your best guess!");
+    c.push("We're out of clues — take your best shot!");
   }
 
   return c;
