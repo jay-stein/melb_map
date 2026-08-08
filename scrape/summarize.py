@@ -2,7 +2,7 @@
 
 Uses the OpenAI SDK pointed at DeepSeek's OpenAI-compatible endpoint.
 DeepSeek auto-caches identical prompt prefixes server-side, so we keep the
-SYSTEM prompt byte-identical across all 75 calls.
+SYSTEM prompt byte-identical across all 133 calls.
 
 Usage:
     uv run python -m scrape.summarize Fitzroy           # single, prints JSON

@@ -1,7 +1,7 @@
 [project]
 name = "melb-map"
 version = "0.1.0"
-description = "Interactive map of inner/middle Melbourne suburbs with quirky character tags scraped from r/melbourne and summarized by Claude."
+description = "Interactive map of 133 Melbourne suburbs with quirky character tags scraped from r/melbourne and summarized by DeepSeek."
 requires-python = ">=3.11"
 dependencies = [
     "dash>=2.18.0",
