@@ -66,62 +66,58 @@ function redact(text, suburb, nickname) {
   }
   return r;
 }
-
 function buildClues(suburb) {
   const d = SUBURBS[suburb];
   const nickname = d.nickname || "";
   const census = d.census || {};
-  const c = [];
-  const cat = esc(d.primary_category || "unknown");
-  const lang = (census.language && census.language[0]) ? census.language[0] : null;
-  const birth = (census.birthplace && census.birthplace[0]) ? census.birthplace[0] : null;
+  const pool = [];
+  const cat = d.primary_category || "unknown";
 
-  if (lang || birth) {
-    const quirk = lang
-      ? `in the top ${esc(lang.top_pct)}% of suburbs for <b>${esc(lang.group)}</b> speakers`
-      : `with an over-represented <b>${esc(birth.group)}</b>-born community (top ${esc(birth.top_pct)}% citywide)`;
-    c.push(`This <b>${cat}</b> suburb is ${quirk}.`);
-  } else if (d.tags && d.tags.length) {
-    c.push(`This <b>${cat}</b> suburb — the locals say: <i>"${esc(redact(pick(d.tags), suburb, nickname))}"</i>`);
-  } else {
-    c.push(`This <b>${cat}</b> suburb has around ${(census.population || "?").toLocaleString()} residents.`);
+  // category — a gentle opener about the suburb's archetype
+  pool.push(`This is a <b>${esc(cat)}</b> suburb — a well-known local archetype.`);
+
+  // ethnicity & language quirks (the fun demographic stuff, never raw counts)
+  const lang = (census.language && census.language[0]) || null;
+  const birth = (census.birthplace && census.birthplace[0]) || null;
+  if (lang) {
+    pool.push(`It's in the top ${esc(lang.top_pct)}% of suburbs for <b>${esc(lang.group)}</b> speakers.`);
+  }
+  if (birth && (!lang || birth.group !== lang.group)) {
+    pool.push(`An over-represented <b>${esc(birth.group)}</b>-born community lives here (top ${esc(birth.top_pct)}% citywide).`);
+  }
+  if (census.ancestry && census.ancestry.length) {
+    const names = census.ancestry.map((a) => esc(a.group)).join(", ");
+    pool.push(`Locals trace their heritage across ${names}.`);
   }
 
-  if (d.tags && d.tags.length > 0) {
-    c.push(`A local take: <i>"${esc(redact(pick(d.tags), suburb, nickname))}"</i>`);
-  } else if (census.born_overseas_pct != null) {
-    c.push(`Around <b>${Math.round(census.born_overseas_pct)}%</b> of residents were born overseas.`);
-  } else {
-    c.push("The vibe is hard to pin down — but your intuition might help.");
+  // tags — up to two different ones
+  const tags = (d.tags || []).filter(Boolean);
+  if (tags.length >= 1) {
+    pool.push(`A local take: <i>"${esc(redact(pick(tags), suburb, nickname))}"</i>`);
+  }
+  if (tags.length >= 2) {
+    const i = Math.floor(Math.random() * tags.length);
+    const rest = tags.slice(0, i).concat(tags.slice(i + 1));
+    pool.push(`Another local take: <i>"${esc(redact(pick(rest), suburb, nickname))}"</i>`);
   }
 
+  // vibe
   if (d.vibe) {
-    c.push(esc(redact(d.vibe, suburb, nickname)));
-  } else {
-    c.push("We don't have a vibe summary for this one.");
+    pool.push(esc(redact(d.vibe, suburb, nickname)));
   }
 
-  if (census.population || census.both_parents_overseas_pct != null || (census.ancestry && census.ancestry.length)) {
-    const bits = [];
-    if (census.population) bits.push(`<b>${census.population.toLocaleString()}</b> residents`);
-    if (census.born_overseas_pct != null) bits.push(`<b>${Math.round(census.born_overseas_pct)}%</b> born overseas`);
-    if (census.both_parents_overseas_pct != null) bits.push(`<b>${Math.round(census.both_parents_overseas_pct)}%</b> both parents overseas`);
-    if (census.ancestry && census.ancestry.length) {
-      bits.push(`heritage: ${census.ancestry.map((a) => esc(a.group)).join(", ")}`);
-    }
-    c.push(`Census: ${bits.join(" · ")}.`);
-  } else {
-    c.push("Census data doesn't reveal much — this one's a sleeper.");
+  // lore
+  if (d.lore && d.lore.length) {
+    pool.push("Local lore: " + esc(redact(pick(d.lore), suburb, nickname)));
   }
 
-  if (d.lore && d.lore.length > 0) {
-    c.push("Local lore: " + esc(redact(pick(d.lore), suburb, nickname)));
-  } else if (d.history) {
-    c.push("History: " + esc(redact(d.history.split(".")[0] + ".", suburb, nickname)));
-  } else {
-    c.push("We're out of clues — take your best shot!");
+  // history (first sentence only)
+  if (d.history) {
+    pool.push("History: " + esc(redact(d.history.split(".")[0] + ".", suburb, nickname)));
   }
-  return c;
+
+  // randomise order and take up to 5
+  return shuffle(pool).slice(0, 5);
 }
 
 /* --- map ---------------------------------------------------------------- */
