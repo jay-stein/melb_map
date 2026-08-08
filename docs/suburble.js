@@ -98,7 +98,7 @@ function renderSilhouette(suburb) {
   const fig = {
     data: [{
       x: xs, y: ys, type: "scatter", fill: "toself", mode: "lines",
-      line: { color: "#37474F", width: 1.5 }, fillcolor: "#7E57C2",
+      line: { color: "#242424", width: 1.5 }, fillcolor: "#cfdaf5",
       hoverinfo: "skip",
     }],
     layout: {

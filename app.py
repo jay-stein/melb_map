@@ -31,7 +31,7 @@ SUBURBS_PATH = ROOT / "data" / "suburbs.json"
 CONTEXT_FILL = "#E4E6E8"
 CONTEXT_LINE = "#D3D6D9"
 CONTEXT_TEXT = "#B7BCC1"
-MAP_BG = "#F2F3F4"
+MAP_BG = "#f6f3f1"
 
 CATEGORIES = [
     "hipster", "posh", "student", "family",

@@ -162,7 +162,7 @@ function regionOutlineTrace(inScopeNames) {
     type: "scattergeo",
     lon: lons, lat: lats,
     mode: "lines",
-    line: { color: "#37474F", width: 1.5 },
+    line: { color: "#242424", width: 1.5 },
     hoverinfo: "skip",
     showlegend: false,
   };
@@ -187,7 +187,7 @@ async function loadMap() {
       locations: allNames,
       featureidkey: "properties.suburb",
       z: allNames.map(() => 0),
-      colorscale: [[0, "#D9DCE0"], [1, "#D9DCE0"]],
+      colorscale: [[0, "#e7e3e0"], [1, "#e7e3e0"]],
       showscale: false,
       marker: { line: { color: "white", width: 0.5 } },
       hoverinfo: "skip",
@@ -195,8 +195,8 @@ async function loadMap() {
     regionOutlineTrace(inScopeNames),
   ], {
     margin: { l: 0, r: 0, t: 0, b: 0 },
-    paper_bgcolor: "#F7F8FA",
-    plot_bgcolor: "#F7F8FA",
+    paper_bgcolor: "#f6f3f1",
+    plot_bgcolor: "#f6f3f1",
     showlegend: false,
     // NOTE: plotly.js needs the nested form (projection.type, lonaxis.range),
     // NOT plotly.py's flattened projection_type / lonaxis_range — those are
@@ -206,7 +206,7 @@ async function loadMap() {
       projection: { type: "mercator" },
       lonaxis: { range: [bounds.lon[0] - dx, bounds.lon[1] + dx] },
       lataxis: { range: [bounds.lat[0] - dy, bounds.lat[1] + dy] },
-      bgcolor: "#F7F8FA",
+      bgcolor: "#f6f3f1",
     },
     dragmode: false,
     height: 520,
@@ -216,8 +216,8 @@ async function loadMap() {
 
 function highlightGuess(suburb, correct) {
   if (!BOUNDARIES) return;
-  const color = correct ? "#C8E6C9" : "#FFCDD2";
-  const lineColor = correct ? "#43A047" : "#EF5350";
+  const color = correct ? "#d7fbe4" : "#ffd9cc";
+  const lineColor = correct ? "#4cc98a" : "#ff9473";
   const lineWidth = correct ? 2 : 1;
   Plotly.addTraces("trivia-map", [{
     type: "choropleth",
