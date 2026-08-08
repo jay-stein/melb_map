@@ -66,6 +66,14 @@ html, body {
   font-size: 13px;
   font-weight: 600;
   white-space: nowrap;
+}
+.play-btn.trivia {
+  background: #26A69A;
+}
+
+.panel-nav {
+  display: flex;
+  gap: 6px;
   margin-left: auto;
 }
 
@@ -184,6 +192,7 @@ html, body {
 }
 
 .back-link { color: #7E57C2; text-decoration: none; font-size: 14px; }
+.trivia-link { margin-left: 12px; color: #26A69A; }
 .game h1 { margin: 8px 0 2px; font-size: 30px; }
 .game .sub { color: #757575; margin-top: 0; font-size: 14px; }
 
@@ -263,3 +272,150 @@ html, body {
   #map { height: calc(60vh - 28px); }
   .side-panel { flex: none; border-left: none; border-top: 1px solid #E0E0E0; }
 }
+
+/* ---------- trivia ---------- */
+
+.region-prompt { font-size: 15px; color: #616161; margin: 16px 0 12px; }
+
+.region-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.region-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid #E0E0E0;
+  border-radius: 12px;
+  background: white;
+  cursor: pointer;
+  font-family: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.region-btn:hover {
+  border-color: #7E57C2;
+  box-shadow: 0 1px 4px rgba(126,87,194,0.15);
+}
+.region-name { font-size: 18px; font-weight: 600; color: #37474F; }
+.region-count { font-size: 13px; color: #9E9E9E; margin-top: 4px; }
+
+.round-label { font-weight: 700; font-size: 15px; color: #7E57C2; margin: 0 0 12px; }
+
+.clue-card {
+  display: flex;
+  gap: 10px;
+  padding: 12px 14px;
+  background: white;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #37474F;
+  animation: clueIn 0.3s ease;
+}
+
+.clue-new {
+  border-color: #7E57C2;
+  background: #F3E5F5;
+}
+
+@keyframes clueIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: none; }
+}
+
+.clue-num {
+  flex: 0 0 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: #7E57C2;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.clue-text { flex: 1 1 auto; }
+
+#guess-area {
+  margin-top: 10px;
+}
+
+#reveal-btn {
+  width: 100%;
+  margin-top: 8px;
+  padding: 10px;
+  border: 1px dashed #7E57C2;
+  border-radius: 8px;
+  background: none;
+  color: #7E57C2;
+  font-weight: 600;
+  font-size: 13px;
+  font-family: inherit;
+  cursor: pointer;
+}
+#reveal-btn:hover { background: #F3E5F5; }
+#reveal-btn:disabled { opacity: 0.4; cursor: default; }
+
+.clue-cost {
+  font-size: 12px;
+  color: #BDBDBD;
+  text-align: center;
+  margin: 6px 0 0;
+}
+
+.feedback-correct {
+  font-size: 15px;
+  color: #2E7D32;
+  font-weight: 600;
+  margin-top: 12px;
+}
+.feedback-wrong {
+  font-size: 14px;
+  color: #C62828;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+#trophy { font-size: 28px; margin: 8px 0 4px; text-align: center; }
+#score-summary { font-size: 15px; color: #616161; text-align: center; margin-bottom: 16px; }
+
+.round-result {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: white;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  margin-bottom: 4px;
+  font-size: 14px;
+}
+.rr-suburb { font-weight: 600; color: #37474F; }
+.rr-score { color: #7E57C2; font-weight: 600; }
+
+.result-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.play-again {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #7E57C2;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+}
+.play-again:hover { background: #6A1B9A; }

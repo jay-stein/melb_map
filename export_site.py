@@ -17,6 +17,7 @@ Run:
 from __future__ import annotations
 
 import json
+import math
 import shutil
 import sys
 from pathlib import Path
@@ -28,6 +29,41 @@ ASSETS_OUT = DOCS / "assets"
 
 import app as dash_app  # noqa: E402  (imports load data + build figure)
 import suburble  # noqa: E402  (state populated by app's suburble.init())
+
+
+# Melbourne CBD (Flinders St) — reference point for direction/distance.
+_MCBD = (-37.8136, 144.9631)  # (lat, lon)
+_CENTRAL_RADIUS_DEG = 0.055   # ~6 km
+
+
+def _classify_region(lat: float, lon: float) -> str:
+    """Classify a suburb as central, north, south, east, or west."""
+    dlat = (lat - _MCBD[0]) * 111_320
+    dlon = (lon - _MCBD[1]) * 111_320 * math.cos(math.radians(_MCBD[0]))
+    dist = math.hypot(dlat, dlon)
+    if dist < 6_000:
+        return "central"
+    bearing = (math.degrees(math.atan2(dlon, dlat)) + 360) % 360
+    if 45 <= bearing < 135:
+        return "east"
+    if 135 <= bearing < 225:
+        return "south"
+    if 225 <= bearing < 315:
+        return "west"
+    return "north"
+
+
+def _build_trivia_state(centroids: dict[str, list[float]]) -> dict:
+    """Classify every suburb into a region and return per-region lists."""
+    by_region: dict[str, list[str]] = {
+        "central": [], "north": [], "south": [], "east": [], "west": [],
+    }
+    for name, xy in centroids.items():
+        region = _classify_region(xy[0], xy[1])
+        by_region[region].append(name)
+    for r in by_region:
+        by_region[r].sort()
+    return {r: names for r, names in by_region.items() if names}
 
 
 def main() -> int:
@@ -44,6 +80,9 @@ def main() -> int:
         "maxGuesses": suburble.MAX_GUESSES,
         "order": suburble._ORDER,
         "centroids": {name: list(xy) for name, xy in suburble._CENTROIDS.items()},
+        "regions": _build_trivia_state(
+            {name: list(xy) for name, xy in suburble._CENTROIDS.items()}
+        ),
         "maxDist": suburble._MAX_DIST,
     }
     game_json = json.dumps(state, ensure_ascii=False)

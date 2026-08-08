@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suburb Detective — Melbourne Suburb Quirks</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="game" id="trivia-app">
+  <a class="back-link" href="index.html">← Map</a>
+  <h1>🔍 Suburb Detective</h1>
+  <p class="sub">Can you name the suburb from just a few clues?</p>
+
+  <!-- region select -->
+  <div id="region-screen">
+    <p class="region-prompt">First, where should the mystery suburbs come from?</p>
+    <div class="region-grid" id="region-btns"></div>
+  </div>
+
+  <!-- game screen (hidden initially) -->
+  <div id="game-screen" style="display:none">
+    <p class="round-label" id="round-label"></p>
+    <div id="clues-area"></div>
+    <div id="guess-area">
+      <div class="guess-row">
+        <input id="guess" list="suburb-list" placeholder="Type a suburb…" autocomplete="off">
+        <datalist id="suburb-list"></datalist>
+        <button id="guess-btn">Guess</button>
+      </div>
+      <button id="reveal-btn" class="reveal-btn">Show another clue</button>
+      <p class="clue-cost" id="clue-cost"></p>
+    </div>
+    <div id="feedback"></div>
+  </div>
+
+  <!-- results screen (hidden initially) -->
+  <div id="results-screen" style="display:none">
+    <h2 id="trophy"></h2>
+    <p id="score-summary"></p>
+    <div id="round-results"></div>
+    <pre id="share-grid" class="grid-pre"></pre>
+    <div class="result-actions">
+      <button id="share-btn" class="play-again">Share 📋</button>
+      <button id="play-again-btn" class="play-again">Play again</button>
+    </div>
+  </div>
+</div>
+<script src="trivia.js"></script>
+</body>
+</html>
