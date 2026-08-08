@@ -186,7 +186,7 @@ async function loadMap() {
       bgcolor: "#F2F3F4",
     },
     dragmode: false,
-    height: 220,
+    height: 340,
     uirevision: "static",
   }, { displayModeBar: false, responsive: true });
 }
@@ -260,11 +260,13 @@ async function startGame(selected) {
   roundScores = [];
   gameOver = false;
 
-  await loadMap();
-
+  // Show the game screen BEFORE building the map — plotly measures the
+  // container on init, so a display:none div yields a 0-width blank plot.
   $("#region-screen").style.display = "none";
   $("#game-screen").style.display = "block";
   $("#results-screen").style.display = "none";
+
+  await loadMap();
 
   const allNames = shuffle(currentPool).sort();
   $("#suburb-list").innerHTML = allNames.map((n) => `<option value="${esc(n)}">`).join("");
