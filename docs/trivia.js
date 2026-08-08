@@ -21,6 +21,7 @@ let clues = [];
 let roundScores = [];
 let gameOver = false;
 let currentPool = [];
+let roundLocked = false;  // true between solve and next round's start
 
 let guessTraceCount = 0;  // traces added beyond base + outline (reset each round)
 
@@ -234,10 +235,12 @@ function highlightGuess(suburb, correct) {
 
 function clearMapHighlights() {
   if (!BOUNDARIES || guessTraceCount === 0) return;
-  const indices = [];
-  for (let i = 0; i < guessTraceCount; i++) indices.push(2);
-  Plotly.deleteTraces("trivia-map", indices);
-  guessTraceCount = 0;
+  // Guess traces are always the last ones (appended). Delete them one at a
+  // time from the end — plotly rejects duplicate indices in one call.
+  while (guessTraceCount > 0) {
+    Plotly.deleteTraces("trivia-map", [$("#trivia-map").data.length - 1]);
+    guessTraceCount--;
+  }
 }
 
 /* --- region screen ----------------------------------------------------- */
@@ -328,6 +331,7 @@ function setTileState(suburb, state) {
 
 function startRound() {
   revealed = 0;
+  roundLocked = false;
   clues = buildClues(targets[round]);
   renderTiles();
   $("#round-label").textContent = `Round ${round + 1} of ${TOTAL_ROUNDS}`;
@@ -363,10 +367,11 @@ function showClue() {
 }
 
 function makeGuess(name) {
-  if (!name || gameOver) return;
+  if (!name || gameOver || roundLocked) return;
   const target = targets[round];
 
   if (name === target) {
+    roundLocked = true;
     highlightGuess(name, true);
     setTileState(name, "correct");
     const score = MAX_CLUES - revealed;
@@ -388,6 +393,7 @@ function makeGuess(name) {
       showClue();
       renderFeedback(false);
     } else {
+      roundLocked = true;
       highlightGuess(target, true);
       setTileState(target, "correct");
       roundScores.push(0);
