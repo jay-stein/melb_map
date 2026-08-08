@@ -100,6 +100,13 @@ def main() -> int:
     (DATA_OUT / "suburbs.json").write_text(suburbs_json, encoding="utf-8")
     print(f"[export] data/suburbs.json  {len(suburbs_json) / 1e6:.2f} MB")
 
+    # Quiz fun-fact corpus (separate from page content by design).
+    facts_src = ROOT / "data" / "fun_facts.json"
+    if facts_src.exists():
+        facts_json = facts_src.read_text(encoding="utf-8")
+        (DATA_OUT / "fun_facts.json").write_text(facts_json, encoding="utf-8")
+        print(f"[export] data/fun_facts.json  {len(facts_json) / 1e6:.2f} MB")
+
     # --- mascot manifest: {suburb: filename} so the panel can show images --- #
     mascots: dict[str, str] = {}
     for f in sorted((ROOT / "assets" / "mascots").glob("*")):

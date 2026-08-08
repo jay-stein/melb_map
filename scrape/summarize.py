@@ -78,7 +78,7 @@ OUTPUT FORMAT (strict JSON, nothing else):
 {
   "nickname": "a widely-used 1-3 word locals' nickname for this suburb IF prevalent in the corpus (e.g. 'Fitzy' for Fitzroy, 'St K' for St Kilda, 'Scray' for Footscray, 'Swappers Crossing' for Hoppers Crossing). Must appear in the corpus OR be a well-documented Melbourne nickname. Return empty string if no clear nickname exists — don't invent one.",
   "tags": [7 to 12 short, vivid phrases],
-  "vibe": "2-3 full sentences capturing the suburb's character with personality",
+  "vibe": "3-4 full sentences capturing the suburb's character with personality",
   "lore": [5 to 8 specific items, mix of PRESENT-DAY stories/landmarks/in-jokes AND HISTORICAL CURIOSITIES (the building that used to be a brothel, the train line they tore up in 1962, the urban legend about the haunted tram, demolished landmarks, ghost stories). Reddit history-flavoured threads are gold for this — surface them.],
   "history": "1-2 sentences on the suburb's founding, etymology, or key historical arc — only what gives modern character, not a textbook recap. Prefer the EMELBOURNE source when present; fall back to WIKIPEDIA. If both are thin or missing, return an empty string.",
   "top_quote": "the SINGLE funniest or most memorable verbatim Reddit line from the corpus — picked from the same pool as `quotes`. The line that made you laugh hardest, the most-Melbourne hot take, the niche observation that captures the suburb in one sentence. Empty string if nothing's truly standout.",
@@ -101,8 +101,8 @@ TAG GUIDELINES:
 - Lowercase except proper nouns. No periods. No emoji.
 
 VIBE GUIDELINES:
-- 2-3 full sentences. Real paragraph, not a one-liner. Captures the suburb's character, contradictions, and any recent shifts (gentrification, demographic flux, etc.).
-- Strong vibe example: "Inner-north hipster cliché that refuses to die, but somehow still cool. Empty shopfronts and Soviet-style queues for $6 croissants coexist on the same block. Locals complain about it daily, then move there anyway."
+- 3-4 full sentences. A real paragraph, not a one-liner. Captures the suburb's character, contradictions, and any recent shifts (gentrification, demographic flux, etc.).
+- Strong vibe example: "Inner-north hipster cliché that refuses to die, but somehow still cool. Empty shopfronts and Soviet-style queues for $6 croissants coexist on the same block. Locals complain about it daily, then move there anyway. The Sunday market crowd is half local families, half tourists with matching 'Brunswick' tote bags."
 - Weak vibe: "A residential suburb in inner Melbourne with cafes and bars."
 
 LORE GUIDELINES:

@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "reddit-fetch": {
+      "source": "ykdojo/claude-code-tips",
+      "sourceType": "github",
+      "skillPath": "skills/reddit-fetch/SKILL.md",
+      "computedHash": "e49222fbd9da7e394bb0da03e78890ae6e6c71748abdf368123d04cd0b6b112e"
+    },
+    "reddit-research": {
+      "source": "lignertys/reddit-research-skill",
+      "sourceType": "github",
+      "skillPath": "skills/reddit-research/SKILL.md",
+      "computedHash": "5cc05cfcf8742ebf2431f3d86cbcd3980f6c7cb65869a03bcad218060dc2314e"
+    }
+  }
+}

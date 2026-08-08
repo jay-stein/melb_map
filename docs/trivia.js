@@ -12,6 +12,7 @@ const MAX_CLUES = 5;
 let STATE = null;   // game-state.json (centroids, regions, order)
 let SUBURBS = {};   // suburbs.json data
 let BOUNDARIES = null;  // boundaries.geojson (cached)
+let FACTS = {};     // fun_facts.json (quiz-only corpus, separate from the page)
 
 let region = null;
 let targets = [];         // 5 suburb names for this game
@@ -109,6 +110,12 @@ function buildClues(suburb) {
   // lore
   if (d.lore && d.lore.length) {
     pool.push("Local lore: " + esc(redact(pick(d.lore), suburb, nickname)));
+  }
+
+  // fun fact — from the quiz-only corpus, never shown on the page
+  const suburbFacts = FACTS[suburb] || [];
+  if (suburbFacts.length) {
+    pool.push("Fun fact: " + esc(redact(pick(suburbFacts), suburb, nickname)));
   }
 
   // history (first sentence only)
@@ -488,9 +495,10 @@ function buildShareGrid() {
 /* --- init --------------------------------------------------------------- */
 
 async function main() {
-  [STATE, SUBURBS] = await Promise.all([
+  [STATE, SUBURBS, FACTS] = await Promise.all([
     fetchJSON("data/game-state.json"),
     fetchJSON("data/suburbs.json"),
+    fetchJSON("data/fun_facts.json"),
   ]);
   showRegionScreen();
 
