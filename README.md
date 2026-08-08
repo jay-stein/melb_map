@@ -1,8 +1,10 @@
 # Melbourne Suburb Quirks
 
+**Live: [jay-stein.github.io/melb_map](https://jay-stein.github.io/melb_map/)**
+
 An interactive map of 133 Melbourne suburbs — the things locals joke about, argue over, and recognise instantly. Inspired by [hoodmaps.com](https://hoodmaps.com) but sourced from real community data, not generic demographics.
 
-**[🎮 Play Suburble](/play)** — guess the mystery suburb from its shape, daily.
+**[🎮 Play Suburble](https://jay-stein.github.io/melb_map/play.html)** — guess the mystery suburb from its shape, daily.
 
 ---
 
@@ -36,7 +38,7 @@ Click any suburb on the map to get:
 ## Setup
 
 ```sh
-git clone <repo>
+git clone https://github.com/jay-stein/melb_map.git
 cd melb_map
 cp .env.example .env          # fill in DEEPSEEK_API_KEY + REDDIT_USER_AGENT
 uv sync
@@ -44,6 +46,11 @@ uv run python app.py          # http://localhost:8050
 ```
 
 The map loads from pre-built `data/suburbs.json` and `data/boundaries.geojson` — no scraping needed to run the app.
+
+To export a static site for hosting (no server needed):
+```sh
+uv run python export_site.py  # writes docs/ — runs on GitHub Pages or any static host
+```
 
 ## Rebuild the data
 
