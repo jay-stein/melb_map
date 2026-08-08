@@ -191,6 +191,10 @@ html, body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
+.game-wide {
+  max-width: 980px;
+}
+
 .back-link { color: #7E57C2; text-decoration: none; font-size: 14px; }
 .trivia-link { margin-left: 12px; color: #26A69A; }
 .game h1 { margin: 8px 0 2px; font-size: 30px; }

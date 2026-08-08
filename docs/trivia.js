@@ -209,7 +209,7 @@ async function loadMap() {
       bgcolor: "#F7F8FA",
     },
     dragmode: false,
-    height: 340,
+    height: 520,
     uirevision: "static",
   }, { displayModeBar: false, responsive: true });
 }
