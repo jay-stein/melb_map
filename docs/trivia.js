@@ -141,14 +141,44 @@ function computeGeoBounds(geojson) {
   return { lon: [minLon, maxLon], lat: [minLat, maxLat] };
 }
 
+/* Trace: dark outlines of the in-scope region, drawn as scattergeo line
+ * segments (a choropleth with a fully transparent colorscale gets skipped by
+ * plotly and renders nothing). */
+function regionOutlineTrace(inScopeNames) {
+  const lons = [], lats = [];
+  const nameSet = new Set(inScopeNames);
+  for (const f of BOUNDARIES.features) {
+    if (!nameSet.has(f.properties.suburb)) continue;
+    const geom = f.geometry;
+    const polys = geom.type === "Polygon" ? [geom.coordinates] : geom.coordinates;
+    for (const poly of polys) {
+      for (const ring of poly) {
+        for (const [lon, lat] of ring) { lons.push(lon); lats.push(lat); }
+        lons.push(null); lats.push(null);
+      }
+    }
+  }
+  return {
+    type: "scattergeo",
+    lon: lons, lat: lats,
+    mode: "lines",
+    line: { color: "#37474F", width: 1.5 },
+    hoverinfo: "skip",
+    showlegend: false,
+  };
+}
+
 async function loadMap() {
   if (!BOUNDARIES) BOUNDARIES = await fetchJSON("data/boundaries.geojson");
   guessTraceCount = 0;
   const allNames = BOUNDARIES.features.map((f) => f.properties.suburb);
   const inScopeNames = region === "all" ? allNames : (STATE.regions[region] || []);
-  const bounds = computeGeoBounds(BOUNDARIES);
-  const dx = (bounds.lon[1] - bounds.lon[0]) * 0.04;
-  const dy = (bounds.lat[1] - bounds.lat[0]) * 0.04;
+  const inScopeSet = new Set(inScopeNames);
+  // Zoom to the region's own bounds so in-scope suburbs fill the frame.
+  const zoomFeatures = BOUNDARIES.features.filter((f) => inScopeSet.has(f.properties.suburb));
+  const bounds = computeGeoBounds({ features: zoomFeatures });
+  const dx = (bounds.lon[1] - bounds.lon[0]) * 0.06;
+  const dy = (bounds.lat[1] - bounds.lat[0]) * 0.06;
 
   Plotly.newPlot("trivia-map", [
     {
@@ -157,33 +187,26 @@ async function loadMap() {
       locations: allNames,
       featureidkey: "properties.suburb",
       z: allNames.map(() => 0),
-      colorscale: [[0, "#E4E6E8"], [1, "#E4E6E8"]],
+      colorscale: [[0, "#D9DCE0"], [1, "#D9DCE0"]],
       showscale: false,
       marker: { line: { color: "white", width: 0.5 } },
       hoverinfo: "skip",
     },
-    {
-      type: "choropleth",
-      geojson: BOUNDARIES,
-      locations: inScopeNames,
-      featureidkey: "properties.suburb",
-      z: inScopeNames.map(() => 0),
-      colorscale: [[0, "rgba(255,255,255,0)"], [1, "rgba(255,255,255,0)"]],
-      showscale: false,
-      marker: { line: { color: "#37474F", width: 1.5 } },
-      hoverinfo: "skip",
-    },
+    regionOutlineTrace(inScopeNames),
   ], {
     margin: { l: 0, r: 0, t: 0, b: 0 },
-    paper_bgcolor: "rgba(0,0,0,0)",
-    plot_bgcolor: "#F2F3F4",
+    paper_bgcolor: "#F7F8FA",
+    plot_bgcolor: "#F7F8FA",
     showlegend: false,
+    // NOTE: plotly.js needs the nested form (projection.type, lonaxis.range),
+    // NOT plotly.py's flattened projection_type / lonaxis_range — those are
+    // silently ignored and leave the geo subplot without a projection.
     geo: {
       visible: false,
-      projection_type: "mercator",
-      lonaxis_range: [bounds.lon[0] - dx, bounds.lon[1] + dx],
-      lataxis_range: [bounds.lat[0] - dy, bounds.lat[1] + dy],
-      bgcolor: "#F2F3F4",
+      projection: { type: "mercator" },
+      lonaxis: { range: [bounds.lon[0] - dx, bounds.lon[1] + dx] },
+      lataxis: { range: [bounds.lat[0] - dy, bounds.lat[1] + dy] },
+      bgcolor: "#F7F8FA",
     },
     dragmode: false,
     height: 340,
@@ -450,6 +473,13 @@ async function main() {
   $("#reveal-btn").addEventListener("click", () => {
     if (revealed < MAX_CLUES - 1) { revealed++; showClue(); }
   });
+
+  // Deep link: ?region=central starts a game directly (also used for testing).
+  const params = new URLSearchParams(location.search);
+  const autoRegion = params.get("region");
+  if (autoRegion) {
+    setTimeout(() => startGame(autoRegion), 100);
+  }
 }
 
 main().catch((e) => {
