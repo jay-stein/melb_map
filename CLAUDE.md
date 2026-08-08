@@ -268,6 +268,9 @@ Ripponlea, Balaclava via Replicate, ~$0.50) — 122 remaining, pending go-ahead.
       `SUBURB_SEARCH_ALIASES` / `SUBURB_MENTION_TERMS`.
 - [x] Map polish — zoom, clean SVG geo, context basemap, panel styling
 - [x] README + this doc refreshed to the 133-suburb state
+- [x] `export_site.py` — static site exporter (figure JSON + data + assets → docs/)
+- [x] **Static site deployed** — GitHub Pages at [jay-stein.github.io/melb_map](https://jay-stein.github.io/melb_map/). Map + Suburble ported to vanilla JS + plotly.js, fully client-side.
+- [x] **Security hardened** — dependency CVEs patched (0 known vulns), LLM-derived text HTML-escaped in figure customdata/hovertemplate (prevents stored XSS), URL scheme allowlisted for history links.
 - [ ] Auto-generate mascot images for the remaining 122 suburbs — pending user
       go-ahead (~$3 via Replicate, or free via Pollinations)
 
