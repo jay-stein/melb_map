@@ -89,8 +89,11 @@ function historyBlock(r) {
   }
   let attrs = "";
   if (srcText) attrs += `<span class="attr">— ${esc(srcText)}</span>`;
-  if (r.history_source_url) {
-    attrs += `<a class="attr-link" href="${esc(r.history_source_url)}" target="_blank" rel="noopener">[source]</a>`;
+  /* LLM-provided URL — only http(s) is rendered as a link, so a
+   * "javascript:" or other scheme can't execute in the browser. */
+  const srcUrl = (r.history_source_url || "").trim();
+  if (/^https?:\/\//i.test(srcUrl)) {
+    attrs += `<a class="attr-link" href="${esc(srcUrl)}" target="_blank" rel="noopener">[source]</a>`;
   }
   return `<h4>history</h4>` +
          `<p class="history-body">${esc(r.history)}</p>` +

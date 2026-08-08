@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import json
 import random
+from html import escape as html_escape
 from pathlib import Path
 
 import geopandas as gpd
@@ -151,10 +152,13 @@ def build_figure(df: pd.DataFrame, geojson: dict, context_geojson: dict | None =
     def fmt_hover(lst):
         if not lst:
             return "<i>no quirks gathered yet</i>"
-        return "<br>".join(f"• {t}" for t in lst[:3])
+        # html.escape: plotly renders hovertemplate as HTML, so LLM/Reddit-derived
+        # text must be escaped to keep it inert (no stored-XSS via hover labels).
+        return "<br>".join(f"• {html_escape(t)}" for t in lst[:3])
     df["hover_tags"] = df["tags"].apply(fmt_hover)
     df["display_name"] = df.apply(
-        lambda r: f"{r['suburb']} ({r['nickname']})" if r.get("nickname") else r["suburb"],
+        lambda r: f"{html_escape(r['suburb'])} ({html_escape(r['nickname'])})"
+        if r.get("nickname") else html_escape(r["suburb"]),
         axis=1,
     )
 
@@ -225,7 +229,7 @@ def build_figure(df: pd.DataFrame, geojson: dict, context_geojson: dict | None =
             fig.add_trace(go.Scattergeo(
                 lon=c_lons,
                 lat=c_lats,
-                text=c_texts,
+                text=[html_escape(t) for t in c_texts],
                 mode="text",
                 textfont={"color": CONTEXT_TEXT, "size": 7.5, "family": "Arial, sans-serif"},
                 hoverinfo="skip",
@@ -245,7 +249,7 @@ def build_figure(df: pd.DataFrame, geojson: dict, context_geojson: dict | None =
         lat, lon = latlon
         nickname = r.get("nickname") or ""
         texts.append(
-            f"<b>{r['suburb']}</b><br>({nickname})" if nickname else f"<b>{r['suburb']}</b>"
+            f"<b>{html_escape(r['suburb'])}</b><br>({html_escape(nickname)})" if nickname else f"<b>{html_escape(r['suburb'])}</b>"
         )
         lats.append(lat)
         lons.append(lon)
@@ -663,10 +667,13 @@ def update_panel(click_data):
                 src_text = ""
             if src_text:
                 label_bits.append(html.Span(f"— {src_text}", style={"marginRight": "4px"}))
-            if r.get("history_source_url"):
+            src_url = (r.get("history_source_url") or "").strip()
+            # LLM-provided URL — only http(s) is ever rendered as a link, so a
+            # "javascript:" or other scheme can't execute in the browser.
+            if src_url.lower().startswith(("http://", "https://")):
                 label_bits.append(html.A(
                     "[source]",
-                    href=r["history_source_url"],
+                    href=src_url,
                     target="_blank",
                     rel="noopener",
                     style={"color": "#9E9E9E", "textDecoration": "none"},
