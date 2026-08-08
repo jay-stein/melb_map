@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suburble — Melbourne Suburb Quirks</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+</head>
+<body>
+<div class="game">
+  <a class="back-link" href="index.html">← Map</a>
+  <h1>Suburble</h1>
+  <p class="sub" id="puzzle-line"></p>
+  <div id="silhouette"></div>
+  <div class="guess-row">
+    <input id="guess" list="suburb-list" placeholder="Type a suburb…" autocomplete="off">
+    <datalist id="suburb-list"></datalist>
+    <button id="guess-btn">Guess</button>
+  </div>
+  <div id="rows"></div>
+  <div id="result"></div>
+</div>
+<script src="suburble.js"></script>
+</body>
+</html>

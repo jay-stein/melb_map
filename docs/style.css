@@ -1,0 +1,265 @@
+/* Melbourne Suburb Quirks — static site styles (ported from the Dash app's inline styles) */
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: #263238;
+  background: #F2F3F4;
+}
+
+/* ---------- map page ---------- */
+
+.app {
+  display: flex;
+  height: 100vh;
+}
+
+.map-wrap {
+  flex: 1 1 70%;
+  position: relative;
+  min-width: 0;
+}
+
+#map { height: calc(100vh - 28px); }
+
+.map-footer {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.85);
+  font-size: 11px;
+  color: #757575;
+  border-top: 1px solid #E0E0E0;
+  line-height: 1.4;
+  z-index: 10;
+}
+
+.map-footer a { color: #616161; }
+
+.side-panel {
+  flex: 0 0 30%;
+  min-width: 280px;
+  padding: 24px;
+  overflow-y: auto;
+  background: #FAFAFA;
+  border-left: 1px solid #E0E0E0;
+}
+
+.panel-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.panel-head h2 { margin: 0; font-size: 22px; }
+
+.play-btn {
+  color: white;
+  background: #7E57C2;
+  padding: 6px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+.hint { color: #616161; }
+.stat { color: #9E9E9E; font-size: 12px; margin-bottom: 16px; }
+.empty { color: #9E9E9E; font-style: italic; }
+
+#suburb-detail h3 { margin: 0 0 4px; font-size: 20px; }
+#suburb-detail h3 .nickname { font-weight: 400; color: #757575; font-size: 16px; }
+#suburb-detail h4 { text-transform: lowercase; margin: 16px 0 4px; font-size: 15px; }
+
+.cat-chip {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: white;
+  margin-bottom: 12px;
+}
+
+.card {
+  padding: 12px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #E0E0E0;
+}
+
+.vibe { font-size: 15px; line-height: 1.5; }
+
+/* mascot */
+.mascot-card { margin-top: 16px; }
+.mascot-img { width: 100%; border-radius: 8px; margin-bottom: 8px; background: white; }
+.mascot-name { font-weight: 600; font-size: 16px; }
+.mascot-tagline { font-style: italic; color: #616161; font-size: 13px; margin-bottom: 8px; }
+.mascot-desc { font-size: 13px; line-height: 1.5; color: #424242; }
+
+/* census */
+#suburb-detail h4:first-child { margin-top: 0; }
+.census-headline { font-weight: 600; font-size: 13.5px; color: #37474F; margin-bottom: 8px; }
+.census-bits { font-size: 12px; color: #757575; margin-bottom: 10px; }
+.census-sub {
+  font-size: 11px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.4px; color: #90A4AE; margin: 8px 0 2px;
+}
+.quirk-row { display: flex; align-items: center; padding: 3px 0; }
+.flag { width: 20px; height: 15px; margin-right: 8px; vertical-align: middle; border-radius: 2px; box-shadow: 0 0 1px rgba(0,0,0,0.4); object-fit: cover; flex: 0 0 auto; }
+.flag-slot { display: inline-block; }
+.quirk-group { flex: 1 1 auto; font-size: 13px; color: #37474F; }
+.quirk-lq { font-size: 12px; color: #9E9E9E; flex: 0 0 auto; }
+.census-heritage { font-size: 12.5px; color: #546E7A; margin-top: 10px; }
+.census-heritage .label { font-weight: 600; }
+.census-emerging { font-size: 12px; color: #9E9E9E; margin-top: 6px; }
+.census-emerging .italic { font-style: italic; }
+
+/* tags */
+.tag-chip {
+  display: inline-block;
+  padding: 3px 10px;
+  margin: 3px 4px 3px 0;
+  border-radius: 10px;
+  background: #ECEFF1;
+  color: #37474F;
+  font-size: 13px;
+}
+
+/* lore */
+.lore-list { font-size: 14px; line-height: 1.5; padding-left: 20px; }
+.lore-list li { margin-bottom: 6px; }
+
+/* history */
+.history-body { font-size: 14px; line-height: 1.5; color: #37474F; margin: 0 0 4px; }
+.history-attrs { font-size: 11px; color: #9E9E9E; font-style: italic; margin-bottom: 8px; }
+.attr { margin-right: 4px; }
+.attr-link { color: #9E9E9E; text-decoration: none; }
+
+/* quotes */
+.reddit-head {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 18px;
+  margin-bottom: 6px;
+}
+.reddit-head span { color: #757575; }
+.reddit-head a { color: #FF4500; font-weight: 600; text-decoration: none; }
+.reddit-logo { height: 18px; width: 18px; margin-right: 7px; }
+.quote-top {
+  border-left: 4px solid #FF4500;
+  padding: 14px 18px;
+  margin: 8px 0 12px 0;
+  background: white;
+  border-radius: 0 8px 8px 0;
+  color: #212121;
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1.45;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+.quote {
+  border-left: 3px solid #FFC4AB;
+  padding-left: 12px;
+  margin: 8px 0;
+  color: #424242;
+  font-size: 14px;
+  font-style: italic;
+}
+
+/* ---------- Suburble ---------- */
+
+.game {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 28px 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.back-link { color: #7E57C2; text-decoration: none; font-size: 14px; }
+.game h1 { margin: 8px 0 2px; font-size: 30px; }
+.game .sub { color: #757575; margin-top: 0; font-size: 14px; }
+
+#silhouette { margin: 8px 0; }
+
+.guess-row { display: flex; gap: 8px; align-items: stretch; margin: 6px 0 16px; }
+.guess-row input {
+  flex: 1 1 auto;
+  padding: 9px 12px;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+}
+.guess-row button {
+  flex: 0 0 auto;
+  padding: 0 18px;
+  border: none;
+  border-radius: 8px;
+  background: #7E57C2;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: inherit;
+}
+.guess-row button:disabled, .guess-row input:disabled { opacity: 0.5; cursor: default; }
+
+.guess-row-card {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 12px;
+  margin-bottom: 6px;
+  background: white;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  font-size: 14px;
+}
+.guess-row-card.win { background: #E8F5E9; }
+.g-suburb { flex: 1 1 auto; font-weight: 600; color: #37474F; }
+.guess-row-card.win .g-suburb { color: #2E7D32; }
+.g-km { flex: 0 0 70px; text-align: right; color: #616161; }
+.g-arrow { flex: 0 0 34px; text-align: center; font-size: 16px; }
+.g-prox { flex: 0 0 46px; text-align: right; font-weight: 600; color: #9E9E9E; }
+.g-prox.hot { color: #2E7D32; }
+
+.result-msg { font-weight: 700; font-size: 16px; margin-bottom: 8px; }
+#share-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #37474F;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: inherit;
+}
+#share-status { margin-left: 10px; color: #2E7D32; font-size: 13px; }
+.grid-pre {
+  background: #FAFAFA;
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.3;
+  border: 1px solid #E0E0E0;
+  overflow-x: auto;
+}
+
+/* ---------- mobile ---------- */
+
+@media (max-width: 900px) {
+  .app { flex-direction: column; height: auto; min-height: 100vh; }
+  .map-wrap { flex: none; height: 60vh; }
+  #map { height: calc(60vh - 28px); }
+  .side-panel { flex: none; border-left: none; border-top: 1px solid #E0E0E0; }
+}
