@@ -18,6 +18,11 @@ suburb-guessing game at `/play`. See also `README.md` (user-facing).
   Unauthenticated `.json` endpoints started 403ing in 2026-05, so the scraper
   switched to HTML (same output shape, nothing downstream changed). Original plan
   was PRAW but Reddit's app-creation captcha is broken — sidestepped entirely.
+  NOTE (2026-08): old.reddit.com now serves a login wall to unauthenticated
+  clients — `scrape/mine_threads.py` falls back to Wayback Machine snapshots
+  of old.reddit HTML, and the DDG-hop unlock (see
+  `.agents/skills/reddit-fetch/SKILL.md`) gets live `.json` through a browser
+  session cookie.
 - **Image generation**: pluggable via `IMAGE_GEN_PROVIDER` env var. Defaults to
   Pollinations (free), Replicate FLUX dev (`black-forest-labs/flux-dev`,
   ~$0.025/image) when paid. See `scrape/imagegen.py`.
@@ -51,6 +56,17 @@ Plus a non-LLM layer:
    Melbourne (core: count ≥ 40 & LQ ≥ 2.0; emerging: count ≥ 25 & LQ ≥ 4.0),
    merged into each suburb's `census` field and rendered with flags in the
    panel. Cells with count < 20 are ABS-perturbation noise and never used.
+
+And a quiz-only layer (NOT shown on the main page — the quiz must not recycle
+panel content):
+
+7. **Fun-fact corpus** (`scrape/mine_fun_facts.py` → `data/fun_facts.json`) —
+   a dedicated Suburb Detective corpus: 262 city-wide facts mined from the
+   hand-picked "best fun fact about Melbourne" threads plus ~510 suburb-
+   specific facts. `scrape/mine_threads.py` fetches those 12 gold threads
+   into `data/raw/_meta.json` (Wayback fallback + DDG-hop unlock; see
+   `.agents/skills/reddit-fetch/SKILL.md`). trivia.js draws a "Fun fact"
+   clue from it.
 
 ### Suburb name aliases
 
@@ -117,6 +133,8 @@ melb_map/
     ├── boundaries.py       # ABS SAL 2021 download/filter → boundaries.geojson + suburb_list.txt
     ├── context_boundaries.py  # grey non-target basemap geojson
     ├── reddit.py           # old.reddit HTML scraper (per-suburb + --meta)
+    ├── mine_threads.py     # fetch specific gold threads into _meta.json (Wayback fallback)
+    ├── mine_fun_facts.py   # DeepSeek mines quiz-only fun_facts.json from gold threads
     ├── melbz.py            # melbz.com.au profile scraper
     ├── emelbourne.py       # eMelbourne history encyclopaedia scraper
     ├── wikipedia.py        # Wikipedia history fallback scraper
