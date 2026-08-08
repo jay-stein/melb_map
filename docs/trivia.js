@@ -57,6 +57,81 @@ function shuffle(arr) {
   return a;
 }
 
+/* --- story-level dedup ---------------------------------------------------
+ * The same anecdote can live in multiple corpora (fun_facts, lore and history
+ * are all mined from the same Reddit threads), so before picking a round's
+ * clues we drop any candidate that is near-duplicate of an already-chosen
+ * one. Two clues are duplicates if their Jaccard word-overlap is >=
+ * DUP_THRESHOLD, OR if they share >= DUP_SHARED rare content words (catches
+ * heavily paraphrased retellings of the same story). The target suburb's
+ * name is excluded from comparison — it appears in every clue and must not
+ * count as story evidence. */
+
+const DUP_STOPWORDS = new Set([
+  "the", "a", "an", "and", "or", "but", "of", "to", "in", "on", "for", "with",
+  "at", "by", "from", "is", "are", "was", "were", "it", "its", "this", "that",
+  "suburb", "suburbs", "locals", "local", "melbourne", "city", "they", "their",
+  "has", "have", "had", "been", "being", "you", "your", "who", "which", "what",
+  "how", "when", "where", "not", "no", "so", "as", "be", "he", "she", "we",
+  "them", "his", "her", "there", "here", "also", "very", "just", "one", "two",
+  "some", "all", "more", "most", "into", "out", "up", "down", "over", "under",
+  "about", "around", "between", "after", "before", "during", "since", "until",
+  "because", "though", "although", "lore", "fact", "take", "history", "census",
+  "known", "called", "says", "said", "like", "never", "ever", "even", "years",
+  "year", "later", "early", "once", "named", "name", "opened", "built", "was",
+  "has", "had", "now", "still", "back", "would", "could",
+]);
+
+function tokenize(text, excludeWords) {
+  const clean = String(text).toLowerCase()
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&[a-z#0-9]+;/g, " ")
+    .replace(/[^a-z\s]/g, " ");
+  const excl = excludeWords || new Set();
+  return new Set(clean.split(/\s+/).filter(
+    (w) => w.length >= 3 && !DUP_STOPWORDS.has(w) && !excl.has(w),
+  ));
+}
+
+function jaccard(a, b) {
+  if (a.size === 0 || b.size === 0) return 0;
+  let inter = 0;
+  for (const w of a) if (b.has(w)) inter++;
+  return inter / (a.size + b.size - inter);
+}
+
+function sharedWords(a, b) {
+  let n = 0;
+  for (const w of a) if (b.has(w)) n++;
+  return n;
+}
+
+const DUP_THRESHOLD = 0.33;
+const DUP_SHARED = 3;
+
+function isDuplicate(a, b) {
+  return jaccard(a, b) >= DUP_THRESHOLD || sharedWords(a, b) >= DUP_SHARED;
+}
+
+function dedupPick(pool, max, excludeWords) {
+  const chosen = [];
+  const chosenTokens = [];
+  for (const cand of pool) {
+    const tokens = tokenize(cand, excludeWords);
+    if (tokens.size === 0) continue;
+    let dup = false;
+    for (const ct of chosenTokens) {
+      if (isDuplicate(tokens, ct)) { dup = true; break; }
+    }
+    if (!dup) {
+      chosen.push(cand);
+      chosenTokens.push(tokens);
+      if (chosen.length >= max) break;
+    }
+  }
+  return chosen;
+}
+
 /* --- clue generation (name-redacted) ------------------------------------ */
 
 function escapeRegex(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
@@ -131,8 +206,12 @@ function buildClues(suburb) {
     pool.push("History: " + esc(redact(d.history.split(".")[0] + ".", suburb, nickname)));
   }
 
-  // randomise order and take up to 5
-  return shuffle(pool).slice(0, 5);
+  // randomise order, drop near-duplicate stories, take up to 5.
+  // Exclude the suburb's own name from the story-overlap comparison.
+  const excludeWords = new Set(
+    (suburb + " " + nickname).toLowerCase().replace(/[^a-z\s]/g, " ").split(/\s+/),
+  );
+  return dedupPick(shuffle(pool), 5, excludeWords);
 }
 
 /* --- map ---------------------------------------------------------------- */
