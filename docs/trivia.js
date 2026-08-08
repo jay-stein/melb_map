@@ -72,23 +72,22 @@ function buildClues(suburb) {
   const census = d.census || {};
   const c = [];
   const cat = esc(d.primary_category || "unknown");
-  const nnBit = nickname ? ` (aka "${esc(nickname)}")` : "";
   const lang = (census.language && census.language[0]) ? census.language[0] : null;
   const birth = (census.birthplace && census.birthplace[0]) ? census.birthplace[0] : null;
 
   if (lang || birth) {
     const quirk = lang
-      ? `in the top ${esc(lang.top_pct)}% of Melbourne suburbs for <b>${esc(lang.group)}</b> speakers`
-      : `with an over-represented <b>${esc(birth.group)}</b>-born community (top ${esc(birth.top_pct)}%)`;
-    c.push(`This <b>${cat}</b> suburb${nnBit} is ${quirk}.`);
+      ? `in the top ${esc(lang.top_pct)}% of suburbs for <b>${esc(lang.group)}</b> speakers`
+      : `with an over-represented <b>${esc(birth.group)}</b>-born community (top ${esc(birth.top_pct)}% citywide)`;
+    c.push(`This <b>${cat}</b> suburb is ${quirk}.`);
   } else if (d.tags && d.tags.length) {
-    c.push(`This <b>${cat}</b> suburb${nnBit} — the locals say: <i>"${esc(pick(d.tags))}"</i>`);
+    c.push(`This <b>${cat}</b> suburb — the locals say: <i>"${esc(redact(pick(d.tags), suburb, nickname))}"</i>`);
   } else {
-    c.push(`This <b>${cat}</b> suburb${nnBit} has around ${(census.population || "?").toLocaleString()} residents.`);
+    c.push(`This <b>${cat}</b> suburb has around ${(census.population || "?").toLocaleString()} residents.`);
   }
 
   if (d.tags && d.tags.length > 0) {
-    c.push(`A local take: <i>"${esc(pick(d.tags))}"</i>`);
+    c.push(`A local take: <i>"${esc(redact(pick(d.tags), suburb, nickname))}"</i>`);
   } else if (census.born_overseas_pct != null) {
     c.push(`Around <b>${Math.round(census.born_overseas_pct)}%</b> of residents were born overseas.`);
   } else {
@@ -291,23 +290,51 @@ async function startGame(selected) {
 
   await loadMap();
 
-  const allNames = shuffle(currentPool).sort();
-  $("#suburb-list").innerHTML = allNames.map((n) => `<option value="${esc(n)}">`).join("");
   startRound();
+}
+
+/* --- chiclet tile picker ------------------------------------------------ */
+
+/* Renders every pool suburb as a clickable tile. Rebuilt each round so
+ * previous rounds' colours reset; guesses within a round persist via the
+ * tile's class. */
+function renderTiles() {
+  const grid = $("#tiles");
+  grid.innerHTML = "";
+  const sorted = currentPool.slice().sort();
+  for (const name of sorted) {
+    const tile = document.createElement("button");
+    tile.className = "tile";
+    tile.type = "button";
+    tile.textContent = name;
+    tile.dataset.suburb = name;
+    tile.addEventListener("click", () => makeGuess(name));
+    grid.appendChild(tile);
+  }
+}
+
+function setTileState(suburb, state) {
+  const tile = document.querySelector(`.tile[data-suburb="${CSS.escape(suburb)}"]`);
+  if (!tile) return;
+  tile.classList.remove("tile-wrong", "tile-correct");
+  if (state === "wrong") {
+    tile.classList.add("tile-wrong");
+    tile.disabled = true;
+  } else if (state === "correct") {
+    tile.classList.add("tile-correct");
+    tile.disabled = true;
+  }
 }
 
 function startRound() {
   revealed = 0;
   clues = buildClues(targets[round]);
+  renderTiles();
   $("#round-label").textContent = `Round ${round + 1} of ${TOTAL_ROUNDS}`;
   $("#feedback").innerHTML = "";
   $("#reveal-btn").style.display = "block";
-  $("#guess-btn").disabled = false;
-  $("#guess").disabled = false;
-  $("#guess").value = "";
   clearMapHighlights();
   showClue();
-  $("#guess").focus();
 }
 
 function showClue() {
@@ -341,13 +368,12 @@ function makeGuess(name) {
 
   if (name === target) {
     highlightGuess(name, true);
+    setTileState(name, "correct");
     const score = MAX_CLUES - revealed;
     roundScores.push(score);
     renderFeedback(true, target, score);
     $("#reveal-btn").style.display = "none";
     $("#clue-cost").style.display = "none";
-    $("#guess-btn").disabled = true;
-    $("#guess").disabled = true;
     round++;
     if (round >= TOTAL_ROUNDS) {
       setTimeout(showResults, 1200);
@@ -356,18 +382,18 @@ function makeGuess(name) {
     }
   } else {
     highlightGuess(name, false);
+    setTileState(name, "wrong");
     if (revealed < MAX_CLUES - 1) {
       revealed++;
       showClue();
       renderFeedback(false);
     } else {
       highlightGuess(target, true);
+      setTileState(target, "correct");
       roundScores.push(0);
       renderFeedback(false, target);
       $("#reveal-btn").style.display = "none";
       $("#clue-cost").style.display = "none";
-      $("#guess-btn").disabled = true;
-      $("#guess").disabled = true;
       round++;
       if (round >= TOTAL_ROUNDS) {
         setTimeout(showResults, 1200);
@@ -466,10 +492,6 @@ async function main() {
   ]);
   showRegionScreen();
 
-  const input = $("#guess");
-  const btn = $("#guess-btn");
-  btn.addEventListener("click", () => makeGuess(input.value));
-  input.addEventListener("keydown", (e) => { if (e.key === "Enter") makeGuess(input.value); });
   $("#reveal-btn").addEventListener("click", () => {
     if (revealed < MAX_CLUES - 1) { revealed++; showClue(); }
   });
@@ -479,6 +501,13 @@ async function main() {
   const autoRegion = params.get("region");
   if (autoRegion) {
     setTimeout(() => startGame(autoRegion), 100);
+  }
+  // ?debug exposes read-only game state for automated tests.
+  if (params.get("debug")) {
+    window.__trivia = {
+      get targets() { return targets.slice(); },
+      get round() { return round; },
+    };
   }
 }
 

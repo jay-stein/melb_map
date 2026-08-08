@@ -352,6 +352,57 @@ html, body {
   margin-top: 10px;
 }
 
+.tiles-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #90A4AE;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin: 0 0 8px;
+}
+
+.tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 6px;
+  max-height: 240px;
+  overflow-y: auto;
+  padding: 2px;
+  margin-bottom: 10px;
+}
+
+.tile {
+  padding: 9px 10px;
+  border: 1px solid #E0E0E0;
+  border-radius: 10px;
+  background: white;
+  color: #37474F;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.12s, background 0.12s, transform 0.05s;
+}
+.tile:hover { border-color: #7E57C2; background: #F3E5F5; }
+.tile:active { transform: scale(0.97); }
+.tile:disabled { cursor: default; opacity: 1; }
+
+.tile.tile-wrong {
+  background: #FFCDD2;
+  border-color: #EF9A9A;
+  color: #B71C1C;
+}
+.tile.tile-wrong:hover { background: #FFCDD2; }
+
+.tile.tile-correct {
+  background: #C8E6C9;
+  border-color: #66BB6A;
+  color: #1B5E20;
+  font-weight: 700;
+}
+.tile.tile-correct:hover { background: #C8E6C9; }
+
 #reveal-btn {
   width: 100%;
   margin-top: 8px;
