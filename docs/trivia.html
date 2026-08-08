@@ -18,7 +18,11 @@
 
   <!-- region select -->
   <div id="region-screen">
-    <p class="region-prompt">First, where should the mystery suburbs come from?</p>
+    <p class="region-prompt">First, where should the mystery suburbs come from? Or test your city knowledge.</p>
+    <button class="region-btn city-card" id="city-mode-btn">
+      <span class="region-name">🏙️ City Facts</span>
+      <span class="region-count">true or false quiz · 10 questions</span>
+    </button>
     <div class="region-grid" id="region-btns"></div>
   </div>
 
@@ -34,6 +38,18 @@
       <p class="clue-cost" id="clue-cost"></p>
     </div>
     <div id="feedback"></div>
+  </div>
+
+  <!-- city facts mode (hidden initially) -->
+  <div id="city-screen" style="display:none">
+    <p class="round-label" id="city-round-label"></p>
+    <div class="city-fact-card" id="city-fact"></div>
+    <div class="tf-row">
+      <button id="tf-true" class="tf-btn tf-true">TRUE</button>
+      <button id="tf-false" class="tf-btn tf-false">FALSE</button>
+    </div>
+    <div class="city-progress" id="city-progress"></div>
+    <div id="city-feedback"></div>
   </div>
 
   <!-- results screen (hidden initially) -->

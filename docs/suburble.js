@@ -1,17 +1,20 @@
 /* Suburble — static port of suburble.py. The daily puzzle order, centroids and
  * max distance are exported from the Python code path (game-state.json), so the
- * daily target here is identical to the Dash app's. */
+ * daily target here is identical to the Dash app's.
+ * Chiclet tiles replace the dropdown; a choropleth tracks guesses — wrong
+ * guesses fill light red, the correct suburb glows green. */
 
 const $ = (sel) => document.querySelector(sel);
 
 const ARROWS = ["⬆️", "↗️", "➡️", "↘️", "⬇️", "↙️", "⬅️", "↖️"];
 const NEUTRAL = "🎯";
 
-let STATE = null;   // game-state.json
-let RINGS = [];     // boundaries.geojson features
+let STATE = null;        // game-state.json
+let BOUNDARIES = null;   // boundaries.geojson (FeatureCollection)
 let TARGET = null;
 let PUZZLE_NO = 0;
 let GUESSES = [];
+let gameOver = false;
 
 async function fetchJSON(url) {
   const r = await fetch(url);
@@ -90,7 +93,7 @@ function dailyTarget() {
 }
 
 function renderSilhouette(suburb) {
-  const feat = RINGS.find((f) => f.properties.suburb === suburb);
+  const feat = BOUNDARIES.features.find((f) => f.properties.suburb === suburb);
   const ring = feat.geometry.coordinates[0];
   const k = Math.cos((STATE.centroids[suburb][0] * Math.PI) / 180);
   const xs = ring.map((p) => p[0] * k);
@@ -114,6 +117,109 @@ function renderSilhouette(suburb) {
     displayModeBar: false, staticPlot: true, responsive: true,
   });
 }
+
+/* --- guess-progress choropleth ------------------------------------------- */
+
+function computeGeoBounds(geojson) {
+  let minLat = Infinity, maxLat = -Infinity, minLon = Infinity, maxLon = -Infinity;
+  for (const f of geojson.features) {
+    for (const ring of f.geometry.coordinates) {
+      for (const [lon, lat] of ring) {
+        if (lon < minLon) minLon = lon;
+        if (lon > maxLon) maxLon = lon;
+        if (lat < minLat) minLat = lat;
+        if (lat > maxLat) maxLat = lat;
+      }
+    }
+  }
+  return { lon: [minLon, maxLon], lat: [minLat, maxLat] };
+}
+
+function buildMap() {
+  const allNames = BOUNDARIES.features.map((f) => f.properties.suburb);
+  const bounds = computeGeoBounds(BOUNDARIES);
+  const dx = (bounds.lon[1] - bounds.lon[0]) * 0.04;
+  const dy = (bounds.lat[1] - bounds.lat[0]) * 0.04;
+  Plotly.newPlot("suburble-map", [
+    {
+      type: "choropleth",
+      geojson: BOUNDARIES,
+      locations: allNames,
+      featureidkey: "properties.suburb",
+      z: allNames.map(() => 0),
+      colorscale: [[0, "#e7e3e0"], [1, "#e7e3e0"]],
+      showscale: false,
+      marker: { line: { color: "white", width: 0.5 } },
+      hoverinfo: "skip",
+    },
+  ], {
+    margin: { l: 0, r: 0, t: 0, b: 0 },
+    paper_bgcolor: "#f6f3f1",
+    plot_bgcolor: "#f6f3f1",
+    showlegend: false,
+    // plotly.js needs the nested form (projection.type, lonaxis.range) —
+    // the flattened plotly.py keys are silently ignored.
+    geo: {
+      visible: false,
+      projection: { type: "mercator" },
+      lonaxis: { range: [bounds.lon[0] - dx, bounds.lon[1] + dx] },
+      lataxis: { range: [bounds.lat[0] - dy, bounds.lat[1] + dy] },
+      bgcolor: "#f6f3f1",
+    },
+    dragmode: false,
+    height: 280,
+    uirevision: "static",
+  }, { displayModeBar: false, responsive: true });
+}
+
+function highlightSuburb(suburb, correct) {
+  if (!BOUNDARIES) return;
+  const color = correct ? "#d7fbe4" : "#ffd9cc";
+  const lineColor = correct ? "#4cc98a" : "#ff9473";
+  Plotly.addTraces("suburble-map", [{
+    type: "choropleth",
+    geojson: BOUNDARIES,
+    locations: [suburb],
+    featureidkey: "properties.suburb",
+    z: [1],
+    colorscale: [[0, color], [1, color]],
+    showscale: false,
+    marker: { line: { color: lineColor, width: correct ? 2 : 1 } },
+    hoverinfo: "skip",
+  }]);
+}
+
+/* --- chiclet tiles -------------------------------------------------------- */
+
+function renderTiles() {
+  const grid = $("#tiles");
+  grid.innerHTML = "";
+  const sorted = STATE.order.slice().sort();
+  for (const name of sorted) {
+    const tile = document.createElement("button");
+    tile.className = "tile";
+    tile.type = "button";
+    tile.textContent = name;
+    tile.dataset.suburb = name;
+    tile.addEventListener("click", () => makeGuess(name));
+    grid.appendChild(tile);
+  }
+}
+
+function setTileState(suburb, state) {
+  const tile = document.querySelector(`.tile[data-suburb="${CSS.escape(suburb)}"]`);
+  if (!tile) return;
+  tile.classList.remove("tile-wrong", "tile-correct");
+  if (state === "wrong") {
+    tile.classList.add("tile-wrong");
+    tile.disabled = true;
+  } else if (state === "correct") {
+    tile.classList.add("tile-correct");
+    tile.disabled = true;
+  }
+}
+
+/* --- game flow ------------------------------------------------------------ */
 
 function guessRow(suburb, target) {
   const gc = STATE.centroids[suburb];
@@ -154,49 +260,36 @@ function renderResult(msg, grid) {
 }
 
 function makeGuess(name) {
-  if (!name) return;
-  const done = GUESSES.length > 0 &&
-    (GUESSES[GUESSES.length - 1] === TARGET || GUESSES.length >= STATE.maxGuesses);
-  if (GUESSES.includes(name) || done) return;
+  if (!name || gameOver) return;
+  if (GUESSES.includes(name)) return;
   GUESSES.push(name);
-  renderRows(TARGET);
+
   const solved = name === TARGET;
+  highlightSuburb(name, solved);
+  setTileState(name, solved ? "correct" : "wrong");
+  renderRows(TARGET);
+
   const outOf = GUESSES.length >= STATE.maxGuesses && !solved;
   if (solved || outOf) {
+    gameOver = true;
     const grid = emojiGrid(TARGET);
     renderResult(
       solved ? `🎉 Solved in ${GUESSES.length}/${STATE.maxGuesses}!` : `Out of guesses — it was ${TARGET}.`,
       grid,
     );
-    $("#guess").disabled = true;
-    $("#guess-btn").disabled = true;
   }
-  $("#guess").value = "";
-  $("#guess").focus();
 }
 
 async function main() {
-  [STATE, RINGS] = await Promise.all([
-    fetchJSON("data/game-state.json"),
-    fetchJSON("data/boundaries.geojson"),
-  ]);
-  RINGS = RINGS.features;
+  STATE = await fetchJSON("data/game-state.json");
+  BOUNDARIES = await fetchJSON("data/boundaries.geojson");
 
   [PUZZLE_NO, TARGET] = dailyTarget();
   $("#puzzle-line").textContent = `#${PUZZLE_NO} · guess the mystery Melbourne suburb from its shape`;
 
-  const names = STATE.order.slice().sort();
-  $("#suburb-list").innerHTML = names.map((n) => `<option value="${esc(n)}">`).join("");
-
   renderSilhouette(TARGET);
-
-  const input = $("#guess");
-  const btn = $("#guess-btn");
-  btn.addEventListener("click", () => makeGuess(input.value));
-  input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") makeGuess(input.value);
-  });
-  input.focus();
+  buildMap();
+  renderTiles();
 }
 
 main().catch((e) => {

@@ -11,16 +11,16 @@
 <script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
 </head>
 <body>
-<div class="game">
+<div class="game game-wide">
   <a class="back-link" href="index.html">← Map</a>
   <a class="back-link trivia-link" href="trivia.html">🔍 Detective</a>
   <h1>Suburble</h1>
   <p class="sub" id="puzzle-line"></p>
   <div id="silhouette"></div>
-  <div class="guess-row">
-    <input id="guess" list="suburb-list" placeholder="Type a suburb…" autocomplete="off">
-    <datalist id="suburb-list"></datalist>
-    <button id="guess-btn">Guess</button>
+  <div id="suburble-map" style="height:280px; margin-bottom:10px; border-radius:8px; border:1px solid var(--color-ash); overflow:hidden;"></div>
+  <div id="guess-area">
+    <p class="tiles-label">Pick a suburb:</p>
+    <div class="tiles-grid" id="tiles"></div>
   </div>
   <div id="rows"></div>
   <div id="result"></div>

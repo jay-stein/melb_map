@@ -13,6 +13,7 @@ let STATE = null;   // game-state.json (centroids, regions, order)
 let SUBURBS = {};   // suburbs.json data
 let BOUNDARIES = null;  // boundaries.geojson (cached)
 let FACTS = {};     // fun_facts.json (quiz-only corpus, separate from the page)
+let QUESTIONS = []; // quiz_questions.json (City Facts True/False bank)
 
 let region = null;
 let targets = [];         // 5 suburb names for this game
@@ -23,6 +24,13 @@ let roundScores = [];
 let gameOver = false;
 let currentPool = [];
 let roundLocked = false;  // true between solve and next round's start
+
+let mode = "detective";   // "detective" | "city"
+let cityQuestions = [];   // current city round's statements
+let cityIndex = 0;
+let cityScore = 0;
+let cityAnswers = [];     // booleans: correctness per question
+const CITY_TOTAL = 10;
 
 let guessTraceCount = 0;  // traces added beyond base + outline (reset each round)
 
@@ -249,8 +257,10 @@ function clearMapHighlights() {
 /* --- region screen ----------------------------------------------------- */
 
 function showRegionScreen() {
+  mode = "detective";
   $("#region-screen").style.display = "block";
   $("#game-screen").style.display = "none";
+  $("#city-screen").style.display = "none";
   $("#results-screen").style.display = "none";
 
   const regions = STATE.regions;
@@ -426,6 +436,94 @@ function renderFeedback(correct, answer, score) {
   }
 }
 
+/* --- city facts mode ---------------------------------------------------- */
+
+function startCityMode() {
+  mode = "city";
+  if (!QUESTIONS.length) {
+    alert("Question bank not loaded yet — try again in a moment.");
+    return;
+  }
+  cityQuestions = shuffle(QUESTIONS).slice(0, CITY_TOTAL);
+  cityIndex = 0;
+  cityScore = 0;
+  cityAnswers = [];
+  gameOver = false;
+
+  $("#region-screen").style.display = "none";
+  $("#game-screen").style.display = "none";
+  $("#results-screen").style.display = "none";
+  $("#city-screen").style.display = "block";
+  renderCityQuestion();
+}
+
+function renderCityQuestion() {
+  const q = cityQuestions[cityIndex];
+  $("#city-round-label").textContent = `Question ${cityIndex + 1} of ${CITY_TOTAL}`;
+  $("#city-fact").textContent = q.text;
+  $("#city-feedback").innerHTML = "";
+  $("#city-progress").textContent =
+    "✓ " + cityAnswers.filter((a) => a).length + " correct so far";
+  $("#tf-true").disabled = false;
+  $("#tf-false").disabled = false;
+}
+
+function answerCity(v) {
+  if (gameOver) return;
+  const q = cityQuestions[cityIndex];
+  const correct = v === q.truth;
+  if (correct) cityScore++;
+  cityAnswers.push(correct);
+
+  $("#tf-true").disabled = true;
+  $("#tf-false").disabled = true;
+  const truthLabel = q.truth ? "TRUE" : "FALSE";
+  $("#city-feedback").innerHTML = correct
+    ? `<div class="feedback-correct">✓ Correct — it's ${truthLabel}</div>`
+    : `<div class="feedback-wrong">✗ Wrong — it was ${truthLabel}</div>`;
+
+  cityIndex++;
+  if (cityIndex >= CITY_TOTAL) {
+    setTimeout(cityResults, 1100);
+  } else {
+    setTimeout(renderCityQuestion, 1100);
+  }
+}
+
+function cityTrophy(total) {
+  if (total === CITY_TOTAL) return { emoji: "🏆🏆🏆", name: "Fact Master" };
+  if (total >= 9) return { emoji: "🏆", name: "Fact Scholar" };
+  if (total >= 7) return { emoji: "🥇", name: "City Expert" };
+  if (total >= 5) return { emoji: "🥈", name: "City Buff" };
+  return { emoji: "🔎", name: "Tourist" };
+}
+
+function cityResults() {
+  gameOver = true;
+  $("#city-screen").style.display = "none";
+  $("#results-screen").style.display = "block";
+
+  const total = cityScore;
+  const t = cityTrophy(total);
+  $("#trophy").innerHTML = `${t.emoji} ${t.name}`;
+  $("#score-summary").textContent = `You got ${total}/${CITY_TOTAL} Melbourne facts right.`;
+
+  $("#round-results").style.display = "none";
+
+  const lines = ["Melbourne City Facts — " + total + "/" + CITY_TOTAL];
+  const squares = cityAnswers.map((c) => (c ? "🟩" : "🟥")).join("");
+  lines.push(squares);
+  lines.push("melb-map · City Facts");
+  const grid = lines.join("\n");
+  $("#share-grid").textContent = grid;
+
+  $("#share-btn").onclick = async () => {
+    try { await navigator.clipboard.writeText(grid); alert("Copied to clipboard!"); }
+    catch (e) { alert("Couldn't copy — here you go:\n\n" + grid); }
+  };
+  $("#play-again-btn").onclick = showRegionScreen;
+}
+
 /* --- results ------------------------------------------------------------ */
 
 function showResults() {
@@ -495,13 +593,17 @@ function buildShareGrid() {
 /* --- init --------------------------------------------------------------- */
 
 async function main() {
-  [STATE, SUBURBS, FACTS] = await Promise.all([
+  [STATE, SUBURBS, FACTS, QUESTIONS] = await Promise.all([
     fetchJSON("data/game-state.json"),
     fetchJSON("data/suburbs.json"),
     fetchJSON("data/fun_facts.json"),
+    fetchJSON("data/quiz_questions.json"),
   ]);
   showRegionScreen();
 
+  $("#city-mode-btn").addEventListener("click", startCityMode);
+  $("#tf-true").addEventListener("click", () => answerCity(true));
+  $("#tf-false").addEventListener("click", () => answerCity(false));
   $("#reveal-btn").addEventListener("click", () => {
     if (revealed < MAX_CLUES - 1) { revealed++; showClue(); }
   });
@@ -512,11 +614,17 @@ async function main() {
   if (autoRegion) {
     setTimeout(() => startGame(autoRegion), 100);
   }
+  if (params.get("mode") === "city") {
+    setTimeout(() => startCityMode(), 100);
+  }
   // ?debug exposes read-only game state for automated tests.
   if (params.get("debug")) {
     window.__trivia = {
       get targets() { return targets.slice(); },
       get round() { return round; },
+      get cityIndex() { return cityIndex; },
+      get cityScore() { return cityScore; },
+      get cityQuestions() { return cityQuestions.slice(); },
     };
   }
 }

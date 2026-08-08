@@ -107,6 +107,13 @@ def main() -> int:
         (DATA_OUT / "fun_facts.json").write_text(facts_json, encoding="utf-8")
         print(f"[export] data/fun_facts.json  {len(facts_json) / 1e6:.2f} MB")
 
+    # City Facts True/False question bank.
+    quiz_src = ROOT / "data" / "quiz_questions.json"
+    if quiz_src.exists():
+        quiz_json = quiz_src.read_text(encoding="utf-8")
+        (DATA_OUT / "quiz_questions.json").write_text(quiz_json, encoding="utf-8")
+        print(f"[export] data/quiz_questions.json  {len(quiz_json) / 1e6:.2f} MB")
+
     # --- mascot manifest: {suburb: filename} so the panel can show images --- #
     mascots: dict[str, str] = {}
     for f in sorted((ROOT / "assets" / "mascots").glob("*")):

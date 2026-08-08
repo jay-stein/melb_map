@@ -399,6 +399,65 @@ html, body {
 .region-name { font-size: 16px; font-weight: 500; color: var(--color-off-black); letter-spacing: -0.02em; text-transform: uppercase; }
 .region-count { font-size: 12px; color: var(--color-smoke); }
 
+.city-card {
+  width: 100%;
+  margin-bottom: 16px;
+  background: var(--color-periwinkle-mist);
+  border-color: var(--color-ash);
+}
+.city-card:hover { border-color: var(--color-off-black); }
+.city-card .region-name { font-size: 18px; }
+
+.city-fact-card {
+  padding: 28px 24px;
+  background: var(--color-periwinkle-mist);
+  border: 1px solid var(--color-off-black);
+  border-radius: var(--radius-soft);
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-off-black);
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+  min-height: 90px;
+}
+
+.tf-row {
+  display: flex;
+  gap: 10px;
+}
+
+.tf-btn {
+  flex: 1;
+  padding: 16px;
+  border-radius: var(--radius-buttons);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.tf-true {
+  background: #d7fbe4;
+  border-color: #4cc98a;
+  color: #1d6b3a;
+}
+.tf-true:hover { background: #c2f5d6; }
+.tf-false {
+  background: #ffd9cc;
+  border-color: var(--color-coral);
+  color: #7a2d12;
+}
+.tf-false:hover { background: #ffc9b5; }
+.tf-btn:disabled { opacity: 0.5; cursor: default; }
+
+.city-progress {
+  font-size: 12px;
+  color: var(--color-smoke);
+  margin-top: 10px;
+  letter-spacing: -0.02em;
+}
+
 .round-label {
   font-weight: 500;
   font-size: 13px;
