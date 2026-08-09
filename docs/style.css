@@ -815,3 +815,87 @@ html, body {
   font-size: 15px;
   margin: 14px 0 4px;
 }
+
+/* ---------- Streetwise theme select ---------- */
+
+.street-intro {
+  color: var(--color-smoke);
+  font-size: 13px;
+  margin: 0 0 10px;
+}
+
+.theme-random {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 18px;
+  padding: 18px 20px;
+  background: var(--color-periwinkle-mist);
+  border: 2px solid var(--color-lake-blue);
+  border-radius: var(--radius-cards);
+  font-family: var(--font-mono);
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-off-black);
+  cursor: pointer;
+  text-align: left;
+  letter-spacing: -0.01em;
+}
+.theme-random:hover { background: var(--color-sky-blue); }
+.theme-random .theme-icon { font-size: 26px; }
+.theme-random .theme-count { font-weight: 400; font-size: 13px; color: var(--color-graphite); margin-left: auto; }
+
+.theme-grid-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-smoke);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 0 0 10px;
+}
+
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+}
+
+.theme-chiclet {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--color-parchment);
+  border: 1px solid var(--color-ash);
+  border-radius: var(--radius-buttons);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-off-black);
+  cursor: pointer;
+  text-align: left;
+  letter-spacing: -0.01em;
+}
+.theme-chiclet:hover { border-color: var(--color-off-black); background: var(--color-periwinkle-mist); }
+.theme-chiclet .theme-icon { font-size: 18px; }
+.theme-chiclet .theme-count {
+  margin-left: auto;
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--color-smoke);
+}
+
+.themes-link {
+  float: right;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--color-lake-blue);
+  cursor: pointer;
+  text-transform: none;
+  letter-spacing: 0;
+}
+.themes-link:hover { text-decoration: underline; }

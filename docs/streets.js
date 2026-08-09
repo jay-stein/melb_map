@@ -17,12 +17,40 @@ const SQUARES = {
   first: "🟩", second: "🟨", hint_first: "🟦", hint_second: "🟦", fail: "⬛",
 };
 
+/* Icon per theme for the theme-select chiclets (several LLM surface labels
+ * map to the same icon, e.g. "English towns" vs "British towns/suburbs"). */
+const THEME_ICONS = {
+  "Literary Poets": "📜",
+  "Native Flora": "🌿",
+  "British Towns & Rivers": "🏰",
+  "English towns/villages": "🏰",
+  "British towns/suburbs": "🏰",
+  "English towns": "🏰",
+  "Prime Ministers": "🏛️",
+  "Astronomy & Space": "🪐",
+  "constellations/stars": "🪐",
+  "Precious Gemstones": "💎",
+  "Crimean War": "💣",
+  "World War II battles and aircraft": "💣",
+  "World War I battles": "💣",
+  "Arthurian Legend": "🐉",
+  "Elite English Schools": "🎓",
+  "aircraft": "✈️",
+  "Aviation Pioneers & Aircraft": "✈️",
+  "Viticulture & Wine": "🍷",
+  "Camera & Photography": "📷",
+  "ANA Aviation Estate": "🛫",
+  "Renaissance artists/writers": "🎨",
+  "Golf Courses": "⛳",
+};
+
 let THEMES = null;    // data/street_themes.json
 let SUBURBS = {};     // data/suburbs.json (mascot/vibe payoff)
 
 let suburb = null;
 let puzzle = null;
 let rounds = [];
+let themeFilter = null;
 let idx = 0;
 let attempts = 0;
 let hintUsed = false;
@@ -55,10 +83,34 @@ function shuffle(arr) {
 
 /* --- game setup ----------------------------------------------------------- */
 
-function newGame() {
-  const names = Object.keys(THEMES);
-  suburb = pick(names);
-  puzzle = pick(THEMES[suburb].puzzles);
+function themeIcon(label) {
+  return THEME_ICONS[label] || "🧩";
+}
+
+function availableThemes() {
+  const counts = {};
+  for (const entry of Object.values(THEMES)) {
+    for (const p of entry.puzzles) {
+      counts[p.theme] = (counts[p.theme] || 0) + 1;
+    }
+  }
+  return Object.entries(counts)
+    .map(([label, n]) => ({ label, icon: themeIcon(label), n }))
+    .sort((a, b) => b.n - a.n || a.label.localeCompare(b.label));
+}
+
+function newGame(theme) {
+  themeFilter = theme || null;
+  const options = [];
+  for (const [name, entry] of Object.entries(THEMES)) {
+    for (const p of entry.puzzles) {
+      if (!themeFilter || p.theme === themeFilter) options.push([name, p]);
+    }
+  }
+  if (!options.length) throw new Error(`no puzzles for theme: ${theme}`);
+  const [chosen, chosenPuzzle] = pick(options);
+  suburb = chosen;
+  puzzle = chosenPuzzle;
   rounds = puzzle.rounds.map((r) => ({ ...r, options: shuffle(r.options) }));
   idx = 0;
   attempts = 0;
@@ -75,7 +127,30 @@ function roundValue(attempt) {
 
 /* --- rendering ------------------------------------------------------------ */
 
+function renderSelect() {
+  const themes = availableThemes();
+  const total = themes.reduce((s, t) => s + t.n, 0);
+  $("#background").style.display = "none";
+  $("#streets-play").innerHTML =
+    `<p class="street-intro">Pick a theme, or roll the dice:</p>` +
+    `<button class="theme-random" id="theme-random">` +
+      `<span class="theme-icon">🎲</span>` +
+      `<span class="theme-name">Random</span>` +
+      `<span class="theme-count">any of ${total} puzzles</span>` +
+    `</button>` +
+    `<p class="theme-grid-label">or pick a theme:</p>` +
+    `<div class="theme-grid">` +
+    themes.map((t) =>
+      `<button class="theme-chiclet" data-theme="${esc(t.label)}">` +
+        `<span class="theme-icon">${t.icon}</span>` +
+        `<span class="theme-name">${esc(t.label)}</span>` +
+        `<span class="theme-count">${t.n}</span>` +
+      `</button>`).join("") +
+    `</div>`;
+}
+
 function renderBackground() {
+  $("#background").style.display = "block";
   $("#background").innerHTML = `<p class="streetwise-bg-text">${esc(puzzle.background)}</p>`;
 }
 
@@ -115,7 +190,8 @@ function renderPlay(feedbackHtml, solved) {
   }
 
   $("#streets-play").innerHTML =
-    `<div class="round-label">Round ${idx + 1}/${ROUNDS_PER_GAME}</div>` +
+    `<div class="round-label">Round ${idx + 1}/${ROUNDS_PER_GAME}` +
+    ` <button class="themes-link" id="themes-link" title="Back to theme select">← themes</button></div>` +
     `<p class="street-intro">One of the mystery suburb's streets is named after…</p>` +
     `<div class="clue-card clue-new"><div class="clue-text">${esc(r.clue)}</div></div>` +
     `<div class="street-options">` +
@@ -163,6 +239,7 @@ function renderFinale() {
     `<pre class="grid-pre">${esc(grid)}</pre>` +
     `<div class="result-actions">` +
     `<button class="play-again" id="play-again-btn">Play again</button>` +
+    `<button class="play-again" id="themes-btn">More themes</button>` +
     `<button class="play-again" id="share-btn">Share 📋</button>` +
     `<span id="share-status"></span></div>`;
   $("#share-btn").addEventListener("click", async () => {
@@ -174,10 +251,11 @@ function renderFinale() {
     }
   });
   $("#play-again-btn").addEventListener("click", () => {
-    newGame();
+    newGame(themeFilter);
     renderBackground();
     renderPlay(null, false);
   });
+  $("#themes-btn").addEventListener("click", renderSelect);
 }
 
 /* --- actions -------------------------------------------------------------- */
@@ -230,6 +308,9 @@ $("#streets-play").addEventListener("click", (e) => {
   const t = e.target;
   if (t.id === "next-btn") onNext();
   else if (t.id === "hint-btn") onHint();
+  else if (t.id === "theme-random") { newGame(null); renderBackground(); renderPlay(null, false); }
+  else if (t.id === "themes-link" || t.id === "themes-btn") renderSelect();
+  else if (t.dataset.theme) { newGame(t.dataset.theme); renderBackground(); renderPlay(null, false); }
   else if (t.dataset.opt !== undefined) onOption(Number(t.dataset.opt));
 });
 
@@ -240,9 +321,8 @@ async function main() {
   try {
     SUBURBS = await fetchJSON("data/suburbs.json");
   } catch (e) { /* mascot payoff is optional */ }
-  newGame();
-  renderBackground();
-  renderPlay(null, false);
+  newGame(null);
+  renderSelect();
 }
 
 main().catch((e) => {

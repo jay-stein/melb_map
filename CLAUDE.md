@@ -303,9 +303,11 @@ Ripponlea, Balaclava via Replicate, ~$0.50) — 122 remaining, pending go-ahead.
 - [x] `suburble.py` — daily guessing game at `/play` (6 guesses, distance +
       8-point direction + proximity %, shareable emoji grid)
 - [x] **Streetwise game** — `streets.py` at `/streets` + `docs/streets.html`/
-      `streets.js` static port. 1 suburb per game, 5 rounds, 3-option
-      namesake chiclets, 2 attempts (100/50/25 scoring), hints halve points,
-      explainers on reveal, share grid, play-again.
+      `streets.js` static port. Theme-select screen first (big 🎲 Random
+      chiclet + one icon chiclet per theme with puzzle counts), then 1 suburb
+      per game, 5 rounds, 3-option namesake chiclets, 2 attempts (100/50/25
+      scoring), hints halve points, explainers on reveal, share grid,
+      play-again keeps the chosen theme.
 - [x] `scrape/street_themes.py` — Streetwise corpus pipeline: BBBike Melbourne
       pbf (~88 MB) → pyosmium + shapely attribution to our ABS polygons
       (24k streets, 127 suburbs) → Layer 1 keyword/suffix matching →
