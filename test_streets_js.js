@@ -59,8 +59,8 @@ function check(cond, msg) { if (!cond) failures.push(msg); }
   check(selHtml.includes("🌿"), "flora icon present");
   check(selHtml.includes("🪐"), "space icon present");
   check(selHtml.includes("🎖️"), "wars icon present");
-  check(selHtml.includes('data-theme="Wars & Battles"'), "Wars & Battles consolidated chiclet present");
-  check(selHtml.includes('data-theme="Aviation & Aircraft"'), "Aviation & Aircraft consolidated chiclet present");
+  check(selHtml.includes('data-theme="Wars &amp; Battles"'), "Wars & Battles consolidated chiclet present");
+  check(selHtml.includes('data-theme="Aviation &amp; Aircraft"'), "Aviation & Aircraft consolidated chiclet present");
 
   // pick a theme
   click("#theme-NativeFlora", { theme: "Native Flora" });
