@@ -17,30 +17,25 @@ const SQUARES = {
   first: "🟩", second: "🟨", hint_first: "🟦", hint_second: "🟦", fail: "⬛",
 };
 
-/* Icon per theme for the theme-select chiclets (several LLM surface labels
- * map to the same icon, e.g. "English towns" vs "British towns/suburbs"). */
+/* Icon per theme for the theme-select chiclets. Keys are the canonical theme
+ * labels enforced by the corpus build (see THEME_CANON in
+ * scrape/street_themes.py). */
 const THEME_ICONS = {
   "Literary Poets": "📜",
   "Native Flora": "🌿",
   "British Towns & Rivers": "🏰",
-  "English towns/villages": "🏰",
-  "British towns/suburbs": "🏰",
-  "English towns": "🏰",
   "Prime Ministers": "🏛️",
   "Astronomy & Space": "🪐",
-  "constellations/stars": "🪐",
   "Precious Gemstones": "💎",
   "Crimean War": "💣",
-  "World War II battles and aircraft": "💣",
-  "World War I battles": "💣",
+  "War Battles & Aircraft": "💣",
   "Arthurian Legend": "🐉",
   "Elite English Schools": "🎓",
-  "aircraft": "✈️",
   "Aviation Pioneers & Aircraft": "✈️",
   "Viticulture & Wine": "🍷",
   "Camera & Photography": "📷",
   "ANA Aviation Estate": "🛫",
-  "Renaissance artists/writers": "🎨",
+  "Renaissance Artists & Writers": "🎨",
   "Golf Courses": "⛳",
 };
 
@@ -84,7 +79,11 @@ function shuffle(arr) {
 /* --- game setup ----------------------------------------------------------- */
 
 function themeIcon(label) {
-  return THEME_ICONS[label] || "🧩";
+  const exact = THEME_ICONS[label];
+  if (exact) return exact;
+  const key = Object.keys(THEME_ICONS)
+    .find((k) => k.toLowerCase() === String(label).toLowerCase());
+  return THEME_ICONS[key] || "🧩";
 }
 
 function availableThemes() {

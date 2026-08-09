@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from scrape.street_themes import title_case
+from scrape.street_themes import canon_theme, title_case
 import streets
 
 corpus = json.loads(Path("data/street_themes.json").read_text(encoding="utf-8"))
@@ -29,6 +29,9 @@ for suburb, entry in sorted(corpus.items()):
         # casing: labels must be canonical title case
         if theme != title_case(theme):
             report(suburb, theme, f"theme label not title-cased: '{theme}'")
+        # consolidation: every label must already be a canonical family name
+        if theme != canon_theme(theme):
+            report(suburb, theme, f"theme not canonical (fold into {canon_theme(theme)})")
         # every theme must have a proper icon (not the generic fallback)
         if streets.theme_icon(theme) == "🧩":
             report(suburb, theme, f"no icon mapped for theme")

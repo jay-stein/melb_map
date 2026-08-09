@@ -41,30 +41,25 @@ _SQUARES = {
 }
 
 # Visual icon per theme for the theme-select chiclets. Keys are the canonical
-# (title-cased) labels the corpus build enforces; the lookup falls back to a
-# case-insensitive match so a stray casing can never lose an icon.
+# theme labels enforced by the corpus build (see THEME_CANON in
+# scrape.street_themes.py); the lookup falls back to a case-insensitive match
+# so a stray casing can never lose an icon.
 THEME_ICONS: dict[str, str] = {
     "Literary Poets": "📜",
     "Native Flora": "🌿",
     "British Towns & Rivers": "🏰",
-    "British Towns/Suburbs": "🏰",
-    "English Towns": "🏰",
-    "English Towns/Villages": "🏰",
     "Prime Ministers": "🏛️",
     "Astronomy & Space": "🪐",
-    "Constellations/Stars": "🪐",
     "Precious Gemstones": "💎",
     "Crimean War": "💣",
-    "World War II Battles and Aircraft": "💣",
-    "World War I Battles": "💣",
+    "War Battles & Aircraft": "💣",
     "Arthurian Legend": "🐉",
     "Elite English Schools": "🎓",
-    "Aircraft": "✈️",
     "Aviation Pioneers & Aircraft": "✈️",
     "Viticulture & Wine": "🍷",
     "Camera & Photography": "📷",
     "ANA Aviation Estate": "🛫",
-    "Renaissance Artists/Writers": "🎨",
+    "Renaissance Artists & Writers": "🎨",
     "Golf Courses": "⛳",
 }
 

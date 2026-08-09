@@ -536,6 +536,40 @@ _SMALL_WORDS = {"a", "an", "and", "as", "at", "by", "for", "from", "in",
                 "of", "on", "or", "the", "to", "with", "vs", "via"}
 _ROMAN_NUMS = {"i", "ii", "iii", "iv", "v", "vi"}
 
+# Canonical theme labels. Layer 2a discovery often invents its own phrasing
+# for a family Layer 1 already names (e.g. "English towns/villages" vs
+# "British Towns & Rivers"); every surface label maps to ONE canonical label
+# so the theme-select chiclets never split one family into lookalikes.
+THEME_CANON: dict[str, str] = {
+    "English Towns": "British Towns & Rivers",
+    "English Towns/Villages": "British Towns & Rivers",
+    "British Towns/Suburbs": "British Towns & Rivers",
+    "Aircraft": "Aviation Pioneers & Aircraft",
+    "World War I Battles": "War Battles & Aircraft",
+    "World War II Battles and Aircraft": "War Battles & Aircraft",
+    "Constellations/Stars": "Astronomy & Space",
+    "Renaissance Artists/Writers": "Renaissance Artists & Writers",
+}
+
+
+def canon_theme(label: str) -> str:
+    """Title-case the label, then fold it into its canonical family."""
+    tc = title_case(label)
+    return THEME_CANON.get(tc, tc)
+
+
+# Canonical descriptions for the consolidated families (used when re-running
+# clue generation so the LLM prompt describes the family, not one surface).
+THEME_CANON_DESC: dict[str, str] = {
+    "British Towns & Rivers": "streets named after English and British towns, "
+                              "counties, villages and rivers",
+    "Aviation Pioneers & Aircraft": "streets named after aviation pioneers, "
+                                    "airlines and aircraft",
+    "War Battles & Aircraft": "streets named after war battles and military aircraft",
+    "Astronomy & Space": "streets named after stars, constellations and space concepts",
+    "Renaissance Artists & Writers": "streets named after Renaissance artists and writers",
+}
+
 
 def title_case(label: str) -> str:
     """'World War II battles and aircraft' -> 'World War II Battles and
@@ -572,6 +606,11 @@ def run_clues(client: OpenAI, matches: dict[str, dict]) -> dict[str, dict]:
         for match in match_list:
             if len(match["streets"]) < ROUNDS_PER_SUBURB:
                 continue
+            # canonical theme + description so generated puzzles carry the
+            # consolidated label (and caches key on it consistently)
+            match = dict(match)
+            match["theme"] = canon_theme(match["theme"])
+            match["desc"] = THEME_CANON_DESC.get(match["theme"], match.get("desc", match["theme"]))
             out_path = CLUES_DIR / f"{suburb.replace(' ', '_')}__{_theme_slug(match['theme'])}.json"
             if out_path.exists():
                 print(f"[clues] {suburb} / {match['theme']}: cached")
@@ -601,7 +640,7 @@ def build(clues: dict[str, dict]) -> None:
         suburb, _, _ = path.stem.partition("__")
         suburb = suburb.replace("_", " ")
         data = json.loads(path.read_text(encoding="utf-8"))
-        data["theme"] = title_case(data["theme"])  # canonical label
+        data["theme"] = canon_theme(data["theme"])  # canonical label
         if len(data.get("rounds") or []) < ROUNDS_PER_SUBURB:
             print(f"[build] skipping {path.name}: {len(data.get('rounds') or [])} rounds")
             continue
