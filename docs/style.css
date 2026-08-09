@@ -643,3 +643,175 @@ html, body {
   #map { height: calc(60vh - 28px); }
   .side-panel { flex: none; border-left: none; border-top: 1px solid var(--color-ash); }
 }
+
+/* ---------- Streetwise ---------- */
+
+.streetwise-bg {
+  margin: 14px 0 18px;
+  padding: 14px 18px;
+  background: #e0f2f1;
+  border: 1px solid #b2dfdb;
+  border-radius: var(--radius-soft);
+}
+.streetwise-bg-text {
+  margin: 0;
+  color: #00695c;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.street-intro {
+  color: var(--color-smoke);
+  font-size: 13px;
+  margin: 0 0 10px;
+}
+
+.street-options {
+  margin: 14px 0 4px;
+}
+.street-opt {
+  display: block;
+  width: 100%;
+  margin-bottom: 8px;
+  padding: 12px 16px;
+  background: var(--color-parchment);
+  border: 1px solid var(--color-ash);
+  border-radius: var(--radius-buttons);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  color: var(--color-off-black);
+  cursor: pointer;
+  text-align: left;
+  letter-spacing: -0.01em;
+}
+.street-opt:hover:not(:disabled) {
+  border-color: var(--color-off-black);
+  background: var(--color-periwinkle-mist);
+}
+.street-opt:active:not(:disabled) { transform: scale(0.99); }
+.street-opt:disabled { opacity: 0.5; cursor: default; }
+
+.hint-row {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hint-btn {
+  padding: 8px 16px;
+  background: var(--color-gold);
+  border: 1px solid #d8c47e;
+  border-radius: var(--radius-buttons);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b5b1e;
+  cursor: pointer;
+}
+.hint-btn:hover { border-color: var(--color-off-black); }
+.hint-value {
+  font-size: 12px;
+  color: var(--color-smoke);
+}
+.hint-tidbit {
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-radius: var(--radius-soft);
+  font-size: 14px;
+  font-style: italic;
+  color: #795548;
+}
+
+.fb { margin-top: 12px; font-size: 15px; font-weight: 500; }
+.fb-correct { color: #1d6b3a; }
+.fb-wrong { color: #c0392b; }
+.fb-hint { color: #b15c00; }
+
+.street-card {
+  margin-top: 12px;
+  padding: 10px 14px;
+  background: #f0f9e8;
+  border: 1px solid #d3e8bd;
+  border-radius: var(--radius-soft);
+}
+.street-name {
+  font-weight: 600;
+  font-size: 15px;
+  color: #00695c;
+}
+.street-namesake {
+  font-size: 12.5px;
+  color: var(--color-smoke);
+}
+.street-card-full { margin-top: 14px; padding: 14px 16px; }
+.street-explainer {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--color-graphite);
+  margin: 8px 0 0;
+}
+
+.next-btn {
+  margin-top: 14px;
+  padding: 10px 22px;
+  background: var(--color-off-black);
+  color: white;
+  border: none;
+  border-radius: var(--radius-buttons);
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.next-btn:hover { background: var(--color-graphite); }
+
+.finale-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 32px;
+  color: #1d6b3a;
+  margin: 4px 0 6px;
+}
+.finale-reveal {
+  font-style: italic;
+  font-size: 16px;
+  margin: 0 0 14px;
+}
+.streetwise-vibe {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 10px 0;
+}
+.streetwise-mascot {
+  margin: 12px 0;
+  padding: 12px 14px;
+  background: var(--color-parchment);
+  border: 1px solid var(--color-ash);
+  border-radius: var(--radius-soft);
+}
+.streetwise-mascot .mascot-name { font-weight: 600; font-size: 15px; }
+.streetwise-mascot .mascot-tagline {
+  font-style: italic;
+  font-size: 13px;
+  color: var(--color-smoke);
+}
+.streetwise-mascot .mascot-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 6px 0 0;
+}
+.street-cards-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-smoke);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin: 16px 0 8px;
+}
+.finale-score {
+  font-weight: 600;
+  font-size: 15px;
+  margin: 14px 0 4px;
+}

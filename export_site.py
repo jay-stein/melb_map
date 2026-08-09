@@ -107,6 +107,13 @@ def main() -> int:
         (DATA_OUT / "fun_facts.json").write_text(facts_json, encoding="utf-8")
         print(f"[export] data/fun_facts.json  {len(facts_json) / 1e6:.2f} MB")
 
+    # Streetwise theme corpus (5-round street puzzles per suburb).
+    streets_src = ROOT / "data" / "street_themes.json"
+    if streets_src.exists():
+        streets_json = streets_src.read_text(encoding="utf-8")
+        (DATA_OUT / "street_themes.json").write_text(streets_json, encoding="utf-8")
+        print(f"[export] data/street_themes.json  {len(streets_json) / 1e6:.2f} MB")
+
     # City Facts True/False question bank.
     quiz_src = ROOT / "data" / "quiz_questions.json"
     if quiz_src.exists():
