@@ -974,3 +974,18 @@ html, body {
 @keyframes sw-flip { to { transform: rotateX(0); opacity: 1; } }
 .sw-reveal-card .finale-title { text-align: center; }
 .sw-reveal-card .finale-reveal { text-align: center; }
+
+.street-all-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+.street-chip {
+  padding: 3px 10px;
+  background: var(--color-parchment);
+  border: 1px solid var(--color-ash);
+  border-radius: var(--radius-tags);
+  font-size: 13px;
+  color: var(--color-graphite);
+}

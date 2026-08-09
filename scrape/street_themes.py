@@ -672,13 +672,24 @@ def run_clues(client: OpenAI, matches: dict[str, dict]) -> dict[str, dict]:
 
 def build(clues: dict[str, dict]) -> None:
     """Assemble the corpus from the per-suburb__theme clue caches: each suburb
-    gets a list of puzzles (one per theme) and the game picks one at random."""
+    gets a list of puzzles (one per theme) and the game picks one at random.
+    Each puzzle carries the FULL theme cluster (all_streets) from the match
+    stage — the 5 quiz rounds are a sample; the finale shows the whole set."""
+    clusters: dict[tuple[str, str], list[str]] = {}
+    if MATCH_JSON.exists():
+        raw = json.loads(MATCH_JSON.read_text(encoding="utf-8"))
+        for suburb, matches in raw.items():
+            for m in matches:
+                key = (suburb, canon_theme(m["theme"]))
+                clusters[key] = sorted(m["streets"])
+
     by_suburb: dict[str, list[dict]] = {}
     for path in sorted(CLUES_DIR.glob("*__*.json")):
         suburb, _, _ = path.stem.partition("__")
         suburb = suburb.replace("_", " ")
         data = json.loads(path.read_text(encoding="utf-8"))
         data["theme"] = canon_theme(data["theme"])  # canonical label
+        data["all_streets"] = clusters.get((suburb, data["theme"]), [])
         if len(data.get("rounds") or []) < ROUNDS_PER_SUBURB:
             print(f"[build] skipping {path.name}: {len(data.get('rounds') or [])} rounds")
             continue

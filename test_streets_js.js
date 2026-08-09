@@ -113,6 +113,8 @@ function check(cond, msg) { if (!cond) failures.push(msg); }
   check(finale.includes('id="themes-btn"'), "finale has More themes button");
   check(finale.includes('id="share-btn"'), "finale has share button");
   check(finale.includes("grid-pre"), "share grid present");
+  check(finale.includes("street-chip"), "full themed-street chips in finale");
+  check(finale.includes("themed streets"), "all-streets label in finale");
 
   // play again keeps theme
   click("#play-again-btn");

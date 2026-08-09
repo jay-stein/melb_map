@@ -119,6 +119,7 @@ def new_game(theme: str | None = None) -> dict:
         "theme": puzzle["theme"],
         "background": puzzle.get("background", ""),
         "reveal": puzzle.get("reveal", f"It was {suburb}."),
+        "all_streets": puzzle.get("all_streets", []),
         "rounds": rounds,
         "idx": 0,
         "attempts": 0,
@@ -295,6 +296,22 @@ def _round_ui(state: dict, street_cards: list, feedback=None, solved=False):
                                             "letterSpacing": ".4px",
                                             "color": "#90A4AE", "margin": "14px 0 6px"}),
                             *street_cards,
+                            *([html.Div(
+                                f"all {len(state['all_streets'])} themed streets in {state['suburb']}:",
+                                style={"fontSize": "12px", "fontWeight": 600,
+                                       "textTransform": "uppercase",
+                                       "letterSpacing": ".4px",
+                                       "color": "#90A4AE", "margin": "14px 0 6px"}),
+                               html.Div(
+                                   [html.Span(s, style={
+                                       "display": "inline-block",
+                                       "padding": "3px 10px", "margin": "3px 4px 3px 0",
+                                       "borderRadius": "10px",
+                                       "background": "#ECEFF1",
+                                       "color": "#37474F", "fontSize": "13px"})
+                                    for s in state["all_streets"]],
+                               )]
+                              if state.get("all_streets") else []),
                             html.Div(f"Score: {state['points']}/{ROUNDS_PER_GAME * POINTS_FIRST}",
                                      style={"fontWeight": 700, "margin": "14px 0 8px"}),
                             html.Pre(grid, style={"background": "#FAFAFA",
