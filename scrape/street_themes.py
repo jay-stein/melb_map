@@ -124,7 +124,8 @@ THEME_RULES: list[tuple[str, str, list[str]]] = [
       "comet", "centaurus", "nebula", "aurora", "eclipse", "zenith",
       "cosmos", "meteor", "nova", "astral", "stellar", "andromeda",
       "cygnus", "lyra", "vega", "mars", "saturn", "jupiter", "mercury",
-      "venus", "pluto"]),
+      "venus", "pluto", "aquila", "leonis", "libra", "pavo", "taurus",
+      "ursa", "antares", "rigel", "arcturus"]),
     ("Greco-Roman Mythology", "streets named after ancient gods and mythical figures",
      ["apollo", "neptune", "vulcan", "minerva", "olympus", "athena", "zeus",
       "hermes", "diana", "juno", "triton", "achilles", "hercules", "atlas",
@@ -132,7 +133,13 @@ THEME_RULES: list[tuple[str, str, list[str]]] = [
       "thor", "odin", "loki", "valkyrie", "asgard", "midgard", "norse"]),
     ("Arthurian Legend", "streets named after Camelot and the Knights of the Round Table",
      ["camelot", "guinevere", "lancelot", "excalibur", "merlin", "pendragon",
-      "avalon", "galahad", "mordred", "gawain", "percival", "tristan"]),
+      "avalon", "galahad", "mordred", "gawain", "percival", "tristan",
+      "armour", "banner", "castle", "champion", "chivalry", "courage",
+      "crusader", "dinadan", "gareth", "gauntlet", "grail", "hector",
+      "herald", "jousting", "knights", "le fey", "legend", "morgan",
+      "percivale", "plume", "quest", "rampart", "sagramore", "shalott",
+      "shield", "spear", "squire", "tristram", "valiant", "vigil",
+      "king arthur"]),
     ("Aviation Pioneers & Aircraft", "streets named after aviation pioneers, airlines and aircraft",
      ["avro", "fokker", "catalina", "ansett", "kingsford", "hargrave",
       "hawker", "spitfire", "mustang", "boeing", "douglas", "lockheed",
@@ -145,10 +152,24 @@ THEME_RULES: list[tuple[str, str, list[str]]] = [
      ["thames", "severn", "trent", "mersey", "arundel", "chichester",
       "worthing", "sussex", "norfolk", "suffolk", "essex", "hampstead",
       "kensington", "wimbledon", "ealing", "fulham", "dorset", "somerset",
-      "gloucester", "warwick", "wessex", "anglia", "chelsea", "balham"]),
-    ("Golf Courses", "streets named after famous golf courses and golfing legends",
+      "gloucester", "warwick", "wessex", "anglia", "chelsea", "balham",
+      "chatham", "dartford", "dover", "farnham", "finsbury", "newmarket",
+      "norwood", "tunbridge", "canterbury", "clapham", "dalston",
+      "paddington", "willesden", "swindon", "crewe", "euston", "bletchley",
+      "bowmore", "kelvinside", "skipton", "camden", "callander",
+      "dumblane", "ardgour"]),
+    ("Golf Courses", "streets named after famous golf courses, golfing legends and golfing terms",
      ["augusta", "st andrews", "pebble", "troon", "carnoustie", "wentworth",
-      "muirfield", "lytham", "gleneagles", "birkdale", "sunningdale"]),
+      "muirfield", "lytham", "gleneagles", "birkdale", "sunningdale",
+      "bunker", "fairway", "tee", "niblick", "stymie", "driver", "wedge"]),
+    ("Victorian Rivers & Towns", "streets named after Victorian rivers and regional river towns",
+     ["acheron", "barwon", "goulburn", "loddon", "wimmera", "kyneton",
+      "kerang", "gisborne", "kilmore", "mcivor", "rubicon", "tambo",
+      "charlton", "erskine", "genoa", "nicholson"]),
+    ("Cricketers", "streets named after famous Australian cricketers",
+     ["bradman", "chappell", "warne", "benaud", "lillee", "gilchrist",
+      "woodfull", "lawry", "hassett", "murdoch", "yallop", "harvey",
+      "border", "darling"]),
     ("Olympic Games", "streets named after Olympic champions and games motifs",
      ["olympic", "marathon", "flack", "landy", "cuthbert"]),
     ("Prime Ministers", "streets named after Australian prime ministers and federal leaders",
@@ -248,7 +269,10 @@ def attribute_streets() -> dict[str, list[str]]:
 # stage 2: Layer 1 matching
 # --------------------------------------------------------------------------- #
 def _match_keywords(base: str, keywords: list[str]) -> bool:
-    return any(k in base for k in keywords)
+    # word-boundary match so "trott" can't hit "Trotting Place", "eton" can't
+    # hit "Singleton", and "milton" can't hit "Emilton"; multi-word keywords
+    # like "phar lap" / "king arthur" still work.
+    return any(re.search(rf"\b{re.escape(k)}\b", base) for k in keywords)
 
 
 def match_themes(suburb: str, streets: list[str]) -> list[dict]:
@@ -271,14 +295,20 @@ def match_themes(suburb: str, streets: list[str]) -> list[dict]:
 
 def run_match(streets_by_suburb: dict[str, list[str]],
               existing: dict[str, dict] | None = None) -> dict[str, dict]:
-    """Layer 1 matching. MERGES into any existing match file so Layer 2a
-    discoveries and no-theme tombstones are preserved (re-running --match
-    must not wipe them)."""
-    results = {s: v for s, v in (existing or {}).items()}
+    """Layer 1 matching. MERGES into any existing match file: Layer-1 entries
+    are refreshed (or removed when a suburb no longer qualifies), while
+    Layer-2a discoveries and no-theme tombstones are preserved."""
+    results = {s: [dict(m) for m in v] for s, v in (existing or {}).items()}
     for suburb, streets in sorted(streets_by_suburb.items()):
         matches = match_themes(suburb, streets)
         if matches:
-            results[suburb] = matches
+            results[suburb] = [dict(m, source="layer1") for m in matches]
+        elif suburb in results:
+            old = results[suburb]
+            # stale themed entry that Layer 1 no longer supports -> drop it;
+            # empty no-theme tombstones and discoveries are preserved
+            if old and old[0].get("source") != "discover":
+                del results[suburb]
     MATCH_JSON.write_text(json.dumps(results, indent=1, ensure_ascii=False),
                           encoding="utf-8")
     themed = {s: v for s, v in results.items() if v}
@@ -333,7 +363,8 @@ def discover(client: OpenAI, suburb: str, streets: list[str]) -> dict | None:
     streets_out = [s for s in streets_out if s in known]
     if not theme or len(streets_out) < MIN_CLUSTER:
         return None
-    return {"theme": theme, "desc": theme, "streets": sorted(streets_out)}
+    return {"theme": theme, "desc": theme, "streets": sorted(streets_out),
+            "source": "discover"}
 
 
 def run_discover(client: OpenAI, streets_by_suburb: dict[str, list[str]],
@@ -549,9 +580,12 @@ THEME_CANON: dict[str, str] = {
     "ANA Aviation Estate": "Aviation & Aircraft",
     "World War I Battles": "Wars & Battles",
     "World War II Battles and Aircraft": "Wars & Battles",
+    "WWII Battles and Aircraft": "Wars & Battles",
     "Crimean War": "Wars & Battles",
     "Constellations/Stars": "Astronomy & Space",
     "Renaissance Artists/Writers": "Renaissance Artists & Writers",
+    "Renaissance Artists and Writers": "Renaissance Artists & Writers",
+    "Maritime/Naval Exploration": "Maritime & Naval Exploration",
 }
 
 
@@ -571,6 +605,7 @@ THEME_CANON_DESC: dict[str, str] = {
     "Wars & Battles": "streets named after wars, battles and campaigns",
     "Astronomy & Space": "streets named after stars, constellations and space concepts",
     "Renaissance Artists & Writers": "streets named after Renaissance artists and writers",
+    "Maritime & Naval Exploration": "streets named after ships, admirals, navigators and naval exploration",
 }
 
 
