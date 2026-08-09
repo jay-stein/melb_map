@@ -74,68 +74,68 @@
   "puzzles": [
    {
     "theme": "World War II battles and aircraft",
-    "background": "In this suburb, the streets pay tribute to the key battles and aircraft of World War II, a common theme in post-war housing developments across Australia.",
-    "reveal": "It was Ashburton, where every street commemorates a World War II battle or aircraft.",
+    "background": "In the mid-20th century, many new Melbourne suburbs honored the global conflict that had just reshaped the world. Here, every street name commemorates a World War II battle or a military aircraft.",
+    "reveal": "It was Ashburton — where the streets recall the battles and planes of World War II.",
     "rounds": [
      {
       "street": "Normandy Street",
-      "namesake": "The Normandy landings",
-      "clue": "The site of the largest seaborne invasion in history, this battle began on June 6, 1944, a day forever known as D-Day.",
+      "namesake": "Battle of Normandy",
+      "clue": "A pivotal Allied invasion on June 6, 1944, this battle's codename was Operation Overlord. It marked the beginning of the end for Nazi Germany in Western Europe.",
       "options": [
-       "The Battle of the Coral Sea",
-       "The Battle of Britain",
-       "The Normandy landings"
+       "Battle of Tobruk",
+       "Battle of Crete",
+       "Battle of Normandy"
       ],
-      "tidbit": "The Normandy invasion involved over 5,000 ships and 11,000 aircraft, the largest amphibious assault ever undertaken.",
-      "explainer": "The Normandy landings, codenamed Operation Overlord, were the Allied invasion of German-occupied France in 1944. Led by General Dwight D. Eisenhower, the operation saw Allied forces land on five beaches: Utah, Omaha, Gold, Juno, and Sword. The success of Normandy marked the beginning of the end for Nazi Germany in Western Europe. The battle resulted in over 425,000 Allied and German casualties, but it established a crucial western front."
+      "tidbit": "The Normandy landings involved over 5,000 ships and 11,000 aircraft, the largest seaborne invasion in history.",
+      "explainer": "The Battle of Normandy, fought from June to August 1944, was the Allied invasion of German-occupied France. It included the famous D-Day landings on five beaches, code-named Utah, Omaha, Gold, Juno, and Sword. The campaign broke the German defensive line and led to the liberation of Paris. It was a turning point that opened a second front in Europe, hastening the war's end."
      },
      {
       "street": "Catalina Avenue",
-      "namesake": "The PBY Catalina",
-      "clue": "This flying boat was nicknamed the 'Cat' and was famous for its long-range patrols, rescuing downed airmen and hunting submarines.",
+      "namesake": "Consolidated PBY Catalina",
+      "clue": "This flying boat was nicknamed the 'Cat' and was renowned for its long-range search and rescue missions. It could land on water and save downed airmen from the sea.",
       "options": [
-       "The PBY Catalina",
-       "The Wirraway",
-       "The Sunderland"
+       "Consolidated PBY Catalina",
+       "Curtiss P-40 Warhawk",
+       "Short Sunderland"
       ],
-      "tidbit": "Catalinas were affectionately called 'Black Cats' when painted black for night missions, and they sank over 100,000 tons of enemy shipping.",
-      "explainer": "The PBY Catalina was an American flying boat used extensively in World War II for maritime patrol, anti-submarine warfare, and search-and-rescue. It was renowned for its incredible range and durability, earning the nickname 'The Cat'. Catalinas served with the RAAF and were pivotal in the Pacific, including locating the Japanese fleet before the Battle of Midway. They also rescued thousands of downed airmen, making them legendary among aviators."
+      "tidbit": "Catalinas famously spotted the Japanese fleet before the Battle of Midway, helping the U.S. win a decisive victory.",
+      "explainer": "The Consolidated PBY Catalina was an American flying boat used extensively in World War II for anti-submarine warfare, patrol bombing, and search and rescue. Its long range and ability to land on water made it invaluable in the Pacific and Atlantic. Catalinas saved thousands of downed aircrew and were affectionately known as 'Black Cats' when used in night attacks. They served with many Allied nations, including Australia."
+     },
+     {
+      "street": "Mustang Court",
+      "namesake": "North American P-51 Mustang",
+      "clue": "This fighter plane was the first to escort Allied bombers all the way to Berlin and back. Its name evokes a wild horse of the American West.",
+      "options": [
+       "North American P-51 Mustang",
+       "CAC Wirraway",
+       "Supermarine Spitfire"
+      ],
+      "tidbit": "The Mustang's laminar-flow wing gave it exceptional speed and range, making it a legendary escort fighter.",
+      "explainer": "The North American P-51 Mustang was an American long-range fighter that became a symbol of Allied air superiority. It entered service in 1942 and, with drop tanks, could escort bombers deep into Germany. Its powerful Packard V-1650 engine (a licensed Merlin) gave it excellent high-altitude performance. The Mustang destroyed nearly 5,000 enemy aircraft in the European and Pacific theaters."
+     },
+     {
+      "street": "Sunderland Avenue",
+      "namesake": "Short Sunderland",
+      "clue": "This British flying boat was nicknamed the 'Flying Porcupine' because of its many defensive guns. It was used to hunt submarines over the Atlantic.",
+      "options": [
+       "Boeing B-17 Flying Fortress",
+       "Short Sunderland",
+       "Avro Lancaster"
+      ],
+      "tidbit": "A Sunderland once fought off eight German Junkers Ju 88s in a single engagement, earning it the nickname 'Flying Porcupine'.",
+      "explainer": "The Short Sunderland was a British flying boat used for maritime patrol and anti-submarine warfare. It was heavily armed with machine guns in nose, tail, and dorsal turrets, making it a formidable opponent. Sunderlands flew over 1,000,000 miles on patrols and were credited with sinking 25 U-boats. They also performed vital search-and-rescue missions, saving hundreds of airmen."
      },
      {
       "street": "Tobruk Road",
-      "namesake": "The Siege of Tobruk",
-      "clue": "This North African port was besieged for 241 days by Axis forces, but its defenders, including Australian troops, held out and earned the nickname 'The Rats of Tobruk'.",
+      "namesake": "Siege of Tobruk",
+      "clue": "This North African port was besieged for 241 days by Axis forces, but its Allied defenders held out. The Australian troops there became famous for their tenacity.",
       "options": [
-       "The Battle of Bardia",
-       "The Siege of Tobruk",
-       "The Battle of El Alamein"
+       "Battle of Bardia",
+       "Siege of Tobruk",
+       "Battle of Alamein"
       ],
-      "tidbit": "The defenders of Tobruk were called 'The Rats of Tobruk' by German propaganda, but they adopted the name as a badge of honor.",
-      "explainer": "The Siege of Tobruk was a prolonged confrontation in North Africa from April to December 1941, where Allied forces, notably the Australian 9th Division, held the vital port against the Afrika Korps. Despite being surrounded and outnumbered, the garrison repelled repeated attacks and survived intense bombing. The siege was a significant morale boost for the Allies and a strategic setback for Rommel. The port's defense secured the supply lines for the British Eighth Army."
-     },
-     {
-      "street": "Benghazi Avenue",
-      "namesake": "The Battle of Benghazi",
-      "clue": "This Libyan city was the site of a rapid advance by Allied forces in early 1941, which led to the capture of over 100,000 Italian troops.",
-      "options": [
-       "The Battle of Ambon",
-       "The Battle of Benghazi",
-       "The Battle of Derna"
-      ],
-      "tidbit": "The capture of Benghazi was part of Operation Compass, a five-day raid that turned into a full-scale offensive that nearly expelled the Italians from North Africa.",
-      "explainer": "The Battle of Benghazi was part of Operation Compass, the first major Allied military operation in the Western Desert Campaign. In February 1941, Australian and British forces captured the city from the Italian Tenth Army, which was already in disarray. The victory led to the capture of over 130,000 Italian prisoners and the destruction of the Italian army in North Africa. However, the arrival of German reinforcements under Rommel soon reversed the situation."
-     },
-     {
-      "street": "Wirraway Court",
-      "namesake": "The CAC Wirraway",
-      "clue": "This Australian-built aircraft was initially a trainer but was used in combat, and its name comes from an Aboriginal word meaning 'challenge'.",
-      "options": [
-       "The CAC Boomerang",
-       "The CAC Wirraway",
-       "The GAF Nomad"
-      ],
-      "tidbit": "The Wirraway was the first combat aircraft designed and built in Australia, and it was the basis for the Boomerang fighter.",
-      "explainer": "The CAC Wirraway was a two-seat training and general-purpose aircraft manufactured by the Commonwealth Aircraft Corporation in Australia. It was based on the North American NA-16, but was modified for local conditions. Despite being obsolete as a fighter, Wirraways were used in combat early in the Pacific War, including the famous 'Battle of Buna' where one crew managed to damage a Japanese Zero. The Wirraway also served as the foundation for the Boomerang, Australia's first locally designed fighter."
+      "tidbit": "The defenders of Tobruk were nicknamed the 'Rats of Tobruk' after a German broadcaster derided them as trapped rats.",
+      "explainer": "The Siege of Tobruk (April–November 1941) was a prolonged confrontation in Libya during the Western Desert Campaign. Australian and British forces held the strategic port against German and Italian attacks, relying on naval supply runs. The defenders' resilience denied the Axis a vital supply line and boosted Allied morale. Tobruk eventually fell in 1942 but was recaptured later that year."
      }
     ]
    }
@@ -420,77 +420,6 @@
       ],
       "tidbit": "There are over 700 species of eucalyptus, and they are found almost exclusively in Australia, making it the country's most iconic tree.",
       "explainer": "Eucalyptus, commonly known as gum trees, is a diverse genus of over 700 species, almost all native to Australia. They are among the tallest trees in the world, with the mountain ash (Eucalyptus regnans) reaching heights of over 100 meters. Their leaves contain aromatic oils that are used in medicine, particularly in cough lozenges and decongestants. Eucalyptus forests provide habitat for wildlife, including koalas, which feed almost exclusively on the leaves. They have also been planted worldwide for timber, pulp, and as windbreaks."
-     }
-    ]
-   }
-  ]
- },
- "Boronia": {
-  "puzzles": [
-   {
-    "theme": "Native Flora",
-    "background": "In this leafy suburb, the streets pay homage to the native flora of Australia, with names evoking the scents and colors of the bush.",
-    "reveal": "It was Boronia — where every street is named after a native plant.",
-    "rounds": [
-     {
-      "street": "Grevillea Avenue",
-      "namesake": "Grevillea",
-      "clue": "I am a genus of over 360 species, often called spider flowers, and my nectar is a favorite of honeyeaters.",
-      "options": [
-       "Waratah",
-       "Banksia",
-       "Grevillea"
-      ],
-      "tidbit": "Grevilleas are named after Charles Francis Greville, a founding member of the Royal Horticultural Society.",
-      "explainer": "Grevillea is a diverse genus of evergreen shrubs and trees native to Australia and nearby islands. They are known for their intricate, often showy flowers that attract birds and insects. The genus was named in honor of Charles Francis Greville, a notable 18th-century British antiquarian and collector. Grevilleas are popular in horticulture for their hardiness and vibrant blooms."
-     },
-     {
-      "street": "Casuarina Avenue",
-      "namesake": "Casuarina",
-      "clue": "My name comes from the Malay word for 'cassowary', because my drooping branchlets resemble the bird's feathers.",
-      "options": [
-       "Casuarina",
-       "Eucalyptus",
-       "Melaleuca"
-      ],
-      "tidbit": "Casuarinas are also called she-oaks, but they are not true oaks; they are related to beeches.",
-      "explainer": "Casuarina is a genus of trees and shrubs native to Australia, Southeast Asia, and the Pacific. They have distinctive jointed, needle-like branchlets that perform photosynthesis. The name is derived from the Malay word 'kasuari', referring to the cassowary, because the branchlets resemble the bird's plumage. These hardy trees are often used for windbreaks and erosion control."
-     },
-     {
-      "street": "Wattletree Road",
-      "namesake": "Acacia (Wattle)",
-      "clue": "My golden blossoms are the inspiration for Australia's national floral emblem, and my name appears in the title of a famous children's book.",
-      "options": [
-       "Banksia",
-       "Acacia (Wattle)",
-       "Eucalyptus"
-      ],
-      "tidbit": "The golden wattle (Acacia pycnantha) was formally proclaimed Australia's national floral emblem in 1988.",
-      "explainer": "Wattle is the common name for the Acacia genus, which includes over 1,000 species, most native to Australia. The plants are known for their fluffy, golden or cream flower clusters, which are actually composed of many tiny individual flowers. The golden wattle's green and gold colors are also featured on Australia's national coat of arms. Acacias play a vital role in Australian ecosystems, fixing nitrogen in the soil."
-     },
-     {
-      "street": "Boronia Road",
-      "namesake": "Boronia",
-      "clue": "My name means 'sweet-smelling' in Greek, and I am a genus of fragrant shrubs, though this road is named after the suburb itself.",
-      "options": [
-       "Eucalyptus",
-       "Boronia",
-       "Callistemon"
-      ],
-      "tidbit": "The brown boronia (Boronia megastigma) is highly prized for its intense, sweet fragrance used in perfumery.",
-      "explainer": "Boronia is a genus of around 160 species of shrubs in the citrus family, native to Australia. They are renowned for their aromatic leaves and bell-shaped flowers, which range from brown to pink and purple. The name is derived from Greek 'boros' meaning 'sweet-smelling'. Many species are cultivated for their essential oils, particularly the brown boronia, which is used in high-end perfumes."
-     },
-     {
-      "street": "Boronia Arcade",
-      "namesake": "Boronia",
-      "clue": "My name is the same as the suburb and a fragrant shrub, but this street is a shopping arcade, not a botanical lane.",
-      "options": [
-       "Casuarina",
-       "Boronia",
-       "Grevillea"
-      ],
-      "tidbit": "Boronia flowers are so fragrant that they are often used in potpourri and to scent teas.",
-      "explainer": "This street shares its name with the boronia shrub, a quintessentially Australian plant. Boronias are small, woody shrubs that thrive in the understory of eucalypt forests. Their flowers are not only beautiful but also emit a powerful, pleasant scent, making them a favorite in gardens and the perfume industry. The species Boronia megastigma is particularly famous for its dark, fragrant blooms."
      }
     ]
    }
@@ -843,77 +772,6 @@
    }
   ]
  },
- "Canterbury": {
-  "puzzles": [
-   {
-    "theme": "Literary Poets",
-    "background": "In this leafy suburb, the streets pay homage to the great poets of the English language.",
-    "reveal": "It was Canterbury—where every street is a verse from the masters of poetry.",
-    "rounds": [
-     {
-      "street": "Byron Street",
-      "namesake": "Lord Byron",
-      "clue": "I am the poet who 'awoke one morning and found myself famous' after the publication of 'Childe Harold's Pilgrimage.' Who am I?",
-      "options": [
-       "Percy Bysshe Shelley",
-       "Lord Byron",
-       "John Keats"
-      ],
-      "tidbit": "Lord Byron kept a pet bear while at Cambridge, as college rules forbade dogs.",
-      "explainer": "George Gordon Byron, 6th Baron Byron, was a leading figure of the Romantic movement. His works, including 'Don Juan' and 'Childe Harold's Pilgrimage', were celebrated for their passion and rebellion. His life was as dramatic as his poetry, filled with scandalous affairs, political activism, and a heroic death in the Greek War of Independence. Byron's influence extended beyond literature, shaping the very idea of the Romantic hero."
-     },
-     {
-      "street": "Keats Street",
-      "namesake": "John Keats",
-      "clue": "My 'Ode on a Grecian Urn' concludes with 'Beauty is truth, truth beauty.' Who wrote these lines?",
-      "options": [
-       "Walter Scott",
-       "John Keats",
-       "John Milton"
-      ],
-      "tidbit": "John Keats was a trained surgeon and received his apothecary license in 1816.",
-      "explainer": "John Keats, a second-generation Romantic poet, produced some of the most beloved poems in English despite his short life. His work, including 'Ode to a Nightingale' and 'To Autumn', is celebrated for its rich imagery and philosophical depth. Keats trained as a doctor before devoting himself to poetry, and his letters are as acclaimed as his verse. He died of tuberculosis at age 25, leaving behind a legacy that continues to inspire."
-     },
-     {
-      "street": "Scott Street",
-      "namesake": "Sir Walter Scott",
-      "clue": "I am the novelist and poet who wrote 'The Lady of the Lake' and 'Ivanhoe'. Which author am I?",
-      "options": [
-       "William Wordsworth",
-       "Sir Walter Scott",
-       "Robert Burns"
-      ],
-      "tidbit": "Sir Walter Scott's novel 'Waverley' was so popular that his later works were published as 'by the author of Waverley'.",
-      "explainer": "Sir Walter Scott was a Scottish historical novelist, poet, and playwright who essentially invented the historical fiction genre. His poems like 'The Lady of the Lake' and novels such as 'Ivanhoe' and 'Rob Roy' captured the imagination of readers across Europe. Scott's work had a profound influence on literature and culture, shaping popular perceptions of Scottish history. He was also a lawyer and a dedicated antiquarian, and his legacy includes the beautiful Abbotsford House in the Scottish Borders."
-     },
-     {
-      "street": "Milton Street",
-      "namesake": "John Milton",
-      "clue": "I am the author of 'Paradise Lost', an epic poem that retells the biblical story of the Fall of Man. Who am I?",
-      "options": [
-       "Geoffrey Chaucer",
-       "John Dryden",
-       "John Milton"
-      ],
-      "tidbit": "John Milton wrote 'Paradise Lost' entirely while blind, dictating the verses to his daughters.",
-      "explainer": "John Milton was a seventeenth-century English poet and polemicist, best known for his epic poem 'Paradise Lost'. His work is renowned for its grandeur, complex theology, and the sympathetic portrayal of Satan. Milton was also a passionate advocate for political and religious freedom, serving as a civil servant under Oliver Cromwell. Despite going blind in his forties, he continued to write, producing some of the most enduring works in English literature."
-     },
-     {
-      "street": "Chaucer Crescent",
-      "namesake": "Geoffrey Chaucer",
-      "clue": "I am known as the Father of English Literature and wrote 'The Canterbury Tales'. Who am I?",
-      "options": [
-       "John Dryden",
-       "Geoffrey Chaucer",
-       "Henry Kendall"
-      ],
-      "tidbit": "Chaucer was the first writer to be buried in what is now known as Poets' Corner in Westminster Abbey.",
-      "explainer": "Geoffrey Chaucer was a fourteenth-century English author, poet, and philosopher, celebrated for 'The Canterbury Tales'. His work was pivotal in establishing English as a literary language, at a time when Latin and French dominated. Chaucer's tales offer a vivid, often humorous portrait of medieval life, from knights to millers. His influence on English literature is so profound that he is often called the 'Father of English Literature'."
-     }
-    ]
-   }
-  ]
- },
  "Caulfield North": {
   "puzzles": [
    {
@@ -1131,139 +989,68 @@
   "puzzles": [
    {
     "theme": "Elite English Schools",
-    "background": "In this working-class neighborhood, the street names tell a story of ambition and aspiration—each one borrowed from the halls of English academia. From ancient universities to famed public schools, the streets here are a tribute to the pursuit of knowledge.",
-    "reveal": "It was Collingwood—where the streets are named after elite English schools and universities.",
+    "background": "Tucked into the inner north, this suburb’s streets read like a map of England’s most hallowed halls of learning. Every lane and avenue here is named after a famous English school or university.",
+    "reveal": "It was Collingwood — where the streets are all elite English schools.",
     "rounds": [
-     {
-      "street": "Cambridge Street",
-      "namesake": "University of Cambridge",
-      "clue": "This university's alumni include Isaac Newton, Charles Darwin, and Stephen Hawking. Its motto is 'Hinc lucem et pocula sacra'—'From here, light and sacred draughts.'",
-      "options": [
-       "Eton College",
-       "University of Cambridge",
-       "University of Oxford"
-      ],
-      "tidbit": "Cambridge's King's College Chapel took over 70 years to build, from 1446 to 1515, and is considered one of the finest examples of Perpendicular Gothic architecture.",
-      "explainer": "The University of Cambridge, founded in 1209, is one of the oldest and most prestigious universities in the world. It was established by scholars fleeing Oxford after a dispute with locals. The university is organized into 31 autonomous colleges, each with its own history and traditions. Its alumni include 121 Nobel laureates, more than any other institution."
-     },
-     {
-      "street": "Little Oxford Street",
-      "namesake": "University of Oxford",
-      "clue": "This institution's alumni include J.R.R. Tolkien, Oscar Wilde, and 27 British Prime Ministers. Its library, the Bodleian, has been in continuous use since 1602.",
-      "options": [
-       "University of Cambridge",
-       "University of Oxford",
-       "Westminster School"
-      ],
-      "tidbit": "Oxford's oldest college, University College, was founded in 1249, but teaching at Oxford dates back to 1096.",
-      "explainer": "The University of Oxford is the oldest university in the English-speaking world, with teaching dating back to 1096. It is made up of 39 colleges and six permanent private halls. The Bodleian Library, its main research library, holds over 13 million printed items, making it one of the largest in the UK. Oxford is also home to the famous Oxford English Dictionary, first published in 1884."
-     },
      {
       "street": "Oxford Street",
       "namesake": "University of Oxford",
-      "clue": "This institution, founded in 1096, is older than the Aztec Empire and the Magna Carta. Its students are known as 'Oxonians'.",
+      "clue": "I am the oldest university in the English-speaking world, and my name is a byword for dreaming spires. Which institution am I?",
       "options": [
        "University of Oxford",
-       "Harrow School",
+       "Eton College",
        "University of Cambridge"
       ],
-      "tidbit": "Oxford's Christ Church College has a dining hall that inspired the Great Hall in the Harry Potter films.",
-      "explainer": "The University of Oxford's exact founding date is unknown, but teaching began in 1096, making it over 900 years old. It grew rapidly after 1167 when Henry II banned English students from attending the University of Paris. The university's colleges are independent, self-governing institutions, and the university itself acts as a federation. Oxford has produced 26 Nobel laureates, 7 poets laureate, and countless world leaders."
+      "tidbit": "Oxford's University College claims founding in 1249, though teaching existed there since 1096.",
+      "explainer": "The University of Oxford is the oldest university in the English-speaking world, with teaching dating back to 1096. It grew rapidly after 1167 when Henry II banned English students from attending the University of Paris. Oxford's 38 colleges include Christ Church, whose dining hall inspired Hogwarts' Great Hall in the Harry Potter films. The city's nickname 'the City of Dreaming Spires' comes from a poem by Matthew Arnold."
+     },
+     {
+      "street": "Cambridge Street",
+      "namesake": "University of Cambridge",
+      "clue": "I am the university that challenged Oxford's supremacy, and my alumni include Isaac Newton and Stephen Hawking. Which seat of learning am I?",
+      "options": [
+       "Westminster School",
+       "University of Cambridge",
+       "University of Oxford"
+      ],
+      "tidbit": "Cambridge was founded in 1209 by scholars fleeing Oxford after a town-and-gown dispute.",
+      "explainer": "The University of Cambridge was established in 1209 by scholars who left Oxford after a clash with locals. It is the second-oldest university in the English-speaking world and one of the most prestigious. Its 31 colleges include Trinity, which has produced more Nobel laureates than any other Oxbridge college. Cambridge's Cavendish Laboratory has been home to discoveries like the electron, the neutron, and DNA's structure."
+     },
+     {
+      "street": "Little Oxford Street",
+      "namesake": "Eton College",
+      "clue": "I am a prestigious English public school, not a university, and my alumni include 20 British prime ministers. Which institution is this?",
+      "options": [
+       "Harrow School",
+       "Eton College",
+       "Rugby School"
+      ],
+      "tidbit": "Eton's uniform includes a tailcoat and white tie, worn since the 19th century.",
+      "explainer": "Eton College, founded in 1440 by King Henry VI, is one of the most famous public schools in the world. It has educated 20 British prime ministers, including Boris Johnson and David Cameron. The school's iconic uniforms—the tailcoat and white tie—have been worn since the 19th century. Eton's alumni, known as 'Old Etonians,' hold a disproportionate share of Britain's elite positions."
      },
      {
       "street": "Oxford Place",
-      "namesake": "University of Oxford",
-      "clue": "This is the oldest university in the English-speaking world, and its motto is 'Dominus Illuminatio Mea'—'The Lord is my light.'",
+      "namesake": "Christ Church, Oxford",
+      "clue": "I am a university that shares a name with a city of dreaming spires, but I am not the university itself. I am a college within that university, and my chapel is a masterpiece of Gothic architecture. Which college am I?",
       "options": [
-       "University of Oxford",
-       "Winchester College",
-       "University of Cambridge"
+       "Christ Church, Oxford",
+       "King's College, Cambridge",
+       "Magdalen College, Oxford"
       ],
-      "tidbit": "Oxford's Ashmolean Museum, opened in 1683, is the oldest public museum in the UK.",
-      "explainer": "The University of Oxford's motto, 'Dominus Illuminatio Mea', is taken from Psalm 27:1. The university's coat of arms features an open book with three crowns, symbolizing learning and royalty. Oxford is a collegiate system, meaning students belong to both the university and a specific college. The university's influence extends globally, with the Rhodes Scholarship bringing international students to Oxford since 1903."
+      "tidbit": "Christ Church's dining hall was the model for Hogwarts' Great Hall in the Harry Potter films.",
+      "explainer": "Christ Church is one of the largest and most architecturally significant colleges at the University of Oxford. Founded in 1546 by King Henry VIII, it is the only college in the world that also serves as a cathedral—Christ Church Cathedral, the seat of the Bishop of Oxford. Its great hall, with its hammer-beam roof and portraits, inspired the Hogwarts Great Hall in the Harry Potter movies. The college's famous alumni include Lewis Carroll, who wrote 'Alice's Adventures in Wonderland' there."
      },
      {
       "street": "Singleton Street",
-      "namesake": "Harrow School",
-      "clue": "This school, founded in 1749, is one of the 'Clarendon Schools' and has educated 19 British Prime Ministers. Its alumni include Winston Churchill and Jawaharlal Nehru.",
+      "namesake": "Gordonstoun",
+      "clue": "I am a small, exclusive English school, not a university, and my name sounds like a lone card in a deck. I have educated royalty and spies. Which school am I?",
       "options": [
-       "Eton College",
        "Harrow School",
+       "Gordonstoun",
        "Winchester College"
       ],
-      "tidbit": "Harrow's school song, 'Forty Years On', is sung at the end of every term and has been since 1872.",
-      "explainer": "Harrow School is a prestigious independent boarding school for boys, located in Harrow, London. It was founded by John Lyon under a royal charter from Elizabeth I. The school's alumni, known as Old Harrovians, include 19 British Prime Ministers, the most of any school after Eton. Harrow is also known for its distinctive straw hats and its long tradition of 'Harrovian' songs."
-     }
-    ]
-   }
-  ]
- },
- "Cremorne": {
-  "puzzles": [
-   {
-    "theme": "Literary Poets",
-    "background": "In this leafy inner-city pocket, the streets pay homage to the giants of English literature, from epic poets to playwrights whose words shaped the world.",
-    "reveal": "It was Cremorne — where every street is a chapter in the story of English letters.",
-    "rounds": [
-     {
-      "street": "Shakespeare Place",
-      "namesake": "William Shakespeare",
-      "clue": "This playwright once wrote, 'All the world's a stage, and all the men and women merely players.'",
-      "options": [
-       "William Shakespeare",
-       "Geoffrey Chaucer",
-       "John Milton"
-      ],
-      "tidbit": "Shakespeare invented over 1,700 words, including 'bedazzle,' 'swagger,' and 'lonely.'",
-      "explainer": "William Shakespeare (1564–1616) is widely regarded as the greatest writer in the English language. Born in Stratford-upon-Avon, he wrote 37 plays and 154 sonnets, exploring themes of love, power, and human folly. His works, from 'Hamlet' to 'A Midsummer Night's Dream,' have been translated into every major language and performed more often than those of any other playwright. Even after 400 years, phrases like 'break the ice' and 'heart of gold' are part of everyday speech thanks to him."
-     },
-     {
-      "street": "Byron Street",
-      "namesake": "Lord Byron",
-      "clue": "This Romantic poet, who died fighting for Greek independence, wrote, 'She walks in beauty, like the night.'",
-      "options": [
-       "John Keats",
-       "Percy Bysshe Shelley",
-       "Lord Byron"
-      ],
-      "tidbit": "Lord Byron kept a pet bear while at Cambridge University because college rules forbade dogs.",
-      "explainer": "George Gordon Byron, 6th Baron Byron (1788–1824), was the archetypal Romantic hero: passionate, scandalous, and revolutionary. His poetry, including 'Childe Harold's Pilgrimage' and 'Don Juan,' made him a celebrity across Europe. Byron's personal life was as dramatic as his verse—affairs, debt, and exile—and he died of fever at age 36 while supporting Greek independence. His legacy lives on in the 'Byronic hero,' a brooding, flawed, and charismatic figure."
-     },
-     {
-      "street": "Kipling Street",
-      "namesake": "Rudyard Kipling",
-      "clue": "This Nobel laureate wrote 'If—', a poem often quoted at graduations, and created Mowgli in 'The Jungle Book.'",
-      "options": [
-       "H.G. Wells",
-       "Robert Louis Stevenson",
-       "Rudyard Kipling"
-      ],
-      "tidbit": "Kipling was the first English-language writer to win the Nobel Prize in Literature at age 41, the youngest ever.",
-      "explainer": "Rudyard Kipling (1865–1936) was born in Bombay and spent his early childhood in India, which deeply influenced his writing. He became a journalist and author, penning 'The Jungle Book,' 'Kim,' and poems like 'Gunga Din.' Kipling's works celebrated British imperialism, which has made his reputation complex today, but his storytelling and command of language remain unmatched. He was awarded the Nobel Prize in 1907, and his poem 'If—' remains one of the most beloved in English."
-     },
-     {
-      "street": "Milton Place",
-      "namesake": "John Milton",
-      "clue": "This blind poet wrote 'Paradise Lost,' an epic about the Fall of Man, and coined the phrase 'better to reign in Hell than serve in Heaven.'",
-      "options": [
-       "William Blake",
-       "John Milton",
-       "John Donne"
-      ],
-      "tidbit": "Milton composed 'Paradise Lost' from memory after going blind, dictating it to his daughters.",
-      "explainer": "John Milton (1608–1674) was a poet and political activist during the English Civil War. He served as Latin Secretary to Oliver Cromwell and wrote passionate defenses of free speech, including 'Areopagitica.' After going completely blind in 1652, he dictated his masterpiece, 'Paradise Lost,' which reimagines the biblical story of Satan's rebellion. Its influence on literature is immense, inspiring everyone from Mary Shelley to Philip Pullman."
-     },
-     {
-      "street": "Kipling Mews",
-      "namesake": "Rudyard Kipling",
-      "clue": "This writer's 'Just So Stories' explain how the leopard got its spots and the elephant got its trunk.",
-      "options": [
-       "Beatrix Potter",
-       "Rudyard Kipling",
-       "Lewis Carroll"
-      ],
-      "tidbit": "Kipling wrote 'Just So Stories' for his daughter Josephine, but she died of pneumonia before they were published.",
-      "explainer": "Rudyard Kipling (1865–1936) created 'Just So Stories' as bedtime tales for his children, blending whimsy with origin myths. The stories, like 'How the Camel Got His Hump,' are known for their playful language and moral undertones. Kipling's ability to write for children and adults alike made him a literary phenomenon, though his later years were marked by personal tragedy and fading critical favor. Today, he remains one of the most quoted and debated authors in English."
+      "tidbit": "Gordonstoun's alumni include Prince Philip, Prince Charles, and James Bond actor Sean Connery's son.",
+      "explainer": "Gordonstoun is a British independent school in Scotland, founded in 1934 by German educator Kurt Hahn. It is known for its rugged outdoor education and character-building ethos. The school has educated three generations of the British royal family, including Prince Philip, Prince Charles, and Prince Andrew. Its motto, 'Plus est en vous' ('There is more in you'), reflects Hahn's philosophy of experiential learning."
      }
     ]
    }
@@ -1344,68 +1131,68 @@
   "puzzles": [
    {
     "theme": "British Towns & Rivers",
-    "background": "In the northern suburbs of Melbourne, a post-war housing estate took its street names from a map of England. Here, every lane and avenue echoes the towns, counties, and rivers of the mother country.",
-    "reveal": "It was Epping — where a slice of England lives on in the street signs.",
+    "background": "This northern suburb's streets evoke the English countryside, with names drawn from towns, counties, and rivers across the UK.",
+    "reveal": "It was Epping — where every street is a nod to British geography.",
     "rounds": [
      {
-      "street": "Essex Court",
-      "namesake": "Essex (county, England)",
-      "clue": "This county was once the kingdom of the East Saxons. Its name appears in the title of a famous Shakespeare play about a rebellion?",
+      "street": "Severn Street",
+      "namesake": "River Severn",
+      "clue": "I am the longest river in the United Kingdom, flowing through a land of song and legend. My name comes from the Latin 'Sabrina'.",
       "options": [
-       "Sussex (county, England)",
-       "Wessex (county, England)",
-       "Essex (county, England)"
+       "River Trent",
+       "River Severn",
+       "River Thames"
       ],
-      "tidbit": "The county town of Essex is Chelmsford, home to the world's first radio factory.",
-      "explainer": "Essex is a historic county in southeast England, bordered by the River Thames and the North Sea. It was one of the kingdoms of the Heptarchy, founded by the East Saxons. In 1588, the Spanish Armada was repelled off the Essex coast. The county is also known for its ancient Roman roads and medieval churches."
+      "tidbit": "The Severn's tidal bore can reach heights of 2 meters and attracts surfers from around the world.",
+      "explainer": "The River Severn is the longest river in the UK, stretching about 354 km from the Welsh mountains to the Bristol Channel. Its name is derived from the legendary nymph Sabrina, who, according to myth, drowned in the river. The Severn is famous for its dramatic tidal bore, a wave that travels upstream twice a day, and its estuary is a haven for wildlife. Historically, it served as a vital trade route, linking the Midlands to the sea."
      },
      {
       "street": "Somerset Street",
-      "namesake": "Somerset (county, England)",
-      "clue": "This county's name comes from the Old English for 'summer settlers.' It is famous for its cider and the Glastonbury Festival.",
+      "namesake": "Somerset",
+      "clue": "My county is home to the legendary Glastonbury Tor and the Cheddar Gorge. I was once a kingdom of its own, ruled by a famous king who fought the Saxons.",
       "options": [
-       "Kent (county, England)",
-       "Somerset (county, England)",
-       "Devon (county, England)"
+       "Devon",
+       "Somerset",
+       "Cornwall"
       ],
-      "tidbit": "Somerset is home to the Cheddar Gorge, where the famous cheese was first made.",
-      "explainer": "Somerset is a rural county in southwest England, known for its rolling hills and the Somerset Levels. The name derives from the Old English 'Sumortūnsǣte,' meaning 'the people of Somerton,' a place associated with summer grazing. It has been inhabited since the Stone Age, with sites like Glastonbury Tor. The county is also a hub for traditional cider making and hosts the world-famous Glastonbury Festival of Contemporary Performing Arts."
-     },
-     {
-      "street": "Gloucester Way",
-      "namesake": "Gloucester (city, England)",
-      "clue": "This city's name means 'bright fort' in Old English. It is the setting for a royal scandal involving a king's allegedly murdered nephews.",
-      "options": [
-       "Gloucester (city, England)",
-       "Worcester (city, England)",
-       "Canterbury (city, England)"
-      ],
-      "tidbit": "Gloucester Cathedral features in the Harry Potter films as a Hogwarts corridor.",
-      "explainer": "Gloucester is a cathedral city in southwest England, on the River Severn. Its name comes from the Roman 'Glevum' and the Old English 'ceaster,' meaning fort. The city is famous for its magnificent cathedral, which dates back to the 11th century and houses the tomb of King Edward II. In Shakespeare's 'Richard III,' the Duke of Gloucester is the future king, and the city is also associated with the legend of the Princes in the Tower."
+      "tidbit": "Somerset is the only county in England with a unicorn as its official county animal.",
+      "explainer": "Somerset is a historic county in southwest England, known for its rolling hills, cider orchards, and ancient sites. It was once part of the kingdom of Wessex, and is associated with King Alfred the Great, who hid in the Somerset marshes while fighting the Vikings. The county's name comes from 'Sumortūnsǣte', meaning 'the people of Somerton', a town that was an early Saxon capital. Today, Somerset is famous for the Glastonbury Festival, Cheddar cheese, and the mystical Glastonbury Tor."
      },
      {
       "street": "Norfolk Avenue",
-      "namesake": "Norfolk (county, England)",
-      "clue": "This county is known for its flat landscapes, broads, and a famous queen who ruled in the 16th century.",
+      "namesake": "Norfolk",
+      "clue": "My county is famous for its Broads, a network of navigable rivers and lakes, and is home to a city with a cathedral that has the tallest spire in England.",
       "options": [
-       "Cambridgeshire (county, England)",
-       "Norfolk (county, England)",
-       "Suffolk (county, England)"
+       "Essex",
+       "Norfolk",
+       "Suffolk"
       ],
-      "tidbit": "Norfolk is home to the UK's largest seal colony at Blakeney Point.",
-      "explainer": "Norfolk is a county in East Anglia, bordered by the North Sea. It is known for the Norfolk Broads, a network of navigable rivers and lakes, and its flat, fertile farmland. The county was a stronghold of the Iceni tribe, led by Queen Boudicca in her revolt against the Romans. In the 16th century, the title Duke of Norfolk was held by Thomas Howard, a powerful figure in the court of Henry VIII."
+      "tidbit": "Norfolk is home to the UK's largest seal colony at Blakeney Point, with over 3,000 seals.",
+      "explainer": "Norfolk is a county in East Anglia, known for its flat landscapes, windmills, and the Norfolk Broads, a unique wetland area formed by medieval peat digging. The city of Norwich, its capital, boasts a Norman cathedral with a spire that rises 96 meters, the tallest in England. Norfolk has a rich maritime history, and its coastline is a haven for birdwatchers and seal enthusiasts. The county's name derives from the Old English 'North Folk', referring to the northern people of the East Angles."
+     },
+     {
+      "street": "Gloucester Way",
+      "namesake": "Gloucester",
+      "clue": "My city is known for its magnificent cathedral, which was a filming location for the Harry Potter films. I am also famous for a cheese-rolling event held every spring.",
+      "options": [
+       "Gloucester",
+       "Worcester",
+       "Hereford"
+      ],
+      "tidbit": "The Gloucester cheese roll at Cooper's Hill has been held for over 200 years, with competitors chasing a 9-pound wheel of cheese down a steep hill.",
+      "explainer": "Gloucester is a cathedral city in southwest England, situated on the River Severn. Its cathedral, dating back to the 11th century, features a stunning Perpendicular Gothic tower and was used as a Hogwarts corridor in the Harry Potter films. The city's name comes from the Roman 'Glevum', and it was an important military and trading center in Roman times. Gloucester is also the birthplace of the famous Gloucestershire cheese, and the annual cheese-rolling event, though held nearby, has become a global spectacle."
      },
      {
       "street": "Ealing Close",
-      "namesake": "Ealing (district, London)",
-      "clue": "This London district's name comes from the Saxon tribe 'Gillingas.' It is nicknamed the 'Queen of the Suburbs' and is famous for its film studios.",
+      "namesake": "Ealing",
+      "clue": "I am a town in west London, often called the 'Queen of the Suburbs'. My name comes from the Old English 'Gillingas', meaning 'people of Gilla'.",
       "options": [
-       "Croydon (district, London)",
-       "Harrow (district, London)",
-       "Ealing (district, London)"
+       "Hounslow",
+       "Acton",
+       "Ealing"
       ],
-      "tidbit": "Ealing Studios is the oldest continuously operating film studio in the world.",
-      "explainer": "Ealing is a district in west London, historically a Middlesex parish. Its name likely derives from the Old English 'Gillingas,' meaning 'people of Gilla.' In the 19th century, it became a desirable suburb, earning the nickname 'Queen of the Suburbs' for its leafy streets. Ealing Studios, founded in 1902, produced the famous Ealing Comedies, including 'Kind Hearts and Coronets' and 'The Lavender Hill Mob.'"
+      "tidbit": "Ealing Studios, founded in 1902, is the world's oldest continuously working film studio, producing classics like 'The Ladykillers'.",
+      "explainer": "Ealing is a district in west London, historically a separate town in Middlesex. It was known as the 'Queen of the Suburbs' in the early 20th century due to its leafy streets and large houses. Ealing's name is derived from the Old English 'Gillingas', meaning 'people of Gilla', and it appears in the Domesday Book of 1086. The area is famous for Ealing Studios, which produced many iconic British comedies after World War II, including 'Kind Hearts and Coronets' and 'The Lavender Hill Mob'."
      }
     ]
    }
@@ -1557,139 +1344,68 @@
   "puzzles": [
    {
     "theme": "Literary Poets",
-    "background": "In this suburb, the streets pay homage to the great wordsmiths of English literature, from Romantic poets to beloved Australian authors.",
-    "reveal": "It was Footscray — where every street tells a story of a poet or writer.",
+    "background": "In this suburb, the streets are a tribute to the literary greats of the English-speaking world, with lanes and roads bearing the names of poets and writers whose words have shaped culture.",
+    "reveal": "It was Footscray — where the streets are named after famous poets and writers.",
     "rounds": [
      {
       "street": "Byron Street",
       "namesake": "Lord Byron",
-      "clue": "He was famously described as 'mad, bad, and dangerous to know.'",
+      "clue": "I am the Romantic rebel who wrote 'She walks in beauty, like the night'. Who am I?",
       "options": [
-       "Percy Bysshe Shelley",
+       "John Keats",
        "Lord Byron",
-       "John Keats"
+       "Percy Bysshe Shelley"
       ],
-      "tidbit": "Lord Byron kept a pet bear while at Cambridge University, as college rules forbade dogs.",
-      "explainer": "George Gordon, Lord Byron, was a leading figure of the Romantic movement, known for his passionate poetry and scandalous lifestyle. His works like 'Don Juan' and 'Childe Harold's Pilgrimage' captured the imagination of Europe. He died of fever in 1824 while fighting for Greek independence, a cause he had passionately supported."
+      "tidbit": "Lord Byron kept a pet bear while at Cambridge, as the college rules forbade dogs.",
+      "explainer": "George Gordon, Lord Byron, was a leading figure of the Romantic movement, known for his scandalous life and passionate poetry. His works include 'Childe Harold's Pilgrimage' and 'Don Juan'. He died in 1824 at the age of 36 while fighting for Greek independence. His name is synonymous with the 'Byronic hero'—a brooding, rebellious, and haunted character."
      },
      {
       "street": "Shelley Street",
       "namesake": "Percy Bysshe Shelley",
-      "clue": "His heart was reportedly snatched from his funeral pyre and kept by a friend.",
+      "clue": "I wrote 'Ozymandias' and was married to the author of Frankenstein. Who am I?",
       "options": [
-       "William Wordsworth",
+       "Lord Byron",
        "John Keats",
        "Percy Bysshe Shelley"
       ],
-      "tidbit": "Shelley was expelled from Oxford for writing a pamphlet on atheism, which he titled 'The Necessity of Atheism.'",
-      "explainer": "Percy Bysshe Shelley was a radical Romantic poet whose works include 'Ozymandias' and 'Ode to the West Wind.' He was a fierce advocate for free thought and social justice, often clashing with the establishment. He drowned in a storm in 1822 at the age of 29, and his friend Edward Trelawny claimed to have snatched his heart from the funeral pyre, keeping it as a memento."
-     },
-     {
-      "street": "Lawson Street",
-      "namesake": "Henry Lawson",
-      "clue": "His most famous character was a swagman who 'carried his swag' through the Australian bush, and he once wrote, 'There is nothing so interesting as the Australian people.'",
-      "options": [
-       "Banjo Paterson",
-       "Henry Lawson",
-       "C.J. Dennis"
-      ],
-      "tidbit": "Henry Lawson was partially deaf from childhood, which may have influenced his solitary and introspective nature.",
-      "explainer": "Henry Lawson was one of Australia's most celebrated writers, known for his short stories and poems about the bush and the struggles of ordinary people. Works like 'The Drover's Wife' and 'While the Billy Boils' capture the harshness and humor of Australian life. His writing helped define the national character, and he is often paired with his contemporary, Banjo Paterson, in literary history."
+      "tidbit": "Percy Bysshe Shelley's heart was reportedly snatched from his funeral pyre and kept by his wife, Mary.",
+      "explainer": "Percy Bysshe Shelley was a major English Romantic poet, celebrated for works like 'Ode to the West Wind' and 'Prometheus Unbound'. He was a radical thinker, advocating for social justice and free thought. His wife, Mary Shelley, authored 'Frankenstein', and their circle included Lord Byron. Shelley drowned in Italy in 1822 at just 29 years old."
      },
      {
       "street": "Moore Street",
       "namesake": "Thomas Moore",
-      "clue": "This poet wrote 'The Last Rose of Summer' and is often called the national poet of Ireland.",
+      "clue": "I am the Irish poet who wrote 'The Last Rose of Summer' and 'The Minstrel Boy'. Who am I?",
       "options": [
        "Thomas Moore",
        "William Butler Yeats",
        "Seamus Heaney"
       ],
-      "tidbit": "Thomas Moore's 'Irish Melodies' were so popular that they were set to music by composers like Beethoven and Berlioz.",
-      "explainer": "Thomas Moore was an Irish poet, singer, and songwriter whose 'Irish Melodies' (1808-1834) made him a household name. He was a close friend of Lord Byron and served as his literary executor. Moore's poetry often celebrated Irish history and culture, and his song 'The Minstrel Boy' remains a patriotic anthem."
+      "tidbit": "Thomas Moore's melodies were so popular that he was sometimes called the 'National Poet of Ireland'.",
+      "explainer": "Thomas Moore was an Irish poet, singer, and songwriter, best known for his 'Irish Melodies' which set his lyrics to traditional Irish tunes. His works captured the spirit of Irish nationalism and romance. He was a contemporary of Byron and Shelley, and his poetry was widely read in the 19th century. Moore also wrote biographies and satirical works."
+     },
+     {
+      "street": "Lawson Street",
+      "namesake": "Henry Lawson",
+      "clue": "I am the Australian writer who penned 'The Loaded Dog' and 'The Drover's Wife'. Who am I?",
+      "options": [
+       "Banjo Paterson",
+       "Henry Lawson",
+       "C.J. Dennis"
+      ],
+      "tidbit": "Henry Lawson was the first Australian writer to be given a state funeral.",
+      "explainer": "Henry Lawson is one of Australia's most beloved writers, known for his vivid portrayals of bush life and the struggles of ordinary people. His short stories and poems, like 'While the Billy Boils', capture the laconic humor and resilience of the Australian character. Lawson struggled with alcoholism and poverty throughout his life, yet his work remains a cornerstone of Australian literature. He died in 1922, and his funeral was a national event."
      },
      {
       "street": "Lawson Place",
-      "namesake": "Henry Lawson",
-      "clue": "This author's story 'The Loaded Dog' is a classic of Australian humor, and he also wrote under the pen name 'John Smith.'",
+      "namesake": "Banjo Paterson",
+      "clue": "I am the Australian poet who wrote 'The Man from Snowy River' and 'Waltzing Matilda'. Who am I?",
       "options": [
-       "Banjo Paterson",
-       "Steele Rudd",
-       "Henry Lawson"
+       "Henry Lawson",
+       "Adam Lindsay Gordon",
+       "Banjo Paterson"
       ],
-      "tidbit": "Henry Lawson once walked from Bourke to Hungerford (about 200 km) to prove his toughness, an experience he later wrote about.",
-      "explainer": "Henry Lawson's influence is so significant that he has two streets named after him in this suburb. His tales of the bush, such as 'The Loaded Dog,' are celebrated for their dry wit and vivid characterization. Lawson's life was marked by hardship, including battles with alcoholism and mental illness, yet his literary legacy endures as a cornerstone of Australian identity."
-     }
-    ]
-   }
-  ]
- },
- "Glen Iris": {
-  "puzzles": [
-   {
-    "theme": "Literary Poets",
-    "background": "In this leafy suburb, the streets pay homage to the great wordsmiths of English literature, from epic poets to novelists whose names have become household words.",
-    "reveal": "It was Glen Iris, where the streets are named after literary poets and writers.",
-    "rounds": [
-     {
-      "street": "Dickens Street",
-      "namesake": "Charles Dickens",
-      "clue": "This writer's famous opening line, 'It was the best of times, it was the worst of times,' begins one of his most celebrated novels.",
-      "options": [
-       "Thomas Hardy",
-       "Charles Dickens",
-       "William Makepeace Thackeray"
-      ],
-      "tidbit": "Dickens coined or popularized dozens of words, including 'boredom' and 'butterfingers'.",
-      "explainer": "Charles Dickens was a Victorian-era novelist and social critic, known for works like 'A Tale of Two Cities' and 'Great Expectations.' His serialized novels were wildly popular, and he was a celebrity of his time. Dickens often highlighted the struggles of the poor, and his stories have never gone out of print."
-     },
-     {
-      "street": "Milton Avenue",
-      "namesake": "John Milton",
-      "clue": "This blind poet wrote the epic 'Paradise Lost,' and his name is also a popular brand of board game.",
-      "options": [
-       "John Milton",
-       "William Wordsworth",
-       "Edmund Spenser"
-      ],
-      "tidbit": "Milton's 'Paradise Lost' was originally written in ten books, but the second edition reorganized it into twelve.",
-      "explainer": "John Milton was a 17th-century English poet and intellectual, famous for his epic poem 'Paradise Lost,' which tells the story of the Fall of Man. He served as a civil servant under Oliver Cromwell and went completely blind before composing his masterpiece. Milton's influence on English literature is immense, and his work has inspired countless adaptations."
-     },
-     {
-      "street": "Scott Grove",
-      "namesake": "Sir Walter Scott",
-      "clue": "This Scottish author wrote 'Ivanhoe' and was so famous that his books made the name 'Waverley' a global fashion for babies and places.",
-      "options": [
-       "Sir Walter Scott",
-       "Robert Burns",
-       "Robert Louis Stevenson"
-      ],
-      "tidbit": "Scott's novel 'Waverley' was so popular that it sparked a craze for naming things after it, from hotels to railway stations.",
-      "explainer": "Sir Walter Scott was a Scottish historical novelist and poet of the early 19th century, often considered the inventor of the historical novel. His works like 'Ivanhoe' and 'Rob Roy' were bestsellers across Europe and America. Scott's writing also helped revive Scottish cultural pride and popularized the romantic image of the Highlands."
-     },
-     {
-      "street": "Ruskin Road",
-      "namesake": "John Ruskin",
-      "clue": "This Victorian art critic famously declared that 'the most beautiful things in the world are the most useless; peacocks and lilies for instance.'",
-      "options": [
-       "Oscar Wilde",
-       "John Ruskin",
-       "Matthew Arnold"
-      ],
-      "tidbit": "Ruskin was also a passionate advocate for workers' rights and inspired the founding of the National Trust in the UK.",
-      "explainer": "John Ruskin was a 19th-century English art critic, social thinker, and writer, whose essays on art and architecture were hugely influential. He championed the Pre-Raphaelite Brotherhood and wrote 'The Stones of Venice,' which shaped Victorian taste. Ruskin's later writings on economics and society influenced the Labour movement and Mahatma Gandhi."
-     },
-     {
-      "street": "Milton Parade",
-      "namesake": "John Milton",
-      "clue": "This poet's epic features a character who says, 'Better to reign in Hell, than serve in Heaven.'",
-      "options": [
-       "John Milton",
-       "John Dryden",
-       "Dante Alighieri"
-      ],
-      "tidbit": "Milton's Satan is considered one of the most complex and compelling villains in literature, often seen as a tragic hero.",
-      "explainer": "John Milton's 'Paradise Lost' is one of the greatest epic poems in English, exploring themes of free will, temptation, and redemption. The poem's portrayal of Satan as a charismatic rebel has fascinated readers for centuries, inspiring works from Mary Shelley's 'Frankenstein' to Philip Pullman's 'His Dark Materials.' Milton's grand style and theological depth make him a cornerstone of English literature."
+      "tidbit": "Banjo Paterson wrote the lyrics to 'Waltzing Matilda', often called Australia's unofficial national anthem.",
+      "explainer": "Andrew Barton 'Banjo' Paterson was a bush poet, journalist, and horseman whose verses celebrated the Australian outback. 'The Man from Snowy River' and 'Clancy of the Overflow' are among his most famous works. He served as a war correspondent and ambulance driver during the Boer War and World War I. His name 'Banjo' came from a racehorse he owned."
      }
     ]
    }
@@ -2748,68 +2464,68 @@
   "puzzles": [
    {
     "theme": "Arthurian legend",
-    "background": "In a quiet Melbourne suburb, the streets are woven with the threads of Camelot—each one named after a character, place, or object from the legends of King Arthur and his knights.",
-    "reveal": "It was Murrumbeena—where every street is a chapter from the Matter of Britain.",
+    "background": "In this Melbourne suburb, the street names weave a tapestry of medieval romance and chivalric tales, each one evoking a different corner of the legendary world of King Arthur.",
+    "reveal": "It was Murrumbeena, where the streets are named after the places and figures of Arthurian legend.",
     "rounds": [
      {
-      "street": "Ariadne Avenue",
-      "namesake": "Elaine of Astolat (the 'Fair Maid of Astolat')",
-      "clue": "In Greek myth, I gave Theseus the thread to escape the Labyrinth. But in Arthurian legend, my name is a pseudonym for a woman who loved a knight—and was loved by another.",
-      "options": [
-       "Morgan le Fay",
-       "Elaine of Astolat (the 'Fair Maid of Astolat')",
-       "Guinevere"
-      ],
-      "tidbit": "In Tennyson's 'Lancelot and Elaine', she dies of unrequited love and drifts down the Thames in a barge, clutching a lily.",
-      "explainer": "Elaine of Astolat, sometimes called 'the lily maid of Astolat', is a tragic figure in Arthurian romance. She falls deeply in love with Sir Lancelot, but he is devoted to Queen Guinevere. In Tennyson's 'Idylls of the King', she dies of heartbreak and is placed in a boat, steering it to Camelot to deliver a letter to Lancelot. The name 'Ariadne' is a deliberate literary echo, linking her to the Greek princess who helped Theseus—both women guide a hero through a labyrinth of love and loss."
-     },
-     {
       "street": "Astolat Avenue",
-      "namesake": "Astolat (the legendary castle)",
-      "clue": "I am the castle where a fair maiden pined for a knight of the Round Table. My name is often linked to a place of sorrow and unrequited love.",
+      "namesake": "Astolat",
+      "clue": "My name is linked to a lily maid, but I am the tower where she lived and died for love of Sir Lancelot.",
       "options": [
-       "Tintagel",
-       "Astolat (the legendary castle)",
+       "Avalon",
+       "Astolat",
        "Camelot"
       ],
-      "tidbit": "Astolat is traditionally identified with Guildford in Surrey, England, and its name may mean 'the place of the hawk'.",
-      "explainer": "Astolat is a legendary castle in Arthurian legend, best known as the home of Elaine, the 'Fair Maid of Astolat', who dies for love of Sir Lancelot. The castle is often associated with the real town of Guildford, and its name may derive from Old English for 'hawk hill'. In Malory's 'Le Morte d'Arthur', it is the setting for one of the most poignant tales of courtly love. The name was later used by Tennyson in his 'Idylls of the King', cementing its place in literary history."
+      "tidbit": "In Tennyson's poem, the 'lily maid' Elaine dies of unrequited love and her body is floated down the river to Camelot.",
+      "explainer": "Astolat is the fictional city in Arthurian legend, famously the home of Elaine, the 'Lily Maid of Astolat'. It appears in Thomas Malory's 'Le Morte d'Arthur' and later in Tennyson's 'Idylls of the King'. The town is often identified with Guildford in Surrey, England. Its story highlights themes of unrequited love and courtly honor."
      },
      {
       "street": "Joyous Gard Court",
-      "namesake": "Joyous Gard (Lancelot's castle)",
-      "clue": "I was the stronghold where a knight and a queen found forbidden happiness—until the world found out. My name whispers of a paradise that was lost.",
+      "namesake": "Joyous Gard",
+      "clue": "I am the castle where a knight and his lady found happiness, but my name holds a bitter irony.",
       "options": [
-       "The Grail Castle",
-       "Joyous Gard (Lancelot's castle)",
-       "Camelot"
+       "Camelot",
+       "Joyous Gard",
+       "Tintagel"
       ],
-      "tidbit": "In some legends, Joyous Gard was actually the castle of Bamburgh in Northumberland, and it was said to have been renamed after Lancelot's joy there.",
-      "explainer": "Joyous Gard is the legendary castle of Sir Lancelot, where he secretly lived with Queen Guinevere after they fled from Camelot. The name itself is a translation of the French 'Joyeuse Garde', and in some tales, it was originally called 'Dolorous Gard' before Lancelot conquered it and turned it into a place of joy. The castle is a symbol of the tragic love between Lancelot and Guinevere, and its fall is central to the downfall of Arthur's kingdom. Historical attempts to locate it often point to Bamburgh Castle, adding a layer of real-world mystery."
+      "tidbit": "The castle was originally called 'Dolorous Gard' until Lancelot's victory there changed its name.",
+      "explainer": "Joyous Gard is a castle in Arthurian legend, given to Sir Lancelot by King Arthur. It is where Lancelot and Queen Guinevere's illicit love affair blossoms, making the name tragically ironic. The castle is also known as the place where Lancelot was imprisoned. Its story is central to the tragic downfall of Arthur's court."
+     },
+     {
+      "street": "Ariadne Avenue",
+      "namesake": "Ariadne",
+      "clue": "I am a princess of Crete, and my thread guided a hero through a labyrinth.",
+      "options": [
+       "Isolde",
+       "Ariadne",
+       "Guinevere"
+      ],
+      "tidbit": "Ariadne's thread helped Theseus escape the Minotaur's labyrinth, but he later abandoned her on Naxos.",
+      "explainer": "Ariadne is a figure from Greek mythology, the daughter of King Minos of Crete. She fell in love with Theseus and gave him a ball of thread to navigate the Labyrinth and defeat the Minotaur. After Theseus left her, she became the wife of the god Dionysus. Her story is one of love, betrayal, and divine favor, and she is sometimes linked to Arthurian themes through medieval romances."
      },
      {
       "street": "Blythe Street",
-      "namesake": "Sir Bleoberis (a Knight of the Round Table)",
-      "clue": "I am a knight of the Round Table, but my name is not as famous as my brothers. I am often overshadowed, yet I was one of the few to survive the final battle.",
+      "namesake": "Blythe",
+      "clue": "I am a merry and carefree figure, often found in medieval tales, and my name means 'joyful'.",
       "options": [
-       "Sir Bedivere",
-       "Sir Bors",
-       "Sir Bleoberis (a Knight of the Round Table)"
+       "Tristan",
+       "Gawain",
+       "Blythe"
       ],
-      "tidbit": "Sir Bleoberis was the brother of Sir Blamore, and together they were known as the 'two knights of the border'—both fierce in combat.",
-      "explainer": "Sir Bleoberis is a minor but notable knight of the Round Table, appearing in Malory's 'Le Morte d'Arthur'. He is the brother of Sir Blamore and a cousin to Sir Lancelot, and he often accompanies his kin on quests. In the final battle of Camlann, he is one of the few knights who survives, and he later helps in the search for the Holy Grail. His name is a variant of 'Bleheris', a Welsh name that may have been the source of many Arthurian tales."
+      "tidbit": "The name is often associated with a minor character in Arthurian romances, symbolizing cheerfulness.",
+      "explainer": "Blythe is a name that appears in some Arthurian romances, though not as a major character. It derives from Old English, meaning 'joyful' or 'merry', reflecting the lighthearted nature of some courtly figures. In medieval literature, such minor characters add color to the court of Camelot. The name also evokes the ideal of courtly gaiety."
      },
      {
       "street": "Burns Avenue",
-      "namesake": "The Forest of Brocéliande (associated with the 'Burns' of Arthurian legend)",
-      "clue": "I am a place, not a person—a dark and twisted forest where knights sought adventure and often found peril. My name is a byword for danger.",
+      "namesake": "Sir Brun",
+      "clue": "I am a legendary knight known for my strength and my tragic love, but my name also means 'brown'.",
       "options": [
-       "The Forest of Arden",
-       "The Forest of Brocéliande",
-       "The Forest of Brocéliande (associated with the 'Burns' of Arthurian legend)"
+       "Sir Kay",
+       "Sir Bedivere",
+       "Sir Brun"
       ],
-      "tidbit": "Brocéliande is a real forest in Brittany, France, and is reputed to be the site of Merlin's tomb and the fountain of Barenton.",
-      "explainer": "The Forest of Brocéliande is a legendary forest in Brittany, often associated with the Arthurian world. It is the setting for many adventures, including the tale of the knight Yvain and the magical fountain of Barenton. The name 'Burns' in the street may be a nod to the French 'Brocéliande', which was known for its perilous paths and enchanted clearings. This forest is also said to be where Merlin was imprisoned by the Lady of the Lake, adding to its mystical reputation."
+      "tidbit": "Sir Brun is a lesser-known knight of the Round Table, sometimes called 'Brun the Brown'.",
+      "explainer": "Sir Brun is a minor knight in Arthurian legend, appearing in some medieval texts. His name likely derives from the Old French 'brun', meaning 'brown', possibly referring to his hair or complexion. He is not a central figure, but his presence enriches the tapestry of Arthur's court. Little else is recorded about him, making him a mysterious character."
      }
     ]
    }
@@ -3438,68 +3154,68 @@
   "puzzles": [
    {
     "theme": "Literary Poets",
-    "background": "In this northern suburb, many streets pay homage to the great wordsmiths of English literature, from novelists to poets.",
-    "reveal": "It was Reservoir — where the streets are named for literary legends.",
+    "background": "In this northern suburb, streets pay homage to literary greats, with a mix of poets and novelists lending their names to the local roads.",
+    "reveal": "It was Reservoir, where the streets are named after famous poets and writers!",
     "rounds": [
-     {
-      "street": "Lawson Street",
-      "namesake": "Henry Lawson",
-      "clue": "This Australian writer and poet is known for 'The Drover's Wife' and the poem 'Up The Country'.",
-      "options": [
-       "Henry Lawson",
-       "Banjo Paterson",
-       "C.J. Dennis"
-      ],
-      "tidbit": "Henry Lawson was the first Australian writer to be honoured with a postage stamp, in 1966.",
-      "explainer": "Henry Lawson (1867-1922) was a seminal figure in Australian literature, capturing the harsh realities of bush life. His works, like 'The Drover's Wife', are celebrated for their realism and sympathy for the common person. Despite his literary success, he struggled with alcoholism and poverty, dying at 54. He is buried in Waverley Cemetery, overlooking the sea."
-     },
      {
       "street": "Thackeray Road",
       "namesake": "William Makepeace Thackeray",
-      "clue": "He wrote a novel whose title character is a charming, roguish social climber in 19th-century England.",
+      "clue": "This Victorian novelist gave us the classic 'Vanity Fair' and coined the term 'snob' in his early satirical works.",
       "options": [
        "William Makepeace Thackeray",
-       "George Eliot",
+       "Thomas Hardy",
        "Charles Dickens"
       ],
-      "tidbit": "Thackeray's 'Vanity Fair' was first published in monthly instalments, a format that made him a celebrity.",
-      "explainer": "William Makepeace Thackeray (1811-1863) was an English novelist best known for 'Vanity Fair' (1847-48), a satirical panorama of English society. His sharp wit and keen observation of human folly set him apart from contemporaries. He also edited the prestigious 'Cornhill Magazine' and lectured in the United States. Thackeray died suddenly at 52, leaving his last novel unfinished."
+      "tidbit": "Thackeray's own copy of 'Vanity Fair' was sold at auction for over £100,000 in 2010.",
+      "explainer": "William Makepeace Thackeray was a 19th-century English novelist celebrated for his satirical wit and keen observation of upper-class society. His masterpiece, 'Vanity Fair' (1848), introduced the memorable anti-heroine Becky Sharp and is considered one of the greatest novels in English literature. Thackeray also founded the literary magazine 'The Cornhill Magazine' and was a close friend of Charles Dickens, though the two had a famously competitive relationship."
      },
      {
       "street": "Kingsley Road",
       "namesake": "Charles Kingsley",
-      "clue": "This Victorian author wrote a children's classic about a chimney sweep who becomes a water-baby.",
+      "clue": "This Victorian author wrote 'The Water-Babies' and was a passionate advocate for social reform and Darwinian evolution.",
       "options": [
        "Rudyard Kipling",
        "Lewis Carroll",
        "Charles Kingsley"
       ],
-      "tidbit": "Charles Kingsley coined the word 'water-baby' in his 1863 novel, which was inspired by a real boy who climbed chimneys.",
-      "explainer": "Charles Kingsley (1819-1875) was an English clergyman, social reformer, and novelist. His 'The Water-Babies' (1863) is a fairy tale that also critiques child labour. Kingsley was a proponent of 'Christian Socialism' and wrote historical novels like 'Westward Ho!'. He also engaged in a famous debate with John Henry Newman over religious truth."
+      "tidbit": "Kingsley coined the term 'Darwinism' in 1860, even though he initially had mixed feelings about Darwin's theory.",
+      "explainer": "Charles Kingsley was a 19th-century English clergyman, novelist, and social reformer, known for his concern for social justice and his support of Christian Socialism. His novel 'The Water-Babies' (1863) is a classic children's fairy tale that also critiques child labor and promotes evolution. Kingsley served as chaplain to Queen Victoria and was a professor of modern history at Cambridge University."
+     },
+     {
+      "street": "Lawson Crescent",
+      "namesake": "Henry Lawson",
+      "clue": "This Australian writer's short stories captured the harsh realities of bush life, and he is often called the 'poet of the people'.",
+      "options": [
+       "Dorothea Mackellar",
+       "Henry Lawson",
+       "Banjo Paterson"
+      ],
+      "tidbit": "Lawson's face appears on the Australian $10 note, though he was notoriously poor in life.",
+      "explainer": "Henry Lawson was one of Australia's most famous writers and poets, known for his vivid portrayals of life in the Australian bush and the struggles of ordinary people. Born in 1867, he faced hardship and deafness from a young age, which shaped his empathetic and often melancholic writing. His story 'The Drover's Wife' is a cornerstone of Australian literature, and he is celebrated as a national icon."
      },
      {
       "street": "Moore Crescent",
       "namesake": "Thomas Moore",
-      "clue": "This Irish poet wrote 'The Last Rose of Summer' and was a close friend of Lord Byron.",
+      "clue": "This Irish poet wrote 'The Last Rose of Summer' and 'The Minstrel Boy', and his melodies are still sung worldwide.",
       "options": [
-       "Seamus Heaney",
+       "Oscar Wilde",
        "W.B. Yeats",
        "Thomas Moore"
       ],
-      "tidbit": "Thomas Moore's 'Irish Melodies' were so popular that his publisher paid him the then-astronomical sum of £3,000 for the copyright.",
-      "explainer": "Thomas Moore (1779-1852) was an Irish poet, singer, and songwriter, celebrated for his 'Irish Melodies' (1808-1834). His songs like 'The Minstrel Boy' and 'Believe Me, If All Those Endearing Young Charms' remain beloved. Moore was a close friend of Lord Byron and was entrusted with Byron's memoirs after his death. He was also a social satirist and a champion of Irish nationalism."
+      "tidbit": "Moore's 'Irish Melodies' sold over a million copies in the 19th century, making him one of the best-selling poets of his era.",
+      "explainer": "Thomas Moore was an Irish poet, singer, and songwriter who became the national bard of Ireland in the early 19th century. His 'Irish Melodies' (1808-1834) set his lyrics to traditional Irish tunes, preserving and popularizing Irish culture during a time of political turmoil. Moore was also a close friend of Lord Byron and wrote a celebrated biography of the poet."
      },
      {
-      "street": "Lawson Crescent",
+      "street": "Lawson Street",
       "namesake": "Banjo Paterson",
-      "clue": "This poet, a contemporary of Lawson, wrote 'Waltzing Matilda' and 'The Man from Snowy River'.",
+      "clue": "This Australian writer is known for his iconic poem 'The Man from Snowy River' and his romanticized view of the bush.",
       "options": [
-       "Adam Lindsay Gordon",
        "Banjo Paterson",
-       "Henry Kendall"
+       "Henry Lawson",
+       "C.J. Dennis"
       ],
-      "tidbit": "Banjo Paterson wrote 'Waltzing Matilda' in 1895; it became Australia's unofficial national anthem.",
-      "explainer": "Andrew Barton 'Banjo' Paterson (1864-1941) was an Australian bush poet, journalist, and author. His 'The Man from Snowy River' (1895) and 'Waltzing Matilda' are iconic. He worked as a war correspondent during the Boer War and WWI. Paterson's romanticised view of rural life contrasted with Henry Lawson's realism, sparking a famous literary debate."
+      "tidbit": "Paterson wrote 'Waltzing Matilda' in 1895, which became Australia's unofficial national anthem.",
+      "explainer": "Banjo Paterson, born Andrew Barton Paterson, was an Australian bush poet, journalist, and author, celebrated for his romantic and adventurous depictions of the outback. His famous works include 'The Man from Snowy River' and 'Clancy of the Overflow', which captured the spirit of the Australian bush. He served as a war correspondent during the Boer War and World War I, and his poetry remains beloved across Australia."
      }
     ]
    }
@@ -3578,73 +3294,6 @@
  },
  "St Kilda": {
   "puzzles": [
-   {
-    "theme": "Crimean War",
-    "background": "In the mid-19th century, a wave of patriotism swept the British Empire after the Crimean War. This Melbourne suburb's streets commemorate the war's key battles and fortifications.",
-    "reveal": "It was St Kilda — where the streets echo the thunder of the Crimean War.",
-    "rounds": [
-     {
-      "street": "Inkerman Street",
-      "namesake": "Battle of Inkerman",
-      "clue": "Fought in fog so thick that soldiers said 'we could not see a yard before us', this battle saw a small British force repel a much larger Russian army.",
-      "options": [
-       "Battle of Alma",
-       "Battle of Balaclava",
-       "Battle of Inkerman"
-      ],
-      "tidbit": "The Battle of Inkerman was nicknamed 'The Soldier's Battle' because the fog and terrain broke the fighting into chaotic, small-unit engagements.",
-      "explainer": "Fought on 5 November 1854, Inkerman was a brutal, hand-to-hand struggle in thick fog. The British and French, though outnumbered, held their ground against a Russian counterattack. The battle demonstrated the resilience of the British infantry, but also highlighted poor command and communication. It was a pyrrhic victory that led to a long, grueling siege of Sevastopol."
-     },
-     {
-      "street": "Alma Road",
-      "namesake": "Battle of Alma",
-      "clue": "This battle was the first major Allied victory of the war, named after a river that ran red with the blood of the fallen.",
-      "options": [
-       "Siege of Sevastopol",
-       "Battle of Alma",
-       "Battle of Inkerman"
-      ],
-      "tidbit": "The Alma River's name became a popular name for streets, parks, and even a type of hat in Victorian Britain.",
-      "explainer": "The Battle of Alma, fought on 20 September 1854, was the first pitched battle of the Crimean War. British and French forces stormed Russian positions on the Alma Heights, securing a decisive victory. It opened the road to Sevastopol and gave the Allies a morale boost. The battle is also remembered for the famous 'Thin Red Line'—the 93rd Highland Regiment's defiant stand against Russian cavalry."
-     },
-     {
-      "street": "Redan Street",
-      "namesake": "The Redan (fortification at Sevastopol)",
-      "clue": "A formidable V-shaped fortification that became a graveyard for Allied soldiers during a bitter siege, its name struck fear into the hearts of attackers.",
-      "options": [
-       "The Redan (fortification at Sevastopol)",
-       "The Malakoff (fortification)",
-       "The Quarries (fortification)"
-      ],
-      "tidbit": "The Redan was so feared that British soldiers reportedly sang a grim song about it: 'The Redan, the Redan, we'll never take the Redan.'",
-      "explainer": "The Redan was a massive earthwork fortification defending Sevastopol during the Crimean War. It was the site of several bloody assaults, including the infamous attack on 18 June 1855, which was repulsed with heavy British losses. The fortification became a symbol of the futility of frontal assaults against modern artillery. It was finally abandoned by the Russians when they evacuated Sevastopol in September 1855."
-     },
-     {
-      "street": "Alma Grove",
-      "namesake": "Battle of Alma",
-      "clue": "This battle's name comes from a river in the Crimea, and its victory was celebrated with bonfires and street parties across the British Empire.",
-      "options": [
-       "Battle of Alma",
-       "Battle of Balaclava",
-       "Battle of Inkerman"
-      ],
-      "tidbit": "The victory at Alma was so celebrated that a new dance, the 'Alma Waltz', was composed in London.",
-      "explainer": "The Battle of Alma was a turning point in the early war, proving the Allies could defeat the Russians in open battle. It was also the first time the British public heard of Florence Nightingale, who would soon arrive in the Crimea. The battle's name was quickly adopted for streets, parks, and even a racehorse. Its memory faded, but the street names remain as a lasting tribute."
-     },
-     {
-      "street": "Inkerman Grove",
-      "namesake": "Battle of Inkerman",
-      "clue": "This battle was fought in a fog so dense that the fighting was described as 'a soldier's battle'—every man for himself.",
-      "options": [
-       "Battle of Alma",
-       "Battle of Inkerman",
-       "Battle of Balaclava"
-      ],
-      "tidbit": "The battle was fought on the same day as the Charge of the Light Brigade, a fact often overlooked because the two battles are separated by a few weeks.",
-      "explainer": "The Battle of Inkerman was a chaotic and bloody affair, fought in thick fog on 5 November 1854. The British, aided by French reinforcements, repelled a Russian attack that could have changed the course of the war. The battle was a testament to the courage of the common soldier, but also a grim preview of the horrors of trench warfare. It was the last major battle before the long siege of Sevastopol."
-     }
-    ]
-   },
    {
     "theme": "Literary Poets",
     "background": "In this bayside neighborhood, the streets pay homage to the giants of English literature, with names that evoke sonnets, novels, and epic poems.",
@@ -4124,68 +3773,68 @@
    },
    {
     "theme": "Native Flora",
-    "background": "In this suburb, the streets pay homage to the native plants and trees that define the Australian landscape. From hardy wattles to fragrant correas, each name tells a story of the country's unique flora.",
-    "reveal": "It was Sunbury — where every street is named after native Australian flora.",
+    "background": "In this leafy suburb, the streets pay tribute to the hardy native plants that define the Australian landscape. Each lane and court is named after a species of flora that thrives in the local climate.",
+    "reveal": "It was Sunbury — where every street is a native plant.",
     "rounds": [
      {
       "street": "Wattle Drive",
       "namesake": "Acacia (Wattle)",
-      "clue": "I am the golden emblem of Australia, worn on lapels and celebrated with a national day. My name comes from an Old English word for a twig or hurdle.",
+      "clue": "This golden bloom is Australia's national floral emblem, and its green and gold colors are worn by our sports teams.",
       "options": [
-       "Eucalyptus",
-       "Melaleuca",
+       "Eucalyptus (Gum Tree)",
+       "Melaleuca (Paperbark)",
        "Acacia (Wattle)"
       ],
-      "tidbit": "Australia's national floral emblem is the golden wattle (Acacia pycnantha), and Wattle Day is celebrated on September 1st.",
-      "explainer": "The wattle, or acacia, is a genus of shrubs and trees with over 1,000 species in Australia. It has been a symbol of the nation since the early 1900s, and its green and gold colors are the country's official sporting colors. The name 'wattle' comes from the Anglo-Saxon word for a woven framework of twigs, used in building. The golden wattle was formally proclaimed the national floral emblem in 1988."
+      "tidbit": "There are over 1,000 species of acacia in Australia, and the golden wattle (Acacia pycnantha) was officially proclaimed the national floral emblem in 1988.",
+      "explainer": "The wattle is a genus of shrubs and trees known for their fluffy, golden-yellow flower clusters. They are incredibly resilient, thriving in poor soils and dry conditions, and have become a symbol of unity and resilience in Australian culture. The green and gold colors of Australia's national teams are inspired by the wattle's foliage and blossoms."
      },
      {
       "street": "Banksia Court",
-      "namesake": "Banksia (named for Joseph Banks)",
-      "clue": "Named for a naturalist who sailed with Captain Cook, I am known for my striking, bottlebrush-like flower spikes and woody seed cones.",
+      "namesake": "Banksia",
+      "clue": "This plant's striking, candle-like flower spikes are a favorite of honeyeaters and are named after a famous botanist who sailed with Captain Cook.",
       "options": [
-       "Bougainvillea (named for Louis Antoine de Bougainville)",
-       "Fuchsia (named for Leonhart Fuchs)",
-       "Banksia (named for Joseph Banks)"
+       "Grevillea",
+       "Hakea",
+       "Banksia"
       ],
-      "tidbit": "Banksias are also called 'honeysuckle trees' because their nectar-rich flowers attract birds and insects.",
-      "explainer": "The banksia is a genus of about 170 species, almost all native to Australia. It was named after Sir Joseph Banks, the English naturalist who accompanied Captain James Cook on the HMS Endeavour. Banksias are famous for their distinctive flower spikes, which can be used in floral arrangements and are a vital food source for honeyeaters. The large, woody seed cones often persist on the plant for years, giving it a unique appearance."
+      "tidbit": "Banksia flowers are so rich in nectar that Aboriginal people would soak them in water to make a sweet drink.",
+      "explainer": "Banksias are iconic Australian wildflowers, part of the Proteaceae family, and are named after Sir Joseph Banks, the botanist who accompanied Captain James Cook on his first voyage. They produce large, brush-like flower spikes that attract a variety of birds and insects. Some species, like the saw banksia, have serrated leaves, and the woody seed cones often persist on the plant for years."
+     },
+     {
+      "street": "Acacia Court",
+      "namesake": "Acacia",
+      "clue": "This plant is often called 'mulga' or 'wattle', and its wood is famously hard and durable, used by Indigenous Australians for tools and weapons.",
+      "options": [
+       "Callistemon",
+       "Acacia",
+       "Casuarina"
+      ],
+      "tidbit": "Acacia wood is so dense that it can be polished to a high shine, and some species are used for fine furniture.",
+      "explainer": "Acacia, commonly known as wattle, is a large genus of shrubs and trees with over 1,000 species in Australia. They are known for their feathery leaves and prolific yellow blooms, which appear in late winter and spring. Acacias are also important for soil stabilization and as a food source for native animals. The name 'acacia' comes from the Greek word 'akakia', meaning 'thorny Egyptian tree'."
      },
      {
       "street": "Casuarina Court",
       "namesake": "Casuarina (She-oak)",
-      "clue": "My name comes from a Malay word meaning 'cassowary', because my drooping branches resemble the bird's feathers. I am a tough, wind-resistant tree of coastal and inland areas.",
+      "clue": "This tree has drooping, needle-like foliage that resembles pine needles, but it's actually a flowering plant, not a conifer.",
       "options": [
        "Casuarina (She-oak)",
-       "Callistemon (Bottlebrush)",
-       "Grevillea"
+       "Eucalyptus (Gum Tree)",
+       "Angophora"
       ],
-      "tidbit": "Despite being called she-oaks, casuarinas are not true oaks; their wood is extremely hard and was used by Aboriginal peoples for tools and boomerangs.",
-      "explainer": "Casuarina is a genus of evergreen trees and shrubs in the family Casuarinaceae, native to Australia and Southeast Asia. The name is derived from the Malay word 'kasuari', meaning cassowary, due to the resemblance of their foliage to the bird's feathers. These trees are highly adaptable, tolerating poor soils and salt spray, making them common in coastal areas. Casuarinas are also known for their nitrogen-fixing root nodules, which enrich the soil."
-     },
-     {
-      "street": "Acacia Court",
-      "namesake": "Acacia (Wattle)",
-      "clue": "My genus name comes from the Greek for 'pointed' — a nod to my thorns. I am the most common native plant in Australia, with over 1,000 species.",
-      "options": [
-       "Leptospermum (Tea tree)",
-       "Acacia (Wattle)",
-       "Eucalyptus (Gum tree)"
-      ],
-      "tidbit": "The world's largest acacia is a 30-meter-tall 'black wattle' in Tasmania, while some desert species live for over 200 years.",
-      "explainer": "Acacia is a large genus of shrubs and trees, with more than 1,300 species worldwide, but the majority are native to Australia. The name comes from the Greek 'akis', meaning a point, referring to the thorns found on many species. Acacias are incredibly diverse, from small shrubs to large trees, and are a crucial part of the Australian landscape. Their flowers are usually yellow or cream, and they are a major source of pollen for native bees."
+      "tidbit": "Casuarinas are sometimes called 'she-oaks' because their wood was used to make casks, which were 'she-oak' barrels, and they are nitrogen-fixers, enriching the soil.",
+      "explainer": "Casuarina, commonly called she-oak or ironwood, is a genus of trees native to Australia and Southeast Asia. Despite their conifer-like appearance, they are flowering plants and produce small, cone-like fruits. They are highly adaptable and often found along coastlines and riverbanks, where they help prevent erosion. The wood is extremely hard and was historically used for tool handles and fencing."
      },
      {
       "street": "Correa Way",
-      "namesake": "Correa (named for José Francisco Corrêa da Serra)",
-      "clue": "I am a small shrub with bell-shaped flowers, often visited by honeyeaters. My name honors a Portuguese botanist who never set foot in Australia.",
+      "namesake": "Correa (Native Fuchsia)",
+      "clue": "This plant, also known as the native fuchsia, has tubular bell-shaped flowers that hang down, attracting honeyeaters and other birds.",
       "options": [
-       "Correa (named for José Francisco Corrêa da Serra)",
-       "Bauhinia (named for the Bauhin brothers)",
-       "Banksia (named for Joseph Banks)"
+       "Correa (Native Fuchsia)",
+       "Leptospermum (Tea Tree)",
+       "Kunzea"
       ],
-      "tidbit": "Correa flowers come in a range of colors from green to red, and are also called 'native fuchsias' for their tubular shape.",
-      "explainer": "Correa is a genus of about 11 species, all endemic to Australia. The genus was named in honor of José Francisco Corrêa da Serra, a Portuguese botanist and politician who was a friend of the English botanist James Edward Smith. Correas are small, evergreen shrubs with attractive, pendulous, bell-shaped flowers that are a favorite of honeyeaters. They are popular in gardens for their hardiness and long flowering period."
+      "tidbit": "Correa flowers come in a range of colors from pale green to deep red, and some species are used in bush food cuisine.",
+      "explainer": "Correa is a genus of evergreen shrubs endemic to Australia, commonly known as native fuchsias due to their pendulous, tubular flowers. They are part of the citrus family, Rutaceae, and are prized in gardens for their resilience and ability to attract wildlife. The genus was named after José Francisco Corrêa da Serra, a Portuguese botanist. Many hybrids and cultivars have been developed for horticulture, making them popular in landscaping."
      }
     ]
    },
