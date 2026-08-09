@@ -34,6 +34,7 @@ from __future__ import annotations
 import json
 import os
 import random
+import re
 import sys
 from pathlib import Path
 
@@ -141,7 +142,7 @@ THEME_RULES: list[tuple[str, str, list[str]]] = [
      ["eton", "harrow", "rugby", "cambridge", "oxford", "trinity", "balliol",
       "winchester", "charterhouse"]),
     ("British Towns & Rivers", "streets named after English towns, counties and rivers",
-     ["thames", "severne", "trent", "mersey", "arundel", "chichester",
+     ["thames", "severn", "trent", "mersey", "arundel", "chichester",
       "worthing", "sussex", "norfolk", "suffolk", "essex", "hampstead",
       "kensington", "wimbledon", "ealing", "fulham", "dorset", "somerset",
       "gloucester", "warwick", "wessex", "anglia", "chelsea", "balham"]),
@@ -268,19 +269,24 @@ def match_themes(suburb: str, streets: list[str]) -> list[dict]:
     return found
 
 
-def run_match(streets_by_suburb: dict[str, list[str]]) -> dict[str, dict]:
-    results: dict[str, dict] = {}
+def run_match(streets_by_suburb: dict[str, list[str]],
+              existing: dict[str, dict] | None = None) -> dict[str, dict]:
+    """Layer 1 matching. MERGES into any existing match file so Layer 2a
+    discoveries and no-theme tombstones are preserved (re-running --match
+    must not wipe them)."""
+    results = {s: v for s, v in (existing or {}).items()}
     for suburb, streets in sorted(streets_by_suburb.items()):
         matches = match_themes(suburb, streets)
         if matches:
             results[suburb] = matches
     MATCH_JSON.write_text(json.dumps(results, indent=1, ensure_ascii=False),
                           encoding="utf-8")
-    print(f"[match] {len(results)} suburbs with a Layer-1 theme")
-    for suburb, matches in sorted(results.items()):
+    themed = {s: v for s, v in results.items() if v}
+    print(f"[match] {len(themed)} themed suburbs (Layer 1 refreshed in place)")
+    for suburb, matches in sorted(themed.items()):
         for m in matches:
             print(f"  {suburb:24s} {m['theme']:28s} {len(m['streets'])} streets")
-    return results
+    return themed
 
 
 # --------------------------------------------------------------------------- #
@@ -414,7 +420,78 @@ def _json_from(text: str) -> dict:
     return json.loads(text)
 
 
-def gen_clues(client: OpenAI, suburb: str, match: dict) -> dict | None:
+def _round_leak(r: dict, suburb: str) -> str | None:
+    """Return a reason string if a round is broken (leaks the street or
+    suburb name, or has colliding options), else None."""
+    clue_low = r["clue"].lower()
+    exp_low = r["explainer"].lower()
+    for tok in set(suburb.split() + r["street"].split()):
+        if len(tok) <= 3:
+            continue
+        if re.search(rf"\b{re.escape(tok.lower())}\b", clue_low):
+            return f"token '{tok}' leaked into clue"
+    if re.search(rf"\b{re.escape(suburb.lower())}\b", exp_low):
+        return "suburb name in explainer"
+    base = r["namesake"].lower().strip()
+    for o in r["options"]:
+        ol = o.lower().strip()
+        if o != r["namesake"] and (ol in base or base in ol):
+            return f"option '{o}' collides with namesake"
+    return None
+
+
+def _clean_rounds(raw_rounds: list, suburb: str, streets: list[str],
+                  max_rounds: int) -> list:
+    """Verify + normalise LLM rounds: only theme streets, 3 options with the
+    namesake present, distinct namesakes, no leaks. Keeps first-seen order
+    (the LLM orders rounds most-famous-first)."""
+    known = set(streets)
+    by_namesake: dict[str, dict] = {}
+    for raw in raw_rounds:
+        street = (raw.get("street") or "").strip()
+        if street not in known:
+            continue
+        namesake = (raw.get("namesake") or "").strip()
+        clue = (raw.get("clue") or "").strip()
+        explainer = (raw.get("explainer") or "").strip()
+        tidbit = (raw.get("tidbit") or "").strip()
+        options = [str(o).strip() for o in (raw.get("options") or [])
+                   if str(o).strip()]
+        if not (namesake and clue and explainer and len(options) >= 2):
+            continue
+        if namesake not in options:
+            options.insert(0, namesake)
+        options = options[:3]
+        round_ = {
+            "street": street, "namesake": namesake, "clue": clue,
+            "options": options, "tidbit": tidbit, "explainer": explainer,
+        }
+        if namesake in by_namesake:
+            continue  # duplicate namesake in this puzzle — drop it
+        if _round_leak(round_, suburb):
+            continue
+        rng = random.Random(f"{suburb}|{street}")
+        rng.shuffle(round_["options"])
+        by_namesake[namesake] = round_
+        if len(by_namesake) >= max_rounds:
+            break
+    return list(by_namesake.values())
+
+
+STRICT_EXTRA = (
+    "CRITICAL additional rules for this generation:\n"
+    "- Every round MUST have a DIFFERENT namesake — never reuse the same "
+    "person, place or thing across rounds.\n"
+    "- NEVER write the street's own name, the suburb name, or any word of "
+    "the suburb name anywhere in a clue, tidbit or explainer.\n"
+    "- The 3 options must be clearly distinct — no option may be a "
+    "substring of the namesake or vice versa (e.g. 'Acacia' is not a "
+    "distractor for 'Acacia (Wattle)').\n"
+    "- The background must not name the suburb.\n"
+)
+
+
+def gen_clues(client: OpenAI, suburb: str, match: dict, strict: bool = False) -> dict | None:
     streets = [s for s in match["streets"]]
     payload = (
         f"Suburb: {suburb}\n"
@@ -423,6 +500,8 @@ def gen_clues(client: OpenAI, suburb: str, match: dict) -> dict | None:
         f"Streets that follow the theme (choose 5):\n"
         + "\n".join(streets)
     )
+    if strict:
+        payload += "\n\n" + STRICT_EXTRA
     resp = client.chat.completions.create(
         model=DEEPSEEK_MODEL,
         messages=[{"role": "system", "content": CLUES_SYSTEM},
@@ -432,46 +511,18 @@ def gen_clues(client: OpenAI, suburb: str, match: dict) -> dict | None:
     )
     data = _json_from(resp.choices[0].message.content)
 
-    # verify + normalise: only theme streets, 5 rounds, 3 options each
-    known = set(streets)
-    rounds = []
-    for r in data.get("rounds") or []:
-        street = (r.get("street") or "").strip()
-        if street not in known:
-            continue
-        namesake = (r.get("namesake") or "").strip()
-        clue = (r.get("clue") or "").strip()
-        explainer = (r.get("explainer") or "").strip()
-        tidbit = (r.get("tidbit") or "").strip()
-        options = [str(o).strip() for o in (r.get("options") or [])
-                   if str(o).strip()]
-        if not (namesake and clue and explainer and len(options) >= 2):
-            continue
-        if namesake not in options:
-            options.insert(0, namesake)
-        options = options[:3]
-        rng = random.Random(f"{suburb}|{street}")
-        rng.shuffle(options)
-        rounds.append({
-            "street": street, "namesake": namesake, "clue": clue,
-            "options": options, "tidbit": tidbit, "explainer": explainer,
-        })
-        if len(rounds) >= ROUNDS_PER_SUBURB:
-            break
-
+    rounds = _clean_rounds(data.get("rounds") or [], suburb, streets,
+                           ROUNDS_PER_SUBURB)
     if len(rounds) < ROUNDS_PER_SUBURB:
-        # deterministic fallback: fill from remaining theme streets
-        used = {r["street"] for r in rounds}
-        fallback = [s for s in streets if s not in used]
-        for s in fallback[: ROUNDS_PER_SUBURB - len(rounds)]:
-            rounds.append({
-                "street": s, "namesake": s.split()[0], "clue": s,
-                "options": [s.split()[0]], "tidbit": "", "explainer": s,
-            })
+        return None  # caller retries with strict=True, or skips
+
+    background = (data.get("background") or "").strip()
+    if re.search(rf"\b{re.escape(suburb.lower())}\b", background.lower()):
+        background = ""
 
     return {
         "theme": match["theme"],
-        "background": (data.get("background") or "").strip(),
+        "background": background,
         "reveal": (data.get("reveal") or f"It was {suburb}.").strip(),
         "rounds": rounds,
     }
@@ -483,7 +534,8 @@ def _theme_slug(label: str) -> str:
 
 def run_clues(client: OpenAI, matches: dict[str, dict]) -> dict[str, dict]:
     """Generate one puzzle per theme (multi-themed suburbs get several; the
-    game picks one at random). Cached per suburb+theme."""
+    game picks one at random). Cached per suburb+theme. A theme whose puzzle
+    can't reach 5 clean rounds is skipped (logged), not force-filled."""
     CLUES_DIR.mkdir(parents=True, exist_ok=True)
     for suburb, match_list in sorted(matches.items()):
         for match in match_list:
@@ -493,10 +545,17 @@ def run_clues(client: OpenAI, matches: dict[str, dict]) -> dict[str, dict]:
             if out_path.exists():
                 print(f"[clues] {suburb} / {match['theme']}: cached")
                 continue
+            data = None
             try:
                 data = gen_clues(client, suburb, match)
+                if data is None:
+                    print(f"[clues] {suburb} / {match['theme']}: <5 clean rounds — retrying strict")
+                    data = gen_clues(client, suburb, match, strict=True)
             except Exception as e:
                 print(f"[clues] {suburb} / {match['theme']} failed: {e}")
+                continue
+            if data is None:
+                print(f"[clues] {suburb} / {match['theme']}: cannot make 5 clean rounds — skipped")
                 continue
             out_path.write_text(json.dumps(data, indent=1, ensure_ascii=False),
                                 encoding="utf-8")
@@ -558,7 +617,12 @@ def main() -> int:
 
     matches: dict[str, dict] = {}
     if do_match:
-        matches = run_match(streets_by_suburb)
+        # keep any existing discoveries/tombstones; refresh Layer 1 in place
+        existing = {}
+        if MATCH_JSON.exists():
+            raw = json.loads(MATCH_JSON.read_text(encoding="utf-8"))
+            existing = {s: v for s, v in raw.items() if v}
+        matches = run_match(streets_by_suburb, existing)
     elif MATCH_JSON.exists():
         # loaded map may contain empty-list tombstones (checked, no theme)
         raw = json.loads(MATCH_JSON.read_text(encoding="utf-8"))

@@ -264,7 +264,6 @@ def layout() -> html.Div:
                             "borderRadius": "8px", "color": "#00695C",
                             "fontSize": "14px", "lineHeight": 1.5, "margin": "10px 0 16px",
                             "border": "1px solid #B2DFDB"}),
-            html.Div(id="streets-street-cards"),
             html.Div(id="streets-play", children=_round_ui(state, [])),
             dcc.Store(id="streets-state", data=state),
         ],
