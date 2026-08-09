@@ -5,7 +5,9 @@ character tags (e.g. "trust fund punks", "$9 oat lattes") sourced from
 r/melbourne, melbz.com.au, eMelbourne, Wikipedia and the ABS census, and
 summarised by DeepSeek. Inspired by hoodmaps.com but sourced from real community
 data, not generic demographics. Ships with **Suburble**, a daily Worldle-style
-suburb-guessing game at `/play`. See also `README.md` (user-facing).
+suburb-guessing game at `/play`, and **Streetwise**, a street-theme guessing
+game at `/streets` (name the person/thing a suburb's streets are named after).
+See also `README.md` (user-facing).
 
 ## Stack
 
@@ -116,14 +118,16 @@ melb_map/
 ├── .gitignore              # excludes .env and data/raw/
 ├── CLAUDE.md               # this file
 ├── README.md               # user-facing docs
-├── app.py                  # Dash app entry point (map + panel + /play routing)
+├── app.py                  # Dash app entry point (map + panel + /play + /streets routing)
 ├── suburble.py             # Suburble daily guessing game (routes under /play)
+├── streets.py              # Streetwise street-theme game (routes under /streets)
 ├── data/
 │   ├── boundaries.geojson  # 133 suburb polygons, WGS84
 │   ├── context_boundaries.geojson  # grey basemap: non-target suburbs behind map
 │   ├── suburb_list.txt     # canonical suburb names (one per line)
 │   ├── suburbs.json        # vibes/tags/quotes/census/mascot per suburb
-│   └── raw/                # gitignored: ABS zip + per-suburb Reddit caches + _meta.json
+│   ├── street_themes.json  # Streetwise corpus: per-suburb puzzles (46 suburbs, 65 puzzles)
+│   └── raw/                # gitignored: ABS zip + pbf + per-suburb caches + _meta.json
 │       └── {melbz,emelbourne,wikipedia}/   # per-suburb scraped caches
 ├── assets/
 │   ├── flags/              # local flag SVGs (CORS-safe) for census panel
@@ -143,6 +147,7 @@ melb_map/
     ├── expand_quotes.py    # surgical quote re-extraction (~15 verbatim quotes/suburb)
     ├── imagegen.py         # pluggable image gen (Pollinations / Replicate)
     ├── mascots.py          # generate mascot images for suburbs
+    ├── street_themes.py    # Streetwise corpus: OSM pbf → per-suburb streets → themes → clues
     └── refresh.py          # orchestrator: boundaries → scrape all → summarise
 ```
 
@@ -175,6 +180,9 @@ uv run --with openpyxl --with pyshp python -u -m scrape.census --all
 
 # Quote surgery (after summarise; only rewrites quotes + top_quote)
 uv run python -u -m scrape.expand_quotes --all
+
+# Streetwise corpus (OSM pbf → themes → DeepSeek clues → data/street_themes.json)
+uv run python -u -m scrape.street_themes --all
 
 # Everything in one go (boundaries → all scrapes → summarise)
 uv run python -u -m scrape.refresh
@@ -225,7 +233,25 @@ buffered and you can't see progress until the process exits.
 - **Click → side panel** via Dash callback on `clickData`. Hover via
   `customdata` in the choropleth trace. Suburble is self-contained
   (`suburble.py`) — `app.py` calls `init()` once, routes `/play`, no import
-  cycle.
+  cycle. Streetwise follows the same pattern (`streets.py`, route `/streets`).
+- **Streetwise corpus data source = BBBike Melbourne OSM extract** (`.osm.pbf`,
+  ~88 MB, download.bbbike.org, cached in `data/raw/`), parsed with pyosmium and
+  attributed to our ABS polygons via shapely point-in-polygon. Overpass was
+  prototyped first but the public instance rate-limits/504s under sustained
+  load; the pbf is one download, fully local, deterministic. The OSM website
+  `/api/0.6/map` endpoint is unusable (50k-element cap exceeded by any dense
+  suburb). Street names © OpenStreetMap contributors (ODbL) — credited in the
+  game footer.
+- **Streetwise themes, three layers**: Layer 1 keyword/suffix matching against
+  a curated dictionary (zero cost; includes pattern themes like Glenroy's
+  "-ana" ANA estate, matched on the base name after stripping road suffixes —
+  "Menana Road" → "menana"). Layer 2a DeepSeek discovers NOVEL themes in
+  unmatched suburbs (bonus: Ashburton WWII battles, Port Melbourne aircraft,
+  Mernda Renaissance artists, Murrumbeena Arthurian). Layer 2b DeepSeek writes
+  the 5 clue rounds per theme (clue/namesake/2 same-category distractors/
+  tidbit/3-4 sentence explainer). Street names are ALWAYS verified against the
+  OSM attribution — the LLM never invents streets. Multi-theme suburbs
+  (Sunbury: 8, Point Cook: 4) get one puzzle per theme.
 
 ## Mascots
 
@@ -276,6 +302,22 @@ Ripponlea, Balaclava via Replicate, ~$0.50) — 122 remaining, pending go-ahead.
       flags and mascot image (if present) + mascot bio
 - [x] `suburble.py` — daily guessing game at `/play` (6 guesses, distance +
       8-point direction + proximity %, shareable emoji grid)
+- [x] **Streetwise game** — `streets.py` at `/streets` + `docs/streets.html`/
+      `streets.js` static port. 1 suburb per game, 5 rounds, 3-option
+      namesake chiclets, 2 attempts (100/50/25 scoring), hints halve points,
+      explainers on reveal, share grid, play-again.
+- [x] `scrape/street_themes.py` — Streetwise corpus pipeline: BBBike Melbourne
+      pbf (~88 MB) → pyosmium + shapely attribution to our ABS polygons
+      (24k streets, 127 suburbs) → Layer 1 keyword/suffix matching →
+      Layer 2a DeepSeek novel-theme discovery → Layer 2b DeepSeek clue rounds
+      (street names always verified against the OSM attribution). Per-stage
+      caching in `data/raw/`, resumable.
+- [x] `data/street_themes.json` — **46 playable suburbs / 65 puzzles**:
+      Elwood poets (28 streets), Coburg North camera estate (11), Glenroy ANA
+      "-ana" estate, Balaclava-region Crimean War, Sunbury (8 themes), Point
+      Cook (4), plus novel discoveries: Ashburton WWII, Port Melbourne
+      aircraft, Mernda Renaissance artists, Murrumbeena Arthurian, Hampton
+      WWI, Fawkner/Flemington English towns, Balwyn North constellations.
 - [x] All 133 suburbs summarised with full schema (nickname, tags, vibe, lore,
       history, top_quote, quotes, census, mascot)
 - [x] `scrape/imagegen.py` + `scrape/mascots.py` — pluggable image gen
@@ -294,6 +336,11 @@ Ripponlea, Balaclava via Replicate, ~$0.50) — 122 remaining, pending go-ahead.
 
 ## Risks / things to watch
 
+- **Streetwise corpus staleness** — the pbf is a one-time snapshot; street
+  names change slowly, but a re-run of `scrape.street_themes --all` refreshes
+  everything (fetch stage is cached, ~10 min total). The Overpass public
+  instance is too flaky for batch work (rate_limited 406s + 504s observed) —
+  it's a fallback only.
 - **Reddit content thinness** for less-discussed suburbs (e.g. Aberfeldie,
   many outer suburbs). The meta-thread scrape directly addresses this — most
   suburbs get named in cross-suburb discussions even when they have few

@@ -6,6 +6,8 @@ An interactive map of 133 Melbourne suburbs — the things locals joke about, ar
 
 **[🎮 Play Suburble](https://jay-stein.github.io/melb_map/play.html)** — guess the mystery suburb from its shape, daily.
 
+**[🕵️ Play Streetwise](https://jay-stein.github.io/melb_map/streets.html)** — name the person or thing a suburb's streets are named after; five clues, one suburb.
+
 ---
 
 ## What it is
@@ -76,24 +78,42 @@ uv run python -u -m scrape.refresh
 
 A daily Wordle-style game at `/play`. Guess the mystery Melbourne suburb from its decontextualised map silhouette. Each wrong guess tells you how far away you were and in which direction. Six guesses, shareable emoji grid.
 
+## Streetwise
+
+A street-theme guessing game at `/streets` (and `streets.html` on the static site). One suburb per game, five rounds. Each round shows a clue about the person or thing one of the suburb's streets is named after — a quote, a riddle, or a description — and you pick the namesake from three options (two attempts). Hints cost points but reveal a tidbit. After five streets, the theme and the suburb are revealed.
+
+The corpus (`data/street_themes.json`, 46 suburbs / 65 puzzles) is built by `scrape/street_themes.py`:
+
+1. **Fetch** — downloads the [BBBike Melbourne OSM extract](https://download.bbbike.org/osm/bbbike/Melbourne/Melbourne.osm.pbf) (~88 MB, cached in `data/raw/`), attributes every named street to our 133 ABS suburb polygons via pyosmium + shapely.
+2. **Match** — zero-cost keyword + suffix-pattern theme matching (poets, composers, gems, the Glenroy "-ana" ANA estate, the Coburg North camera estate…).
+3. **Discover** — DeepSeek finds *novel* themes in suburbs the dictionary missed (e.g. Ashburton's WWII battles, Port Melbourne's aircraft, Mernda's Renaissance artists).
+4. **Clues** — DeepSeek writes the five rounds per theme: clue, namesake, two same-category distractors, tidbit, and a 3–4 sentence explainer. Street names are always verified against the OSM attribution — the LLM never invents streets.
+
+```
+uv run python -u -m scrape.street_themes --all   # full rebuild (~10 min)
+```
+
 ## Project layout
 
 ```
 melb_map/
 ├── app.py                  # Dash app + map + panel rendering
 ├── suburble.py             # Daily suburb guessing game
+├── streets.py              # Streetwise street-theme guessing game
 ├── scrape/
 │   ├── reddit.py           # Reddit HTML scraper (polite, no API key)
 │   ├── melbz.py            # melbz.com.au scraper
 │   ├── summarize.py        # DeepSeek summariser
 │   ├── census.py           # ABS census LQ quirks + flag ISO codes
 │   ├── boundaries.py       # ABS SAL shapefile → boundaries.geojson
+│   ├── street_themes.py    # Streetwise corpus (OSM pbf → themes → clues)
 │   ├── imagegen.py         # Pluggable image gen (Pollinations / Replicate)
 │   ├── mascots.py          # Suburb mascot image generation
 │   └── refresh.py          # Full pipeline orchestrator
 ├── data/
 │   ├── boundaries.geojson  # 133 suburb polygons (WGS84)
 │   ├── suburbs.json        # Vibes, tags, lore, census, mascots per suburb
+│   ├── street_themes.json  # Streetwise corpus (46 suburbs, 65 puzzles)
 │   └── suburb_list.txt     # Canonical suburb names
 └── assets/
     ├── flags/              # 51 local flag SVGs (CORS-safe)
