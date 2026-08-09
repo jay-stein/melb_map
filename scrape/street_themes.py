@@ -544,9 +544,12 @@ THEME_CANON: dict[str, str] = {
     "English Towns": "British Towns & Rivers",
     "English Towns/Villages": "British Towns & Rivers",
     "British Towns/Suburbs": "British Towns & Rivers",
-    "Aircraft": "Aviation Pioneers & Aircraft",
-    "World War I Battles": "War Battles & Aircraft",
-    "World War II Battles and Aircraft": "War Battles & Aircraft",
+    "Aircraft": "Aviation & Aircraft",
+    "Aviation Pioneers & Aircraft": "Aviation & Aircraft",
+    "ANA Aviation Estate": "Aviation & Aircraft",
+    "World War I Battles": "Wars & Battles",
+    "World War II Battles and Aircraft": "Wars & Battles",
+    "Crimean War": "Wars & Battles",
     "Constellations/Stars": "Astronomy & Space",
     "Renaissance Artists/Writers": "Renaissance Artists & Writers",
 }
@@ -563,9 +566,9 @@ def canon_theme(label: str) -> str:
 THEME_CANON_DESC: dict[str, str] = {
     "British Towns & Rivers": "streets named after English and British towns, "
                               "counties, villages and rivers",
-    "Aviation Pioneers & Aircraft": "streets named after aviation pioneers, "
-                                    "airlines and aircraft",
-    "War Battles & Aircraft": "streets named after war battles and military aircraft",
+    "Aviation & Aircraft": "streets named after aviation pioneers, airlines, "
+                           "aircraft and aviation estates",
+    "Wars & Battles": "streets named after wars, battles and campaigns",
     "Astronomy & Space": "streets named after stars, constellations and space concepts",
     "Renaissance Artists & Writers": "streets named after Renaissance artists and writers",
 }

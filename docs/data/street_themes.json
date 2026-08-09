@@ -73,7 +73,7 @@
  "Ashburton": {
   "puzzles": [
    {
-    "theme": "War Battles & Aircraft",
+    "theme": "Wars & Battles",
     "background": "In the mid-20th century, many new Melbourne suburbs honored the global conflict that had just reshaped the world. Here, every street name commemorates a World War II battle or a military aircraft.",
     "reveal": "It was Ashburton — where the streets recall the battles and planes of World War II.",
     "rounds": [
@@ -428,7 +428,7 @@
  "Braybrook": {
   "puzzles": [
    {
-    "theme": "Aviation Pioneers & Aircraft",
+    "theme": "Aviation & Aircraft",
     "background": "In a western suburb of Melbourne, a post-war housing estate was built with streets named after aircraft and aviation pioneers. Each street here commemorates the machines and people of flight.",
     "reveal": "It was Braybrook — where every street soars with aviation history.",
     "rounds": [
@@ -775,7 +775,7 @@
  "Caulfield North": {
   "puzzles": [
    {
-    "theme": "Crimean War",
+    "theme": "Wars & Battles",
     "background": "In the mid-19th century, a wave of patriotic fervor swept the British Empire after the Crimean War. This suburb's streets commemorate the war's key battles, fortresses, and commanders.",
     "reveal": "It was Caulfield North — where the streets echo the thunder of the Crimean War.",
     "rounds": [
@@ -1619,7 +1619,7 @@
  "Glenroy": {
   "puzzles": [
    {
-    "theme": "ANA Aviation Estate",
+    "theme": "Aviation & Aircraft",
     "background": "In the postwar years, a housing estate rose near a major airport, with every street name ending in 'ana' to honor the aviation company that built homes for its workers.",
     "reveal": "It was Glenroy — where every street pays tribute to the pioneering Australian National Airways.",
     "rounds": [
@@ -1828,7 +1828,7 @@
  "Hampton": {
   "puzzles": [
    {
-    "theme": "War Battles & Aircraft",
+    "theme": "Wars & Battles",
     "background": "In the aftermath of the Great War, many Australian suburbs honored the conflict by naming streets after its pivotal battles and campaigns. Here, every street evokes a moment from the Western Front or the broader war effort.",
     "reveal": "It was Hampton — where the streets echo the thunder of World War I battles.",
     "rounds": [
@@ -2739,7 +2739,7 @@
     ]
    },
    {
-    "theme": "Aviation Pioneers & Aircraft",
+    "theme": "Aviation & Aircraft",
     "background": "In this Melbourne suburb, the streets pay tribute to the daring men and women who took to the skies, and the legendary machines that carried them.",
     "reveal": "It was Point Cook — where every street is a tribute to flight.",
     "rounds": [
@@ -2944,7 +2944,7 @@
  "Port Melbourne": {
   "puzzles": [
    {
-    "theme": "Aviation Pioneers & Aircraft",
+    "theme": "Aviation & Aircraft",
     "background": "In this bayside suburb, the streets pay tribute to the aircraft that shaped aviation history, from pioneering fighters to experimental drones.",
     "reveal": "It was Port Melbourne — where every street is named after an aircraft.",
     "rounds": [
@@ -3366,7 +3366,7 @@
  "St Kilda East": {
   "puzzles": [
    {
-    "theme": "Crimean War",
+    "theme": "Wars & Battles",
     "background": "In the 1850s, a wave of patriotism swept the British Empire after the Crimean War. This suburb's streets commemorate the war's key battles, fortresses, and heroes.",
     "reveal": "It was St Kilda East — where every street echoes the Crimean War.",
     "rounds": [
