@@ -103,6 +103,11 @@ function check(cond, msg) { if (!cond) failures.push(msg); }
   await wait(10);
   const finale = play().innerHTML;
   check(finale.includes("finale-title"), "finale rendered");
+  check(finale.includes("sw-trophy"), "trophy in finale");
+  check(finale.includes("sw-confetti"), "confetti in finale");
+  check(finale.includes("sw-balloon"), "balloons in finale");
+  check(finale.includes("sw-reveal-card"), "reveal card in finale");
+  check(finale.includes("finale-headline"), "celebration headline in finale");
   check(finale.includes('id="themes-btn"'), "finale has More themes button");
   check(finale.includes('id="share-btn"'), "finale has share button");
   check(finale.includes("grid-pre"), "share grid present");

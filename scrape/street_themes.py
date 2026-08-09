@@ -532,6 +532,37 @@ def _theme_slug(label: str) -> str:
     return "".join(c if c.isalnum() else "_" for c in label.lower()).strip("_")
 
 
+_SMALL_WORDS = {"a", "an", "and", "as", "at", "by", "for", "from", "in",
+                "of", "on", "or", "the", "to", "with", "vs", "via"}
+_ROMAN_NUMS = {"i", "ii", "iii", "iv", "v", "vi"}
+
+
+def title_case(label: str) -> str:
+    """'World War II battles and aircraft' -> 'World War II Battles and
+    Aircraft'. Keeps all-caps acronyms (ANA) and Roman numerals (II) intact,
+    lowercases small words unless first."""
+    parts = re.split(r"([\s/\-]+)", label)
+    out = []
+    for i, part in enumerate(parts):
+        if not part:
+            continue
+        if re.fullmatch(r"[\s/\-]+", part):
+            out.append(part)
+            continue
+        if part.isupper():
+            out.append(part)
+            continue
+        low = part.lower()
+        is_first = (i == 0)
+        if low in _SMALL_WORDS and not is_first:
+            out.append(low)
+        elif low in _ROMAN_NUMS:
+            out.append(low.upper())
+        else:
+            out.append(part[:1].upper() + part[1:].lower())
+    return "".join(out)
+
+
 def run_clues(client: OpenAI, matches: dict[str, dict]) -> dict[str, dict]:
     """Generate one puzzle per theme (multi-themed suburbs get several; the
     game picks one at random). Cached per suburb+theme. A theme whose puzzle
@@ -570,6 +601,7 @@ def build(clues: dict[str, dict]) -> None:
         suburb, _, _ = path.stem.partition("__")
         suburb = suburb.replace("_", " ")
         data = json.loads(path.read_text(encoding="utf-8"))
+        data["theme"] = title_case(data["theme"])  # canonical label
         if len(data.get("rounds") or []) < ROUNDS_PER_SUBURB:
             print(f"[build] skipping {path.name}: {len(data.get('rounds') or [])} rounds")
             continue

@@ -1,10 +1,17 @@
-"""Corpus QA scan: detect malformed or leaky rounds in data/street_themes.json."""
+"""Corpus QA scan: detect malformed or leaky rounds in data/street_themes.json,
+plus theme-label casing and icon coverage checks."""
 import json
 import re
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from scrape.street_themes import title_case
+import streets
+
 corpus = json.loads(Path("data/street_themes.json").read_text(encoding="utf-8"))
+suburbs = json.loads(Path("data/suburbs.json").read_text(encoding="utf-8"))
+streets.init(corpus, suburbs)
 issues = 0
 
 
@@ -14,9 +21,17 @@ def report(suburb, theme, msg):
     print(f"  [{suburb} / {theme}] {msg}")
 
 
+seen_themes = set()
 for suburb, entry in sorted(corpus.items()):
     for p in entry["puzzles"]:
         theme = p["theme"]
+        seen_themes.add(theme)
+        # casing: labels must be canonical title case
+        if theme != title_case(theme):
+            report(suburb, theme, f"theme label not title-cased: '{theme}'")
+        # every theme must have a proper icon (not the generic fallback)
+        if streets.theme_icon(theme) == "🧩":
+            report(suburb, theme, f"no icon mapped for theme")
         if not p.get("background") or len(p["background"]) < 20:
             report(suburb, theme, "background missing/too short")
         if not p.get("reveal"):
@@ -62,7 +77,7 @@ for suburb, entry in sorted(corpus.items()):
                     report(suburb, theme, f"round {street}: option '{o}' is substring of namesake")
 
 if issues == 0:
-    print("CLEAN — no issues found")
+    print(f"CLEAN — no issues found ({len(seen_themes)} themes, all title-cased with icons)")
 else:
     print(f"{issues} issue(s) found")
 sys.exit(1 if issues else 0)
