@@ -124,7 +124,8 @@ THEME_RULES: list[tuple[str, str, list[str]]] = [
       "comet", "centaurus", "nebula", "aurora", "eclipse", "zenith",
       "cosmos", "meteor", "nova", "astral", "stellar", "andromeda",
       "cygnus", "lyra", "vega", "mars", "saturn", "jupiter", "mercury",
-      "venus", "pluto"]),
+      "venus", "pluto", "aquila", "leonis", "libra", "pavo", "taurus",
+      "ursa", "antares", "rigel", "arcturus"]),
     ("Greco-Roman Mythology", "streets named after ancient gods and mythical figures",
      ["apollo", "neptune", "vulcan", "minerva", "olympus", "athena", "zeus",
       "hermes", "diana", "juno", "triton", "achilles", "hercules", "atlas",
@@ -132,7 +133,13 @@ THEME_RULES: list[tuple[str, str, list[str]]] = [
       "thor", "odin", "loki", "valkyrie", "asgard", "midgard", "norse"]),
     ("Arthurian Legend", "streets named after Camelot and the Knights of the Round Table",
      ["camelot", "guinevere", "lancelot", "excalibur", "merlin", "pendragon",
-      "avalon", "galahad", "mordred", "gawain", "percival", "tristan"]),
+      "avalon", "galahad", "mordred", "gawain", "percival", "tristan",
+      "armour", "banner", "castle", "champion", "chivalry", "courage",
+      "crusader", "dinadan", "gareth", "gauntlet", "grail", "hector",
+      "herald", "jousting", "knights", "le fey", "legend", "morgan",
+      "percivale", "plume", "quest", "rampart", "sagramore", "shalott",
+      "shield", "spear", "squire", "tristram", "valiant", "vigil",
+      "king arthur"]),
     ("Aviation Pioneers & Aircraft", "streets named after aviation pioneers, airlines and aircraft",
      ["avro", "fokker", "catalina", "ansett", "kingsford", "hargrave",
       "hawker", "spitfire", "mustang", "boeing", "douglas", "lockheed",
@@ -145,10 +152,24 @@ THEME_RULES: list[tuple[str, str, list[str]]] = [
      ["thames", "severn", "trent", "mersey", "arundel", "chichester",
       "worthing", "sussex", "norfolk", "suffolk", "essex", "hampstead",
       "kensington", "wimbledon", "ealing", "fulham", "dorset", "somerset",
-      "gloucester", "warwick", "wessex", "anglia", "chelsea", "balham"]),
-    ("Golf Courses", "streets named after famous golf courses and golfing legends",
+      "gloucester", "warwick", "wessex", "anglia", "chelsea", "balham",
+      "chatham", "dartford", "dover", "farnham", "finsbury", "newmarket",
+      "norwood", "tunbridge", "canterbury", "clapham", "dalston",
+      "paddington", "willesden", "swindon", "crewe", "euston", "bletchley",
+      "bowmore", "kelvinside", "skipton", "camden", "callander",
+      "dumblane", "ardgour"]),
+    ("Golf Courses", "streets named after famous golf courses, golfing legends and golfing terms",
      ["augusta", "st andrews", "pebble", "troon", "carnoustie", "wentworth",
-      "muirfield", "lytham", "gleneagles", "birkdale", "sunningdale"]),
+      "muirfield", "lytham", "gleneagles", "birkdale", "sunningdale",
+      "bunker", "fairway", "tee", "niblick", "stymie", "driver", "wedge"]),
+    ("Victorian Rivers & Towns", "streets named after Victorian rivers and regional river towns",
+     ["acheron", "barwon", "goulburn", "loddon", "wimmera", "kyneton",
+      "kerang", "gisborne", "kilmore", "mcivor", "rubicon", "tambo",
+      "charlton", "erskine", "genoa", "nicholson"]),
+    ("Cricketers", "streets named after famous Australian cricketers",
+     ["bradman", "chappell", "warne", "benaud", "lillee", "gilchrist",
+      "woodfull", "lawry", "hassett", "murdoch", "yallop", "harvey",
+      "border", "darling"]),
     ("Olympic Games", "streets named after Olympic champions and games motifs",
      ["olympic", "marathon", "flack", "landy", "cuthbert"]),
     ("Prime Ministers", "streets named after Australian prime ministers and federal leaders",
@@ -248,7 +269,10 @@ def attribute_streets() -> dict[str, list[str]]:
 # stage 2: Layer 1 matching
 # --------------------------------------------------------------------------- #
 def _match_keywords(base: str, keywords: list[str]) -> bool:
-    return any(k in base for k in keywords)
+    # word-boundary match so "trott" can't hit "Trotting Place", "eton" can't
+    # hit "Singleton", and "milton" can't hit "Emilton"; multi-word keywords
+    # like "phar lap" / "king arthur" still work.
+    return any(re.search(rf"\b{re.escape(k)}\b", base) for k in keywords)
 
 
 def match_themes(suburb: str, streets: list[str]) -> list[dict]:
@@ -271,14 +295,20 @@ def match_themes(suburb: str, streets: list[str]) -> list[dict]:
 
 def run_match(streets_by_suburb: dict[str, list[str]],
               existing: dict[str, dict] | None = None) -> dict[str, dict]:
-    """Layer 1 matching. MERGES into any existing match file so Layer 2a
-    discoveries and no-theme tombstones are preserved (re-running --match
-    must not wipe them)."""
-    results = {s: v for s, v in (existing or {}).items()}
+    """Layer 1 matching. MERGES into any existing match file: Layer-1 entries
+    are refreshed (or removed when a suburb no longer qualifies), while
+    Layer-2a discoveries and no-theme tombstones are preserved."""
+    results = {s: [dict(m) for m in v] for s, v in (existing or {}).items()}
     for suburb, streets in sorted(streets_by_suburb.items()):
         matches = match_themes(suburb, streets)
         if matches:
-            results[suburb] = matches
+            results[suburb] = [dict(m, source="layer1") for m in matches]
+        elif suburb in results:
+            old = results[suburb]
+            # stale themed entry that Layer 1 no longer supports -> drop it;
+            # empty no-theme tombstones and discoveries are preserved
+            if old and old[0].get("source") != "discover":
+                del results[suburb]
     MATCH_JSON.write_text(json.dumps(results, indent=1, ensure_ascii=False),
                           encoding="utf-8")
     themed = {s: v for s, v in results.items() if v}
@@ -333,7 +363,8 @@ def discover(client: OpenAI, suburb: str, streets: list[str]) -> dict | None:
     streets_out = [s for s in streets_out if s in known]
     if not theme or len(streets_out) < MIN_CLUSTER:
         return None
-    return {"theme": theme, "desc": theme, "streets": sorted(streets_out)}
+    return {"theme": theme, "desc": theme, "streets": sorted(streets_out),
+            "source": "discover"}
 
 
 def run_discover(client: OpenAI, streets_by_suburb: dict[str, list[str]],
@@ -532,6 +563,78 @@ def _theme_slug(label: str) -> str:
     return "".join(c if c.isalnum() else "_" for c in label.lower()).strip("_")
 
 
+_SMALL_WORDS = {"a", "an", "and", "as", "at", "by", "for", "from", "in",
+                "of", "on", "or", "the", "to", "with", "vs", "via"}
+_ROMAN_NUMS = {"i", "ii", "iii", "iv", "v", "vi"}
+
+# Canonical theme labels. Layer 2a discovery often invents its own phrasing
+# for a family Layer 1 already names (e.g. "English towns/villages" vs
+# "British Towns & Rivers"); every surface label maps to ONE canonical label
+# so the theme-select chiclets never split one family into lookalikes.
+THEME_CANON: dict[str, str] = {
+    "English Towns": "British Towns & Rivers",
+    "English Towns/Villages": "British Towns & Rivers",
+    "British Towns/Suburbs": "British Towns & Rivers",
+    "Aircraft": "Aviation & Aircraft",
+    "Aviation Pioneers & Aircraft": "Aviation & Aircraft",
+    "ANA Aviation Estate": "Aviation & Aircraft",
+    "World War I Battles": "Wars & Battles",
+    "World War II Battles and Aircraft": "Wars & Battles",
+    "WWII Battles and Aircraft": "Wars & Battles",
+    "Crimean War": "Wars & Battles",
+    "Constellations/Stars": "Astronomy & Space",
+    "Renaissance Artists/Writers": "Renaissance Artists & Writers",
+    "Renaissance Artists and Writers": "Renaissance Artists & Writers",
+    "Maritime/Naval Exploration": "Maritime & Naval Exploration",
+}
+
+
+def canon_theme(label: str) -> str:
+    """Title-case the label, then fold it into its canonical family."""
+    tc = title_case(label)
+    return THEME_CANON.get(tc, tc)
+
+
+# Canonical descriptions for the consolidated families (used when re-running
+# clue generation so the LLM prompt describes the family, not one surface).
+THEME_CANON_DESC: dict[str, str] = {
+    "British Towns & Rivers": "streets named after English and British towns, "
+                              "counties, villages and rivers",
+    "Aviation & Aircraft": "streets named after aviation pioneers, airlines, "
+                           "aircraft and aviation estates",
+    "Wars & Battles": "streets named after wars, battles and campaigns",
+    "Astronomy & Space": "streets named after stars, constellations and space concepts",
+    "Renaissance Artists & Writers": "streets named after Renaissance artists and writers",
+    "Maritime & Naval Exploration": "streets named after ships, admirals, navigators and naval exploration",
+}
+
+
+def title_case(label: str) -> str:
+    """'World War II battles and aircraft' -> 'World War II Battles and
+    Aircraft'. Keeps all-caps acronyms (ANA) and Roman numerals (II) intact,
+    lowercases small words unless first."""
+    parts = re.split(r"([\s/\-]+)", label)
+    out = []
+    for i, part in enumerate(parts):
+        if not part:
+            continue
+        if re.fullmatch(r"[\s/\-]+", part):
+            out.append(part)
+            continue
+        if part.isupper():
+            out.append(part)
+            continue
+        low = part.lower()
+        is_first = (i == 0)
+        if low in _SMALL_WORDS and not is_first:
+            out.append(low)
+        elif low in _ROMAN_NUMS:
+            out.append(low.upper())
+        else:
+            out.append(part[:1].upper() + part[1:].lower())
+    return "".join(out)
+
+
 def run_clues(client: OpenAI, matches: dict[str, dict]) -> dict[str, dict]:
     """Generate one puzzle per theme (multi-themed suburbs get several; the
     game picks one at random). Cached per suburb+theme. A theme whose puzzle
@@ -541,6 +644,11 @@ def run_clues(client: OpenAI, matches: dict[str, dict]) -> dict[str, dict]:
         for match in match_list:
             if len(match["streets"]) < ROUNDS_PER_SUBURB:
                 continue
+            # canonical theme + description so generated puzzles carry the
+            # consolidated label (and caches key on it consistently)
+            match = dict(match)
+            match["theme"] = canon_theme(match["theme"])
+            match["desc"] = THEME_CANON_DESC.get(match["theme"], match.get("desc", match["theme"]))
             out_path = CLUES_DIR / f"{suburb.replace(' ', '_')}__{_theme_slug(match['theme'])}.json"
             if out_path.exists():
                 print(f"[clues] {suburb} / {match['theme']}: cached")
@@ -570,6 +678,7 @@ def build(clues: dict[str, dict]) -> None:
         suburb, _, _ = path.stem.partition("__")
         suburb = suburb.replace("_", " ")
         data = json.loads(path.read_text(encoding="utf-8"))
+        data["theme"] = canon_theme(data["theme"])  # canonical label
         if len(data.get("rounds") or []) < ROUNDS_PER_SUBURB:
             print(f"[build] skipping {path.name}: {len(data.get('rounds') or [])} rounds")
             continue

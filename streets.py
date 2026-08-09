@@ -40,31 +40,27 @@ _SQUARES = {
     "fail": "⬛",         # both attempts wrong, answer revealed
 }
 
-# Visual icon per theme for the theme-select chiclets (a theme may have
-# several surface labels from the LLM — e.g. "English towns" vs "British
-# towns/suburbs" — all map to the same icon).
+# Visual icon per theme for the theme-select chiclets. Keys are the canonical
+# theme labels enforced by the corpus build (see THEME_CANON in
+# scrape.street_themes.py); the lookup falls back to a case-insensitive match
+# so a stray casing can never lose an icon.
 THEME_ICONS: dict[str, str] = {
     "Literary Poets": "📜",
     "Native Flora": "🌿",
     "British Towns & Rivers": "🏰",
-    "English towns/villages": "🏰",
-    "British towns/suburbs": "🏰",
-    "English towns": "🏰",
     "Prime Ministers": "🏛️",
     "Astronomy & Space": "🪐",
-    "constellations/stars": "🪐",
     "Precious Gemstones": "💎",
-    "Crimean War": "💣",
-    "World War II battles and aircraft": "💣",
-    "World War I battles": "💣",
+    "Wars & Battles": "🎖️",
+    "Victorian Rivers & Towns": "💧",
+    "Cricketers": "🏏",
+    "Maritime & Naval Exploration": "🚢",
     "Arthurian Legend": "🐉",
     "Elite English Schools": "🎓",
-    "aircraft": "✈️",
-    "Aviation Pioneers & Aircraft": "✈️",
+    "Aviation & Aircraft": "✈️",
     "Viticulture & Wine": "🍷",
     "Camera & Photography": "📷",
-    "ANA Aviation Estate": "🛫",
-    "Renaissance artists/writers": "🎨",
+    "Renaissance Artists & Writers": "🎨",
     "Golf Courses": "⛳",
 }
 
@@ -81,7 +77,10 @@ def init(corpus: dict, suburbs_data: dict) -> None:
 
 
 def theme_icon(label: str) -> str:
-    return THEME_ICONS.get(label, "🧩")
+    icon = THEME_ICONS.get(label)
+    if icon is None:
+        icon = THEME_ICONS.get({k.lower(): k for k in THEME_ICONS}.get(label.lower()))
+    return icon or "🧩"
 
 
 def available_themes() -> list[tuple[str, str, int]]:
@@ -185,47 +184,128 @@ def _bg_div(state: dict) -> html.Div:
                            "border": "1px solid #B2DFDB"})
 
 
+def _celebration_copy(correct: int) -> tuple[str, str]:
+    """(headline, sub) for the finale — a fuss when the player did well."""
+    if correct == 5:
+        return "Perfect! 🎉", "5/5 streets — absolutely flawless."
+    if correct >= 4:
+        return "Congrats! 🎉", f"You got {correct}/5 streets."
+    if correct >= 3:
+        return "Nice work!", f"You got {correct}/5 streets."
+    if correct == 2:
+        return "Not bad!", f"You got {correct}/5 streets."
+    if correct == 1:
+        return "Tough streets!", f"You got {correct}/5 streets."
+    return "Brutal!", "The streets won this round."
+
+
+_CONFETTI_COLORS = ["#26A69A", "#7E57C2", "#EC407A", "#FFA726", "#66BB6A",
+                    "#D4AF37", "#42A5F5"]
+
+
+def _confetti_pieces(n: int = 42) -> list:
+    rng = random.Random(20260809)
+    return [
+        html.Div(className="sw-confetti", style={
+            "left": f"{rng.uniform(0, 100):.1f}%",
+            "width": f"{rng.uniform(6, 12):.1f}px",
+            "height": f"{rng.uniform(10, 18):.1f}px",
+            "background": rng.choice(_CONFETTI_COLORS),
+            "animationDuration": f"{rng.uniform(2.4, 4.4):.2f}s",
+            "animationDelay": f"{rng.uniform(0, 2.0):.2f}s",
+        })
+        for _ in range(n)
+    ]
+
+
+def _balloons(n: int = 8) -> list:
+    rng = random.Random(20260810)
+    return [
+        html.Div(className="sw-balloon", style={
+            "left": f"{rng.uniform(2, 90):.1f}%",
+            "animationDuration": f"{rng.uniform(7, 11):.1f}s",
+            "animationDelay": f"{rng.uniform(0, 3.0):.1f}s",
+        }, children=[
+            html.Div(className="sw-balloon-body", style={
+                "width": "44px", "height": "54px",
+                "background": f"radial-gradient(circle at 35% 30%, {rng.choice(_CONFETTI_COLORS)}, {rng.choice(_CONFETTI_COLORS)})",
+            }),
+            html.Div(style={"width": "2px", "height": "34px",
+                            "background": "#B0BEC5", "margin": "0 auto"}),
+        ])
+        for _ in range(n)
+    ]
+
+
 def _round_ui(state: dict, street_cards: list, feedback=None, solved=False):
     """The play area for the current round (or the finale once done)."""
     if state["done"]:
         grid = emoji_grid(state)
+        correct = sum(1 for res in state["results"] if res["state"] != "fail")
+        headline, sub = _celebration_copy(correct)
+        actions = html.Div([
+            html.Button("Play again", id="streets-play-again", n_clicks=0,
+                        style={"padding": "8px 16px", "border": "none",
+                               "borderRadius": "8px", "background": "#26A69A",
+                               "color": "white", "fontWeight": 600,
+                               "cursor": "pointer", "marginRight": "8px"}),
+            html.Button("More themes", id="streets-themes", n_clicks=0,
+                        style={"padding": "8px 16px", "border": "1px solid #B2DFDB",
+                               "borderRadius": "8px", "background": "#E0F2F1",
+                               "color": "#00695C", "fontWeight": 600,
+                               "cursor": "pointer", "marginRight": "8px"}),
+            html.Button("Share 📋", id="streets-share", n_clicks=0,
+                        style={"padding": "8px 16px", "border": "none",
+                               "borderRadius": "8px", "background": "#37474F",
+                               "color": "white", "fontWeight": 600,
+                               "cursor": "pointer"}),
+            html.Span(id="streets-share-status",
+                      style={"marginLeft": "10px", "color": "#2E7D32",
+                             "fontSize": "13px"}),
+        ])
+        # Celebration first (trophy + headline + confetti + balloons); the
+        # suburb name sits in a card that flips open ~3s later (pure CSS).
+        # Keyframes live in assets/streetwise.css (Dash auto-serves assets/).
         return [
-            _bg_div(state),
-            html.H2(f"It was {state['suburb']}!", style={"color": "#2E7D32"}),
-            html.Div(state["reveal"],
-                     style={"fontSize": "16px", "fontStyle": "italic",
-                            "color": "#37474F", "margin": "6px 0 14px"}),
-            *_payoff(state["suburb"]),
-            html.Div("streets in the mystery suburb:",
-                     style={"fontSize": "12px", "fontWeight": 600,
-                            "textTransform": "uppercase", "letterSpacing": ".4px",
-                            "color": "#90A4AE", "margin": "14px 0 6px"}),
-            *street_cards,
-            html.Div(f"Score: {state['points']}/{ROUNDS_PER_GAME * POINTS_FIRST}",
-                     style={"fontWeight": 700, "margin": "14px 0 8px"}),
-            html.Pre(grid, style={"background": "#FAFAFA", "padding": "10px",
-                                  "borderRadius": "8px", "fontSize": "13px",
-                                  "lineHeight": 1.3, **_CARD}),
-            html.Div([
-                html.Button("Play again", id="streets-play-again", n_clicks=0,
-                            style={"padding": "8px 16px", "border": "none",
-                                   "borderRadius": "8px", "background": "#26A69A",
-                                   "color": "white", "fontWeight": 600,
-                                   "cursor": "pointer", "marginRight": "8px"}),
-                html.Button("More themes", id="streets-themes", n_clicks=0,
-                            style={"padding": "8px 16px", "border": "1px solid #B2DFDB",
-                                   "borderRadius": "8px", "background": "#E0F2F1",
-                                   "color": "#00695C", "fontWeight": 600,
-                                   "cursor": "pointer", "marginRight": "8px"}),
-                html.Button("Share 📋", id="streets-share", n_clicks=0,
-                            style={"padding": "8px 16px", "border": "none",
-                                   "borderRadius": "8px", "background": "#37474F",
-                                   "color": "white", "fontWeight": 600,
-                                   "cursor": "pointer"}),
-                html.Span(id="streets-share-status",
-                          style={"marginLeft": "10px", "color": "#2E7D32",
-                                 "fontSize": "13px"}),
-            ]),
+            *_confetti_pieces(),
+            *_balloons(),
+            html.Div(
+                style={"position": "relative", "zIndex": 1, "textAlign": "center"},
+                children=[
+                    html.Div("🏆", className="sw-trophy"),
+                    html.Div(headline,
+                             style={"fontWeight": 700, "fontSize": "26px",
+                                    "color": "#00695C", "margin": "10px 0 2px"}),
+                    html.Div(sub, style={"color": "#616161", "fontSize": "15px",
+                                         "marginBottom": "6px"}),
+                    html.Div(
+                        className="sw-reveal-card",
+                        style={"textAlign": "left"},
+                        children=[
+                            html.H2(f"It was {state['suburb']}!",
+                                    style={"color": "#2E7D32", "textAlign": "center"}),
+                            html.Div(state["reveal"],
+                                     style={"fontSize": "16px", "fontStyle": "italic",
+                                            "color": "#37474F", "margin": "6px 0 14px",
+                                            "textAlign": "center"}),
+                            *_payoff(state["suburb"]),
+                            html.Div("streets in the mystery suburb:",
+                                     style={"fontSize": "12px", "fontWeight": 600,
+                                            "textTransform": "uppercase",
+                                            "letterSpacing": ".4px",
+                                            "color": "#90A4AE", "margin": "14px 0 6px"}),
+                            *street_cards,
+                            html.Div(f"Score: {state['points']}/{ROUNDS_PER_GAME * POINTS_FIRST}",
+                                     style={"fontWeight": 700, "margin": "14px 0 8px"}),
+                            html.Pre(grid, style={"background": "#FAFAFA",
+                                                  "padding": "10px", "borderRadius": "8px",
+                                                  "fontSize": "13px", "lineHeight": 1.3,
+                                                  **_CARD}),
+                            actions,
+                        ],
+                    ),
+                ],
+            ),
         ]
 
     r = state["rounds"][state["idx"]]
@@ -303,7 +383,9 @@ def _round_ui(state: dict, street_cards: list, feedback=None, solved=False):
                    "border": "1px solid #DCEDC8", "borderRadius": "8px",
                    "marginBottom": "10px"})
            ] if solved else []),
-        *([html.Button("Next street →", id="streets-next", n_clicks=0,
+        *([html.Button("🎉 Finish" if state["idx"] == ROUNDS_PER_GAME - 1
+                       else "Next street →",
+                       id="streets-next", n_clicks=0,
                        style={"padding": "10px 20px", "border": "none",
                               "borderRadius": "8px", "background": "#26A69A",
                               "color": "white", "fontWeight": 600,

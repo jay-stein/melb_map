@@ -1,0 +1,57 @@
+/* Streetwise celebration finale (Dash app — auto-served from assets/).
+ * Keyframes mirror docs/style.css so the Dash and static versions match. */
+
+.sw-confetti {
+  position: fixed;
+  top: -24px;
+  z-index: 60;
+  pointer-events: none;
+  border-radius: 2px;
+  animation-name: sw-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes sw-fall {
+  0% { transform: translateY(-24px) rotate(0); }
+  100% { transform: translateY(105vh) rotate(720deg); }
+}
+
+.sw-balloon {
+  position: fixed;
+  bottom: -160px;
+  z-index: 55;
+  pointer-events: none;
+  animation-name: sw-float;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes sw-float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-125vh); }
+}
+.sw-balloon-body {
+  width: 44px;
+  height: 54px;
+  border-radius: 50% 50% 50% 50% / 55% 55% 45% 45%;
+  margin: 0 auto;
+}
+
+@keyframes sw-trophy {
+  0%, 100% { transform: scale(1); }
+  20% { transform: scale(1.3) rotate(-10deg); }
+  40% { transform: scale(1.15) rotate(8deg); }
+  60% { transform: scale(1.3); }
+}
+.sw-trophy {
+  display: inline-block;
+  font-size: 96px;
+  animation: sw-trophy 1.8s ease-in-out 0.2s 2;
+}
+
+.sw-reveal-card {
+  transform: rotateX(90deg);
+  opacity: 0;
+  transform-origin: top center;
+  animation: sw-flip 0.8s cubic-bezier(0.2, 0.8, 0.3, 1.2) 3s forwards;
+}
+@keyframes sw-flip { to { transform: rotateX(0); opacity: 1; } }

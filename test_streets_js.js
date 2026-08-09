@@ -58,7 +58,9 @@ function check(cond, msg) { if (!cond) failures.push(msg); }
   check(selHtml.includes('data-theme="Native Flora"'), "select screen has Native Flora chiclet");
   check(selHtml.includes("🌿"), "flora icon present");
   check(selHtml.includes("🪐"), "space icon present");
-  check(selHtml.includes("💣"), "war icon present");
+  check(selHtml.includes("🎖️"), "wars icon present");
+  check(selHtml.includes('data-theme="Wars &amp; Battles"'), "Wars & Battles consolidated chiclet present");
+  check(selHtml.includes('data-theme="Aviation &amp; Aircraft"'), "Aviation & Aircraft consolidated chiclet present");
 
   // pick a theme
   click("#theme-NativeFlora", { theme: "Native Flora" });
@@ -103,6 +105,11 @@ function check(cond, msg) { if (!cond) failures.push(msg); }
   await wait(10);
   const finale = play().innerHTML;
   check(finale.includes("finale-title"), "finale rendered");
+  check(finale.includes("sw-trophy"), "trophy in finale");
+  check(finale.includes("sw-confetti"), "confetti in finale");
+  check(finale.includes("sw-balloon"), "balloons in finale");
+  check(finale.includes("sw-reveal-card"), "reveal card in finale");
+  check(finale.includes("finale-headline"), "celebration headline in finale");
   check(finale.includes('id="themes-btn"'), "finale has More themes button");
   check(finale.includes('id="share-btn"'), "finale has share button");
   check(finale.includes("grid-pre"), "share grid present");

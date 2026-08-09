@@ -899,3 +899,78 @@ html, body {
   letter-spacing: 0;
 }
 .themes-link:hover { text-decoration: underline; }
+
+/* ---------- Streetwise celebration finale ---------- */
+
+.sw-confetti {
+  position: fixed;
+  top: -24px;
+  z-index: 60;
+  pointer-events: none;
+  border-radius: 2px;
+  animation-name: sw-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes sw-fall {
+  0% { transform: translateY(-24px) rotate(0); }
+  100% { transform: translateY(105vh) rotate(720deg); }
+}
+
+.sw-balloon {
+  position: fixed;
+  bottom: -160px;
+  z-index: 55;
+  pointer-events: none;
+  animation-name: sw-float;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+@keyframes sw-float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-125vh); }
+}
+.sw-balloon-body {
+  width: 44px;
+  height: 54px;
+  border-radius: 50% 50% 50% 50% / 55% 55% 45% 45%;
+  margin: 0 auto;
+}
+.sw-balloon-string {
+  width: 2px;
+  height: 34px;
+  background: var(--color-ash);
+  margin: 0 auto;
+}
+
+.finale-wrap { position: relative; z-index: 1; text-align: center; }
+.sw-trophy {
+  display: inline-block;
+  font-size: 96px;
+  animation: sw-trophy 1.8s ease-in-out 0.2s 2;
+}
+@keyframes sw-trophy {
+  0%, 100% { transform: scale(1); }
+  20% { transform: scale(1.3) rotate(-10deg); }
+  40% { transform: scale(1.15) rotate(8deg); }
+  60% { transform: scale(1.3); }
+}
+.finale-headline {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-size: 28px;
+  color: #1d6b3a;
+  margin: 10px 0 2px;
+}
+.finale-sub { color: var(--color-smoke); font-size: 15px; margin-bottom: 6px; }
+
+.sw-reveal-card {
+  text-align: left;
+  transform: rotateX(90deg);
+  opacity: 0;
+  transform-origin: top center;
+  animation: sw-flip 0.8s cubic-bezier(0.2, 0.8, 0.3, 1.2) 3s forwards;
+}
+@keyframes sw-flip { to { transform: rotateX(0); opacity: 1; } }
+.sw-reveal-card .finale-title { text-align: center; }
+.sw-reveal-card .finale-reveal { text-align: center; }

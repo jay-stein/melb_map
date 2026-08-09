@@ -17,30 +17,26 @@ const SQUARES = {
   first: "🟩", second: "🟨", hint_first: "🟦", hint_second: "🟦", fail: "⬛",
 };
 
-/* Icon per theme for the theme-select chiclets (several LLM surface labels
- * map to the same icon, e.g. "English towns" vs "British towns/suburbs"). */
+/* Icon per theme for the theme-select chiclets. Keys are the canonical theme
+ * labels enforced by the corpus build (see THEME_CANON in
+ * scrape/street_themes.py). */
 const THEME_ICONS = {
   "Literary Poets": "📜",
   "Native Flora": "🌿",
   "British Towns & Rivers": "🏰",
-  "English towns/villages": "🏰",
-  "British towns/suburbs": "🏰",
-  "English towns": "🏰",
   "Prime Ministers": "🏛️",
   "Astronomy & Space": "🪐",
-  "constellations/stars": "🪐",
   "Precious Gemstones": "💎",
-  "Crimean War": "💣",
-  "World War II battles and aircraft": "💣",
-  "World War I battles": "💣",
+  "Wars & Battles": "🎖️",
+  "Victorian Rivers & Towns": "💧",
+  "Cricketers": "🏏",
+  "Maritime & Naval Exploration": "🚢",
   "Arthurian Legend": "🐉",
   "Elite English Schools": "🎓",
-  "aircraft": "✈️",
-  "Aviation Pioneers & Aircraft": "✈️",
+  "Aviation & Aircraft": "✈️",
   "Viticulture & Wine": "🍷",
   "Camera & Photography": "📷",
-  "ANA Aviation Estate": "🛫",
-  "Renaissance artists/writers": "🎨",
+  "Renaissance Artists & Writers": "🎨",
   "Golf Courses": "⛳",
 };
 
@@ -84,7 +80,11 @@ function shuffle(arr) {
 /* --- game setup ----------------------------------------------------------- */
 
 function themeIcon(label) {
-  return THEME_ICONS[label] || "🧩";
+  const exact = THEME_ICONS[label];
+  if (exact) return exact;
+  const key = Object.keys(THEME_ICONS)
+    .find((k) => k.toLowerCase() === String(label).toLowerCase());
+  return THEME_ICONS[key] || "🧩";
 }
 
 function availableThemes() {
@@ -200,7 +200,9 @@ function renderPlay(feedbackHtml, solved) {
     hintHtml +
     (feedbackHtml || "") +
     (solved ? streetCard(r, true) : "") +
-    (solved ? `<button class="next-btn" id="next-btn">Next street →</button>` : "");
+    (solved ? `<button class="next-btn" id="next-btn">` +
+      (idx === ROUNDS_PER_GAME - 1 ? "🎉 Finish" : "Next street →") +
+      `</button>` : "");
 }
 
 function mascotPayoff() {
@@ -227,9 +229,52 @@ function emojiGrid() {
   ].join("\n");
 }
 
+function celebrationCopy(correct) {
+  if (correct === 5) return ["Perfect! 🎉", "5/5 streets — absolutely flawless."];
+  if (correct >= 4) return ["Congrats! 🎉", `You got ${correct}/5 streets.`];
+  if (correct >= 3) return ["Nice work!", `You got ${correct}/5 streets.`];
+  if (correct === 2) return ["Not bad!", `You got ${correct}/5 streets.`];
+  if (correct === 1) return ["Tough streets!", `You got ${correct}/5 streets.`];
+  return ["Brutal!", "The streets won this round."];
+}
+
+const CONFETTI_COLORS = ["#26A69A", "#7E57C2", "#EC407A", "#FFA726", "#66BB6A", "#D4AF37", "#42A5F5"];
+
+function confetti() {
+  let s = "";
+  for (let i = 0; i < 42; i++) {
+    s += `<div class="sw-confetti" style="left:${(Math.random() * 100).toFixed(1)}%;` +
+      `width:${(6 + Math.random() * 6).toFixed(1)}px;height:${(10 + Math.random() * 8).toFixed(1)}px;` +
+      `background:${pick(CONFETTI_COLORS)};animation-duration:${(2.4 + Math.random() * 2).toFixed(2)}s;` +
+      `animation-delay:${(Math.random() * 2).toFixed(2)}s;"></div>`;
+  }
+  return s;
+}
+
+function balloons() {
+  let s = "";
+  for (let i = 0; i < 8; i++) {
+    const c = pick(CONFETTI_COLORS);
+    s += `<div class="sw-balloon" style="left:${(2 + Math.random() * 88).toFixed(1)}%;` +
+      `animation-duration:${(7 + Math.random() * 4).toFixed(1)}s;` +
+      `animation-delay:${(Math.random() * 3).toFixed(1)}s;">` +
+      `<div class="sw-balloon-body" style="background:${c}"></div>` +
+      `<div class="sw-balloon-string"></div></div>`;
+  }
+  return s;
+}
+
 function renderFinale() {
   const grid = emojiGrid();
+  const correct = results.filter((r) => r.state !== "fail").length;
+  const [headline, sub] = celebrationCopy(correct);
   $("#streets-play").innerHTML =
+    confetti() + balloons() +
+    `<div class="finale-wrap">` +
+    `<div class="sw-trophy">🏆</div>` +
+    `<div class="finale-headline">${esc(headline)}</div>` +
+    `<div class="finale-sub">${esc(sub)}</div>` +
+    `<div class="sw-reveal-card">` +
     `<h2 class="finale-title">It was ${esc(suburb)}!</h2>` +
     `<p class="finale-reveal">${esc(puzzle.reveal)}</p>` +
     mascotPayoff() +
@@ -241,7 +286,8 @@ function renderFinale() {
     `<button class="play-again" id="play-again-btn">Play again</button>` +
     `<button class="play-again" id="themes-btn">More themes</button>` +
     `<button class="play-again" id="share-btn">Share 📋</button>` +
-    `<span id="share-status"></span></div>`;
+    `<span id="share-status"></span></div>` +
+    `</div></div>`;
   $("#share-btn").addEventListener("click", async () => {
     try {
       await navigator.clipboard.writeText(grid);

@@ -153,5 +153,19 @@ check("'type': 'streets-chiclet'" in ui_text and "'index': 'random'" in ui_text,
       "select UI has random chiclet")
 check("'index': 'native_flora'" in ui_text, "select UI has theme chiclet slugs")
 
+# --- celebration finale ---------------------------------------------------- #
+check(streets._celebration_copy(5) == ("Perfect! 🎉", "5/5 streets — absolutely flawless."),
+      "5/5 copy is the big fuss")
+check(streets._celebration_copy(3)[0] == "Nice work!", "3/5 copy")
+check(streets._celebration_copy(0)[0] == "Brutal!", "0/5 copy")
+check(len(streets._confetti_pieces()) == 42, "42 confetti pieces")
+check(len(streets._balloons()) == 8, "8 balloons")
+finale_ui = streets._round_ui(st, streets._solved_cards(st))
+finale_text = str(finale_ui)
+check("sw-trophy" in finale_text, "trophy in finale")
+check("sw-confetti" in finale_text, "confetti in finale")
+check("sw-balloon" in finale_text, "balloons in finale")
+check("sw-reveal-card" in finale_text, "reveal card in finale")
+
 print(f"{'PASS' if failures == 0 else 'FAIL'} — {failures} failures")
 sys.exit(1 if failures else 0)
