@@ -268,6 +268,7 @@ function renderFinale() {
   const grid = emojiGrid();
   const correct = results.filter((r) => r.state !== "fail").length;
   const [headline, sub] = celebrationCopy(correct);
+  const all = puzzle.all_streets || [];
   $("#streets-play").innerHTML =
     confetti() + balloons() +
     `<div class="finale-wrap">` +
@@ -280,6 +281,10 @@ function renderFinale() {
     mascotPayoff() +
     `<div class="street-cards-label">streets in the mystery suburb:</div>` +
     solvedCards() +
+    (all.length ?
+      `<div class="street-cards-label">all ${all.length} themed streets in ${esc(suburb)}:</div>` +
+      `<div class="street-all-grid">${all.map((s) => `<span class="street-chip">${esc(s)}</span>`).join("")}</div>`
+      : "") +
     `<div class="finale-score">Score: ${points}/${ROUNDS_PER_GAME * POINTS_FIRST}</div>` +
     `<pre class="grid-pre">${esc(grid)}</pre>` +
     `<div class="result-actions">` +

@@ -41,6 +41,13 @@ for suburb, entry in sorted(corpus.items()):
             report(suburb, theme, "reveal missing")
         if len(p.get("rounds", [])) != 5:
             report(suburb, theme, f"rounds = {len(p.get('rounds', []))} (want 5)")
+        all_streets = p.get("all_streets") or []
+        if len(all_streets) < 5:
+            report(suburb, theme, f"all_streets only {len(all_streets)} (want >= 5)")
+        quiz_streets = [r.get("street") for r in p.get("rounds", [])]
+        for s in quiz_streets:
+            if s not in all_streets:
+                report(suburb, theme, f"quiz street '{s}' missing from all_streets")
         seen_namesakes = set()
         for r in p.get("rounds", []):
             street = r.get("street", "")

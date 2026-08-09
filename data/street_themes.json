@@ -66,6 +66,13 @@
       "tidbit": "Chris Watson was born in Chile to a British father and a New Zealand mother, making him the only Australian PM born overseas until 2022.",
       "explainer": "Chris Watson was Australia's 3rd Prime Minister, serving for just four months in 1904. He was the first national leader anywhere in the world to represent a labor party. Born in Valparaiso, Chile, he moved to Australia as a child and became a printer and unionist. His brief term set the precedent for Labor governments, and he later became a successful businessman and a key figure in the push for federation."
      }
+    ],
+    "all_streets": [
+     "Chifley Avenue",
+     "Curtin Court",
+     "Fisher Court",
+     "Scullin Street",
+     "Watson Court"
     ]
    }
   ]
@@ -137,6 +144,29 @@
       "tidbit": "The Wirraway was the first all-metal aircraft designed and built in Australia, with over 750 produced during the war.",
       "explainer": "The CAC Wirraway was an Australian-designed and built aircraft that first flew in 1939. It was originally intended as a training aircraft, but after the outbreak of war in the Pacific, it was pressed into service as a combat aircraft. Wirraways flew ground-attack and reconnaissance missions, and even achieved a few aerial victories against Japanese aircraft. Despite being outclassed by modern fighters, the Wirraway was a crucial part of Australia's defense in the early years of WWII."
      }
+    ],
+    "all_streets": [
+     "Alamein Avenue",
+     "Ambon Street",
+     "Bardia Avenue",
+     "Benghazi Avenue",
+     "Buna Court",
+     "Catalina Avenue",
+     "Crete Avenue",
+     "Derna Road",
+     "Gona Court",
+     "Lae Court",
+     "Liberator Street",
+     "Morotai Avenue",
+     "Mustang Court",
+     "Normandy Street",
+     "Ramu Grove",
+     "Samarinda Avenue",
+     "Sunderland Avenue",
+     "Tarakan Avenue",
+     "Tobruk Road",
+     "Wewak Road",
+     "Wirraway Court"
     ]
    }
   ]
@@ -208,6 +238,17 @@
       "tidbit": "Pavo contains one of the brightest globular clusters visible from the southern hemisphere, NGC 6752.",
       "explainer": "Pavo is a southern constellation introduced by Dutch navigators in the 16th century, named after the peacock. In Greek myth, the peacock was sacred to Hera, and its tail feathers bore the eyes of the giant Argus. The constellation is relatively faint but contains several notable deep-sky objects, including the globular cluster NGC 6752. Pavo is best viewed from latitudes south of the equator, making it a hidden gem for southern stargazers."
      }
+    ],
+    "all_streets": [
+     "Aquila Street",
+     "Leonis Avenue",
+     "Libra Street",
+     "Orion Street",
+     "Pavo Street",
+     "Saturn Street",
+     "Taurus Street",
+     "Ursa Street",
+     "Vega Street"
     ]
    }
   ]
@@ -279,6 +320,13 @@
       "tidbit": "Fisher's government established the Commonwealth Bank of Australia in 1911.",
       "explainer": "Andrew Fisher was Australia's 5th prime minister, serving three terms between 1908 and 1915. A Scottish-born miner and unionist, he led the Labor Party to victory in 1910, forming Australia's first federal majority government. His administration introduced old-age pensions, maternity allowances, and the national currency. His promise of support to Britain in 1914 was a defining moment of Australian history."
      }
+    ],
+    "all_streets": [
+     "Curtin Street",
+     "Deakin Street",
+     "Fisher Court",
+     "Hughes Street",
+     "Lyons Street"
     ]
    }
   ]
@@ -350,6 +398,14 @@
       "tidbit": "Hakea fruits are so hard that they often need fire to open and release seeds, ensuring the next generation thrives after a bushfire.",
       "explainer": "Hakeas are a genus of flowering plants in the Proteaceae family, named after German botanist Baron Christian Ludwig von Hake. They are known for their tough, often needle-like leaves and clusters of small, intricate flowers that attract birds and insects. The woody seed pods, called follicles, can remain closed for years, opening only after a fire or when the plant dies. Hakeas are a striking and resilient addition to the Australian landscape, with many species used in horticulture."
      }
+    ],
+    "all_streets": [
+     "Acacia Avenue",
+     "Banksia Street",
+     "Eucalyptus Track",
+     "Hakea Circuit",
+     "Melaleuca Walk",
+     "Waratah Crescent"
     ]
    }
   ]
@@ -421,6 +477,16 @@
       "tidbit": "The B-24 was the most produced American military aircraft of WWII, with over 18,000 built.",
       "explainer": "The Consolidated B-24 Liberator was a four-engine heavy bomber used extensively by Allied forces in World War II. It served in the Pacific, Europe, and the Mediterranean, including with the Royal Australian Air Force. Its long range made it ideal for maritime patrol and bombing missions. The aircraft's distinctive high-mounted wing and twin tail made it easily recognisable."
      }
+    ],
+    "all_streets": [
+     "Air Force Avenue",
+     "Hangar Walk",
+     "Hinkler Street",
+     "Kingsford Street",
+     "Liberator Lane",
+     "Sergeant Walk",
+     "Winjeel Court",
+     "Wirraway Avenue"
     ]
    }
   ]
@@ -492,6 +558,13 @@
       "tidbit": "Farnham's castle was built in the 12th century and was used as a prison during the English Civil War.",
       "explainer": "Farnham is a historic market town in Surrey, England, located at the northern edge of the South Downs. It has been a settlement since Roman times, and its name comes from the Old English 'Fearnham', meaning 'homestead where ferns grow'. The town's most prominent landmark is Farnham Castle, which served as the palace of the Bishops of Winchester for over 800 years. Farnham was also a center of the hop-growing industry, which supplied beer brewers across Britain, and it retains a charming Georgian high street."
      }
+    ],
+    "all_streets": [
+     "Farnham Court",
+     "Mersey Street",
+     "Norfolk Crescent",
+     "Norwood Court",
+     "Sussex Street"
     ]
    },
    {
@@ -559,6 +632,20 @@
       "tidbit": "Kipling's 'If—' was voted Britain's favorite poem in 1995.",
       "explainer": "Rudyard Kipling (1865-1936) was born in India and became a chronicler of the British Empire. His works, including 'Kim' and 'The Man Who Would Be King', are celebrated for their vivid storytelling. He received the Nobel Prize in Literature in 1907, the youngest recipient at the time, and his influence on adventure fiction is profound."
      }
+    ],
+    "all_streets": [
+     "Byron Court",
+     "Chaucer Crescent",
+     "Dryden Court",
+     "Frost Court",
+     "Keats Court",
+     "Kipling Court",
+     "Milton Parade",
+     "Moore Court",
+     "Ruskin Court",
+     "Shakespeare Drive",
+     "Shelley Avenue",
+     "Wordsworth Court"
     ]
    },
    {
@@ -626,6 +713,13 @@
       "tidbit": "Barton was a champion tennis player in his youth.",
       "explainer": "Edmund Barton was Australia's first prime minister, serving from 1901 to 1903. He was a key figure in the federation movement and was known for his eloquence and legal mind. After leaving politics, he became a founding justice of the High Court of Australia. His legacy is indelibly linked to the birth of the Australian nation."
      }
+    ],
+    "all_streets": [
+     "Barton Court",
+     "Curtin Street",
+     "Holt Parade",
+     "Hughes Circuit",
+     "Menzies Drive"
     ]
    }
   ]
@@ -697,6 +791,13 @@
       "tidbit": "Australia's national colors, green and gold, were officially adopted in 1984, inspired by the leaves and flowers of this plant.",
       "explainer": "Wattle is the common name for many acacia species, particularly the golden wattle, which is Australia's national floral emblem. The name 'wattle' comes from the Old English word for a flexible twig, as early settlers used the branches for building fences and walls. Wattles are incredibly diverse, with species ranging from small shrubs to tall trees, and their bright yellow blooms are a beloved sign of spring. They also play a crucial role in the landscape, helping to stabilize soil and support native wildlife."
      }
+    ],
+    "all_streets": [
+     "Acacia Place",
+     "Banksia Street",
+     "Tea Tree Lane",
+     "Waratah Avenue",
+     "Wattle Park Walk"
     ]
    }
   ]
@@ -768,6 +869,15 @@
       "tidbit": "John Keats died of tuberculosis at the age of 25, and his last request was to be buried under a tombstone reading 'Here lies one whose name was writ in water.'",
       "explainer": "John Keats (1795–1821) was a second-generation Romantic poet whose works, including 'Ode to a Nightingale' and 'To Autumn,' are celebrated for their rich imagery and sensuous language. Despite a short life plagued by illness and financial hardship, he produced a remarkable body of poetry. Keats's letters and poems reveal his deep thoughts on beauty, mortality, and art. He died in Rome at 25, and his legacy has grown to place him among the most beloved English poets."
      }
+    ],
+    "all_streets": [
+     "Byron Street",
+     "Chaucer Crescent",
+     "Dryden Street",
+     "Keats Street",
+     "Kendall Street",
+     "Milton Street",
+     "Scott Street"
     ]
    }
   ]
@@ -839,6 +949,15 @@
       "tidbit": "Lord Raglan gave his name to the 'raglan sleeve', a coat design that allows for easier arm movement.",
       "explainer": "Lord Raglan, born FitzRoy Somerset, was a British army officer who served as commander-in-chief of British forces during the Crimean War. He had lost his right arm at the Battle of Waterloo, which inspired the design of the raglan sleeve. He led the British army at the battles of Alma, Balaclava, and Inkerman, and died in 1855 during the siege of Sevastopol. His name lives on in fashion and in this street."
      }
+    ],
+    "all_streets": [
+     "Alma Road",
+     "Balaclava Road",
+     "Inkerman Road",
+     "Malakoff Street",
+     "Raglan Street",
+     "Redan Road",
+     "Sebastopol Street"
     ]
    }
   ]
@@ -910,6 +1029,13 @@
       "tidbit": "A year on Mercury is just 88 Earth days, but a single day-night cycle lasts 176 Earth days.",
       "explainer": "Mercury is the smallest planet in our solar system and the closest to the Sun, orbiting at an average distance of just 58 million kilometers. It has no atmosphere to retain heat, so temperatures can swing from -180°C at night to 430°C during the day. Mercury's surface is heavily cratered, resembling our Moon. Despite its proximity to the Sun, it is not the hottest planet (Venus is) because its thin exosphere cannot trap heat. The planet was named after the swift Roman messenger god, fitting its fast orbit."
      }
+    ],
+    "all_streets": [
+     "Jupiter Street",
+     "Mars Street",
+     "Mercury Street",
+     "Saturn Street",
+     "Venus Street"
     ]
    }
   ]
@@ -981,6 +1107,19 @@
       "tidbit": "The word 'snapshot' was first used in the 1800s by hunters to describe a quick, instinctive shot, and was later adopted by photographers.",
       "explainer": "A snapshot is a photograph taken quickly, often informally, without elaborate preparation. The term originated in the 19th century among sportsmen to describe a hurried gunshot. By the late 1800s, with the advent of portable cameras like the Kodak, it became synonymous with casual photography. Snapshots capture spontaneous moments, making them treasured records of everyday life."
      }
+    ],
+    "all_streets": [
+     "Aperture Street",
+     "Camera Walk",
+     "Cyan Walk",
+     "Focus Drive",
+     "Image Walk",
+     "Lens Street",
+     "Photography Drive",
+     "Pixel Circuit",
+     "Portrait Way",
+     "Snapshot Drive",
+     "Spectrum Way"
     ]
    }
   ]
@@ -1052,6 +1191,31 @@
       "tidbit": "The Tom Thumb was so small that its crew had to sit still to avoid capsizing, yet it completed several perilous journeys.",
       "explainer": "The Tom Thumb was a diminutive open boat used by George Bass and Matthew Flinders in 1796 to explore the coast south of Sydney. Despite its size, it survived rough seas and even an encounter with Indigenous Australians. The voyages proved the explorers' skill and helped launch their later careers. The boat's name has become a symbol of audacious seamanship."
      }
+    ],
+    "all_streets": [
+     "Aquitania Way",
+     "Bass Lane",
+     "Baudin Lane",
+     "Caravel Lane",
+     "Catalina Place",
+     "Encounter Way",
+     "Enterprize Road",
+     "Enterprize Way",
+     "Geographe Street",
+     "Maritime Place",
+     "Navigation Drive",
+     "Newquay Promenade",
+     "Rakaia Way",
+     "Regatta Way",
+     "Sailmaker Way",
+     "Seafarer Lane",
+     "Straitsman Lane",
+     "Swinging Basin Lane",
+     "Tom Thumb Lane",
+     "Victoria Harbour Promenade",
+     "Waterfront Way",
+     "Wharf Lane",
+     "Wharf Street"
     ]
    }
   ]
@@ -1123,6 +1287,35 @@
       "tidbit": "Robert Burns was a farmer who wrote over 550 poems and songs, many in the Scots dialect.",
       "explainer": "Robert Burns, also known as Rabbie Burns, is celebrated as the national poet of Scotland. His works, such as 'A Red, Red Rose' and 'Tam o' Shanter', are beloved for their wit and emotional depth. He was also a pioneer of the Romantic movement, and his birthday, January 25, is celebrated with Burns Night suppers."
      }
+    ],
+    "all_streets": [
+     "Bronte Lane",
+     "Browning Street",
+     "Burns Street",
+     "Byron Street",
+     "Coleridge Street",
+     "Dante Lane",
+     "Dickens Street",
+     "Dryden Street",
+     "Goldsmith Street",
+     "Hood Street",
+     "Joyce Street",
+     "Keats Street",
+     "Kendall Street",
+     "Kingsley Street",
+     "Lawson Street",
+     "Lytton Street",
+     "Milton Street",
+     "Moore Street",
+     "Rosetti Lane",
+     "Ruskin Street",
+     "Scott Street",
+     "Shelley Street",
+     "Southey Court",
+     "Southey Grove",
+     "Southey Street",
+     "Tennyson Street",
+     "Thackeray Street"
     ]
    }
   ]
@@ -1194,6 +1387,16 @@
       "tidbit": "Essex is home to the oldest wooden church in the world, St. Peter's Chapel in Bradwell-on-Sea, dating from 654 AD.",
       "explainer": "Essex is a county in southeast England, with a coastline along the North Sea. It was one of the kingdoms of the Anglo-Saxon Heptarchy, known as the Kingdom of the East Saxons. The county has a long history of agriculture and fishing, and in the 19th century it became a popular seaside destination. Today, Essex is known for its commuter towns and the historic town of Colchester, which was the first capital of Roman Britain."
      }
+    ],
+    "all_streets": [
+     "Canterbury Grove",
+     "Ealing Close",
+     "Essex Court",
+     "Gloucester Way",
+     "Newmarket Lane",
+     "Norfolk Avenue",
+     "Severn Street",
+     "Somerset Street"
     ]
    },
    {
@@ -1261,6 +1464,13 @@
       "tidbit": "Woodfull was the only Australian captain to lead his team to a Test series win in England in 1934.",
       "explainer": "Bill Woodfull was the Australian captain during the controversial Bodyline series of 1932-33. He was a stoic leader who maintained dignity under intense pressure. Woodfull's batting was solid, and he later became a respected educator. His stand against Bodyline is a defining moment in cricket history, symbolizing sportsmanship over gamesmanship."
      }
+    ],
+    "all_streets": [
+     "Benaud Place",
+     "Bradman Terrace",
+     "Harvey Close",
+     "Warne Grove",
+     "Woodfull Way"
     ]
    }
   ]
@@ -1332,6 +1542,19 @@
       "tidbit": "Bungay is said to have been terrorised by a phantom black dog, which appeared in storms and killed people in the 16th century.",
       "explainer": "Bungay is a small market town in the Waveney Valley of Suffolk, England. It has a ruined Norman castle and is known for the legend of 'Black Shuck', a ghostly black dog that reportedly attacked people in the church during a storm in 1577. The town's name come from the Old English for 'Buna's island'. It was once a centre for the printing industry."
      }
+    ],
+    "all_streets": [
+     "Beccles Street",
+     "Brockley Road",
+     "Bungay Street",
+     "Derby Street",
+     "Epsom Court",
+     "Norfolk Court",
+     "Oulton Street",
+     "Seacombe Street",
+     "Somerlayton Crescent",
+     "Twyford Street",
+     "Wroxham Court"
     ]
    }
   ]
@@ -1403,6 +1626,20 @@
       "tidbit": "Farnham Castle has been a bishop's residence for over 800 years.",
       "explainer": "Farnham is a historic market town in Surrey, England, with a castle built in the 12th century. It was an important stop on the road from London to Winchester, the ancient capital. The town is also known for its Georgian architecture and as the birthplace of William Cobbett, a famous writer and politician."
      }
+    ],
+    "all_streets": [
+     "Canterbury Street",
+     "Chatham Street",
+     "Dartford Street",
+     "Dover Street",
+     "Farnham Court",
+     "Farnham Street",
+     "Finsbury Street",
+     "Newmarket Street",
+     "Newmarket Way",
+     "Norwood Place",
+     "Norwood Street",
+     "Tunbridge Street"
     ]
    }
   ]
@@ -1474,6 +1711,13 @@
       "tidbit": "Paterson wrote 'Waltzing Matilda', which became Australia's unofficial national anthem.",
       "explainer": "Andrew Barton 'Banjo' Paterson was a bush poet, journalist, and horseman. He wrote 'The Man from Snowy River' and 'Clancy of the Overflow', celebrating the romantic side of rural life. His ballad 'Waltzing Matilda' is sung by Australians everywhere. Paterson also served as a war correspondent during the Boer War and World War I."
      }
+    ],
+    "all_streets": [
+     "Byron Street",
+     "Lawson Place",
+     "Lawson Street",
+     "Moore Street",
+     "Shelley Street"
     ]
    }
   ]
@@ -1545,6 +1789,44 @@
       "tidbit": "Guinevere's marriage to Arthur was often seen as a political alliance, but her romance with Lancelot became legendary.",
       "explainer": "Queen Guinevere is the wife of King Arthur and a central figure in Arthurian romance. Her affair with Sir Lancelot is a pivotal element of the legends, leading to the fracturing of the Round Table and the eventual fall of Camelot. Guinevere is portrayed variously as a victim of circumstance or a tragic figure, and her story has been explored in many literary and artistic works."
      }
+    ],
+    "all_streets": [
+     "Armour Close",
+     "Avalon Avenue",
+     "Banner Court",
+     "Camelot Drive",
+     "Castle Close",
+     "Champion Crescent",
+     "Chivalry Avenue",
+     "Courage Court",
+     "Crusader Crescent",
+     "Dinadan Court",
+     "Excalibur Avenue",
+     "Galahad Crescent",
+     "Gareth Court",
+     "Gauntlet Avenue",
+     "Grail Court",
+     "Guinevere Parade",
+     "Hector Court",
+     "Herald Court",
+     "Jousting Place",
+     "King Arthur Drive",
+     "Knights Drive",
+     "Lancelot Crescent",
+     "Le Fey Court",
+     "Legend Avenue",
+     "Morgan Close",
+     "Percivale Avenue",
+     "Plume Court",
+     "Quest Court",
+     "Rampart Avenue",
+     "Sagramore Court",
+     "Shield Court",
+     "Spear Court",
+     "Squire Court",
+     "Tristram Court",
+     "Valiant Court",
+     "Vigil Avenue"
     ]
    },
    {
@@ -1612,6 +1894,16 @@
       "tidbit": "Camden Market attracts over 250,000 visitors every weekend, making it one of London's most popular tourist destinations.",
       "explainer": "Camden is a district in North West London, known for its vibrant street culture, eclectic markets, and live music venues. The area became a centre of the punk and alternative music scenes in the 1970s and 1980s, with venues like the Electric Ballroom and the Roundhouse hosting legendary acts. Camden Lock, a former timber wharf, is now a bustling market selling everything from vintage clothing to street food. The borough also has a diverse history, with roots as a rural village before becoming part of London's expanding metropolis."
      }
+    ],
+    "all_streets": [
+     "Camden Court",
+     "Dorset Street",
+     "Ealing Court",
+     "Hampstead Crescent",
+     "Norfolk Street",
+     "Sussex Court",
+     "Swindon Avenue",
+     "Warwick Court"
     ]
    },
    {
@@ -1679,6 +1971,13 @@
       "tidbit": "Australia's national colours, green and gold, are derived from the leaves and flowers of the acacia.",
       "explainer": "Acacia is a genus of shrubs and trees in the pea family, with over 1,000 species in Australia, where they are commonly known as wattles. The name 'acacia' comes from the Greek 'akis', meaning 'point', referring to the thorns of some African species. In Australia, acacias are known for their fluffy, golden flower heads and are a vital part of the ecosystem, providing food and shelter for wildlife. The golden wattle (Acacia pycnantha) was officially proclaimed the national floral emblem in 1988, and its colours inspired the national sporting colours."
      }
+    ],
+    "all_streets": [
+     "Acacia Grove",
+     "Boronia Drive",
+     "Kurrajong Avenue",
+     "Melaleuca Drive",
+     "Waratah Street"
     ]
    }
   ]
@@ -1750,6 +2049,16 @@
       "tidbit": "TAA was nicknamed 'The Friendly Way' and was the first Australian airline to introduce jet aircraft in 1964.",
       "explainer": "Trans Australia Airlines, commonly known as TAA, was established by the Australian government in 1936 to provide domestic air services. It operated alongside ANA and later Ansett, often in competition. TAA introduced the Fokker F-27 turboprop and the Boeing 727 jet, pioneering modern air travel in Australia. In 1986, it was privatized and renamed Australian Airlines, eventually merging with Qantas in 1992."
      }
+    ],
+    "all_streets": [
+     "Dromana Street",
+     "Kadana Street",
+     "Loongana Avenue",
+     "Menana Road",
+     "Palana Street",
+     "Pengana Avenue",
+     "Tarana Avenue",
+     "Warana Court"
     ]
    },
    {
@@ -1817,6 +2126,19 @@
       "tidbit": "Lomandra leaves are so strong that Aboriginal peoples wove them into baskets and nets.",
       "explainer": "Lomandra, commonly known as mat-rush, is a genus of perennial herbs with about 50 species, all native to Australia. They have long, strap-like leaves that form dense tufts, and their small, yellow or cream flowers are clustered in spikes. Lomandra is highly drought-tolerant and is widely used in landscaping for erosion control. Historically, Aboriginal peoples used the fibrous leaves for weaving and the edible seeds as a food source."
      }
+    ],
+    "all_streets": [
+     "Acacia Street",
+     "Banksia Lane",
+     "Boobialla Lane",
+     "Casuarina Lane",
+     "Cootamundra Wattle Way",
+     "Correa Lane",
+     "Dianella Avenue",
+     "Gold Dust Wattle Circuit",
+     "Hakea Avenue",
+     "Lomandra Lane",
+     "Sheoak Lane"
     ]
    }
   ]
@@ -1888,6 +2210,16 @@
       "tidbit": "In ancient China, jade was believed to protect the dead and was placed in tombs, with some burial suits made entirely of jade pieces.",
       "explainer": "Jade refers to two distinct minerals: nephrite and jadeite, both prized for their toughness and green hues. It has been revered in Chinese culture for over 7,000 years, symbolizing purity, beauty, and immortality. The ancient Maya and Aztecs also valued jade for its spiritual significance. Today, jade is still a symbol of status and is often used in intricate carvings and jewelry."
      }
+    ],
+    "all_streets": [
+     "Beryl Close",
+     "Diamond Boulevard",
+     "Diamond Creek Road",
+     "Diamond Hills Drive",
+     "Emerald Court",
+     "Jade Court",
+     "Ruby Lane",
+     "Sapphire Court"
     ]
    }
   ]
@@ -1959,6 +2291,14 @@
       "tidbit": "Imbros was a staging post for Allied forces during the Gallipoli campaign, and later a base for British seaplanes.",
       "explainer": "Imbros, now Gökçeada, is a Turkish island in the Aegean Sea. During World War I, it was used by the Allies as a supply and staging base for the Gallipoli campaign. The island also hosted British seaplane bases for reconnaissance and bombing missions. Today, it is a quiet tourist destination, but its wartime role remains a footnote in military history."
      }
+    ],
+    "all_streets": [
+     "Amiens Street",
+     "Hamel Street",
+     "Imbros Street",
+     "Lagnicourt Street",
+     "Passchendaele Street",
+     "Rouen Street"
     ]
    }
   ]
@@ -2030,6 +2370,24 @@
       "tidbit": "Bletchley Park's codebreakers shortened World War II by an estimated two to four years.",
       "explainer": "Bletchley is a town in Buckinghamshire, England, best known for Bletchley Park, the secret intelligence complex during World War II. The codebreakers there, including mathematician Alan Turing, worked on decrypting German messages using the Enigma machine. Their efforts are credited with significantly shortening the war and laid the groundwork for modern computing. After the war, the site remained classified until the 1970s, and it is now a museum open to the public."
      }
+    ],
+    "all_streets": [
+     "Ardgour Street",
+     "Bletchley Road",
+     "Bowmore Street",
+     "Callander Street",
+     "Camden Road",
+     "Canterbury Street",
+     "Clapham Road",
+     "Crewe Road",
+     "Dalston Road",
+     "Dumblane Street",
+     "Euston Road",
+     "Kelvinside Street",
+     "Paddington Road",
+     "Skipton Road",
+     "Swindon Road",
+     "Willesden Road"
     ]
    }
   ]
@@ -2101,6 +2459,13 @@
       "tidbit": "The bell-fruited banksia's woody cones can stay closed for years, only opening after a bushfire.",
       "explainer": "The bell-fruited banksia (Banksia baxteri) is a striking shrub with unusual, bell-shaped flower clusters that range from yellow to reddish-brown. It is named after the naturalist Sir Joseph Banks, who first collected specimens of the genus. The plant is fire-adapted; its serotinous cones release seeds only after intense heat. It is found in the sandplains of Western Australia and is a popular garden plant for its unique flowers."
      }
+    ],
+    "all_streets": [
+     "Acacia Street",
+     "Banksia Street",
+     "Bell-Banksia Link",
+     "Boronia Street",
+     "Wattle Street"
     ]
    }
   ]
@@ -2172,6 +2537,13 @@
       "tidbit": "Bulwer-Lytton's novel 'Paul Clifford' begins with the infamous line 'It was a dark and stormy night'.",
       "explainer": "Edward Bulwer-Lytton (1803-1873) was a prolific English novelist, playwright, and politician. His works spanned genres, from historical fiction like 'The Last Days of Pompeii' to science fiction with 'The Coming Race'. He coined several common phrases, including 'the almighty dollar' and 'the great unwashed'. His literary reputation declined after his death, but his influence remains in popular culture."
      }
+    ],
+    "all_streets": [
+     "Byron Street",
+     "Coleridge Street",
+     "Lytton Street",
+     "Scott Street",
+     "Tennyson Street"
     ]
    }
   ]
@@ -2243,6 +2615,15 @@
       "tidbit": "Lomandra is also known as 'spiny-headed mat-rush' and is an important food source for the caterpillars of the skipper butterfly.",
       "explainer": "Lomandra is a genus of about 50 species of perennial herbs, commonly known as mat-rushes, and is endemic to Australia, New Guinea, and nearby islands. They are tough, drought-tolerant plants with long, strap-like leaves that form dense clumps. Aboriginal peoples used Lomandra leaves for weaving baskets, nets, and mats, and the white base of the leaves was eaten. The plants are also a larval food source for the Australian skipper butterfly, and their fibrous roots help stabilize soil, making them valuable for erosion control."
      }
+    ],
+    "all_streets": [
+     "Banksia Walk",
+     "Correa View",
+     "Eucalyptus Drive",
+     "Grevillea Circuit",
+     "Lomandra Drive",
+     "Silver Wattle Avenue",
+     "Wattle Road"
     ]
    },
    {
@@ -2310,6 +2691,14 @@
       "tidbit": "Joseph Lyons was the first prime minister to die in office in Australia, and his wife Enid later became the first woman in the House of Representatives.",
       "explainer": "Joseph Lyons was Australia's tenth prime minister, serving from 1932 until his death in 1939. He was a former Labor premier of Tasmania who crossed the floor to lead the conservative United Australia Party. His government focused on economic recovery and national development, and he was known for his calm and approachable demeanor. His sudden death in office shocked the nation, and his wife Enid's subsequent political career broke new ground for women."
      }
+    ],
+    "all_streets": [
+     "Curtin Court",
+     "Curtin Street",
+     "Deakin Street",
+     "Fisher Street",
+     "Lyons Street",
+     "Scullin Street"
     ]
    }
   ]
@@ -2381,6 +2770,13 @@
       "tidbit": "He was born in Chile to a British father and a Chilean mother, making him the only Australian PM born outside the British Empire.",
       "explainer": "Chris Watson was born in Valparaiso, Chile, in 1867, and moved to Australia as a child. He became a compositor and trade unionist, rising to lead the Labor Party. In 1904, he became prime minister for just four months, the first Labor government in the world. Despite its short life, his government passed several important bills, and his leadership set a precedent for Labor governance. He later left politics and became a successful businessman."
      }
+    ],
+    "all_streets": [
+     "Bruce Street",
+     "Deakin Street",
+     "Fisher Street",
+     "Hughes Street",
+     "Watson Street"
     ]
    }
   ]
@@ -2452,6 +2848,26 @@
       "tidbit": "Vasari's 'Lives' is the first comprehensive history of art, and he even coined the term 'Renaissance'.",
       "explainer": "Giorgio Vasari (1511–1574) was an Italian painter, architect, and writer, but his legacy rests on 'Lives of the Most Excellent Painters, Sculptors, and Architects' (1550). This book provided biographies of artists from Cimabue to Michelangelo, shaping how we view the Renaissance. He also designed the Uffizi in Florence, originally as offices for the Medici."
      }
+    ],
+    "all_streets": [
+     "Bellini Way",
+     "Dante Walk",
+     "Durer Walk",
+     "Leonardo Drive",
+     "Lorenzo Way",
+     "Louvre Lane",
+     "Lucca Walk",
+     "Lucca Way",
+     "Marlowe Grange",
+     "Marot Way",
+     "Medici Place",
+     "Palladio Way",
+     "Pisa Way",
+     "Ronsard Crescent",
+     "Sistine Row",
+     "Titian Mews",
+     "Uccello Way",
+     "Vasari Gardens"
     ]
    }
   ]
@@ -2523,6 +2939,13 @@
       "tidbit": "Norwood was once covered by the Great North Wood, a vast oak forest that provided timber for the Royal Navy.",
       "explainer": "Norwood is a district in the London Borough of Croydon, historically known for the Great North Wood, which gave the area its name. The area developed in the 19th century with the arrival of the railway, becoming a leafy residential suburb. Norwood is also home to the Crystal Palace Park, which housed the iconic Crystal Palace after the 1851 Great Exhibition. Its name is a common place name in English-speaking countries, often referencing a northern woodland."
      }
+    ],
+    "all_streets": [
+     "Canterbury Street",
+     "Norfolk Street",
+     "Norwood Crescent",
+     "Severn Street",
+     "Sussex Street"
     ]
    },
    {
@@ -2590,6 +3013,21 @@
       "tidbit": "Lawson was the first Australian writer to be honoured with a postage stamp in his lifetime.",
       "explainer": "Henry Lawson was an Australian writer and poet, known for his realistic portrayals of bush life. His stories and poems, like 'The Drover's Wife' and 'The Loaded Dog', captured the harshness and humour of the Australian outback. He struggled with alcoholism and poverty, but his work has left a lasting mark on Australian literature."
      }
+    ],
+    "all_streets": [
+     "Browning Street",
+     "Burns Street",
+     "Byron Street",
+     "Carlyle Street",
+     "Chaucer Street",
+     "Dickens Street",
+     "Homer Street",
+     "Kipling Street",
+     "Lawson Street",
+     "Moore Street",
+     "Scott Street",
+     "Tennyson Street",
+     "Wordsworth Street"
     ]
    }
   ]
@@ -2661,6 +3099,13 @@
       "tidbit": "Robert Burns wrote 'Auld Lang Syne' in 1788, now a New Year's Eve anthem.",
       "explainer": "Robert Burns is Scotland's national poet, born in 1759. He wrote in Scots and English, capturing the rural life and emotions of his time. His works include 'Tam o' Shanter' and 'To a Mouse'. Despite not being Arthurian, his name appears here, perhaps a nod to the street's historical naming patterns."
      }
+    ],
+    "all_streets": [
+     "Ariadne Avenue",
+     "Astolat Avenue",
+     "Blythe Street",
+     "Burns Avenue",
+     "Joyous Gard Court"
     ]
    }
   ]
@@ -2732,6 +3177,14 @@
       "tidbit": "Colchester in Essex claims to be Britain's oldest recorded town, founded by the Romans as Camulodunum.",
       "explainer": "Essex is a county in the East of England, bordered by London and the North Sea. Its name comes from the East Saxons, who settled there in the early Middle Ages. The county has a diverse landscape, from the Thames estuary to the Dedham Vale, an Area of Outstanding Natural Beauty. Essex played a key role in Roman Britain, with Colchester serving as the first capital of Roman Britain."
      }
+    ],
+    "all_streets": [
+     "Callander Road",
+     "Dorset Road",
+     "Essex Street",
+     "Somerset Street",
+     "Sussex Street",
+     "Warwick Road"
     ]
    },
    {
@@ -2799,6 +3252,13 @@
       "tidbit": "Casuarina trees are often planted as windbreaks because of their tolerance to salt and drought.",
       "explainer": "Casuarina is a genus of evergreen trees and shrubs native to Australia, commonly known as she-oaks. Despite their pine-like appearance, they are actually flowering plants. They are known for their hard, durable wood, which was traditionally used by Aboriginal people for making tools and weapons. Casuarinas are also important in preventing soil erosion and providing habitat for various bird species."
      }
+    ],
+    "all_streets": [
+     "Banksia Court",
+     "Boronia Street",
+     "Casuarina Court",
+     "Grevillea Court",
+     "Waratah Street"
     ]
    }
   ]
@@ -2870,6 +3330,14 @@
       "tidbit": "It could stay airborne for over 20 hours, making it a master of ocean search-and-rescue.",
       "explainer": "The Consolidated PBY Catalina was an American flying boat used extensively in World War II for maritime patrol, anti-submarine warfare, and search-and-rescue. Its long-range endurance and ability to land on water made it invaluable. The Catalina became a legend for rescuing downed pilots from the sea."
      }
+    ],
+    "all_streets": [
+     "Catalina Court",
+     "Hargrave Avenue",
+     "Kingsford Drive",
+     "Lancaster Drive",
+     "Lancaster Drive/Boardwalk Boulevard",
+     "Lockheed Parade"
     ]
    },
    {
@@ -2937,6 +3405,14 @@
       "tidbit": "James Joyce's 'Ulysses' is often cited as the greatest novel of the 20th century, and its protagonist Leopold Bloom is celebrated every year on June 16th as Bloomsday.",
       "explainer": "James Joyce (1882–1941) was an Irish novelist and poet, a key figure in the modernist avant-garde. His works, including 'Ulysses' and 'Finnegans Wake,' are renowned for their experimental narrative techniques, such as stream of consciousness and punning language. Joyce spent much of his life in self-imposed exile in Europe, yet his writing is deeply rooted in the city of Dublin, which he famously said could be rebuilt from the pages of his books. His groundbreaking approach to literature has made him one of the most influential writers of the 20th century."
      }
+    ],
+    "all_streets": [
+     "Dante Road",
+     "Frost Lane",
+     "Henry Lawson Walk",
+     "Horace Street",
+     "Joyce Street",
+     "Kingsley Avenue"
     ]
    },
    {
@@ -3004,6 +3480,14 @@
       "tidbit": "Murnong was so important to early settlers that they called it 'native potato' and it was a major trade item among Aboriginal tribes.",
       "explainer": "Murnong, also known as yam daisy, is a small herb with yellow daisy-like flowers, once widespread in southeastern Australia. Its edible tubers were a crucial food source for Aboriginal peoples, who harvested them with digging sticks and managed the plants through careful land practices. The arrival of European settlers and grazing animals dramatically reduced murnong populations, but it remains a symbol of traditional Indigenous knowledge and culture."
      }
+    ],
+    "all_streets": [
+     "Correa Street",
+     "Dianella Street",
+     "Lomandra Street",
+     "Murnong Street",
+     "Wattle Grove",
+     "Wattle Tree Drive"
     ]
    }
   ]
@@ -3075,6 +3559,16 @@
       "tidbit": "The Jindivik was one of the first purpose-built target drones in the world, first flying in 1952.",
       "explainer": "The GAF Jindivik was an Australian target drone developed by the Government Aircraft Factories for missile testing and gunnery practice. Its name, derived from an Aboriginal word meaning 'the hunted one,' perfectly suited its role as a target. The Jindivik served with the Royal Australian Air Force and other nations for decades, with production continuing into the 1980s. It was a testament to Australia's early expertise in unmanned aviation."
      }
+    ],
+    "all_streets": [
+     "Avro Lincoln Road",
+     "Hornet Drive",
+     "Jindivik Way",
+     "Macchi Street",
+     "Malkara Lane",
+     "Sabre Drive",
+     "Tiger Drive",
+     "Wirraway Drive"
     ]
    }
   ]
@@ -3146,6 +3640,13 @@
       "tidbit": "Kendall's poem 'The Last of His Tribe' is considered a poignant lament for Indigenous Australians.",
       "explainer": "Henry Kendall (1839–1882) was an Australian poet who gained fame for his lyrical depictions of the Australian landscape, such as 'Bell-Birds' and 'The Last of His Tribe'. He struggled with poverty and alcoholism, but his poetry was celebrated for its sensitivity and musicality. Kendall is buried in Gore Hill Cemetery, and his work remains a cornerstone of early Australian literature."
      }
+    ],
+    "all_streets": [
+     "Goldsmith Avenue",
+     "Kendall Street",
+     "Milton Crescent",
+     "Shakespeare Avenue",
+     "Tennyson Avenue"
     ]
    },
    {
@@ -3213,6 +3714,15 @@
       "tidbit": "Opals can contain up to 20% water, and some Australian opals are over 100 million years old.",
       "explainer": "Opals are unique gemstones formed from silica and water, known for their iridescent play-of-color. They are found in many parts of the world, but Australia produces about 95% of the world's precious opal. The name comes from the Sanskrit 'upala', meaning 'precious stone'. Opals have been associated with hope, purity, and creativity, and are the birthstone for October."
      }
+    ],
+    "all_streets": [
+     "Diamond Street",
+     "Emerald Street",
+     "Garnet Street",
+     "Little Ruby Street",
+     "Opal Street",
+     "Ruby Street",
+     "Sapphire Street"
     ]
    }
   ]
@@ -3284,6 +3794,13 @@
       "tidbit": "Arundel Castle is one of the largest and oldest castles in England, with parts dating back to the 11th century.",
       "explainer": "Arundel is a market town in West Sussex, England, dominated by its magnificent castle. The castle was built shortly after the Norman Conquest and has been the seat of the Dukes of Norfolk for centuries. The town's name is believed to derive from the Old English 'harhūnedell', meaning 'vale of the hoarhound' (a plant). Arundel's historic streets and annual festivals make it a popular tourist destination."
      }
+    ],
+    "all_streets": [
+     "Arundel Avenue",
+     "Callander Street",
+     "Fulham Grove",
+     "Gloucester Street",
+     "Suffolk Street"
     ]
    },
    {
@@ -3351,6 +3868,13 @@
       "tidbit": "Moore's 'The Last Rose of Summer' became a favorite of the famous composer Ludwig van Beethoven.",
       "explainer": "Thomas Moore (1779–1852) was an Irish poet, singer, and songwriter, often called the 'National Poet of Ireland'. His 'Irish Melodies' set his lyrics to traditional Irish tunes, creating beloved songs that spread Irish culture worldwide. Moore was a close friend of Lord Byron and a socialite in London literary circles. His work was so popular that he was buried in a vault at St. Nicholas' Church, Bromham, with a monument in his honor."
      }
+    ],
+    "all_streets": [
+     "Kingsley Road",
+     "Lawson Crescent",
+     "Lawson Street",
+     "Moore Crescent",
+     "Thackeray Road"
     ]
    },
    {
@@ -3418,6 +3942,24 @@
       "tidbit": "Kerang is home to the Kerang Wetlands, a Ramsar site that hosts over 200 bird species.",
       "explainer": "Kerang is a town in northern Victoria, near the Murray River, and is famous for its wetlands. The name is derived from the Aboriginal word 'kerang', meaning 'parrot'. It's a major centre for agriculture, especially dairy and irrigation. The surrounding lakes and swamps are internationally recognised for their birdlife, attracting nature lovers from afar."
      }
+    ],
+    "all_streets": [
+     "Acheron Avenue",
+     "Barwon Avenue",
+     "Charlton Crescent",
+     "Erskine Avenue",
+     "Genoa Avenue",
+     "Gisborne Crescent",
+     "Goulburn Avenue",
+     "Kerang Avenue",
+     "Kilmore Avenue",
+     "Kyneton Avenue",
+     "Loddon Avenue",
+     "McIvor Street",
+     "Nicholson Avenue",
+     "Rubicon Street",
+     "Tambo Avenue",
+     "Wimmera Avenue"
     ]
    }
   ]
@@ -3489,6 +4031,14 @@
       "tidbit": "Kingsley coined the term 'muscular Christianity' to describe the ideal of combining Christian faith with physical strength and action.",
       "explainer": "Charles Kingsley (1819–1875) was an English priest, university professor, historian, and novelist. He is best known for 'The Water-Babies', 'Westward Ho!', and his social novel 'Alton Locke'. He was a friend of Charles Darwin and a proponent of social reform. His works often blended Christian morality with social critique."
      }
+    ],
+    "all_streets": [
+     "Burns Avenue",
+     "Joyce Close",
+     "Keats Street",
+     "Kingsley Street",
+     "Milton Avenue",
+     "Scott Avenue"
     ]
    }
   ]
@@ -3560,6 +4110,16 @@
       "tidbit": "Kipling's 'If—' was voted Britain's favorite poem in a 1995 BBC poll.",
       "explainer": "Rudyard Kipling (1865–1936) was born in India and became a literary chronicler of the British Empire. His works, including 'Kim' and 'The Just So Stories', are beloved for their vivid storytelling and complex themes. He won the Nobel Prize in Literature in 1907, the first English-language author to do so. Despite his popularity, his imperialist views have sparked debate among modern readers."
      }
+    ],
+    "all_streets": [
+     "Chaucer Street",
+     "Dickens Street",
+     "Kipling Street",
+     "Shakespeare Grove",
+     "Shakespeare Grove Platform",
+     "Spenser Street",
+     "Tennyson Street",
+     "Wordsworth Street"
     ]
    }
   ]
@@ -3631,6 +4191,15 @@
       "tidbit": "The siege lasted 349 days and ended with the capture of the city, which was left in ruins and later rebuilt.",
       "explainer": "The Siege of Sebastopol was the central event of the Crimean War, lasting from October 1854 to September 1855. The Allied forces besieged the heavily fortified Russian naval base on the Black Sea, enduring a brutal winter and constant bombardment. The final assault on the Malakoff redoubt, a key defensive position, led to the city's fall. The siege saw pioneering uses of trench warfare and naval technology, foreshadowing modern conflicts. The capture of Sebastopol effectively ended the war, and the subsequent Treaty of Paris in 1856 attempted to balance power in Europe. The city's name became a symbol of endurance and the cost of war."
      }
+    ],
+    "all_streets": [
+     "Alma Road",
+     "Balaclava Road",
+     "Cardigan Street",
+     "Inkerman Street",
+     "Malakoff Street",
+     "Raglan Street",
+     "Sebastopol Street"
     ]
    }
   ]
@@ -3702,6 +4271,14 @@
       "tidbit": "Sussex was once the kingdom of the South Saxons, and its emblem is six gold martlets on a blue shield.",
       "explainer": "Sussex is a historic county in southeast England, divided into East and West Sussex. It was one of the last Anglo-Saxon kingdoms to convert to Christianity. The county is known for its scenic coastline, including the dramatic white cliffs of Beachy Head, and the rolling South Downs. It also played a key role in the Norman Conquest, with the Battle of Hastings fought near the town of Battle in 1066."
      }
+    ],
+    "all_streets": [
+     "Callander Close",
+     "Canterbury Avenue",
+     "Fulham Way",
+     "Norfolk Grove",
+     "Somerset Street",
+     "Sussex Court"
     ]
    },
    {
@@ -3769,6 +4346,16 @@
       "tidbit": "Murdoch's 211 was the first double century in Test cricket.",
       "explainer": "Billy Murdoch was a pioneering Australian cricketer in the 19th century, captaining the national team in the early 1880s. He was a prolific batsman and wicketkeeper, and his 211 at The Oval in 1884 was a world record for the highest Test score at the time. He later moved to England and played for Sussex. He is remembered as one of the game's early greats."
      }
+    ],
+    "all_streets": [
+     "Benaud Place",
+     "Border Boulevard",
+     "Bradman Drive",
+     "Chappell Court",
+     "Darling Court",
+     "Gilchrist Crescent",
+     "Murdoch Court",
+     "Yallop Crescent"
     ]
    },
    {
@@ -3836,6 +4423,13 @@
       "tidbit": "Balliol College was founded in 1263 by John I de Balliol, and its first students were housed in a house near Oxford Castle.",
       "explainer": "Balliol College, Oxford, was founded in 1263 by John I de Balliol, a wealthy landowner, as a penance for his misdeeds. It is one of the oldest colleges at Oxford and has a reputation for academic excellence and political activism. Balliol alumni include three British prime ministers, Nobel laureates, and writers like Aldous Huxley and Graham Greene. The college's motto, 'Quam bene non video, sed quid ago video' ('I do not see how well, but I see what I do'), reflects its focus on action and integrity."
      }
+    ],
+    "all_streets": [
+     "Balliol Common",
+     "Eton Close",
+     "Harrow Street",
+     "Oxford Close",
+     "Trinity Court"
     ]
    },
    {
@@ -3903,6 +4497,20 @@
       "tidbit": "The 'Postage Stamp' is the name given to Troon's 8th hole, a par-3 that measures just 123 yards but is notoriously tricky.",
       "explainer": "Royal Troon, located in South Ayrshire, Scotland, is one of the oldest and most respected golf courses in the world. It was founded in 1878 and received royal patronage in 1923, earning the 'Royal' prefix. The course has hosted The Open Championship nine times, with the most recent in 2016, when Henrik Stenson triumphed in a thrilling duel with Phil Mickelson. Its iconic 8th hole, the 'Postage Stamp,' is famous for its small green and deep bunkers, making it one of the most challenging short holes in championship golf."
      }
+    ],
+    "all_streets": [
+     "Augusta Close",
+     "Birkdale Court",
+     "Carnoustie Drive",
+     "Gleneagles Drive",
+     "Lytham Court",
+     "Muirfield Drive",
+     "Pebble Beach Court",
+     "St Andrews Court",
+     "Sunningdale Avenue",
+     "Troon Court",
+     "Wedge Court",
+     "Wentworth Court"
     ]
    },
    {
@@ -3970,6 +4578,15 @@
       "tidbit": "Hood's 'The Song of the Shirt' was published anonymously in 'Punch' in 1843 and became so popular that it was printed on handkerchiefs and used in political campaigns.",
       "explainer": "Thomas Hood (1799–1845) was an English poet and humorist, known for his poignant social commentary and witty puns. His most famous poem, 'The Song of the Shirt', brought attention to the harsh conditions of female laborers, leading to public outcry and reform. He also wrote comic verses and edited several magazines, leaving a legacy of both laughter and social conscience."
      }
+    ],
+    "all_streets": [
+     "Hood Crescent",
+     "Kendall Court",
+     "Kingsley Drive",
+     "Lawson Street",
+     "Moore Road",
+     "Scott Street",
+     "Tennyson Court"
     ]
    },
    {
@@ -4037,6 +4654,13 @@
       "tidbit": "Correa flowers are a favorite of honeyeaters, and some species bloom in winter, providing a crucial food source when other nectar is scarce.",
       "explainer": "Correa is a genus of about 28 species of evergreen shrubs endemic to Australia, commonly known as native fuchsias due to their tubular, pendulous flowers. They are named after José Francisco Corrêa da Serra, a Portuguese botanist and philosopher. Correas are popular garden plants, valued for their hardiness, attractive foliage, and long flowering period, especially in cooler months. Their flowers come in a range of colors, from pale green to pink and red, and are an excellent choice for attracting native birds to the garden."
      }
+    ],
+    "all_streets": [
+     "Acacia Court",
+     "Banksia Court",
+     "Casuarina Court",
+     "Correa Way",
+     "Wattle Drive"
     ]
    },
    {
@@ -4104,6 +4728,21 @@
       "tidbit": "Barton was a champion of protectionist tariffs and was known for his love of fine dining and cigars.",
       "explainer": "Edmund Barton was the first prime minister of Australia, serving from 1901 to 1903. A key architect of the Australian Constitution, he won the inaugural federal election and formed the first national government. Barton later became a Justice of the High Court, where he served until his death in 1920. His role as a founder of the nation makes him a central figure in Australian history."
      }
+    ],
+    "all_streets": [
+     "Barton Street",
+     "Bruce Court",
+     "Chifley Court",
+     "Curtin Drive",
+     "Deakin Street",
+     "Fadden Grove",
+     "Fisher Court",
+     "Gorton Court",
+     "Holt Street",
+     "Hughes Court",
+     "Lyons Court",
+     "Menzies Drive",
+     "Scullin Court"
     ]
    },
    {
@@ -4171,6 +4810,17 @@
       "tidbit": "Muscat is one of the oldest grape varieties, with evidence of cultivation dating back to ancient Greece and Egypt.",
       "explainer": "Muscat is a family of grapes that includes over 200 varieties, all sharing a distinctive floral, musky aroma. It is used to make a wide range of wines, from dry whites to sweet dessert wines like Muscat de Beaumes-de-Venise and Australian Muscat from Rutherglen. The grape is also the source of many table grapes and raisins. Its name likely comes from the Latin 'muscus', meaning 'musk', reflecting its aromatic qualities."
      }
+    ],
+    "all_streets": [
+     "Grenache Court",
+     "Malbec Court",
+     "Merlot Grove",
+     "Muscat Court",
+     "Pinot Court",
+     "Sauvignon Court",
+     "Semillon Court",
+     "Shiraz Court",
+     "Verdelho Court"
     ]
    }
   ]
@@ -4242,6 +4892,13 @@
       "tidbit": "Newmarket in Suffolk is considered the headquarters of British horse racing, with over 3,500 horses trained there.",
       "explainer": "Suffolk is a county in East Anglia, England, known for its picturesque villages, medieval churches, and coastal heaths. The name derives from the Old English 'Sūþfolc', meaning 'southern people', referring to the South Folk of the Angles. It was a major centre of the wool trade in the Middle Ages, which funded many of its grand churches. The county is also home to the historic Sutton Hoo ship burial, a treasure trove of Anglo-Saxon artifacts."
      }
+    ],
+    "all_streets": [
+     "Essex Street",
+     "Somerset Drive",
+     "Suffolk Road",
+     "Sussex Street",
+     "Warwick Road"
     ]
    }
   ]
@@ -4313,6 +4970,17 @@
       "tidbit": "Arundel Castle is one of the largest inhabited castles in England, with over 1,000 years of history.",
       "explainer": "Arundel is a charming town in West Sussex, nestled in the South Downs, with a castle built shortly after the Norman Conquest. The castle, overlooking the River Arun, has been home to the Dukes of Norfolk since the 12th century and hosts an annual Tulip Festival. The town also features a Roman Catholic cathedral and a historic high street with timber-framed buildings."
      }
+    ],
+    "all_streets": [
+     "Arundel Crescent",
+     "Canterbury Road",
+     "Chatham Road",
+     "Essex Road",
+     "Norfolk Road",
+     "Suffolk Road",
+     "Thames Street",
+     "Warwick Avenue",
+     "Warwick Court"
     ]
    }
   ]
@@ -4384,6 +5052,14 @@
       "tidbit": "Dianella's bright blue berries are edible but not particularly tasty; they were a traditional snack for Indigenous Australians.",
       "explainer": "Dianella is a genus of about 40 species of herbaceous perennials native to Australia and the Pacific, commonly known as flax lilies due to their flax-like leaves. Despite the common name, they are not true lilies but belong to the family Asphodelaceae. The genus name is derived from Diana, the Roman goddess of the hunt and the moon, possibly alluding to the plant's elegant, arching form. Dianella species are valued for their ornamental appeal, with striking blue or purple berries that follow the small white, blue, or yellow flowers. They are tough, low-maintenance plants that thrive in a range of conditions, making them a staple in Australian landscaping."
      }
+    ],
+    "all_streets": [
+     "Acacia Court",
+     "Banksia Court",
+     "Correa Court",
+     "Dianella Court",
+     "Waratah Street",
+     "Wattle Street"
     ]
    }
   ]
