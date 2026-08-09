@@ -22,7 +22,7 @@ import json
 import random
 from pathlib import Path
 
-from dash import Input, Output, State, dcc, html, no_update
+from dash import Input, Output, State, ALL, dcc, html, no_update
 
 ROOT = Path(__file__).resolve().parent
 
@@ -40,6 +40,34 @@ _SQUARES = {
     "fail": "⬛",         # both attempts wrong, answer revealed
 }
 
+# Visual icon per theme for the theme-select chiclets (a theme may have
+# several surface labels from the LLM — e.g. "English towns" vs "British
+# towns/suburbs" — all map to the same icon).
+THEME_ICONS: dict[str, str] = {
+    "Literary Poets": "📜",
+    "Native Flora": "🌿",
+    "British Towns & Rivers": "🏰",
+    "English towns/villages": "🏰",
+    "British towns/suburbs": "🏰",
+    "English towns": "🏰",
+    "Prime Ministers": "🏛️",
+    "Astronomy & Space": "🪐",
+    "constellations/stars": "🪐",
+    "Precious Gemstones": "💎",
+    "Crimean War": "💣",
+    "World War II battles and aircraft": "💣",
+    "World War I battles": "💣",
+    "Arthurian Legend": "🐉",
+    "Elite English Schools": "🎓",
+    "aircraft": "✈️",
+    "Aviation Pioneers & Aircraft": "✈️",
+    "Viticulture & Wine": "🍷",
+    "Camera & Photography": "📷",
+    "ANA Aviation Estate": "🛫",
+    "Renaissance artists/writers": "🎨",
+    "Golf Courses": "⛳",
+}
+
 # Populated by init().
 _CORPUS: dict[str, dict] = {}       # {suburb: {"puzzles": [...]}}
 _SUBURBS_DATA: dict[str, dict] = {}  # suburbs.json (mascot/vibe payoff)
@@ -52,13 +80,35 @@ def init(corpus: dict, suburbs_data: dict) -> None:
     _SUBURBS_DATA = suburbs_data
 
 
+def theme_icon(label: str) -> str:
+    return THEME_ICONS.get(label, "🧩")
+
+
+def available_themes() -> list[tuple[str, str, int]]:
+    """[(theme_label, icon, puzzle_count)] sorted by count desc, for the
+    theme-select chiclets. Computed live from the corpus."""
+    counts: dict[str, int] = {}
+    for entry in _CORPUS.values():
+        for p in entry["puzzles"]:
+            counts[p["theme"]] = counts.get(p["theme"], 0) + 1
+    return [(t, theme_icon(t), n)
+            for t, n in sorted(counts.items(), key=lambda kv: (-kv[1], kv[0]))]
+
+
 # --------------------------------------------------------------------------- #
 # pure game state
 # --------------------------------------------------------------------------- #
-def new_game() -> dict:
-    """Pick a random suburb + one of its puzzles; shuffle option order."""
-    suburb = random.choice(sorted(_CORPUS))
-    puzzle = random.choice(_CORPUS[suburb]["puzzles"])
+def new_game(theme: str | None = None) -> dict:
+    """Pick a random suburb + one of its puzzles (optionally filtered to a
+    theme); shuffle option order."""
+    options: list[tuple[str, dict]] = []
+    for suburb, entry in sorted(_CORPUS.items()):
+        for p in entry["puzzles"]:
+            if theme is None or p["theme"] == theme:
+                options.append((suburb, p))
+    if not options:
+        raise ValueError(f"no puzzles for theme: {theme}")
+    suburb, puzzle = random.choice(options)
     rounds = []
     for r in puzzle["rounds"]:
         r = dict(r)
@@ -126,11 +176,21 @@ def _payoff(suburb: str) -> list:
     return bits
 
 
+def _bg_div(state: dict) -> html.Div:
+    """The theme opener shown at the top of the play area."""
+    return html.Div(state["background"],
+                    style={"padding": "12px 16px", "background": "#E0F2F1",
+                           "borderRadius": "8px", "color": "#00695C",
+                           "fontSize": "14px", "lineHeight": 1.5, "margin": "10px 0 16px",
+                           "border": "1px solid #B2DFDB"})
+
+
 def _round_ui(state: dict, street_cards: list, feedback=None, solved=False):
     """The play area for the current round (or the finale once done)."""
     if state["done"]:
         grid = emoji_grid(state)
         return [
+            _bg_div(state),
             html.H2(f"It was {state['suburb']}!", style={"color": "#2E7D32"}),
             html.Div(state["reveal"],
                      style={"fontSize": "16px", "fontStyle": "italic",
@@ -151,6 +211,11 @@ def _round_ui(state: dict, street_cards: list, feedback=None, solved=False):
                             style={"padding": "8px 16px", "border": "none",
                                    "borderRadius": "8px", "background": "#26A69A",
                                    "color": "white", "fontWeight": 600,
+                                   "cursor": "pointer", "marginRight": "8px"}),
+                html.Button("More themes", id="streets-themes", n_clicks=0,
+                            style={"padding": "8px 16px", "border": "1px solid #B2DFDB",
+                                   "borderRadius": "8px", "background": "#E0F2F1",
+                                   "color": "#00695C", "fontWeight": 600,
                                    "cursor": "pointer", "marginRight": "8px"}),
                 html.Button("Share 📋", id="streets-share", n_clicks=0,
                             style={"padding": "8px 16px", "border": "none",
@@ -185,6 +250,7 @@ def _round_ui(state: dict, street_cards: list, feedback=None, solved=False):
     )
 
     return [
+        _bg_div(state),
         html.Div(
             f"Round {round_no}/{ROUNDS_PER_GAME}",
             style={"fontSize": "12px", "fontWeight": 600, "color": "#90A4AE",
@@ -246,8 +312,57 @@ def _round_ui(state: dict, street_cards: list, feedback=None, solved=False):
     ]
 
 
+def _theme_slug(label: str) -> str:
+    return "".join(c if c.isalnum() else "_" for c in label.lower()).strip("_")
+
+
+def _select_ui() -> list:
+    """The theme-select screen: a big Random chiclet + one chiclet per
+    theme (icon + label + puzzle count)."""
+    themes = available_themes()
+    total = sum(n for _, _, n in themes)
+    chiclet = {
+        "display": "flex", "alignItems": "center", "gap": "10px",
+        "border": "1px solid #E0E0E0", "borderRadius": "12px",
+        "background": "white", "fontFamily": "inherit", "cursor": "pointer",
+        "width": "100%", "textAlign": "left", "padding": "12px 16px",
+        "marginBottom": "8px", "fontSize": "15px",
+    }
+    return [
+        html.P("Pick a theme, or roll the dice:",
+               style={"color": "#757575", "fontSize": "14px", "margin": "14px 0 10px"}),
+        html.Button(
+            [
+                html.Span("🎲", style={"fontSize": "26px"}),
+                html.Span("Random", style={"fontWeight": 700, "fontSize": "17px"}),
+                html.Span(f"any of {total} puzzles", style={"color": "#9E9E9E",
+                                                            "fontSize": "13px"}),
+            ],
+            id={"type": "streets-chiclet", "index": "random"}, n_clicks=0,
+            style={**chiclet, "padding": "18px 20px", "background": "#E0F2F1",
+                   "border": "2px solid #26A69A"},
+        ),
+        html.Div("or pick a theme:",
+                 style={"fontSize": "12px", "fontWeight": 600, "color": "#90A4AE",
+                        "textTransform": "uppercase", "letterSpacing": ".4px",
+                        "margin": "18px 0 8px"}),
+        *[
+            html.Button(
+                [
+                    html.Span(icon, style={"fontSize": "22px", "flex": "0 0 auto"}),
+                    html.Span(label, style={"flex": "1 1 auto", "fontWeight": 600}),
+                    html.Span(f"{n}", style={"color": "#9E9E9E", "fontSize": "13px",
+                                             "flex": "0 0 auto"}),
+                ],
+                id={"type": "streets-chiclet", "index": _theme_slug(label)},
+                n_clicks=0, style=chiclet,
+            )
+            for label, icon, n in themes
+        ],
+    ]
+
+
 def layout() -> html.Div:
-    state = new_game()
     return html.Div(
         style={"maxWidth": "560px", "margin": "0 auto", "padding": "28px 20px",
                "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"},
@@ -259,13 +374,8 @@ def layout() -> html.Div:
             html.H1("Streetwise", style={"margin": "8px 0 2px", "fontSize": "30px"}),
             html.P("guess the suburb from its themed streets",
                    style={"color": "#757575", "marginTop": 0, "fontSize": "14px"}),
-            html.Div(state["background"],
-                     style={"padding": "12px 16px", "background": "#E0F2F1",
-                            "borderRadius": "8px", "color": "#00695C",
-                            "fontSize": "14px", "lineHeight": 1.5, "margin": "10px 0 16px",
-                            "border": "1px solid #B2DFDB"}),
-            html.Div(id="streets-play", children=_round_ui(state, [])),
-            dcc.Store(id="streets-state", data=state),
+            html.Div(id="streets-play", children=_select_ui()),
+            dcc.Store(id="streets-state", data={"screen": "select"}),
         ],
     )
 
@@ -273,12 +383,19 @@ def layout() -> html.Div:
 def apply_action(state: dict, trigger: str | None):
     """Pure state transition for one button click.
 
-    trigger: 'opt-0'..'opt-2', 'hint', 'next', 'play-again'. Returns
-    (new_state, feedback, solved) — feedback is a Dash component to show
-    under the options; solved marks the current round as answered.
+    trigger: 'random', 'theme:<label>', 'themes', 'opt-0'..'opt-2', 'hint',
+    'next', 'play-again'. Returns (new_state, feedback, solved) — feedback is
+    a Dash component to show under the options; solved marks the current
+    round as answered. Select triggers return a {'screen': 'select'} state.
     """
-    if trigger == "play-again":
+    if trigger == "random":
         return new_game(), None, False
+    if trigger == "themes":
+        return {"screen": "select"}, None, False
+    if trigger and trigger.startswith("theme:"):
+        return new_game(trigger.split(":", 1)[1]), None, False
+    if trigger == "play-again":
+        return new_game(state["theme"]), None, False
     if state["done"]:
         return state, None, False
 
@@ -360,30 +477,42 @@ def register_callbacks(app) -> None:
     @app.callback(
         Output("streets-state", "data"),
         Output("streets-play", "children"),
+        Input({"type": "streets-chiclet", "index": ALL}, "n_clicks"),
         Input("streets-opt-0", "n_clicks"),
         Input("streets-opt-1", "n_clicks"),
         Input("streets-opt-2", "n_clicks"),
         Input("streets-hint", "n_clicks"),
         Input("streets-next", "n_clicks"),
         Input("streets-play-again", "n_clicks"),
+        Input("streets-themes", "n_clicks"),
         State("streets-state", "data"),
         prevent_initial_call=True,
     )
-    def _act(_0, _1, _2, _hint, _next, _again, state):
+    def _act(_themes, _0, _1, _2, _hint, _next, _again, _more, state):
         from dash import ctx
         trigger = ctx.triggered_id
 
-        mapped = {
-            "streets-opt-0": "opt-0", "streets-opt-1": "opt-1",
-            "streets-opt-2": "opt-2", "streets-hint": "hint",
-            "streets-next": "next", "streets-play-again": "play-again",
-        }.get(trigger)
+        if isinstance(trigger, dict) and trigger.get("type") == "streets-chiclet":
+            index = trigger["index"]
+            mapped = "random" if index == "random" else (
+                "theme:" + {_theme_slug(label): label
+                            for label, _, _ in available_themes()}[index]
+            )
+        else:
+            mapped = {
+                "streets-opt-0": "opt-0", "streets-opt-1": "opt-1",
+                "streets-opt-2": "opt-2", "streets-hint": "hint",
+                "streets-next": "next", "streets-play-again": "play-again",
+                "streets-themes": "themes",
+            }.get(trigger)
         if mapped is None:
             return no_update, no_update
 
         new_state, feedback, solved = apply_action(state, mapped)
         if new_state is state:
             return no_update, no_update
+        if new_state.get("screen") == "select":
+            return new_state, _select_ui()
         if new_state["done"]:
             return new_state, _round_ui(new_state, _solved_cards(new_state))
         return new_state, _round_ui(new_state, _solved_cards(new_state),

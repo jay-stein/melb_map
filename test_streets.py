@@ -117,5 +117,41 @@ for _ in range(5):
 check(st["done"] and st["points"] == 0 and all(r["state"] == "fail" for r in st["results"]),
       "all-fail game = 0")
 
+# --- theme select ---------------------------------------------------------- #
+themes = streets.available_themes()
+check(len(themes) >= 5, f"at least 5 themes listed ({len(themes)})")
+check(all(n >= 1 for _, _, n in themes), "every theme has >= 1 puzzle")
+check(all(len(i) > 0 for _, i, _ in themes), "every theme has an icon")
+
+# theme-filtered games only produce puzzles of that theme
+for label, _, _ in random.sample(themes, 3):
+    for _ in range(3):
+        g = streets.new_game(label)
+        check(g["theme"] == label, f"new_game('{label}') returns theme {g['theme']}")
+
+# random trigger from the select screen
+sel = {"screen": "select"}
+g, _, _ = streets.apply_action(sel, "random")
+check("screen" not in g and len(g["rounds"]) == 5, "random trigger starts a game")
+
+# theme trigger
+g, _, _ = streets.apply_action(sel, "theme:Native Flora")
+check(g["theme"] == "Native Flora", "theme trigger filters correctly")
+
+# back to select
+back, _, _ = streets.apply_action(g, "themes")
+check(back == {"screen": "select"}, "themes trigger returns to select")
+
+# play-again keeps the theme
+g2, _, _ = streets.apply_action(g, "play-again")
+check(g2["theme"] == "Native Flora", "play-again keeps the chosen theme")
+
+# select UI renders with the right chiclet ids
+ui = streets._select_ui()
+ui_text = str(ui)
+check("'type': 'streets-chiclet'" in ui_text and "'index': 'random'" in ui_text,
+      "select UI has random chiclet")
+check("'index': 'native_flora'" in ui_text, "select UI has theme chiclet slugs")
+
 print(f"{'PASS' if failures == 0 else 'FAIL'} — {failures} failures")
 sys.exit(1 if failures else 0)
