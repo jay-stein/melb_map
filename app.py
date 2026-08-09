@@ -21,11 +21,13 @@ import plotly.graph_objects as go
 from dash import Dash, Input, Output, dcc, html, no_update
 
 import suburble
+import streets
 
 ROOT = Path(__file__).resolve().parent
 BOUNDARIES_PATH = ROOT / "data" / "boundaries.geojson"
 CONTEXT_PATH = ROOT / "data" / "context_boundaries.geojson"
 SUBURBS_PATH = ROOT / "data" / "suburbs.json"
+STREET_THEMES_PATH = ROOT / "data" / "street_themes.json"
 
 # Light-grey "basemap" of surrounding suburbs we don't cover.
 CONTEXT_FILL = "#E4E6E8"
@@ -298,6 +300,15 @@ centroids = compute_centroids(geojson)
 app = Dash(__name__, title="Melbourne Suburb Quirks", suppress_callback_exceptions=True)
 suburble.init(geojson, list(df["suburb"]), centroids)
 
+# Streetwise corpus (optional — the game degrades to a link-less route if the
+# pipeline hasn't been run yet).
+street_corpus: dict = {}
+if STREET_THEMES_PATH.exists():
+    street_corpus = json.loads(STREET_THEMES_PATH.read_text(encoding="utf-8"))
+with SUBURBS_PATH.open("r", encoding="utf-8") as _f:
+    suburbs_data = json.load(_f)
+streets.init(street_corpus, suburbs_data)
+
 
 def map_layout() -> html.Div:
     return html.Div(
@@ -372,11 +383,21 @@ def map_layout() -> html.Div:
                     [
                         html.H2("Melbourne suburb quirks",
                                 style={"marginTop": 0, "marginBottom": 0, "flex": "1 1 auto"}),
-                        dcc.Link("🎮 Play Suburble", href="/play",
-                                 style={"color": "white", "background": "#7E57C2",
-                                        "padding": "6px 12px", "borderRadius": "8px",
-                                        "textDecoration": "none", "fontSize": "13px",
-                                        "fontWeight": 600, "whiteSpace": "nowrap"}),
+                        html.Div(
+                            [
+                                dcc.Link("🎮 Suburble", href="/play",
+                                         style={"color": "white", "background": "#7E57C2",
+                                                "padding": "6px 12px", "borderRadius": "8px",
+                                                "textDecoration": "none", "fontSize": "13px",
+                                                "fontWeight": 600, "whiteSpace": "nowrap"}),
+                                dcc.Link("🕵️ Streetwise", href="/streets",
+                                         style={"color": "white", "background": "#26A69A",
+                                                "padding": "6px 12px", "borderRadius": "8px",
+                                                "textDecoration": "none", "fontSize": "13px",
+                                                "fontWeight": 600, "whiteSpace": "nowrap"}),
+                            ],
+                            style={"display": "flex", "gap": "8px", "alignItems": "center"},
+                        ),
                     ],
                     style={"display": "flex", "alignItems": "center", "gap": "10px"},
                 ),
@@ -403,6 +424,8 @@ app.layout = html.Div([dcc.Location(id="url"), html.Div(id="page-content")])
 def route(pathname):
     if pathname == "/play":
         return suburble.layout()
+    if pathname == "/streets":
+        return streets.layout()
     return map_layout()
 
 
@@ -754,6 +777,7 @@ def update_panel(click_data):
 
 
 suburble.register_callbacks(app)
+streets.register_callbacks(app)
 
 
 if __name__ == "__main__":
